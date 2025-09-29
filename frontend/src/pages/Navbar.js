@@ -6,10 +6,10 @@ import Button from '@material-tailwind/react/Button';
 const Navbar = () => {
     const navigationItems = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '#' },
+        { name: 'About', href: '/about' },
         { name: 'Products', href: '/products' },
-        { name: 'OurTeam', href: '#' },
-        { name: 'Contact', href: '#' }
+        { name: 'OurTeam', href: '/ourteam' },
+        { name: 'Contact', href: '/contact' }
     ];
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);

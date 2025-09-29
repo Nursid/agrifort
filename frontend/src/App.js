@@ -9,6 +9,9 @@ import Tables from 'pages/Tables';
 import Maps from 'pages/Maps';
 import LandingPage from 'pages/LandingPage';
 import Products from 'pages/Products';
+import About from 'pages/About';
+import OurTeam from 'pages/OurTeam';
+import Contact from 'pages/Contact';
 import 'assets/styles/tailwind.css';
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
                 {/* Public Landing Page */}
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/products" component={Products} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/ourteam" component={OurTeam} />
+                <Route exact path="/contact" component={Contact} />
                 {/* Multi-Role Login */}
                 <Route exact path="/login" component={AdminLogin} />
                 <Route exact path="/admin/login" component={AdminLogin} />
