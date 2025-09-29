@@ -8,7 +8,7 @@ const Navbar = () => {
         { name: 'Home', href: '/' },
         { name: 'About', href: '#' },
         { name: 'Products', href: '/products' },
-        { name: 'Research', href: '#' },
+        { name: 'OurTeam', href: '#' },
         { name: 'Contact', href: '#' }
     ];
     const toggleDarkMode = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
     {/* Gradient Border Effect */}
     <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500/50 to-transparent"></div>
     
-    <div className="max-w-7xl px-4 sm:px-6">
+    <div className="w-full px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <div className="flex items-center hover:scale-105 transition-transform duration-200">
@@ -51,7 +51,7 @@ const Navbar = () => {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-end space-x-4">
                 {/* Contact Info */}
 
                 {/* Dark Mode Toggle */}
@@ -63,31 +63,20 @@ const Navbar = () => {
                 </button>
 
                 {/* Login Button */}
-                <Link to="/admin/login">
-                    <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
-                        <Button
-                            color="green"
-                            buttonType="outlined"
-                            size="regular"
-                            ripple="light"
-                            className="transition-all duration-200 hover:shadow-lg border-green-500 text-green-600 hover:bg-green-50"
-                        >
-                            Login
-                        </Button>
-                    </div>
-                </Link>
-
-                {/* Dealer Portal Button */}
-                <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
-                    <Button
-                        color="green"
-                        buttonType="filled"
-                        size="regular"
-                        ripple="light"
-                        className="transition-all duration-200 hover:shadow-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                    >
-                        Dealer Portal
-                    </Button>
+                <div className="flex items-center">
+                    <Link to="/admin/login" className="ml-2">
+                        <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
+                            <Button
+                                color="green"
+                                buttonType="outlined"
+                                size="regular"
+                                ripple="light"
+                                className="transition-all duration-200 hover:shadow-lg border-green-500 text-green-600 hover:bg-green-50"
+                            >
+                                Login
+                            </Button>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

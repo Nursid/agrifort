@@ -45,7 +45,7 @@ const LandingPage = () => {
                                     <div className="content text-center lg:text-left">
                                         
                                         {/* Subtitle */}
-                                        <p className="py-4 text-lg md:text-xl font-semibold text-yellow-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
+                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-yellow-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
                                             style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
                                         >
                                             Welcome To
@@ -56,7 +56,6 @@ const LandingPage = () => {
                                             style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}
                                         >
                                             <strong className="block gradient-text-animated">AgriFort Technologies</strong>
-                                            <span className="block text-white animate-float">Good Production</span>
                                         </h2>
 
                                         {/* Description */}
