@@ -3,6 +3,7 @@ import { AuthProvider, USER_ROLES } from 'contexts/AuthContext';
 import ProtectedRoute from 'components/ProtectedRoute';
 import AdminLayout from 'components/AdminLayout';
 import AdminLogin from 'components/AdminLogin';
+import Registration from 'components/Registration';
 import Dashboard from 'pages/Dashboard';
 import Settings from 'pages/Settings';
 import Tables from 'pages/Tables';
@@ -27,6 +28,10 @@ function App() {
                 {/* Multi-Role Login */}
                 <Route exact path="/login" component={AdminLogin} />
                 <Route exact path="/admin/login" component={AdminLogin} />
+                
+                {/* Registration */}
+                <Route exact path="/register" component={Registration} />
+                <Route exact path="/admin/register" component={Registration} />
                 
                 {/* Admin Routes */}
                 <ProtectedRoute 

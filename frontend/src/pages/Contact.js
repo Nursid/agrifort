@@ -102,8 +102,72 @@ const Contact = () => {
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             <Navbar />
             
+            {/* Hero Banner Section */}
+            <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        {/* Left Side - Image */}
+                        <div className="relative" data-aos="fade-right">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                                <img
+                                    src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    alt="Contact AgriFort"
+                                    className="w-full h-96 object-cover"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.parentElement.style.background = 'linear-gradient(135deg, #059669 0%, #047857 100%)';
+                                        e.target.parentElement.style.display = 'flex';
+                                        e.target.parentElement.style.alignItems = 'center';
+                                        e.target.parentElement.style.justifyContent = 'center';
+                                    }}
+                                />
+                                <div className="absolute -bottom-6 -right-6">
+                                    <div className="bg-white p-4 rounded-full shadow-xl">
+                                        <svg className="w-12 h-12" viewBox="0 0 100 100">
+                                            <circle cx="25" cy="25" r="20" fill="#22c55e"/>
+                                            <circle cx="75" cy="25" r="20" fill="#059669"/>
+                                            <circle cx="25" cy="75" r="20" fill="#dc2626"/>
+                                            <circle cx="75" cy="75" r="20" fill="#991b1b"/>
+                                            <circle cx="50" cy="50" r="15" fill="#1f2937"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Side - Content */}
+                        <div className="space-y-6" data-aos="fade-left">
+                            <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
+                                CONTACT US.
+                            </h1>
+                            <p className="text-xl text-gray-700 leading-relaxed">
+                                Get in touch with AgriFort Technologies for inquiries, partnerships, or technical support. 
+                                Our dedicated team is here to assist you with agricultural solutions, product information, 
+                                and expert guidance. We're committed to responding promptly and providing exceptional 
+                                service to all our stakeholders.
+                            </p>
+                            <div className="flex flex-wrap gap-4 pt-4">
+                                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                                    <span className="text-green-600 text-2xl">✓</span>
+                                    <span className="text-green-800 font-medium">24/7 Support</span>
+                                </div>
+                                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                                    <span className="text-green-600 text-2xl">✓</span>
+                                    <span className="text-green-800 font-medium">Quick Response</span>
+                                </div>
+                                <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
+                                    <span className="text-green-600 text-2xl">✓</span>
+                                    <span className="text-green-800 font-medium">Expert Guidance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen flex items-center">
+            <section className="relative py-12 bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-6 py-3 rounded-full text-sm font-semibold mb-8">

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
 import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from './Navbar';
@@ -46,7 +45,7 @@ const LandingPage = () => {
                                     <div className="content text-center lg:text-left">
                                         
                                         {/* Subtitle */}
-                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-yellow-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
+                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-green-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
                                             style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
                                         >
                                             Welcome To
@@ -72,7 +71,7 @@ const LandingPage = () => {
                                              style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
                                         >
                                             <a href="#products" 
-                                               className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg"
+                                               className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg"
                                                data-discover="true"
                                                onClick={(e) => {
                                                    e.preventDefault();
@@ -83,7 +82,7 @@ const LandingPage = () => {
                                             </a>
                                             
                                             <a href="#about" 
-                                               className="btn btn-outline btn-md radius animation border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-white/10 hover:bg-white/20"
+                                               className="btn btn-outline btn-md radius animation border-2 border-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-red-500/20 hover:bg-red-500/40 shadow-lg"
                                                onClick={(e) => {
                                                    e.preventDefault();
                                                    scrollToSection('about');
@@ -111,76 +110,10 @@ const LandingPage = () => {
             </section>
 
             {/* Features Section */}
-            <section id="products" className="py-20 bg-gray-50 dark:bg-gray-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div 
-                        className="text-center mb-16"
-                        data-aos="fade-up"
-                    >
-                        <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm mb-6">
-                            Our Solutions
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-                            Product Categories
-                        </h2>
-                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Comprehensive agricultural solutions for every farming need
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            {
-                                icon: '🌿',
-                                title: 'Bio-Stimulants',
-                                description: 'Advanced formulations designed for optimal crop protection and growth enhancement.',
-                                color: 'green'
-                            },
-                            {
-                                icon: '🛡️',
-                                title: 'Fungicides',
-                                description: 'Effective protection against fungal diseases with minimal environmental impact.',
-                                color: 'blue'
-                            },
-                            {
-                                icon: '⚡',
-                                title: 'Insecticides',
-                                description: 'Targeted pest control solutions for healthy crop development.',
-                                color: 'red'
-                            },
-                            {
-                                icon: '📈',
-                                title: 'Herbicides',
-                                description: 'Efficient weed management for cleaner, more productive fields.',
-                                color: 'orange'
-                            }
-                        ].map((feature, index) => (
-                            <div
-                                key={index}
-                                className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer hover:-translate-y-2 hover:rotate-1"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 100}
-                            >
-                                <div className={`w-16 h-16 bg-${feature.color}-100 dark:bg-${feature.color}-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                    <span className="text-3xl">{feature.icon}</span>
-                                </div>
-                                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                    {feature.description}
-                                </p>
-                                <div className="text-green-600 dark:text-green-400 font-semibold flex items-center hover:translate-x-1 transition-transform duration-200">
-                                    Learn More →
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <AgriFortProducts />    
 
             {/* About Section */}
-            <section id="about" className="py-20 bg-white dark:bg-gray-900">
+            <section id="about" className="py-16 bg-white dark:bg-gray-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Image Side */}
@@ -209,7 +142,7 @@ const LandingPage = () => {
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-gray-900 dark:text-white">20+ Years</h4>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">In Agro-biotech</p>
+                                        <p className="text-sm text-red-600 dark:text-red-400 font-semibold">In Agro-biotech</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,24 +175,21 @@ const LandingPage = () => {
                                         className="flex items-center space-x-3 opacity-0 animate-fade-in-left"
                                         style={{animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards'}}
                                     >
-                                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                                            <span className="text-white text-sm">✓</span>
+                                        <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                                            <span className="text-white text-sm font-bold">✓</span>
                                         </div>
                                         <span className="text-gray-700 dark:text-gray-300 font-medium">{item}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
-                                <Button
-                                    color="green"
-                                    buttonType="filled"
-                                    size="lg"
-                                    ripple="light"
-                                    className="px-8 py-4"
-                                >
+                            <div className="flex gap-4">
+                                <button className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
                                     Learn More About Us
-                                </Button>
+                                </button>
+                                <button className="px-8 py-4 bg-red-700 hover:bg-red-800 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
+                                    Contact Us
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -267,7 +197,7 @@ const LandingPage = () => {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 bg-gray-50 dark:bg-gray-800">
+            <section className="py-16 bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div 
                         className="text-center mb-16"
@@ -307,7 +237,7 @@ const LandingPage = () => {
                         ].map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                                className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-green-500"
                                 data-aos="zoom-in"
                                 data-aos-delay={index * 200}
                             >
@@ -315,11 +245,11 @@ const LandingPage = () => {
                                     <img 
                                         src={testimonial.image}
                                         alt={testimonial.name}
-                                        className="w-16 h-16 rounded-full object-cover mr-4"
+                                        className="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-green-200"
                                     />
                                     <div>
                                         <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                                        <p className="text-sm text-red-600 dark:text-red-400 font-medium">{testimonial.role}</p>
                                     </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed">
@@ -327,7 +257,7 @@ const LandingPage = () => {
                                 </p>
                                 <div className="flex mt-4">
                                     {[...Array(5)].map((_, i) => (
-                                        <span key={i} className="text-yellow-400 text-lg">★</span>
+                                        <span key={i} className="text-green-500 text-lg">★</span>
                                     ))}
                                 </div>
                             </div>
@@ -335,10 +265,6 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
-
-            {/* AgriFort Products Section */}
-            <AgriFortProducts />
-
             {/* Footer */}
              <Footer />
 

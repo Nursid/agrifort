@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth, USER_ROLES } from 'contexts/AuthContext';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Button from '@material-tailwind/react/Button';
 import Input from '@material-tailwind/react/Input';
 import Card from '@material-tailwind/react/Card';
@@ -149,13 +149,14 @@ const AdminLogin = () => {
                                 </Button>
                             </div>
                         </form>
-                        
-                        <div className="mt-4 text-sm text-gray-600 text-center">
-                            <p className="mb-2"><strong>Demo credentials for {selectedRoleOption?.label}:</strong></p>
-                            <div className="bg-gray-50 p-3 rounded">
-                                <p><strong>Username:</strong> {getCredentialsForRole(selectedRole)?.username}</p>
-                                <p><strong>Password:</strong> {getCredentialsForRole(selectedRole)?.password}</p>
-                            </div>
+
+                        <div className="mt-6 text-center border-t pt-4">
+                            <p className="text-sm text-gray-600">
+                                Don't have an account?{' '}
+                                <Link to="/register" className="text-green-600 font-semibold hover:text-green-700 transition-colors">
+                                    Register here
+                                </Link>
+                            </p>
                         </div>
                     </CardBody>
                 </Card>

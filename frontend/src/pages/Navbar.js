@@ -20,10 +20,7 @@ const Navbar = () => {
     const { userRole, userInfo } = useAuth();
     
     return (
-         <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 dark:bg-gray-900/95 border-b-2 border-green-500/40 dark:border-green-400/40 shadow-xl navbar-border-glow">
-    {/* Gradient Border Effect */}
-    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500/50 to-transparent"></div>
-    
+         <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md border-b-2 border-green-500">
     <div className="w-full px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
             {/* Logo */}
