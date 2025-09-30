@@ -16,7 +16,7 @@ const Navbar = () => {
         document.documentElement.classList.toggle('dark');
     };
     const [darkMode, setDarkMode] = useState(false);
-    const [showSidebar, setShowSidebar] = useState('-left-64');
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { userRole, userInfo } = useAuth();
     
     return (
@@ -35,7 +35,7 @@ const Navbar = () => {
                 />
             </div>
 
-            {/* Navigation Links */}
+            {/* Navigation Links - Desktop */}
             <div className="hidden md:flex space-x-8">
                 {navigationItems.map((item) => (
                     <Link
@@ -51,9 +51,7 @@ const Navbar = () => {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-end space-x-4">
-                {/* Contact Info */}
-
+            <div className="flex items-center space-x-4">
                 {/* Dark Mode Toggle */}
                 <button
                     onClick={toggleDarkMode}
@@ -62,8 +60,8 @@ const Navbar = () => {
                     {darkMode ? '☀️' : '🌙'}
                 </button>
 
-                {/* Login Button */}
-                <div className="flex items-center">
+                {/* Login Button - Desktop */}
+                <div className="hidden md:flex items-center">
                     <Link to="/admin/login" className="ml-2">
                         <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
                             <Button
@@ -78,8 +76,57 @@ const Navbar = () => {
                         </div>
                     </Link>
                 </div>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+                    aria-label="Toggle menu"
+                >
+                    <svg
+                        className="w-6 h-6 text-gray-700 dark:text-gray-300"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        {mobileMenuOpen ? (
+                            <path d="M6 18L18 6M6 6l12 12" />
+                        ) : (
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        )}
+                    </svg>
+                </button>
             </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+            <div className="md:hidden animate-slideDown">
+                <div className="py-4 space-y-3 border-t border-green-500/20 dark:border-green-400/20">
+                    {navigationItems.map((item) => (
+                        <Link
+                            key={item.name}
+                            to={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-200"
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                    {/* Mobile Login Button */}
+                    <Link
+                        to="/admin/login"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block px-4 py-2 mx-4 text-center text-green-600 dark:text-green-400 border-2 border-green-500 rounded-lg font-semibold hover:bg-green-50 dark:hover:bg-gray-800 transition-all duration-200"
+                    >
+                        Login
+                    </Link>
+                </div>
+            </div>
+        )}
     </div>
 </nav>
     );
