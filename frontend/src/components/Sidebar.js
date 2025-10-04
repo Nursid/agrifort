@@ -19,6 +19,12 @@ export default function Sidebar() {
 
         const adminItems = [
             {
+                path: '/admin/manage-users',
+                icon: 'people',
+                label: 'Manage Users',
+                roles: [USER_ROLES.ADMIN]
+            },
+            {
                 path: '/admin/settings',
                 icon: 'settings',
                 label: 'Settings',

@@ -1,18 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AgriFortProducts = () => {
-    const [activeCategory, setActiveCategory] = useState('All');
-
-    const categories = [
-        'All',
-        'Bio-Stimulants',
-        'Fungicides',
-        'Insecticides',
-        'Herbicides',
-        'Plant Growth Regulators',
-        'Crop Nutrition'
-    ];
 
     const products = [
         {

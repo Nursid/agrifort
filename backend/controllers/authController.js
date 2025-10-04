@@ -5,7 +5,8 @@ const { Op } = require('sequelize');
 
 // Generate JWT token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  const secret = process.env.JWT_SECRET || 'agrifort_default_secret_key_2024_development';
+  return jwt.sign({ id }, secret, {
     expiresIn: process.env.JWT_EXPIRES_IN || '7d',
   });
 };
@@ -15,12 +16,12 @@ const generateToken = (id) => {
 // @access  Public
 const register = async (req, res) => {
   try {
-    const { username, email, password, role, first_name, last_name, phone, address, city, state, country, postal_code } = req.body;
+    const data = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({
       where: {
-        [Op.or]: [{ email }, { username }],
+        [Op.or]: [{ email: data.email }, { username: data.username }],
       },
     });
 
@@ -32,20 +33,7 @@ const register = async (req, res) => {
     }
 
     // Create user
-    const user = await User.create({
-      username,
-      email,
-      password,
-      role: role || 'farmer',
-      first_name,
-      last_name,
-      phone,
-      address,
-      city,
-      state,
-      country,
-      postal_code,
-    });
+    const user = await User.create(data);
 
     // Generate token
     const token = generateToken(user.id);

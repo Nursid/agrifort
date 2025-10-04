@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
 
 const Contact = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',

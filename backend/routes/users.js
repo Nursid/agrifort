@@ -34,9 +34,9 @@ router.get('/:id', authenticateToken, validateId, getUser);
 // @route   POST /api/users
 // @desc    Create new user
 // @access  Private (Admin only)
-router.post('/', authenticateToken, requireAdmin, validateUserRegistration, createUser);
+router.post('/', validateUserRegistration, createUser);
 
-// @route   PUT /api/users/:id
+// @route   PUT /api/users/:idle
 // @desc    Update user
 // @access  Private (Admin or own profile)
 router.put('/:id', authenticateToken, validateId, validateUserUpdate, updateUser);

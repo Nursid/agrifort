@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
 import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode] = useState(false);
 
     useEffect(() => {
         AOS.init({

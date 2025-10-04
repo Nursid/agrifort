@@ -17,7 +17,6 @@ const Navbar = () => {
     };
     const [darkMode, setDarkMode] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { userRole, userInfo } = useAuth();
     
     return (
          <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md border-b-2 border-green-500">

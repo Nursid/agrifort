@@ -1,131 +1,77 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { AuthProvider, USER_ROLES } from 'contexts/AuthContext';
-import ProtectedRoute from 'components/ProtectedRoute';
-import AdminLayout from 'components/AdminLayout';
-import AdminLogin from 'components/AdminLogin';
-import Registration from 'components/Registration';
-import Dashboard from 'pages/Dashboard';
-import Settings from 'pages/Settings';
-import Tables from 'pages/Tables';
-import Maps from 'pages/Maps';
-import LandingPage from 'pages/LandingPage';
-import Products from 'pages/Products';
-import About from 'pages/About';
-import OurTeam from 'pages/OurTeam';
-import Contact from 'pages/Contact';
+import { AuthProvider } from 'contexts/AuthContext';
+import { ROUTE_CONFIG, REDIRECT_ROUTES } from 'config/routes';
+import { 
+    AdminProtectedRoute, 
+    FarmerProtectedRoute, 
+    DistributorProtectedRoute, 
+    DealerProtectedRoute 
+} from 'components/routes';
 import 'assets/styles/tailwind.css';
 
 function App() {
     return (
         <AuthProvider>
             <Switch>
-                {/* Public Landing Page */}
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/products" component={Products} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/ourteam" component={OurTeam} />
-                <Route exact path="/contact" component={Contact} />
-                {/* Multi-Role Login */}
-                <Route exact path="/login" component={AdminLogin} />
-                <Route exact path="/admin/login" component={AdminLogin} />
+                {/* Public Routes */}
+                {ROUTE_CONFIG.public.map((route) => (
+                    <Route
+                        key={route.path}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                    />
+                ))}
                 
-                {/* Registration */}
-                <Route exact path="/register" component={Registration} />
-                <Route exact path="/admin/register" component={Registration} />
+                {/* Admin Protected Routes */}
+                {ROUTE_CONFIG.admin.map((route) => (
+                    <AdminProtectedRoute
+                        key={route.path}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                    />
+                ))}
                 
-                {/* Admin Routes */}
-                <ProtectedRoute 
-                    exact 
-                    path="/admin/dashboard" 
-                    allowedRoles={[USER_ROLES.ADMIN]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Dashboard />
-                        </AdminLayout>
-                    )} 
-                />
-                <ProtectedRoute 
-                    exact 
-                    path="/admin/settings" 
-                    allowedRoles={[USER_ROLES.ADMIN]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Settings />
-                        </AdminLayout>
-                    )} 
-                />
-                <ProtectedRoute 
-                    exact 
-                    path="/admin/tables" 
-                    allowedRoles={[USER_ROLES.ADMIN]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Tables />
-                        </AdminLayout>
-                    )} 
-                />
-                <ProtectedRoute 
-                    exact 
-                    path="/admin/maps" 
-                    allowedRoles={[USER_ROLES.ADMIN]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Maps />
-                        </AdminLayout>
-                    )} 
-                />
-
-                {/* Farmer Routes */}
-                <ProtectedRoute 
-                    exact 
-                    path="/farmer/dashboard" 
-                    allowedRoles={[USER_ROLES.FARMER]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Dashboard />
-                        </AdminLayout>
-                    )} 
-                />
-
-                {/* Distributor Routes */}
-                <ProtectedRoute 
-                    exact 
-                    path="/distributor/dashboard" 
-                    allowedRoles={[USER_ROLES.DISTRIBUTOR]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Dashboard />
-                        </AdminLayout>
-                    )} 
-                />
-
-                {/* Dealer Routes */}
-                <ProtectedRoute 
-                    exact 
-                    path="/dealer/dashboard" 
-                    allowedRoles={[USER_ROLES.DEALER]}
-                    redirectTo="/login"
-                    component={() => (
-                        <AdminLayout>
-                            <Dashboard />
-                        </AdminLayout>
-                    )} 
-                />
+                {/* Farmer Protected Routes */}
+                {ROUTE_CONFIG.farmer.map((route) => (
+                    <FarmerProtectedRoute
+                        key={route.path}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                    />
+                ))}
                 
-                {/* Redirect /admin to dashboard if authenticated, otherwise to login */}
-                <Route exact path="/admin" render={() => <Redirect to="/admin/dashboard" />} />
+                {/* Distributor Protected Routes */}
+                {ROUTE_CONFIG.distributor.map((route) => (
+                    <DistributorProtectedRoute
+                        key={route.path}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                    />
+                ))}
                 
-                {/* Only redirect specific unknown page routes, not all paths */}
-                <Route exact path="/dashboard" render={() => <Redirect to="/admin/dashboard" />} />
-                <Route exact path="/settings" render={() => <Redirect to="/admin/settings" />} />
-                <Route exact path="/tables" render={() => <Redirect to="/admin/tables" />} />
-                <Route exact path="/maps" render={() => <Redirect to="/admin/maps" />} />
+                {/* Dealer Protected Routes */}
+                {ROUTE_CONFIG.dealer.map((route) => (
+                    <DealerProtectedRoute
+                        key={route.path}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                    />
+                ))}
+                
+                {/* Redirect Routes */}
+                {REDIRECT_ROUTES.map((redirect) => (
+                    <Route
+                        key={redirect.from}
+                        exact
+                        path={redirect.from}
+                        render={() => <Redirect to={redirect.to} />}
+                    />
+                ))}
             </Switch>
         </AuthProvider>
     );

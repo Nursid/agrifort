@@ -4,8 +4,8 @@
   "description": "Backend API for Agriculture Dashboard with multi-role authentication",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "nodemon server.js",
+    "dev": "node server.js",
     "test": "jest",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all",

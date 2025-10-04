@@ -1,8 +1,6 @@
 const { User } = require('../models');
 const { Op } = require('sequelize');
 
-// @desc    Get all users
-// @route   GET /api/users
 // @access  Private (Admin only)
 const getUsers = async (req, res) => {
   try {
@@ -56,8 +54,6 @@ const getUsers = async (req, res) => {
   }
 };
 
-// @desc    Get single user
-// @route   GET /api/users/:id
 // @access  Private (Admin or own profile)
 const getUser = async (req, res) => {
   try {
@@ -92,8 +88,6 @@ const getUser = async (req, res) => {
   }
 };
 
-// @desc    Create new user
-// @route   POST /api/users
 // @access  Private (Admin only)
 const createUser = async (req, res) => {
   try {
@@ -143,8 +137,6 @@ const createUser = async (req, res) => {
   }
 };
 
-// @desc    Update user
-// @route   PUT /api/users/:id
 // @access  Private (Admin or own profile)
 const updateUser = async (req, res) => {
   try {
@@ -219,8 +211,6 @@ const updateUser = async (req, res) => {
   }
 };
 
-// @desc    Delete user
-// @route   DELETE /api/users/:id
 // @access  Private (Admin only)
 const deleteUser = async (req, res) => {
   try {
@@ -257,8 +247,6 @@ const deleteUser = async (req, res) => {
   }
 };
 
-// @desc    Get user statistics
-// @route   GET /api/users/stats
 // @access  Private (Admin only)
 const getUserStats = async (req, res) => {
   try {

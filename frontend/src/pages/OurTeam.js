@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import Footer from '../components/Footer';
 
 const OurTeam = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode] = useState(false);
     const [selectedDepartment, setSelectedDepartment] = useState('all');
 
     useEffect(() => {

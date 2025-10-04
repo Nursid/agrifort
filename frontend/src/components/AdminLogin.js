@@ -24,15 +24,6 @@ const AdminLogin = () => {
         { value: USER_ROLES.DEALER, label: 'Dealer', color: 'bg-purple-500' }
     ];
 
-    const getCredentialsForRole = (role) => {
-        const credentials = {
-            [USER_ROLES.ADMIN]: { username: 'admin', password: 'admin123' },
-            [USER_ROLES.FARMER]: { username: 'farmer', password: 'farmer123' },
-            [USER_ROLES.DISTRIBUTOR]: { username: 'distributor', password: 'distributor123' },
-            [USER_ROLES.DEALER]: { username: 'dealer', password: 'dealer123' }
-        };
-        return credentials[role];
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,7 +31,7 @@ const AdminLogin = () => {
         setLoading(true);
 
         try {
-            const result = login(username, password, selectedRole);
+            const result = await login(username, password, selectedRole);
             if (result.success) {
                 // Redirect based on role
                 switch (result.role) {
@@ -63,6 +54,7 @@ const AdminLogin = () => {
                 setError(result.error || 'Invalid username or password');
             }
         } catch (err) {
+            console.error('Login error:', err);
             setError('Login failed. Please try again.');
         } finally {
             setLoading(false);

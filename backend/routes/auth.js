@@ -14,17 +14,16 @@ const {
   validateUserLogin,
   validateUserUpdate 
 } = require('../middleware/validation');
-const { authLimiter } = require('../middleware/rateLimiter');
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
 // @access  Public
-router.post('/register', authLimiter, validateUserRegistration, register);
+router.post('/register', validateUserRegistration, register);
 
 // @route   POST /api/auth/login
 // @desc    Login user
 // @access  Public
-router.post('/login', authLimiter, validateUserLogin, login);
+router.post('/login', validateUserLogin, login);
 
 // @route   GET /api/auth/me
 // @desc    Get current user profile

@@ -1,8 +1,26 @@
 {
-    "compilerOptions": {
-      "baseUrl": "src",
-      "paths": {
-        "*": ["src/*"]
-      }
-    }
-  }
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "contexts/*": ["src/contexts/*"],
+      "config/*": ["src/config/*"],
+      "utils/*": ["src/utils/*"],
+      "assets/*": ["src/assets/*"]
+    },
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
