@@ -235,7 +235,7 @@ const Footer = () => {
                     style={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}
                 >
                     <p className="text-white text-sm">
-                        © 2024 AgriFort Technologies. All rights reserved.
+                        © 2025-26 All rights reserved, Agrifort Technologies Pvt Ltd.
                     </p>
                     <div className="flex gap-6">
                         <button 

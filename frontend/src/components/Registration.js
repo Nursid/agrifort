@@ -165,10 +165,10 @@ const Registration = () => {
                     {isAdminCreatingUser && (
                         <div className="mt-2">
                             <Link 
-                                to="/admin/manage-users" 
+                                to="/admin/manage-farmers" 
                                 className="text-green-600 hover:text-green-700 text-sm font-medium"
                             >
-                                ← Back to Manage Users
+                                ← Back to Manage Farmers
                             </Link>
                         </div>
                     )}

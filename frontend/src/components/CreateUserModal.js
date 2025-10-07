@@ -72,8 +72,6 @@ const CreateUserModal = ({ user, onClose, onSuccess }) => {
 
         if (!formData.first_name.trim()) newErrors.first_name = 'Required';
         if (!formData.last_name.trim()) newErrors.last_name = 'Required';
-        if (!formData.email.trim()) newErrors.email = 'Required';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email';
         if (!formData.phone.trim()) newErrors.phone = 'Required';
         if (!/^[0-9]{10}$/.test(formData.phone)) newErrors.phone = 'Must be 10 digits';
         if (!formData.address.trim()) newErrors.address = 'Required';
@@ -172,7 +170,7 @@ const CreateUserModal = ({ user, onClose, onSuccess }) => {
                 {/* Header */}
                 <div className="flex justify-between items-center p-6 border-b">
                     <h2 className="text-xl font-bold text-gray-900">
-                        {isEditing ? 'Edit User' : 'Add New User'}
+                        {isEditing ? 'Edit Farmer' : 'Add New Farmer'}
                     </h2>
                     <button
                         onClick={onClose}
@@ -186,23 +184,6 @@ const CreateUserModal = ({ user, onClose, onSuccess }) => {
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="p-6 space-y-6">
-                    {/* Role Selection */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Role *
-                        </label>
-                        <select
-                            name="role"
-                            value={formData.role}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        >
-                            <option value="farmer">🌾 Farmer</option>
-                            <option value="dealer">🏪 Dealer</option>
-                            <option value="distributor">🚛 Distributor</option>
-                        </select>
-                    </div>
-
                     {/* Status (only for editing) */}
                     {isEditing && (
                         <div className="flex items-center">
@@ -252,7 +233,7 @@ const CreateUserModal = ({ user, onClose, onSuccess }) => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Email </label>
                             <input
                                 type="email"
                                 name="email"

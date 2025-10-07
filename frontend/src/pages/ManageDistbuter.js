@@ -4,7 +4,7 @@ import { API_URL } from '../config';
 import Swal from 'sweetalert2';
 import CreateUserModal from '../components/CreateUserModal';
 
-const ManageUsers = () => {
+const ManageDistributer = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -25,10 +25,10 @@ const ManageUsers = () => {
                 page: currentPage,
                 limit: itemsPerPage,
                 search: searchTerm || undefined,
-                role: roleFilter !== 'all' ? roleFilter : undefined
+                role: 'distributor'
             };
 
-            const response = await axios.get(`${API_URL}/users`, { params });
+            const response = await axios.get(`${API_URL}/distributor`, { params });
             
             if (response.data.success) {
                 setUsers(response.data.data.users);
@@ -50,7 +50,7 @@ const ManageUsers = () => {
 
     useEffect(() => {
         fetchUsers();
-    }, [currentPage, searchTerm, roleFilter]);
+    }, [currentPage, searchTerm]);
 
     // Handle search
     const handleSearch = (e) => {
@@ -175,7 +175,7 @@ const ManageUsers = () => {
             <div className="mb-6">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-900">Manage Farmers</h1>
+                        <h1 className="text-2xl font-bold text-gray-900">Manage Distributors</h1>
                         <p className="text-gray-600 mt-1">Manage farmers</p>
                     </div>
                     <div className="flex gap-2">
@@ -186,7 +186,7 @@ const ManageUsers = () => {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                             </svg>
-                            Add Farmer
+                            Add Distributor
                         </a>
                     </div>
                 </div>
@@ -260,7 +260,6 @@ const ManageUsers = () => {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {users.map((user) => (
-                                        user.role === 'farmer' && (
                                         <tr key={user.id} className="hover:bg-gray-50">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div>
@@ -312,7 +311,6 @@ const ManageUsers = () => {
                                                 </div>
                                             </td>
                                         </tr>
-                                        )
                                     ))}
                                 </tbody>
                             </table>
@@ -404,4 +402,4 @@ const ManageUsers = () => {
     );
 };
 
-export default ManageUsers;
+export default ManageDistributer;

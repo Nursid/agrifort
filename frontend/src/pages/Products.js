@@ -417,7 +417,7 @@ const Products = () => {
                                             }}
                                             className="flex-1 bg-green-600 text-white py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium shadow-sm"
                                         >
-                                            Order
+                                          Enquire Now
                                         </button>
                                         <button 
                                             onClick={(e) => {

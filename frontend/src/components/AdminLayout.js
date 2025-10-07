@@ -30,7 +30,7 @@ const AdminLayout = ({ children }) => {
                 <div className="px-4">
                     {children}
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </>
     );

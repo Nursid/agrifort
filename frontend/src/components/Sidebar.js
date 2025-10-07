@@ -19,9 +19,15 @@ export default function Sidebar() {
 
         const adminItems = [
             {
-                path: '/admin/manage-users',
+                path: '/admin/manage-farmers',
                 icon: 'people',
-                label: 'Manage Users',
+                label: 'Manage Farmers',
+                roles: [USER_ROLES.ADMIN]
+            },
+            {
+                path: '/admin/manage-distributors',
+                icon: 'people',
+                label: 'Manage Distributors',
                 roles: [USER_ROLES.ADMIN]
             },
             {

@@ -14,6 +14,7 @@ import Products from 'pages/Products';
 import About from 'pages/About';
 import OurTeam from 'pages/OurTeam';
 import Contact from 'pages/Contact';
+import ManageDistributer from 'pages/ManageDistbuter';
 
 // Route definitions
 export const ROUTES = {
@@ -36,8 +37,9 @@ export const ROUTES = {
     SETTINGS: '/admin/settings',
     TABLES: '/admin/tables',
     MAPS: '/admin/maps',
-    MANAGE_USERS: '/admin/manage-users',
-    CREATE_USER: '/admin/create-user',
+    MANAGE_FARMERS: '/admin/manage-farmers',
+    MANAGE_DISTRIBUTER: '/admin/manage-distributor',
+    CREATE_FARMER: '/admin/create-farmer',
     ROOT: '/admin'
   },
   
@@ -151,14 +153,14 @@ export const ROUTE_CONFIG = {
       allowedRoles: [USER_ROLES.ADMIN]
     },
     {
-      path: ROUTES.ADMIN.TABLES,
+      path: ROUTES.ADMIN.MANAGE_DISTRIBUTER,
       exact: true,
       component: () => (
         <AdminLayout>
-          <Tables />
+          <ManageDistributer />
         </AdminLayout>
       ),
-      title: 'Admin Tables',
+      title: 'Manage Distributors',
       allowedRoles: [USER_ROLES.ADMIN]
     },
     {
@@ -180,18 +182,18 @@ export const ROUTE_CONFIG = {
           <ManageUsers />
         </AdminLayout>
       ),
-      title: 'Manage Users',
+      title: 'Manage Farmers',
       allowedRoles: [USER_ROLES.ADMIN]
     },
     {
-      path: ROUTES.ADMIN.CREATE_USER,
+      path: ROUTES.ADMIN.CREATE_FARMER,
       exact: true,
       component: () => (
         <AdminLayout>
           <Registration />
         </AdminLayout>
       ),
-      title: 'Create User',
+      title: 'Create Farmer',
       allowedRoles: [USER_ROLES.ADMIN]
     }
   ],

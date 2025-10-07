@@ -189,7 +189,7 @@ const AgriFortProducts = () => {
                                 {/* Action Buttons */}
                                 <div className="flex space-x-2">
                                     <button className="flex-1 bg-green-600 text-white py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium shadow-sm">
-                                        Order Now
+                                      Enquire Now
                                     </button>
                                     <button className="px-3 py-1.5 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-600 hover:text-white transition-colors text-sm font-medium">
                                         Details
