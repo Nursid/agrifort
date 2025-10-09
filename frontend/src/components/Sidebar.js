@@ -25,7 +25,7 @@ export default function Sidebar() {
                 roles: [USER_ROLES.ADMIN]
             },
             {
-                path: '/admin/manage-distributors',
+                path: '/admin/manage-distributor',
                 icon: 'people',
                 label: 'Manage Distributors',
                 roles: [USER_ROLES.ADMIN]

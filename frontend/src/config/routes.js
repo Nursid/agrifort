@@ -10,6 +10,7 @@ import Products from '../pages/Products';
 import About from '../pages/About';
 import OurTeam from '../pages/OurTeam';
 import Contact from '../pages/Contact';
+import ManageDistributors from '../pages/ManageDistributors';
 
 // Route definitions
 export const ROUTES = {
@@ -121,19 +122,19 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Admin Dashboard',
-      allowedRoles: [USER_ROLES.ADMIN]
+      title: 'Admin Dashboard'
+      // Remove allowedRoles from here - AdminProtectedRoute handles it
     },
     {
-      path: ROUTES.ADMIN.MANAGE_USERS,
+      path: ROUTES.ADMIN.MANAGE_FARMERS,
       exact: true,
       component: () => (
         <AdminLayout>
           <ManageUsers />
         </AdminLayout>
       ),
-      title: 'Manage Farmers',
-      allowedRoles: [USER_ROLES.ADMIN]
+      title: 'Manage Farmers'
+      // Remove allowedRoles from here
     },
     {
       path: ROUTES.ADMIN.CREATE_FARMER,
@@ -143,9 +144,21 @@ export const ROUTE_CONFIG = {
           <Registration />
         </AdminLayout>
       ),
-      title: 'Create Farmer',
-      allowedRoles: [USER_ROLES.ADMIN]
-    }
+      title: 'Create Farmer'
+      // Remove allowedRoles from here
+    },
+    {
+      path: ROUTES.ADMIN.MANAGE_DISTRIBUTER,
+      exact: true,
+      component: () => (
+        <AdminLayout>
+          <ManageDistributors />
+        </AdminLayout>
+      ),
+      title: 'Create Farmer'
+      // Remove allowedRoles from here
+    },
+
   ],
 
   // Farmer protected routes
@@ -158,8 +171,8 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Farmer Dashboard',
-      allowedRoles: [USER_ROLES.FARMER]
+      title: 'Farmer Dashboard'
+      // Remove allowedRoles from here - FarmerProtectedRoute handles it
     },
   ],
 
@@ -173,8 +186,8 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Distributor Dashboard',
-      allowedRoles: [USER_ROLES.DISTRIBUTOR]
+      title: 'Distributor Dashboard'
+      // Remove allowedRoles from here - DistributorProtectedRoute handles it
     }
   ],
 
@@ -188,8 +201,8 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Dealer Dashboard',
-      allowedRoles: [USER_ROLES.DEALER]
+      title: 'Dealer Dashboard'
+      // Remove allowedRoles from here - DealerProtectedRoute handles it
     }
   ]
 };
