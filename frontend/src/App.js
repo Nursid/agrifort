@@ -1,12 +1,12 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { AuthProvider } from 'contexts/AuthContext';
-import { ROUTE_CONFIG, REDIRECT_ROUTES } from 'config/routes';
+import { AuthProvider } from './contexts/AuthContext';
+import { ROUTE_CONFIG, REDIRECT_ROUTES } from './config/routes';
 import { 
     AdminProtectedRoute, 
     FarmerProtectedRoute, 
     DistributorProtectedRoute, 
     DealerProtectedRoute 
-} from 'components/routes';
+} from './components/routes';
 import 'assets/styles/tailwind.css';
 
 function App() {

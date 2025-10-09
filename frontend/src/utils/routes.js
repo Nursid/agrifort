@@ -22,21 +22,6 @@ export const getDashboardRoute = (role) => {
     return getRouteByRole(role, 'dashboard');
 };
 
-// Get settings route based on user role
-export const getSettingsRoute = (role) => {
-    return getRouteByRole(role, 'settings');
-};
-
-// Get tables route based on user role
-export const getTablesRoute = (role) => {
-    return getRouteByRole(role, 'tables');
-};
-
-// Get maps route based on user role
-export const getMapsRoute = (role) => {
-    return getRouteByRole(role, 'maps');
-};
-
 // Check if a route is public
 export const isPublicRoute = (path) => {
     const publicPaths = Object.values(ROUTES.PUBLIC);

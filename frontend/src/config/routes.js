@@ -1,20 +1,15 @@
-import { USER_ROLES } from 'contexts/AuthContext';
-
+import { USER_ROLES } from '../contexts/AuthContext';
 // Import all components
-import AdminLayout from 'components/AdminLayout';
-import AdminLogin from 'components/AdminLogin';
-import Registration from 'components/Registration';
-import Dashboard from 'pages/Dashboard';
-import Settings from 'pages/Settings';
-import Tables from 'pages/Tables';
-import Maps from 'pages/Maps';
-import ManageUsers from 'pages/ManageUsers';
-import LandingPage from 'pages/LandingPage';
-import Products from 'pages/Products';
-import About from 'pages/About';
-import OurTeam from 'pages/OurTeam';
-import Contact from 'pages/Contact';
-import ManageDistributer from 'pages/ManageDistbuter';
+import AdminLayout from '../components/AdminLayout';
+import AdminLogin from '../components/AdminLogin';
+import Registration from '../components/Registration';
+import Dashboard from '../pages/Dashboard';
+import ManageUsers from '../pages/ManageUsers';
+import LandingPage from '../pages/LandingPage';
+import Products from '../pages/Products';
+import About from '../pages/About';
+import OurTeam from '../pages/OurTeam';
+import Contact from '../pages/Contact';
 
 // Route definitions
 export const ROUTES = {
@@ -34,9 +29,6 @@ export const ROUTES = {
   // Admin routes
   ADMIN: {
     DASHBOARD: '/admin/dashboard',
-    SETTINGS: '/admin/settings',
-    TABLES: '/admin/tables',
-    MAPS: '/admin/maps',
     MANAGE_FARMERS: '/admin/manage-farmers',
     MANAGE_DISTRIBUTER: '/admin/manage-distributor',
     CREATE_FARMER: '/admin/create-farmer',
@@ -46,25 +38,16 @@ export const ROUTES = {
   // Farmer routes
   FARMER: {
     DASHBOARD: '/farmer/dashboard',
-    SETTINGS: '/farmer/settings',
-    TABLES: '/farmer/tables',
-    MAPS: '/farmer/maps'
   },
   
   // Distributor routes
   DISTRIBUTOR: {
     DASHBOARD: '/distributor/dashboard',
-    SETTINGS: '/distributor/settings',
-    TABLES: '/distributor/tables',
-    MAPS: '/distributor/maps'
   },
   
   // Dealer routes
   DEALER: {
     DASHBOARD: '/dealer/dashboard',
-    SETTINGS: '/dealer/settings',
-    TABLES: '/dealer/tables',
-    MAPS: '/dealer/maps'
   }
 };
 
@@ -142,39 +125,6 @@ export const ROUTE_CONFIG = {
       allowedRoles: [USER_ROLES.ADMIN]
     },
     {
-      path: ROUTES.ADMIN.SETTINGS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Settings />
-        </AdminLayout>
-      ),
-      title: 'Admin Settings',
-      allowedRoles: [USER_ROLES.ADMIN]
-    },
-    {
-      path: ROUTES.ADMIN.MANAGE_DISTRIBUTER,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <ManageDistributer />
-        </AdminLayout>
-      ),
-      title: 'Manage Distributors',
-      allowedRoles: [USER_ROLES.ADMIN]
-    },
-    {
-      path: ROUTES.ADMIN.MAPS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Maps />
-        </AdminLayout>
-      ),
-      title: 'Admin Maps',
-      allowedRoles: [USER_ROLES.ADMIN]
-    },
-    {
       path: ROUTES.ADMIN.MANAGE_USERS,
       exact: true,
       component: () => (
@@ -211,39 +161,6 @@ export const ROUTE_CONFIG = {
       title: 'Farmer Dashboard',
       allowedRoles: [USER_ROLES.FARMER]
     },
-    {
-      path: ROUTES.FARMER.SETTINGS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Settings />
-        </AdminLayout>
-      ),
-      title: 'Farmer Settings',
-      allowedRoles: [USER_ROLES.FARMER]
-    },
-    {
-      path: ROUTES.FARMER.TABLES,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Tables />
-        </AdminLayout>
-      ),
-      title: 'Farmer Tables',
-      allowedRoles: [USER_ROLES.FARMER]
-    },
-    {
-      path: ROUTES.FARMER.MAPS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Maps />
-        </AdminLayout>
-      ),
-      title: 'Farmer Maps',
-      allowedRoles: [USER_ROLES.FARMER]
-    }
   ],
 
   // Distributor protected routes
@@ -257,39 +174,6 @@ export const ROUTE_CONFIG = {
         </AdminLayout>
       ),
       title: 'Distributor Dashboard',
-      allowedRoles: [USER_ROLES.DISTRIBUTOR]
-    },
-    {
-      path: ROUTES.DISTRIBUTOR.SETTINGS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Settings />
-        </AdminLayout>
-      ),
-      title: 'Distributor Settings',
-      allowedRoles: [USER_ROLES.DISTRIBUTOR]
-    },
-    {
-      path: ROUTES.DISTRIBUTOR.TABLES,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Tables />
-        </AdminLayout>
-      ),
-      title: 'Distributor Tables',
-      allowedRoles: [USER_ROLES.DISTRIBUTOR]
-    },
-    {
-      path: ROUTES.DISTRIBUTOR.MAPS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Maps />
-        </AdminLayout>
-      ),
-      title: 'Distributor Maps',
       allowedRoles: [USER_ROLES.DISTRIBUTOR]
     }
   ],
@@ -306,39 +190,6 @@ export const ROUTE_CONFIG = {
       ),
       title: 'Dealer Dashboard',
       allowedRoles: [USER_ROLES.DEALER]
-    },
-    {
-      path: ROUTES.DEALER.SETTINGS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Settings />
-        </AdminLayout>
-      ),
-      title: 'Dealer Settings',
-      allowedRoles: [USER_ROLES.DEALER]
-    },
-    {
-      path: ROUTES.DEALER.TABLES,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Tables />
-        </AdminLayout>
-      ),
-      title: 'Dealer Tables',
-      allowedRoles: [USER_ROLES.DEALER]
-    },
-    {
-      path: ROUTES.DEALER.MAPS,
-      exact: true,
-      component: () => (
-        <AdminLayout>
-          <Maps />
-        </AdminLayout>
-      ),
-      title: 'Dealer Maps',
-      allowedRoles: [USER_ROLES.DEALER]
     }
   ]
 };
@@ -346,8 +197,5 @@ export const ROUTE_CONFIG = {
 // Redirect routes
 export const REDIRECT_ROUTES = [
   { from: '/dashboard', to: '/admin/dashboard' },
-  { from: '/settings', to: '/admin/settings' },
-  { from: '/tables', to: '/admin/tables' },
-  { from: '/maps', to: '/admin/maps' },
   { from: ROUTES.ADMIN.ROOT, to: ROUTES.ADMIN.DASHBOARD }
 ];

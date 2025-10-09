@@ -30,24 +30,6 @@ export default function Sidebar() {
                 label: 'Manage Distributors',
                 roles: [USER_ROLES.ADMIN]
             },
-            {
-                path: '/admin/settings',
-                icon: 'settings',
-                label: 'Settings',
-                roles: [USER_ROLES.ADMIN]
-            },
-            {
-                path: '/admin/tables',
-                icon: 'toc',
-                label: 'Tables',
-                roles: [USER_ROLES.ADMIN]
-            },
-            {
-                path: '/admin/maps',
-                icon: 'map',
-                label: 'Maps',
-                roles: [USER_ROLES.ADMIN]
-            }
         ];
 
         const farmerItems = [

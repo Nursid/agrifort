@@ -6,9 +6,17 @@ import Image from '@material-tailwind/react/Image';
 import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
 import ProfilePicture from 'assets/img/team-1-800x800.jpg';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
+
+    const { logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+        window.location.href = '/admin/login';
+    };
 
     return (
         <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
@@ -68,14 +76,16 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                     color: 'transparent',
                                 }}
                             >
-                                <DropdownItem color="lightBlue">
-                                    Action
-                                </DropdownItem>
-                                <DropdownItem color="lightBlue">
-                                    Another Action
-                                </DropdownItem>
-                                <DropdownItem color="lightBlue">
-                                    Something Else
+                                <DropdownItem>
+                                    <Button
+                                        color="red"
+                                        buttonType="filled"
+                                        size="sm"
+                                        ripple="light"
+                                        onClick={handleLogout}
+                                    >
+                                        Logout
+                                    </Button>
                                 </DropdownItem>
                             </Dropdown>
                         </div>
