@@ -2,6 +2,8 @@ const ModalWrapper = ({ isOpen, onClose, title, children }) => {
     if (!isOpen) {
       return null;
     }
+
+    
   
     return (
       <div 
