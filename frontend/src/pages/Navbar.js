@@ -6,10 +6,18 @@ import Button from '@material-tailwind/react/Button';
 const Navbar = () => {
     const navigationItems = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
+        { 
+            name: 'About', href: '/about',
+            submenu:[
+                {name:'Profile',href:'/about/profile'},
+                {name:'History & Values', href:'/about/history'}
+            ]
+        
+        },
         { name: 'Products', href: '/products' },
         { name: 'OurTeam', href: '/ourteam' },
-        { name: 'Contact', href: '/contact' }
+        { name: 'Contact', href: '/contact' },
+        {name:'Life At Agrifort', href :'/lifeAtAgrifort'}
     ];
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -31,20 +39,39 @@ const Navbar = () => {
                 />
             </div>
 
-            {/* Navigation Links - Desktop */}
             <div className="hidden md:flex space-x-8">
-                {navigationItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        to={item.href}
-                        className="relative text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-all duration-300 hover:-translate-y-0.5 group nav-link-hover"
-                    >
-                        {item.name}
-                        {/* Hover underline effect */}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
-                ))}
-            </div>
+  {navigationItems.map((item) => (
+    <div key={item.name} className="relative group">
+      <Link
+        to={item.href}
+        className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-all duration-300"
+      >
+        {item.name}
+      </Link>
+
+      {/* Dropdown */}
+      {item.submenu && (
+        <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 
+                        opacity-0 group-hover:opacity-100 invisible group-hover:visible 
+                        transition-all duration-300 z-50">
+          <ul className="py-2">
+            {item.submenu.map((subItem) => (
+              <li key={subItem.name}>
+                <Link
+                  to={subItem.href}
+                  className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-gray-700 hover:text-green-600"
+                >
+                  {subItem.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">

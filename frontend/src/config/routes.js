@@ -10,6 +10,7 @@ import Products from '../pages/Products';
 import About from '../pages/About';
 import OurTeam from '../pages/OurTeam';
 import Contact from '../pages/Contact';
+import LifeAtAgriFort from 'pages/lifeAtAgrifort';
 import ManageDistributors from '../pages/ManageDistributors';
 
 // Route definitions
@@ -21,6 +22,7 @@ export const ROUTES = {
     ABOUT: '/about',
     OUR_TEAM: '/ourteam',
     CONTACT: '/contact',
+    LIFE_AT_AGRIFORT:'/lifeAtAgrifort',
     LOGIN: '/login',
     ADMIN_LOGIN: '/admin/login',
     REGISTER: '/register',
@@ -85,6 +87,12 @@ export const ROUTE_CONFIG = {
       exact: true,
       component: Contact,
       title: 'Contact'
+    },
+     {
+      path: ROUTES.PUBLIC.LIFE_AT_AGRIFORT,
+      exact: true,
+      component: LifeAtAgriFort,
+      title: 'Life_At_Agrifort'
     },
     {
       path: ROUTES.PUBLIC.LOGIN,
