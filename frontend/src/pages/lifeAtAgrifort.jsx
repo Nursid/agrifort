@@ -4,7 +4,7 @@ import 'aos/dist/aos.css'; // Import AOS styles
 import Navbar from './Navbar';
 import EmployeeEngagement from './employeeEngagement';
 import Footer from '../components/Footer';
-import agriculture from '../assets/images/hero/agriculture-hero.jpg'
+import agriculture from '../assets/img/agri.png'
 
 const LifeAtAgriFort = () => {
   // 1. Initialize AOS on component mount
@@ -30,6 +30,7 @@ const LifeAtAgriFort = () => {
           <div 
             className="relative"
             data-aos="fade-right" // AOS Animation applied here
+            data-aos-delay="200"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 

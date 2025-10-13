@@ -1,57 +1,61 @@
-import { USER_ROLES } from '../contexts/AuthContext';
+import { USER_ROLES } from "../contexts/AuthContext";
 // Import all components
-import AdminLayout from '../components/AdminLayout';
-import AdminLogin from '../components/AdminLogin';
-import Registration from '../components/Registration';
-import Dashboard from '../pages/Dashboard';
-import ManageUsers from '../pages/ManageUsers';
-import LandingPage from '../pages/LandingPage';
-import Products from '../pages/Products';
-import About from '../pages/About';
-import OurTeam from '../pages/OurTeam';
-import Contact from '../pages/Contact';
-import LifeAtAgriFort from 'pages/lifeAtAgrifort';
-import ManageDistributors from '../pages/ManageDistributors';
+import AdminLayout from "../components/AdminLayout";
+import AdminLogin from "../components/AdminLogin";
+import Registration from "../components/Registration";
+import Dashboard from "../pages/Dashboard";
+import ManageUsers from "../pages/ManageUsers";
+import LandingPage from "../pages/LandingPage";
+import Products from "../pages/Products";
+import About from "../pages/About";
+import OurTeam from "../pages/OurTeam";
+import Contact from "../pages/Contact";
+import LifeAtAgriFort from "pages/lifeAtAgrifort";
+import ManageDistributors from "../pages/ManageDistributors";
+import AgriFortProfile from "pages/AgriFortProfile";
+import HistoryAndValues from "pages/HistoryAndValues";
 
 // Route definitions
 export const ROUTES = {
   // Public routes
   PUBLIC: {
-    HOME: '/',
-    PRODUCTS: '/products',
-    ABOUT: '/about',
-    OUR_TEAM: '/ourteam',
-    CONTACT: '/contact',
-    LIFE_AT_AGRIFORT:'/lifeAtAgrifort',
-    LOGIN: '/login',
-    ADMIN_LOGIN: '/admin/login',
-    REGISTER: '/register',
-    ADMIN_REGISTER: '/admin/register'
+    HOME: "/",
+    PRODUCTS: "/products",
+    ABOUT: "/about",
+    OUR_TEAM: "/ourteam",
+    CONTACT: "/contact",
+    LIFE_AT_AGRIFORT: "/lifeAtAgrifort",
+    LOGIN: "/login",
+    ADMIN_LOGIN: "/admin/login",
+    REGISTER: "/register",
+    ADMIN_REGISTER: "/admin/register",
+    PROFILE: "/about/profile",
+    HISTORY: "/about/history",
   },
-  
+
   // Admin routes
   ADMIN: {
-    DASHBOARD: '/admin/dashboard',
-    MANAGE_FARMERS: '/admin/manage-farmers',
-    MANAGE_DISTRIBUTER: '/admin/manage-distributor',
-    CREATE_FARMER: '/admin/create-farmer',
-    ROOT: '/admin'
+    DASHBOARD: "/admin/dashboard",
+    MANAGE_FARMERS: "/admin/manage-farmers",
+    MANAGE_DISTRIBUTER: "/admin/manage-distributor",
+    CREATE_FARMER: "/admin/create-farmer",
+    ROOT: "/admin",
   },
-  
+
   // Farmer routes
   FARMER: {
-    DASHBOARD: '/farmer/dashboard',
+    DASHBOARD: "/farmer/dashboard",
   },
-  
+
   // Distributor routes
   DISTRIBUTOR: {
-    DASHBOARD: '/distributor/dashboard',
+    DASHBOARD: "/distributor/dashboard",
   },
-  
+
   // Dealer routes
   DEALER: {
-    DASHBOARD: '/dealer/dashboard',
-  }
+    DASHBOARD: "/dealer/dashboard",
+  },
 };
 
 // Route configuration for different user roles
@@ -62,61 +66,80 @@ export const ROUTE_CONFIG = {
       path: ROUTES.PUBLIC.HOME,
       exact: true,
       component: LandingPage,
-      title: 'Home'
+      title: "Home",
     },
     {
       path: ROUTES.PUBLIC.PRODUCTS,
       exact: true,
       component: Products,
-      title: 'Products'
+      title: "Products",
     },
     {
       path: ROUTES.PUBLIC.ABOUT,
       exact: true,
       component: About,
-      title: 'About Us'
+      title: "About Us",
+      // child: {
+      //  path: ROUTES.PUBLIC.PROFILE,
+      //  exact:true,
+      //  component:AgriFortProfile,
+      //  title:'profile'
+      // }
     },
+    {
+      path: ROUTES.PUBLIC.PROFILE, // This is '/about/profile'
+      exact: true,
+      component: AgriFortProfile,
+      title: "Profile",
+    },
+    {
+      path: ROUTES.PUBLIC.HISTORY,
+      exact: true,
+      component: HistoryAndValues,
+      title: "History",
+    },
+
     {
       path: ROUTES.PUBLIC.OUR_TEAM,
       exact: true,
       component: OurTeam,
-      title: 'Our Team'
+      title: "Our Team",
     },
     {
       path: ROUTES.PUBLIC.CONTACT,
       exact: true,
       component: Contact,
-      title: 'Contact'
+      title: "Contact",
     },
-     {
+    {
       path: ROUTES.PUBLIC.LIFE_AT_AGRIFORT,
       exact: true,
       component: LifeAtAgriFort,
-      title: 'Life_At_Agrifort'
+      title: "Life_At_Agrifort",
     },
     {
       path: ROUTES.PUBLIC.LOGIN,
       exact: true,
       component: AdminLogin,
-      title: 'Login'
+      title: "Login",
     },
     {
       path: ROUTES.PUBLIC.ADMIN_LOGIN,
       exact: true,
       component: AdminLogin,
-      title: 'Admin Login'
+      title: "Admin Login",
     },
     {
       path: ROUTES.PUBLIC.REGISTER,
       exact: true,
       component: Registration,
-      title: 'Register'
+      title: "Register",
     },
     {
       path: ROUTES.PUBLIC.ADMIN_REGISTER,
       exact: true,
       component: Registration,
-      title: 'Admin Register'
+      title: "Admin Register",
     },
   ],
 
@@ -130,7 +153,7 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Admin Dashboard'
+      title: "Admin Dashboard",
       // Remove allowedRoles from here - AdminProtectedRoute handles it
     },
     {
@@ -141,7 +164,7 @@ export const ROUTE_CONFIG = {
           <ManageUsers />
         </AdminLayout>
       ),
-      title: 'Manage Farmers'
+      title: "Manage Farmers",
       // Remove allowedRoles from here
     },
     {
@@ -152,7 +175,7 @@ export const ROUTE_CONFIG = {
           <Registration />
         </AdminLayout>
       ),
-      title: 'Create Farmer'
+      title: "Create Farmer",
       // Remove allowedRoles from here
     },
     {
@@ -163,10 +186,9 @@ export const ROUTE_CONFIG = {
           <ManageDistributors />
         </AdminLayout>
       ),
-      title: 'Create Farmer'
+      title: "Create Farmer",
       // Remove allowedRoles from here
     },
-
   ],
 
   // Farmer protected routes
@@ -179,7 +201,7 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Farmer Dashboard'
+      title: "Farmer Dashboard",
       // Remove allowedRoles from here - FarmerProtectedRoute handles it
     },
   ],
@@ -194,9 +216,9 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Distributor Dashboard'
+      title: "Distributor Dashboard",
       // Remove allowedRoles from here - DistributorProtectedRoute handles it
-    }
+    },
   ],
 
   // Dealer protected routes
@@ -209,14 +231,14 @@ export const ROUTE_CONFIG = {
           <Dashboard />
         </AdminLayout>
       ),
-      title: 'Dealer Dashboard'
+      title: "Dealer Dashboard",
       // Remove allowedRoles from here - DealerProtectedRoute handles it
-    }
-  ]
+    },
+  ],
 };
 
 // Redirect routes
 export const REDIRECT_ROUTES = [
-  { from: '/dashboard', to: '/admin/dashboard' },
-  { from: ROUTES.ADMIN.ROOT, to: ROUTES.ADMIN.DASHBOARD }
+  { from: "/dashboard", to: "/admin/dashboard" },
+  { from: ROUTES.ADMIN.ROOT, to: ROUTES.ADMIN.DASHBOARD },
 ];
