@@ -11,7 +11,6 @@ const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING(50),
     allowNull: false,
-    unique: true,
     validate: {
       len: [3, 50],
       notEmpty: true,
@@ -20,7 +19,6 @@ const User = sequelize.define('User', {
   email: {
     type: DataTypes.STRING(100),
     allowNull: false,
-    unique: true,
     validate: {
       isEmail: true,
       notEmpty: true,
@@ -97,6 +95,8 @@ const User = sequelize.define('User', {
   },
 }, {
   tableName: 'users',
+  // Remove explicit indexes to avoid key limit issues
+  // Sequelize will create basic indexes for unique fields and foreign keys
   hooks: {
     beforeCreate: async (user) => {
       if (user.password) {

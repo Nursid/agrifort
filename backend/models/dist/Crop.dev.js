@@ -1,98 +1,101 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+"use strict";
 
-const Crop = sequelize.define('Crop', {
+var _require = require('sequelize'),
+    DataTypes = _require.DataTypes;
+
+var sequelize = require('../config/database');
+
+var Crop = sequelize.define('Crop', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true,
+    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING(100),
     allowNull: false,
     validate: {
       len: [2, 100],
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   variety: {
     type: DataTypes.STRING(100),
-    allowNull: true,
+    allowNull: true
   },
   farmer_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: false
   },
   planting_date: {
     type: DataTypes.DATEONLY,
-    allowNull: false,
+    allowNull: false
   },
   expected_harvest_date: {
     type: DataTypes.DATEONLY,
-    allowNull: true,
+    allowNull: true
   },
   actual_harvest_date: {
     type: DataTypes.DATEONLY,
-    allowNull: true,
+    allowNull: true
   },
   area_planted: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
     validate: {
-      min: 0.01,
-    },
+      min: 0.01
+    }
   },
   area_unit: {
     type: DataTypes.ENUM('acres', 'hectares', 'square_meters'),
     allowNull: false,
-    defaultValue: 'acres',
+    defaultValue: 'acres'
   },
   expected_yield: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: true,
     validate: {
-      min: 0,
-    },
+      min: 0
+    }
   },
   actual_yield: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: true,
     validate: {
-      min: 0,
-    },
+      min: 0
+    }
   },
   yield_unit: {
     type: DataTypes.ENUM('kg', 'tons', 'quintals', 'pounds'),
     allowNull: false,
-    defaultValue: 'kg',
+    defaultValue: 'kg'
   },
   status: {
     type: DataTypes.ENUM('planted', 'growing', 'ready_to_harvest', 'harvested', 'sold'),
     allowNull: false,
-    defaultValue: 'planted',
+    defaultValue: 'planted'
   },
   notes: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: true
   },
   location: {
     type: DataTypes.STRING(255),
-    allowNull: true,
+    allowNull: true
   },
   weather_conditions: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: true
   },
   fertilizers_used: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: true
   },
   pesticides_used: {
     type: DataTypes.TEXT,
-    allowNull: true,
-  },
+    allowNull: true
+  }
 }, {
-  tableName: 'crops',
+  tableName: 'crops'
 });
-
 module.exports = Crop;
