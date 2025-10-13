@@ -12,6 +12,8 @@ import OurTeam from '../pages/OurTeam';
 import Contact from '../pages/Contact';
 import LifeAtAgriFort from 'pages/lifeAtAgrifort';
 import ManageDistributors from '../pages/ManageDistributors';
+import HistoryAndValues from 'pages/HistoryAndValues';
+import Profile from 'pages/Profile';
 
 // Route definitions
 export const ROUTES = {
@@ -26,7 +28,9 @@ export const ROUTES = {
     LOGIN: '/login',
     ADMIN_LOGIN: '/admin/login',
     REGISTER: '/register',
-    ADMIN_REGISTER: '/admin/register'
+    ADMIN_REGISTER: '/admin/register',
+    HISTORY:'/about/history',
+    PROFILE:'/about/profile'
   },
   
   // Admin routes
@@ -95,10 +99,22 @@ export const ROUTE_CONFIG = {
       title: 'Life_At_Agrifort'
     },
     {
+      path: ROUTES.PUBLIC.HISTORY,
+      exact: true,
+      component: HistoryAndValues,
+      title: 'History'
+    },
+    {
       path: ROUTES.PUBLIC.LOGIN,
       exact: true,
       component: AdminLogin,
       title: 'Login'
+    },
+    {
+      path: ROUTES.PUBLIC.PROFILE,
+      exact: true,
+      component: Profile,
+      title: 'Profile'
     },
     {
       path: ROUTES.PUBLIC.ADMIN_LOGIN,

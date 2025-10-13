@@ -1,99 +1,128 @@
 // src/components/EmployeeEngagement.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
+import TEAMA from '../assets/emp/team1.jpg'
+import TEAMB from '../assets/emp/team2.jpg'
+import TEAMC from '../assets/emp/team3.jpg'
+import TEAMD from '../assets/emp/team4.jpg'
 
-// Sample data for the gallery - using placeholder images from the original solution
 const engagementImages = [
     {
         id: 1,
-        // Replace with your actual image paths, e.g., '/images/engagement/team-1.jpg'
-        src: "https://via.placeholder.com/600x800/a8dadc/1d3557?text=Team+Photo+1", 
-        alt: "AgriFort Team Group Photo",
+        src: TEAMA, 
+        alt: "AgriFort Team Group Photo 1",
     },
     {
         id: 2,
-        // Replace with your actual image paths, e.g., '/images/engagement/team-2.jpg'
-        src: "https://via.placeholder.com/600x800/fca311/14213d?text=Team+Photo+2", 
-        alt: "AgriFort Team Event Photo",
+        src: TEAMB, 
+        alt: "AgriFort Team Event Photo 2",
     },
     {
         id: 3,
-        // Replace with your actual image paths, e.g., '/images/engagement/team-2.jpg'
-        src: "https://via.placeholder.com/600x800/fca311/14213d?text=Team+Photo+2", 
-        alt: "AgriFort Team Event Photo",
+        src: TEAMC, 
+        alt: "AgriFort Team Event Photo 3",
     },{
         id: 4,
-        // Replace with your actual image paths, e.g., '/images/engagement/team-2.jpg'
-        src: "https://via.placeholder.com/600x800/fca311/14213d?text=Team+Photo+2", 
-        alt: "AgriFort Team Event Photo",
+        src: TEAMD, 
+        alt: "AgriFort Team Event Photo 4",
     },
 ];
 
 const EmployeeEngagement = () => {
+    const [currentPairStartIndex, setCurrentPairStartIndex] = useState(0);
+    const [animationDirection, setAnimationDirection] = useState(''); 
+
+    const imagesPerSlide = 2; 
+
+    // Helper function to handle the state change and prevent scroll jump
+    const changeSlide = (newIndex, direction) => {
+        const currentScrollY = window.scrollY; 
+        setAnimationDirection(direction); 
+        setCurrentPairStartIndex(newIndex); 
+
+        // Restore scroll position after re-render
+        requestAnimationFrame(() => {
+            window.scrollTo(0, currentScrollY);
+        });
+    };
+
+    const goToNext = () => {
+        const nextIndex = (currentPairStartIndex + imagesPerSlide) % engagementImages.length;
+        changeSlide(nextIndex, 'fade-left'); 
+    };
+
+    const goToPrevious = () => {
+        const prevIndex = currentPairStartIndex - imagesPerSlide;
+        const newIndex = (prevIndex < 0 ? engagementImages.length + prevIndex : prevIndex) % engagementImages.length;
+        changeSlide(newIndex, 'fade-right'); 
+    };
+
+    const displayedImages = [];
+    for (let i = 0; i < imagesPerSlide; i++) {
+        const imageIndex = (currentPairStartIndex + i) % engagementImages.length;
+        displayedImages.push(engagementImages[imageIndex]);
+    }
+
     return (
-        // --- START: Section with Tailwind Background Separation ---
-        // Setting a light background color for the section
         <section className="relative py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden"> 
             
-            {/* Tailwind alternative to the curved wave: A massive, rotated, off-screen element.
-                This provides a strong, diagonal visual break using only utility classes. 
-            */}
+            {/* Background wave effect */}
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-white dark:bg-gray-900 
-                          transform -rotate-2 
-                          origin-bottom-left 
-                          -skew-y-1 
-                          translate-y-1/3
-                          shadow-2xl opacity-50 
-                          hidden lg:block" 
-                          aria-hidden="true"
+                            transform -rotate-2 
+                            origin-bottom-left 
+                            -skew-y-1 
+                            translate-y-1/3
+                            shadow-2xl opacity-50 
+                            hidden lg:block" 
+                            aria-hidden="true"
             ></div>
 
-            {/* Content Container (z-10 to stay above the background trick) */}
+            {/* Content Container (max-w-7xl ensures we have room for the buttons to stick out) */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 
-                {/* Section Title (Matches the screenshot: thin lines and uppercase) */}
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <div className="flex items-center justify-center">
-                        {/* Thin horizontal line */}
-                        <div className="w-48 h-px bg-gray-300 mx-4"></div> 
-                        
-                        <h2 className="text-xl font-medium text-gray-800 dark:text-gray-200 uppercase tracking-widest">
-                            EMPLOYEE ENGAGEMENT
-                        </h2>
-                        
-                        {/* Thin horizontal line */}
-                        <div className="w-48 h-px bg-gray-300 mx-4"></div>
-                    </div>
+                {/* Section Title with Top/Bottom Dividers */}
+                <div className="text-center mx-auto max-w-lg mb-16" data-aos="fade-up">
+                    <div className="w-16 h-px bg-red-600 mx-auto mb-3"></div> 
+                    <h2 className="text-xl font-medium tracking-widest uppercase text-gray-700 dark:text-gray-300">
+                        EMPLOYEE ENGAGEMENT
+                    </h2>
+                    <div className="w-16 h-px bg-red-600 mx-auto mt-3"></div>
                 </div>
 
-                {/* Image Gallery Container with AOS animation */}
+                {/* Image Gallery Container (Carousel) */}
+                {/* The parent div is centered, and the arrows will be absolutely positioned 
+                    relative to its edges (max-w-7xl). 
+                */}
                 <div 
-                    className="relative flex items-center justify-center"
-                    data-aos="zoom-in" 
-                    data-aos-duration="800"
+                    className="relative flex items-center justify-center min-h-96" 
                 >
-                    
-                    {/* Left Arrow (Using plain character to avoid 'react-icons' dependency) */}
+                    {/* Left Arrow Button (Previous) - Pushed to the far left */}
                     <button 
-                        className="absolute left-0 md:-left-12 text-5xl text-gray-500 hover:text-gray-700 transition-colors duration-200 z-20 p-2 font-light"
-                        aria-label="Previous image"
+                        onClick={goToPrevious}
+                        // Set the button absolutely to the far left of the max-w-7xl container
+                        // On large screens, use negative margin to push it completely out of the padding
+                        className="absolute left-0 lg:-left-20 text-3xl font-bold text-gray-700 hover:text-red-600 transition-colors duration-200 z-20 p-4 transform -translate-x-1/2"
+                        aria-label="Previous image set"
                     >
                         &lt; 
                     </button>
 
-                    {/* Image Grid - Two columns as per screenshot */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl">
-                        {engagementImages.map((image, index) => (
+                    {/* Image Display Area - max-w-3xl for smaller images */}
+                    <div 
+                        key={currentPairStartIndex} 
+                        className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl ${animationDirection ? `aos-animate` : ''}`}
+                        data-aos={animationDirection} 
+                        data-aos-duration="800"
+                    >
+                        {displayedImages.map((image) => (
                             <div 
                                 key={image.id} 
-                                className="relative aspect-video sm:aspect-square md:aspect-[4/3] overflow-hidden" 
-                                data-aos="fade-up" // Individual image animation
-                                data-aos-delay={index * 150} // Staggered delay
+                                className="relative aspect-video sm:aspect-[16/9] overflow-hidden" 
                             >
                                 <img
                                     src={image.src}
                                     alt={image.alt}
-                                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
                                 />
                                 {/* Image overlay/caption */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4 text-white">
@@ -103,18 +132,19 @@ const EmployeeEngagement = () => {
                         ))}
                     </div>
 
-                    {/* Right Arrow (Using plain character to avoid 'react-icons' dependency) */}
+                    {/* Right Arrow Button (Next) - Pushed to the far right */}
                     <button 
-                        className="absolute right-0 md:-right-12 text-5xl text-gray-500 hover:text-gray-700 transition-colors duration-200 z-20 p-2 font-light"
-                        aria-label="Next image"
+                        onClick={goToNext}
+                        // Set the button absolutely to the far right of the max-w-7xl container
+                        // On large screens, use negative margin to push it completely out of the padding
+                        className="absolute right-0 lg:-right-20 text-3xl font-bold text-gray-700 hover:text-red-600 transition-colors duration-200 z-20 p-4 transform translate-x-1/2"
+                        aria-label="Next image set"
                     >
                         &gt;
                     </button>
                 </div>
             </div>
-
         </section>
-        // --- END: Section with Tailwind Background Separation ---
     );
 };
 
