@@ -14,6 +14,7 @@ import LifeAtAgriFort from 'pages/lifeAtAgrifort';
 import ManageDistributors from '../pages/ManageDistributors';
 import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
+import ManageProducts from 'pages/ManageProduct';
 
 // Route definitions
 export const ROUTES = {
@@ -38,6 +39,7 @@ export const ROUTES = {
     DASHBOARD: '/admin/dashboard',
     MANAGE_FARMERS: '/admin/manage-farmers',
     MANAGE_DISTRIBUTER: '/admin/manage-distributor',
+    PRODUCTS: '/admin/manage-product',
     CREATE_FARMER: '/admin/create-farmer',
     ROOT: '/admin'
   },
@@ -169,6 +171,17 @@ export const ROUTE_CONFIG = {
         </AdminLayout>
       ),
       title: 'Create Farmer'
+      // Remove allowedRoles from here
+    },
+    {
+      path: ROUTES.ADMIN.PRODUCTS,
+      exact: true,
+      component: () => (
+        <AdminLayout>
+          <ManageProducts />
+        </AdminLayout>
+      ),
+      title: 'Manage Product'
       // Remove allowedRoles from here
     },
     {

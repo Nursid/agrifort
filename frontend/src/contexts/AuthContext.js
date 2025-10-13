@@ -94,7 +94,7 @@ export const AuthProvider = ({ children }) => {
                     localStorage.setItem('userRole', user.role);
                     
                     setIsAuthenticated(true);
-                    setUserRole(user.role);
+                    setUserRole(role);
                     setUserInfo(userInfo);
                 } else {
                     // Token is invalid, clear localStorage
@@ -126,10 +126,7 @@ export const AuthProvider = ({ children }) => {
 
             if (response.data.success) {
                 const { user, token } = response.data.data;
-                
-                
                 const userInfo = {...user}
-                
                 // Store token and user info in localStorage
                 localStorage.setItem('userToken', token);
                 localStorage.setItem('userRole', user.role);
@@ -139,7 +136,7 @@ export const AuthProvider = ({ children }) => {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 
                 setIsAuthenticated(true);
-                setUserRole(user.role);
+                setUserRole(role);
                 setUserInfo(userInfo);
                 
                 return { 
@@ -200,8 +197,10 @@ export const AuthProvider = ({ children }) => {
     const hasRole = (requiredRole) => {
         return userRole === requiredRole;
     };
+    
 
     const hasAnyRole = (requiredRoles) => {
+        
         return requiredRoles.includes(userRole);
     };
 
