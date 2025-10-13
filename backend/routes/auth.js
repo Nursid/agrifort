@@ -1,48 +1,19 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { 
-  register, 
-  login, 
-  getMe, 
-  updateProfile, 
-  changePassword, 
-  logout 
-} = require('../controllers/authController');
-const { authenticateToken } = require('../middleware/auth');
-const { 
-  validateUserRegistration, 
-  validateUserLogin,
-  validateUserUpdate 
-} = require('../middleware/validation');
+const {
+  registerAdmin,
+  loginAdmin,
+  getAdminProfile,
+  logoutAdmin,
+} = require("../controllers/authController");
+const { protectAdmin } = require("../middleware/auth");
 
-// @route   POST /api/auth/register
-// @desc    Register a new user
-// @access  Public
-router.post('/register', validateUserRegistration, register);
+// Public Routes
+router.post("/register", registerAdmin);
+router.post("/login", loginAdmin);
 
-// @route   POST /api/auth/login
-// @desc    Login user
-// @access  Public
-router.post('/login', validateUserLogin, login);
-
-// @route   GET /api/auth/me
-// @desc    Get current user profile
-// @access  Private
-router.get('/me', authenticateToken, getMe);
-
-// @route   PUT /api/auth/profile
-// @desc    Update user profile
-// @access  Private
-router.put('/profile', authenticateToken, validateUserUpdate, updateProfile);
-
-// @route   PUT /api/auth/change-password
-// @desc    Change user password
-// @access  Private
-router.put('/change-password', authenticateToken, changePassword);
-
-// @route   POST /api/auth/logout
-// @desc    Logout user
-// @access  Private
-router.post('/logout', authenticateToken, logout);
+// Protected Routes
+router.get("/me", protectAdmin, getAdminProfile);
+router.post("/logout", protectAdmin, logoutAdmin);
 
 module.exports = router;

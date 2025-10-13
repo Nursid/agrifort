@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth, USER_ROLES } from 'contexts/AuthContext';
+import { useAuth, USER_ROLES } from '../contexts/AuthContext';
 import { useHistory, Link } from 'react-router-dom';
 import Button from '@material-tailwind/react/Button';
 import Input from '@material-tailwind/react/Input';
@@ -31,7 +31,9 @@ const AdminLogin = () => {
         setLoading(true);
 
         try {
+            
             const result = await login(username, password, selectedRole);
+            console.log(result)
             if (result.success) {
                 // Redirect based on role
                 switch (result.role) {

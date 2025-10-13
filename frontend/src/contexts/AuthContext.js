@@ -26,23 +26,36 @@ export const AuthProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    const verifyToken = async (token) => {
+    const verifyToken = async (token, role) => {
         try {
-            const response = await axios.get(`${API_URL}/auth/me`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+            let endpoint = '/auth/me'; // default for admin
+            if (role === 'farmer') endpoint = '/farmer/me';
+            else if (role === 'dealer') endpoint = '/dealer/me';
+            else if (role === 'distributor') endpoint = '/distributor/me';
+    
+            console.log('Verifying token for role:', role, 'endpoint:', endpoint);
             
+            const response = await axios.get(`${API_URL}${endpoint}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+    
+            console.log('Token verification response:', response.data);
+    
             if (response.data.success) {
-                return response.data.data.user;
+                // Handle different response structures
+                const userData = response.data.data.user || response.data.data;
+                console.log('Extracted user data:', userData);
+                return userData;
             }
+    
             return null;
         } catch (error) {
             console.error('Token verification failed:', error);
+            console.error('Error response:', error.response?.data);
             return null;
         }
     };
+    
 
     useEffect(() => {
         const initializeAuth = async () => {
@@ -55,23 +68,25 @@ export const AuthProvider = ({ children }) => {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 
                 // Verify token with backend
-                const user = await verifyToken(token);
+                const user = await verifyToken(token, role);
                 
                 if (user) {
                     // Token is valid, update user info with latest data
                     const userInfo = {
                         id: user.id,
-                        username: user.username,
+                        username: user.username || user.email, // Fallback to email if username not available
                         email: user.email,
                         role: user.role,
-                        firstName: user.first_name,
-                        lastName: user.last_name,
-                        phone: user.phone,
+                        firstName: user.first_name || user.name?.split(' ')[0] || '',
+                        lastName: user.last_name || user.name?.split(' ').slice(1).join(' ') || '',
+                        phone: user.phone || user.mobileNo,
                         address: user.address,
                         city: user.city,
                         state: user.state,
                         country: user.country,
                         postalCode: user.postal_code,
+                        name: user.name, // Keep original name field
+                        mobileNo: user.mobileNo, // Keep original mobileNo field
                         loginTime: new Date().toISOString()
                     };
                     
@@ -97,30 +112,23 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password, role) => {
         try {
-            const response = await axios.post(`${API_URL}/auth/login`, {
-                username,
-                password,
-                role
+            let endpoint = '/auth/login'; // default for general user (farmer)
+            if (role === 'dealer') endpoint = '/dealer/login';
+            else if (role === 'distributor') endpoint = '/distributor/login';
+            else if (role === 'admin') endpoint = '/auth/login';
+            else if (role === 'farmer') endpoint = '/farmer/login';
+        
+            const response = await axios.post(`${API_URL}${endpoint}`, {
+              email: username,
+              password,
             });
+            console.log("response----",response)
 
             if (response.data.success) {
                 const { user, token } = response.data.data;
                 
-                const userInfo = {
-                    id: user.id,
-                    username: user.username,
-                    email: user.email,
-                    role: user.role,
-                    firstName: user.first_name,
-                    lastName: user.last_name,
-                    phone: user.phone,
-                    address: user.address,
-                    city: user.city,
-                    state: user.state,
-                    country: user.country,
-                    postalCode: user.postal_code,
-                    loginTime: new Date().toISOString()
-                };
+                
+                const userInfo = {...user}
                 
                 // Store token and user info in localStorage
                 localStorage.setItem('userToken', token);

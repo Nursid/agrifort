@@ -1,36 +1,38 @@
-const sequelize = require('../config/database');
-const User = require('./User');
-const Crop = require('./Crop');
-const Order = require('./Order');
-const Product = require('./Product');
-const Customer = require('./Customer');
-const Inventory = require('./Inventory');
+// models/index.js
 
-// Define associations
-// User.hasMany(Crop, { foreignKey: 'farmer_id', as: 'crops' });
-// Crop.belongsTo(User, { foreignKey: 'farmer_id', as: 'farmer' });
+const dbConfig = require("../config/db");
+const { Sequelize, DataTypes } = require("sequelize");
 
-// User.hasMany(Order, { foreignKey: 'user_id', as: 'orders' });
-// Order.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  operatorsAliases: false,
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle,
+  },
+});
 
-// User.hasMany(Customer, { foreignKey: 'dealer_id', as: 'customers' });
-// Customer.belongsTo(User, { foreignKey: 'dealer_id', as: 'dealer' });
+sequelize
+  .authenticate()
+  .then(() => console.log("connected ...."))
+  .catch((error) => console.log("Error: " + error));
 
-// Product.hasMany(Inventory, { foreignKey: 'product_id', as: 'inventories' });
-// Inventory.belongsTo(Product, { foreignKey: 'product_id', as: 'product' });
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 
-// User.hasMany(Inventory, { foreignKey: 'user_id', as: 'inventories' });
-// Inventory.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+// ✅ Initialize model properly
+db.Farmer = require("./Farmer")(sequelize, DataTypes);
+db.Admin = require("./Admin")(sequelize, DataTypes);
+db.Category = require("./Category")(sequelize, DataTypes);
+db.Product = require("./Product")(sequelize, DataTypes);
+db.Dealer = require("./Dealer")(sequelize, DataTypes);
 
-// Order.hasMany(Product, { through: 'OrderProducts', as: 'products' });
-// Product.belongsToMany(Order, { through: 'OrderProducts', as: 'orders' });
+db.sequelize.sync({ force: false }).then(() => {
+  console.log("re-sync done!");
+});
 
-module.exports = {
-  sequelize,
-  User,
-  Crop,
-  Order,
-  Product,
-  Customer,
-  Inventory,
-};
+module.exports = db;

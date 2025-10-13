@@ -28,10 +28,9 @@ const ManageUsers = () => {
                 role: roleFilter !== 'all' ? roleFilter : undefined
             };
 
-            const response = await axios.get(`${API_URL}/users`, { params });
-            
+            const response = await axios.get(`${API_URL}/farmer/getall`, { params });
             if (response.data.success) {
-                setUsers(response.data.data.users);
+                setUsers(response.data.data);
                 setTotalPages(response.data.data.pagination.total_pages);
                 setTotalCount(response.data.data.pagination.total_count);
             }
@@ -168,6 +167,8 @@ const ManageUsers = () => {
             ? 'bg-green-100 text-green-800' 
             : 'bg-red-100 text-red-800';
     };
+
+    console.log("---",users)
 
     return (
         <div className="p-6">

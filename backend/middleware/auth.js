@@ -1,124 +1,93 @@
-const jwt = require('jsonwebtoken');
-const { User } = require('../models');
+const jwt = require("jsonwebtoken");
+const db = require("../models");
 
-// Verify JWT token
-const authenticateToken = async (req, res, next) => {
-  try {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
+const Admin = db.Admin;
+const Farmer = db.Farmer;
 
-    if (!token) {
+// ✅ Middleware to protect Admin routes
+const protectAdmin = async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
+
+      const secret =
+        process.env.JWT_SECRET || "agrifort_admin_secret_key_2024_development";
+
+      const decoded = jwt.verify(token, secret);
+
+      req.admin = await Admin.findByPk(decoded.id, {
+        attributes: { exclude: ["password"] },
+      });
+
+      if (!req.admin) {
+        return res.status(404).json({
+          success: false,
+          message: "Admin not found",
+        });
+      }
+
+      next();
+    } catch (error) {
+      console.error("Admin auth error:", error);
       return res.status(401).json({
         success: false,
-        message: 'Access token required',
+        message: "Not authorized, invalid token",
       });
     }
-
-    const secret = process.env.JWT_SECRET || 'agrifort_default_secret_key_2024_development';
-    const decoded = jwt.verify(token, secret);
-    const user = await User.findByPk(decoded.id);
-
-    if (!user || !user.is_active) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid token or user not found',
-      });
-    }
-
-    req.user = user;
-    next();
-  } catch (error) {
-    if (error.name === 'JsonWebTokenError') {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid token',
-      });
-    }
-    if (error.name === 'TokenExpiredError') {
-      return res.status(401).json({
-        success: false,
-        message: 'Token expired',
-      });
-    }
-    return res.status(500).json({
+  } else {
+    return res.status(401).json({
       success: false,
-      message: 'Server error during authentication',
+      message: "Not authorized, no token provided",
     });
   }
 };
 
-// Check if user has required role(s)
-const authorizeRoles = (...roles) => {
-  return (req, res, next) => {
-    if (!req.user) {
+// ✅ Middleware to protect Farmer routes
+const protectFarmer = async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
+
+      const secret =
+        process.env.JWT_SECRET || "agrifort_farmer_secret_key_2024_development";
+
+      const decoded = jwt.verify(token, secret);
+
+      req.farmer = await Farmer.findByPk(decoded.id, {
+        attributes: { exclude: ["password"] },
+      });
+
+      if (!req.farmer) {
+        return res.status(404).json({
+          success: false,
+          message: "Farmer not found",
+        });
+      }
+
+      next();
+    } catch (error) {
+      console.error("Farmer auth error:", error);
       return res.status(401).json({
         success: false,
-        message: 'Authentication required',
+        message: "Not authorized, invalid token",
       });
     }
-
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({
-        success: false,
-        message: `Access denied. Required roles: ${roles.join(', ')}. Your role: ${req.user.role}`,
-      });
-    }
-
-    next();
-  };
-};
-
-// Check if user is admin
-const requireAdmin = authorizeRoles('admin');
-
-// Check if user is farmer
-const requireFarmer = authorizeRoles('farmer');
-
-// Check if user is distributor
-const requireDistributor = authorizeRoles('distributor');
-
-// Check if user is dealer
-const requireDealer = authorizeRoles('dealer');
-
-// Check if user is farmer or admin (for crop management)
-const requireFarmerOrAdmin = authorizeRoles('farmer', 'admin');
-
-// Check if user is distributor or admin (for order management)
-const requireDistributorOrAdmin = authorizeRoles('distributor', 'admin');
-
-// Check if user is dealer or admin (for customer management)
-const requireDealerOrAdmin = authorizeRoles('dealer', 'admin');
-
-// Optional authentication - doesn't fail if no token
-const optionalAuth = async (req, res, next) => {
-  try {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (token) {
-      const secret = process.env.JWT_SECRET || 'agrifort_default_secret_key_2024_development';
-    const decoded = jwt.verify(token, secret);
-      const user = await User.findByPk(decoded.id);
-      if (user && user.is_active) {
-        req.user = user;
-      }
-    }
-    next();
-  } catch (error) {
-    // Ignore errors for optional auth
-    next();
+  } else {
+    return res.status(401).json({
+      success: false,
+      message: "Not authorized, no token provided",
+    });
   }
 };
 
-module.exports = {
-  authenticateToken,
-  authorizeRoles,
-  requireAdmin,
-  requireFarmer,
-  requireDistributor,
-  requireDealer,
-  requireFarmerOrAdmin,
-  requireDistributorOrAdmin,
-  requireDealerOrAdmin,
-  optionalAuth,
-};
+module.exports = { protectAdmin, protectFarmer };
