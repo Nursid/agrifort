@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth, USER_ROLES } from 'contexts/AuthContext';
+import { useAuth, USER_ROLES } from '../contexts/AuthContext';
 import AdminNavbar from './AdminNavbar';
-import Icon from '@material-tailwind/react/Icon';
+import { 
+  LayoutDashboard, 
+  Users, 
+  Leaf, 
+  Package, 
+  ShoppingCart, 
+  Truck, 
+  Store,  
+} from 'lucide-react';
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
     const { userRole, userInfo } = useAuth();
@@ -92,6 +100,20 @@ export default function Sidebar() {
         return allItems.filter(item => item.roles.includes(userRole));
     };
 
+    const getIconComponent = (iconName) => {
+        const iconMap = {
+            'dashboard': LayoutDashboard,
+            'people': Users,
+            'nature': Leaf,
+            'inventory': Package,
+            'shopping_cart': ShoppingCart,
+            'local_shipping': Truck,
+            'point_of_sale': Store,
+            'customers': Users
+        };
+        return iconMap[iconName] || LayoutDashboard;
+    };
+
     const getRoleDisplayName = () => {
         const roleNames = {
             [USER_ROLES.ADMIN]: 'Admin',
@@ -143,7 +165,10 @@ export default function Sidebar() {
                                         className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                         activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                     >
-                                        <Icon name={item.icon} size="2xl" />
+                                        {React.createElement(getIconComponent(item.icon), { 
+                                            size: 20, 
+                                            className: "w-5 h-5" 
+                                        })}
                                         {item.label}
                                     </NavLink>
                                 </li>

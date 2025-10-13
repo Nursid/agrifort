@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useAuth } from 'contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
+import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
     const navigationItems = [
@@ -13,7 +12,7 @@ const Navbar = () => {
                 {name:'History & Values', href:'/about/history'}
             ]
         
-        },
+        },  
         { name: 'Products', href: '/products' },
         { name: 'OurTeam', href: '/ourteam' },
         { name: 'Contact', href: '/contact' },
@@ -88,10 +87,7 @@ const Navbar = () => {
                     <Link to="/admin/login" className="ml-2">
                         <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
                             <Button
-                                color="green"
-                                buttonType="outlined"
-                                size="regular"
-                                ripple="light"
+                                variant="outline"
                                 className="transition-all duration-200 hover:shadow-lg border-green-500 text-green-600 hover:bg-green-50"
                             >
                                 Login

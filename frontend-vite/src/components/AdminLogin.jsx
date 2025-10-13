@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { useAuth, USER_ROLES } from 'contexts/AuthContext';
-import { useHistory, Link } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
-import Input from '@material-tailwind/react/Input';
-import Card from '@material-tailwind/react/Card';
-import CardHeader from '@material-tailwind/react/CardHeader';
-import CardBody from '@material-tailwind/react/CardBody';
-import H4 from '@material-tailwind/react/Heading4';
+import { useAuth, USER_ROLES } from '../contexts/AuthContext';
+import { useNavigate, Link } from 'react-router-dom';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 const AdminLogin = () => {
     const [username, setUsername] = useState('');
@@ -15,7 +12,7 @@ const AdminLogin = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { login } = useAuth();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const roleOptions = [
         { value: USER_ROLES.ADMIN, label: 'Admin', color: 'bg-red-500' },
@@ -36,19 +33,19 @@ const AdminLogin = () => {
                 // Redirect based on role
                 switch (result.role) {
                     case USER_ROLES.ADMIN:
-                        history.push('/admin/dashboard');
+                        navigate('/admin/dashboard');
                         break;
                     case USER_ROLES.FARMER:
-                        history.push('/farmer/dashboard');
+                        navigate('/farmer/dashboard');
                         break;
                     case USER_ROLES.DISTRIBUTOR:
-                        history.push('/distributor/dashboard');
+                        navigate('/distributor/dashboard');
                         break;
                     case USER_ROLES.DEALER:
-                        history.push('/dealer/dashboard');
+                        navigate('/dealer/dashboard');
                         break;
                     default:
-                        history.push('/admin/dashboard');
+                        navigate('/admin/dashboard');
                 }
             } else {
                 setError(result.error || 'Invalid username or password');
@@ -67,12 +64,10 @@ const AdminLogin = () => {
         <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <Card>
-                    <CardHeader color="lightBlue" contentPosition="none">
-                        <div className="w-full flex items-center justify-center">
-                            <H4 color="white">Multi-Role Login</H4>
-                        </div>
+                    <CardHeader className="bg-blue-500 text-white">
+                        <CardTitle className="text-center text-white">Multi-Role Login</CardTitle>
                     </CardHeader>
-                    <CardBody>
+                    <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {error && (
                                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -107,11 +102,10 @@ const AdminLogin = () => {
                                 <Input
                                     type="text"
                                     placeholder="Username"
-                                    size="lg"
-                                    outline={true}
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                     required
+                                    className="h-11"
                                 />
                             </div>
                             
@@ -119,23 +113,20 @@ const AdminLogin = () => {
                                 <Input
                                     type="password"
                                     placeholder="Password"
-                                    size="lg"
-                                    outline={true}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
+                                    className="h-11"
                                 />
                             </div>
 
                             <div>
                                 <Button
                                     type="submit"
-                                    color="lightBlue"
-                                    buttonType="filled"
+                                    variant="default"
                                     size="lg"
-                                    ripple="dark"
                                     disabled={loading}
-                                    className="w-full"
+                                    className="w-full bg-blue-500 hover:bg-blue-600 text-white"
                                 >
                                     {loading ? 'Signing in...' : `Sign in as ${selectedRoleOption?.label}`}
                                 </Button>
@@ -150,7 +141,7 @@ const AdminLogin = () => {
                                 </Link>
                             </p>
                         </div>
-                    </CardBody>
+                    </CardContent>
                 </Card>
             </div>
         </div>

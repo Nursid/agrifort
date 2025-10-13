@@ -5,9 +5,10 @@ import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+import { Button } from '@/components/ui/button';
 
 const LandingPage = () => {
-    const [darkMode] = useState(false);
+    const [darkMode] = useState(true);
 
     useEffect(() => {
         AOS.init({
@@ -26,38 +27,40 @@ const LandingPage = () => {
 
 
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
-            {/* Sticky Navbar with Backdrop Blur */}
-            <Navbar />
+        <div className="flex flex-wrap items-center gap-2 md:flex-row">
+      {/*  <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
+            <Button variant='' > Heelo</Button>
+*/}
+
+      <Button variant="outline">Button</Button>
 
 
-            {/* Hero Section with Animated Background Slider */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+            {/* <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
                 <BackgroundSlider>
-                    {/* Main Content Container */}
+             
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen py-20">
                         
-                        {/* Content Overlay */}
+                  
                         <div className="container mx-auto">
                             <div className="row flex items-center justify-center">
                                 <div className="col-xl-7 lg:w-2/3 w-full">
                                     <div className="content text-center lg:text-left">
-                                        
-                                        {/* Subtitle */}
+                                    
                                         <p className="py-4 text-2xl md:text-3xl font-semibold text-green-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
                                             style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
                                         >
                                             Welcome To
                                         </p>
 
-                                        {/* Main Title */}
+                                  
                                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight opacity-0 animate-zoom-in text-shadow-hero"
                                             style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}
                                         >
                                             <strong className="block gradient-text-animated">AgriFort Technologies</strong>
                                         </h2>
 
-                                        {/* Description */}
+                                    
                                         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
                                            style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}
                                         >
@@ -65,7 +68,7 @@ const LandingPage = () => {
                                             Empowering farmers with cutting-edge technology and premium quality products.
                                         </p>
 
-                                        {/* Action Buttons */}
+                                    
                                         <div className="button flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-zoom-in"
                                              style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
                                         >
@@ -95,8 +98,6 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* Scroll Indicator */}
                     <div 
                         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30"
                         style={{animationDuration: '2s', animationIterationCount: 'infinite'}}
@@ -106,16 +107,12 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </BackgroundSlider>
-            </section>
-
-            {/* Features Section */}
+            </section> */}
+{/* 
             <AgriFortProducts />    
-
-            {/* About Section */}
             <section id="about" className="py-16 bg-white dark:bg-gray-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        {/* Image Side */}
                         <div
                             className="relative"
                             data-aos="fade-right"
@@ -129,7 +126,6 @@ const LandingPage = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-green-600/20 to-transparent rounded-2xl"></div>
                             </div>
                             
-                            {/* Floating Cards */}
                             <div
                                 className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl hover:scale-105 transition-transform duration-300"
                                 data-aos="zoom-in"
@@ -146,8 +142,6 @@ const LandingPage = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Text Side */}
                         <div
                             data-aos="fade-left"
                         >
@@ -194,8 +188,6 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
-
-            {/* Testimonials Section */}
             <section className="py-16 bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div 
@@ -264,9 +256,8 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
-            {/* Footer */}
-             <Footer />
-
+             <Footer /> 
+*/}
         </div>
     );
 };

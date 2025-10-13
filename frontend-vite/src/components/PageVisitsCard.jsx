@@ -1,88 +1,100 @@
-import Card from '@material-tailwind/react/Card';
-import CardHeader from '@material-tailwind/react/CardHeader';
-import CardBody from '@material-tailwind/react/CardBody';
-import Button from '@material-tailwind/react/Button';
-import Progress from '@material-tailwind/react/Progress';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
-export default function TrafficCard() {
+export default function PageVisitsCard() {
     return (
         <Card>
-            <CardHeader color="purple" contentPosition="none">
+            <CardHeader className="bg-blue-500 text-white">
                 <div className="w-full flex items-center justify-between">
-                    <h2 className="text-white text-2xl">Social Media</h2>
+                    <h2 className="text-2xl">Page Visits</h2>
                     <Button
-                        color="transparent"
-                        buttonType="link"
-                        size="lg"
-                        style={{ padding: 0 }}
+                        variant="link"
+                        className="text-white hover:text-blue-100 p-0 h-auto"
                     >
                         See More
                     </Button>
                 </div>
             </CardHeader>
-            <CardBody>
+            <CardContent>
                 <div className="overflow-x-auto">
                     <table className="items-center w-full bg-transparent border-collapse">
-                        <thead className="thead-light">
+                        <thead>
                             <tr>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Referral
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    ID
                                 </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Visitors
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Name
                                 </th>
-                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left w-56"></th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Salary
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Country
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Facebook
+                                    1
                                 </th>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    1,480
+                                    Dakota Rice
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="blue" value="60" />
+                                    $36,738
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Niger
                                 </td>
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Google
+                                    2
                                 </th>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    4,807
+                                    Minerva Hooper
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="red" value="80" />
+                                    $23,789
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Curaçao
                                 </td>
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Instagram
+                                    3
                                 </th>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    3,678
+                                    Sage Rodriguez
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="indigo" value="75" />
+                                    $56,142
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Netherlands
                                 </td>
                             </tr>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Twitter
+                                    4
                                 </th>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    2,645
+                                    Philip Chaney
                                 </td>
                                 <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="lightBlue" value="90" />
+                                    $38,735
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Korea, South
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </CardBody>
+            </CardContent>
         </Card>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../pages/Navbar';
 import axios from 'axios';
 import { API_URL } from '../config';
@@ -24,7 +24,7 @@ const Registration = () => {
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const history = useHistory();
+    const navigae = useNavigate();
     
     // Check if this is accessed by an admin for user management
     const isAdminCreatingUser = isAuthenticated && userRole === 'admin';

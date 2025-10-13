@@ -1,5 +1,5 @@
-import ProtectedRoute from '../../components/ProtectedRoute';
-import { USER_ROLES } from 'contexts/AuthContext';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import { USER_ROLES } from '@/contexts/AuthContext';
 
 const AdminProtectedRoute = (props) => {
     return (

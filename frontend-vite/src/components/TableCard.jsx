@@ -1,8 +1,6 @@
-import Card from '@material-tailwind/react/Card';
-import CardHeader from '@material-tailwind/react/CardHeader';
-import CardBody from '@material-tailwind/react/CardBody';
-import Image from '@material-tailwind/react/Image';
-import Progress from '@material-tailwind/react/Progress';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import Team1 from 'assets/img/team-1-800x800.jpg';
 import Team2 from 'assets/img/team-2-800x800.jpg';
 import Team3 from 'assets/img/team-3-800x800.jpg';
@@ -11,10 +9,10 @@ import Team4 from 'assets/img/team-4-470x470.png';
 export default function CardTable() {
     return (
         <Card>
-            <CardHeader color="purple" contentPosition="left">
-                <h2 className="text-white text-2xl">Card Table</h2>
+            <CardHeader className="bg-purple-600 text-white">
+                <h2 className="text-2xl">Card Table</h2>
             </CardHeader>
-            <CardBody>
+            <CardContent>
                 <div className="overflow-x-auto">
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
@@ -51,37 +49,29 @@ export default function CardTable() {
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">
                                         <div className="w-10 h-10 rounded-full border-2 border-white">
-                                            <Image
-                                                src={Team1}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team1} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team2}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team2} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team3}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team3} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team4}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team4} alt="..." />
+                                            </Avatar>
                                         </div>
                                     </div>
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="red" value="60" />
+                                    <Progress value={60} className="bg-red-200" />
                                 </th>
                             </tr>
                             <tr>
@@ -98,37 +88,29 @@ export default function CardTable() {
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">
                                         <div className="w-10 h-10 rounded-full border-2 border-white">
-                                            <Image
-                                                src={Team1}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team1} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team2}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team2} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team3}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team3} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team4}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team4} alt="..." />
+                                            </Avatar>
                                         </div>
                                     </div>
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="green" value="100" />
+                                    <Progress value={100} className="bg-green-200" />
                                 </th>
                             </tr>
                             <tr>
@@ -145,37 +127,29 @@ export default function CardTable() {
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">
                                         <div className="w-10 h-10 rounded-full border-2 border-white">
-                                            <Image
-                                                src={Team1}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team1} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team2}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team2} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team3}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team3} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team4}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team4} alt="..." />
+                                            </Avatar>
                                         </div>
                                     </div>
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="teal" value="90" />
+                                    <Progress value={90} className="bg-teal-200" />
                                 </th>
                             </tr>
                             <tr>
@@ -192,43 +166,35 @@ export default function CardTable() {
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">
                                         <div className="w-10 h-10 rounded-full border-2 border-white">
-                                            <Image
-                                                src={Team1}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team1} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team2}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team2} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team3}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team3} alt="..." />
+                                            </Avatar>
                                         </div>
                                         <div className="w-10 h-10 rounded-full border-2 border-white -ml-4">
-                                            <Image
-                                                src={Team4}
-                                                rounded
-                                                alt="..."
-                                            />
+                                            <Avatar className="w-full h-full">
+                                                <AvatarImage src={Team4} alt="..." />
+                                            </Avatar>
                                         </div>
                                     </div>
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="green" value="100" />
+                                    <Progress value={100} className="bg-green-200" />
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </CardBody>
+            </CardContent>
         </Card>
     );
 }

@@ -1,4 +1,4 @@
-import { Route, Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const ProtectedRoute = ({ component: Component, allowedRoles, redirectTo = "/login", ...rest }) => {
@@ -17,7 +17,7 @@ const ProtectedRoute = ({ component: Component, allowedRoles, redirectTo = "/log
             {...rest}
             render={(props) => {
                 if (!isAuthenticated) {
-                    return <Redirect to={redirectTo} />;
+                    return <Navigate to={redirectTo} replace />;
                 }
 
                 // If allowedRoles is specified, check if user has required role
