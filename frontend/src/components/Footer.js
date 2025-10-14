@@ -1,4 +1,6 @@
 import React from 'react';
+import { PhoneIcon } from '@heroicons/react/24/solid';
+import { MapPinIcon } from "@heroicons/react/24/outline";
 
 const Footer = () => {
     const scrollToSection = (sectionId) => {
@@ -7,15 +9,15 @@ const Footer = () => {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
+    // #f5f1ed
     return (
-        <footer style={{ background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%)' }} className="text-white py-16">
+        <footer style={{ background: '#454341' }} className="text-white py-16">
             <div className="container mx-auto px-4 max-w-7xl">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     
                     {/* Column 1: Company Info */}
-                    <div className="space-y-4 bg-black rounded-lg p-4">
+                    <div className="space-y-4  rounded-lg p-4">
                         <div className="mb-6">
                             <img 
                                 src="/images/logo/logo-png.png" 
@@ -196,15 +198,15 @@ const Footer = () => {
                         <h5 className="text-white font-bold text-lg mb-4">Contact Info</h5>
                         <div className="space-y-3">
                             <div className="flex items-start gap-3">
-                                <span className="text-green-400 text-xl">📞</span>
+                               <PhoneIcon className="h-6 w-6 text-red-500" />
                                 <span className="text-white text-sm">+91 1800-XXX-XXXX</span>
                             </div>
                             <div className="flex items-start gap-3">
-                                <span className="text-green-400 text-xl">📧</span>
+                               
                                 <span className="text-white text-sm">info@agrifort.com</span>
                             </div>
                             <div className="flex items-start gap-3">
-                                <span className="text-green-400 text-xl">📍</span>
+                               <MapPinIcon className="h-6 w-6 text-blue-500" />
                                 <span className="text-white text-sm">Mumbai, Maharashtra, India</span>
                             </div>
                         </div>

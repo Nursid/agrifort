@@ -1,7 +1,7 @@
 const db = require("../models");
 const ProductModel = db.Product;
 const { Op } = require("sequelize");
-
+const CategoryModel = db.CategoryModel
 // ✅ Create Product
 const createProduct = async (req, res) => {
   try {
@@ -13,6 +13,9 @@ const createProduct = async (req, res) => {
         success: false,
         message: "Name and price are required",
       });
+    }
+    if (req.file) {
+      data.image = `/uploads/${req.file.filename}`;
     }
 
     // Create product
@@ -51,19 +54,45 @@ const getAllProducts = async (req, res) => {
         }
       : {};
 
-    // Fetch total count and paginated data
+    // Fetch data + count
     const { rows: products, count: totalCount } = await ProductModel.findAndCountAll({
+      include: [
+        {
+          model: CategoryModel,
+          as: "categoryDetails",
+          attributes: ["id", "name"], // include category info
+        },
+      ],
       where: whereCondition,
       limit: parseInt(limit),
       offset: parseInt(offset),
       order: [["createdAt", "DESC"]],
     });
 
+    // ✅ Parse JSON fields
+    const formattedProducts = products.map((product) => {
+      let features = [];
+      let benefits = [];
+
+      try {
+        if (product.features) features = JSON.parse(product.features);
+        if (product.benefits) benefits = JSON.parse(product.benefits);
+      } catch (err) {
+        console.warn("Error parsing features/benefits:", err.message);
+      }
+
+      return {
+        ...product.toJSON(),
+        features,
+        benefits,
+      };
+    });
+
     const totalPages = Math.ceil(totalCount / limit);
 
     res.status(200).json({
       success: true,
-      data: products,
+      data: formattedProducts,
       pagination: {
         current_page: parseInt(page),
         total_pages: totalPages,
@@ -121,6 +150,14 @@ const updateProduct = async (req, res) => {
       });
     }
 
+    console.log(req.file)
+
+    if (req.file) {
+      data.image = `/uploads/${req.file.filename}`;
+    }
+
+    console.log(data)
+
     await product.update(data);
 
     res.status(200).json({
@@ -167,10 +204,56 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+
+const getAllProductswithCategory = async (req, res) => {
+  try {
+    const { page = 1, limit = 10 } = req.query;
+    const offset = (page - 1) * limit;
+
+    const { rows: products, count: totalCount } = await ProductModel.findAndCountAll({
+      include: [
+        {
+          model: CategoryModel,
+          as: "categoryDetails",
+          attributes: ["id", "name"], // include category info
+        },
+      ],
+      limit: parseInt(limit),
+      offset: parseInt(offset),
+      order: [["createdAt", "DESC"]],
+    });
+
+    const formattedProducts = products.map((p) => ({
+      ...p.toJSON(),
+      features: p.features || [],
+      benefits: p.benefits || [],
+    }));
+
+    res.status(200).json({
+      success: true,
+      data: formattedProducts,
+      pagination: {
+        current_page: parseInt(page),
+        total_pages: Math.ceil(totalCount / limit),
+        total_count: totalCount,
+      },
+    });
+  } catch (error) {
+    console.error("Fetch Products Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching products",
+      error: error.message,
+    });
+  }
+};
+
+
 module.exports = {
   createProduct,
   getAllProducts,
   getProductById,
   updateProduct,
   deleteProduct,
+  getAllProductswithCategory
 };

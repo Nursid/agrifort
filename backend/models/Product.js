@@ -16,6 +16,10 @@ module.exports = (sequelize) => {
       category: {
         type: DataTypes.STRING(100),
         allowNull: false,
+        references: {
+          model: "categories",
+          key: "id",
+        },
       },
       price: {
         type: DataTypes.STRING(50),

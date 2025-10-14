@@ -20,6 +20,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imageFile, setImageFile] = useState(null); // 🆕 image file state
 
   // Prefill data when editing
   useEffect(() => {
@@ -43,6 +44,10 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleFileChange = (e) => {
+    setImageFile(e.target.files[0]);
   };
 
   const handleArrayChange = (index, field, value) => {
@@ -80,8 +85,29 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-
     try {
+
+      const formDataToSend = new FormData();
+
+      // append normal fields
+      Object.keys(formData).forEach((key) => {
+        if (Array.isArray(formData[key])) {
+          formData[key].forEach((item) =>
+            formDataToSend.append(`${key}[]`, item)
+          );
+        } else {
+          formDataToSend.append(key, formData[key]);
+        }
+      });
+
+      // append image file if available
+      if (imageFile) {
+        formDataToSend.append("image", imageFile);
+      }
+      for (let [key, value] of formDataToSend.entries()) {
+        console.log(`${key}:`, value);
+      }
+
       let response;
       if (isEditing) {
         response = await axios.put(
@@ -89,7 +115,9 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
           formData
         );
       } else {
-        response = await axios.post(`${API_URL}/product/add`, formData);
+        response = await axios.post(`${API_URL}/product/add`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
       }
 
       if (response.data.success) {
@@ -120,6 +148,8 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
       setIsSubmitting(false);
     }
   };
+
+  console.log("formData----",formData)
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -240,15 +270,27 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
             {/* Image */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Image URL
+                Product Image
               </label>
               <input
-                type="text"
+                type="file"
                 name="image"
-                value={formData.image}
-                onChange={handleInputChange}
+                accept="image/*"
+                onChange={handleFileChange}
                 className="w-full px-3 py-2 border rounded-lg border-gray-300"
               />
+              {formData.image && !imageFile && (
+                <img
+                  src={formData.image}
+                  alt="Preview"
+                  className="mt-2 h-20 w-20 object-cover rounded-md border"
+                />
+              )}
+              {imageFile && (
+                <p className="text-sm text-gray-500 mt-1">
+                  {imageFile.name} selected
+                </p>
+              )}
             </div>
           </div>
 
@@ -271,7 +313,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Features
             </label>
-            {formData.features.map((f, i) => (
+            {formData?.features?.map((f, i) => (
               <div key={i} className="flex gap-2 mb-2">
                 <input
                   type="text"
@@ -282,7 +324,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
                   className="flex-1 px-3 py-2 border rounded-lg border-gray-300"
                   placeholder="Enter feature"
                 />
-                {formData.features.length > 1 && (
+                {formData?.features?.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeArrayField("features", i)}
@@ -307,7 +349,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Benefits
             </label>
-            {formData.benefits.map((b, i) => (
+            {formData?.benefits?.map((b, i) => (
               <div key={i} className="flex gap-2 mb-2">
                 <input
                   type="text"
@@ -318,7 +360,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
                   className="flex-1 px-3 py-2 border rounded-lg border-gray-300"
                   placeholder="Enter benefit"
                 />
-                {formData.benefits.length > 1 && (
+                {formData?.benefits?.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeArrayField("benefits", i)}

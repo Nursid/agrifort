@@ -30,6 +30,18 @@ db.Admin = require("./Admin")(sequelize, DataTypes);
 db.Category = require("./Category")(sequelize, DataTypes);
 db.Product = require("./Product")(sequelize, DataTypes);
 db.Dealer = require("./Dealer")(sequelize, DataTypes);
+db.CategoryModel = require("./Category")(sequelize, DataTypes);
+
+db.Category.hasMany(db.Product, {
+  foreignKey: "category", // Product.category references Category.id
+  as: "products",
+});
+
+db.Product.belongsTo(db.Category, {
+  foreignKey: "category",
+  as: "categoryDetails",
+});
+  
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done!");

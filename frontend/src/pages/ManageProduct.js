@@ -92,32 +92,6 @@ const ManageProducts = () => {
         }
     };
 
-    // Toggle product status
-    const handleToggleStatus = async (productId, currentStatus, productName) => {
-        try {
-            const response = await axios.put(`${API_URL}/product/${productId}`, {
-                is_active: !currentStatus
-            });
-
-            if (response.data.success) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Updated!',
-                    text: `${productName} has been ${!currentStatus ? 'activated' : 'deactivated'}`,
-                    confirmButtonColor: '#16a34a'
-                });
-                fetchProducts();
-            }
-        } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: error.response?.data?.message || 'Failed to update status',
-                confirmButtonColor: '#dc2626'
-            });
-        }
-    };
-
     // Edit product
     const handleEditProduct = (product) => {
         setEditingProduct(product);
@@ -181,8 +155,6 @@ const ManageProducts = () => {
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stock</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                                     </tr>
@@ -191,22 +163,10 @@ const ManageProducts = () => {
                                     {products.map((product) => (
                                         <tr key={product.id} className="hover:bg-gray-50">
                                             <td className="px-6 py-4 text-sm text-gray-900">{product.name}</td>
-                                            <td className="px-6 py-4 text-sm text-gray-500">{product.category}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-500">{product.categoryDetails.name}</td>
                                             <td className="px-6 py-4 text-sm text-gray-500">₹{product.price}</td>
-                                            <td className="px-6 py-4 text-sm text-gray-500">{product.stock}</td>
-                                            <td className="px-6 py-4">
-                                                <span
-                                                    className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                                                        product.is_active
-                                                            ? 'bg-green-100 text-green-800'
-                                                            : 'bg-red-100 text-red-800'
-                                                    }`}
-                                                >
-                                                    {product.is_active ? 'Active' : 'Inactive'}
-                                                </span>
-                                            </td>
                                             <td className="px-6 py-4 text-sm text-gray-500">
-                                                {formatDate(product.created_at)}
+                                                {formatDate(product.createdAt)}
                                             </td>
                                             <td className="px-6 py-4 text-sm font-medium">
                                                 <div className="flex space-x-2">
@@ -215,18 +175,6 @@ const ManageProducts = () => {
                                                         className="text-blue-600 hover:text-blue-900"
                                                     >
                                                         Edit
-                                                    </button>
-                                                    <button
-                                                        onClick={() =>
-                                                            handleToggleStatus(product.id, product.is_active, product.name)
-                                                        }
-                                                        className={`${
-                                                            product.is_active
-                                                                ? 'text-red-600 hover:text-red-900'
-                                                                : 'text-green-600 hover:text-green-900'
-                                                        }`}
-                                                    >
-                                                        {product.is_active ? 'Deactivate' : 'Activate'}
                                                     </button>
                                                     <button
                                                         onClick={() => handleDeleteProduct(product.id, product.name)}
