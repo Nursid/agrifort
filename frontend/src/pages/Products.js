@@ -4,14 +4,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
-<<<<<<< HEAD
 import BreadCrumb from './components/breadcrumb';
 import team from '../assets/images/crops/vegetables.jpg'
-=======
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { API_URL } from 'config';
->>>>>>> 0d69453d611f27dd1d8884c54086f63de08d4479
 
 const Products = () => {
     const [activeCategory, setActiveCategory] = useState('All');
