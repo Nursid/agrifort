@@ -3,40 +3,60 @@ import React from "react";
 const BreadCrumb = ({ title, bgImage }) => {
   return (
     <section className="w-full relative overflow-hidden" style={{ height: "75vh" }}>
-      {/* Background Image with Overlay */}
+      {/* Background Image - Right Side */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 bg-opacity-85"></div>
-      </div>
+        style={{ 
+          backgroundImage: `url(${bgImage})`,
+          clipPath: "polygon(35% 0, 100% 0, 100% 100%, 25% 100%)"
+        }}
+      ></div>
 
-      {/* Decorative Circles */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      {/* Diagonal Overlay Sections */}
+      <div className="absolute inset-0">
+        {/* Green Section */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "#10B981",
+            clipPath: "polygon(0 0, 25% 0, 40% 100%, 0 100%)"
+          }}
+        ></div>
+        
+        {/* Red Section */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "#DC2626",
+            clipPath: "polygon(25% 0, 40% 0, 50% 100%, 40% 100%)"
+          }}
+        ></div>
 
-      {/* Content (Centered Vertically & Horizontally) */}
-      <div className="relative z-10 flex flex-col justify-center items-start h-full max-w-7xl mx-auto px-6 md:px-10">
-        <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-          {title}
-          <div className="w-10 h-1 bg-white mt-4 rounded-full"></div>
-        </h1>
-      </div>
-
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-12"
+        {/* White/Light Section with Content */}
+        <div
+          className="absolute inset-0 bg-white"
+          style={{
+            clipPath: "polygon(0 0, 35% 0, 25% 100%, 0 100%)"
+          }}
         >
-          <path
-            d="M0 48h1440V0C1440 0 1200 48 720 48S0 0 0 0v48z"
-            fill="white"
-          />
-        </svg>
+          <div className="flex items-center h-full pl-8 md:pl-20">
+            <h1 className="text-5xl md:text-7xl font-bold" style={{ lineHeight: "1.1", letterSpacing: "-0.02em" }}>
+              <span style={{ color: "#10B981" }}>{title}</span>
+            </h1>
+          </div>
+        </div>
       </div>
+
+      {/* Decorative Accent Bar - Right */}
+      <div 
+        className="absolute top-0 right-0 w-12 h-full"
+        style={{ 
+          background: "#10B981",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"
+        }}
+      ></div>
+
+      {/* Decorative Pattern - Left Top */}
     </section>
   );
 };
