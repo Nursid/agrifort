@@ -4,6 +4,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+import BreadCrumb from './components/breadcrumb';
+import team from '../assets/images/crops/vegetables.jpg'
 
 const Products = () => {
     const [activeCategory, setActiveCategory] = useState('All');
@@ -252,6 +254,10 @@ const Products = () => {
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
             <Navbar />
+            <BreadCrumb
+           
+           title="Products"
+           bgImage={team}/>
 
             {/* Hero Banner Section */}
             <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50">

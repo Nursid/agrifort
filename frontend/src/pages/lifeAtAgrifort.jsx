@@ -4,7 +4,9 @@ import 'aos/dist/aos.css'; // Import AOS styles
 import Navbar from './Navbar';
 import EmployeeEngagement from './employeeEngagement';
 import Footer from '../components/Footer';
-import agriculture from '../assets/images/hero/agriculture-hero.jpg'
+import agriculture from '../assets/images/hero/agriculture-hero.jpg';
+import BreadCrumb from './components/breadcrumb';
+import team from '../assets/images/crops/vegetables.jpg'
 
 const LifeAtAgriFort = () => {
   // 1. Initialize AOS on component mount
@@ -20,8 +22,12 @@ const LifeAtAgriFort = () => {
   return (
     <div className="min-h-screen bg-white">
       
-      <Navbar/>
       
+      <Navbar/>
+      <BreadCrumb
+           
+           title="Life At Agrifort"
+           bgImage={team}/>
       {/* 2. Main Content Section: Life at AgriFort */}
       <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50"> 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

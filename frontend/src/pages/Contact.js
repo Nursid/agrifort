@@ -3,6 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+import BreadCrumb from './components/breadcrumb';
+import team from '../assets/images/hero/agriculture-hero.jpg'
 
 const Contact = () => {
     const [darkMode] = useState(false);
@@ -100,6 +102,10 @@ const Contact = () => {
     return (
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             <Navbar />
+            <BreadCrumb
+           
+           title="Contact Us"
+           bgImage={team}/>
             
             {/* Hero Banner Section */}
             <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50">

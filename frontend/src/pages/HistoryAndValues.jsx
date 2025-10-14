@@ -4,6 +4,8 @@ import React from 'react';
 // Correctly importing the high-quality building image you uploaded (renamed from agriBuilding.jpg or similar)
 import Image from '../assets/emp/agri.png'; 
 import Footer from 'components/Footer';
+import BreadCrumb from './components/breadcrumb';
+import team from '../assets/emp/farmer-field.jpg'
 
 // Define core values data for easy mapping
 const coreValues = [
@@ -18,7 +20,10 @@ const HistoryAndValues = () => {
         // Added dark mode support to the main container
         <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900">
             <Navbar/>
-            
+            <BreadCrumb
+                       
+                       title="History & Values"
+                       bgImage={team}/>
             {/* --- Section 1: Our History --- */}
             <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

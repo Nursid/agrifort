@@ -4,6 +4,8 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+ import BreadCrumb from './components/breadcrumb'
+ import team from '../assets/emp/agri2.png'
 
 const About = () => {
     const [darkMode] = useState(false);
@@ -94,7 +96,10 @@ const About = () => {
     return (
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             <Navbar />
-            
+           <BreadCrumb
+           
+           title="About Us"
+           bgImage={team}/>
             {/* Hero Banner Section */}
             <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
