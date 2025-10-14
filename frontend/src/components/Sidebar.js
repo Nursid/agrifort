@@ -30,6 +30,12 @@ export default function Sidebar() {
                 label: 'Manage Distributors',
                 roles: [USER_ROLES.ADMIN]
             },
+            {
+                path: '/admin/manage-product',
+                icon: 'people',
+                label: 'Manage product',
+                roles: [USER_ROLES.ADMIN]
+            },
         ];
 
         const farmerItems = [

@@ -4,12 +4,22 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+<<<<<<< HEAD
 import BreadCrumb from './components/breadcrumb';
 import team from '../assets/images/crops/vegetables.jpg'
+=======
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { API_URL } from 'config';
+>>>>>>> 0d69453d611f27dd1d8884c54086f63de08d4479
 
 const Products = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [categories, setCategories] = useState(['All']);
+
 
     useEffect(() => {
         AOS.init({
@@ -19,226 +29,262 @@ const Products = () => {
         });
     }, []);
 
-    const categories = [
-        'All',
-        'Bio-Stimulants',
-        'Fungicides',
-        'Insecticides',
-        'Herbicides',
-        'Plant Growth Regulators',
-        'Crop Nutrition'
-    ];
+    // const categories = [
+    //     'All',
+    //     'Bio-Stimulants',
+    //     'Fungicides',
+    //     'Insecticides',
+    //     'Herbicides',
+    //     'Plant Growth Regulators',
+    //     'Crop Nutrition'
+    // ];
 
-    const products = [
-        {
-            id: 1,
-            name: 'Bio-Growth Plus',
-            category: 'Bio-Stimulants',
-            price: '₹850/L',
-            image: 'https://5.imimg.com/data5/ANDROID/Default/2024/2/389669779/JY/BE/MY/125960068/product-jpeg-500x500.jpg',
-            description: 'Advanced bio-stimulant for enhanced root development and stress tolerance in all crops.',
-            features: ['Root Enhancement', 'Stress Tolerance', 'Organic Input', 'All Crops'],
-            crops: 'Rice, Wheat, Cotton, Vegetables',
-            dosage: '2-3 ml per liter of water',
-            benefits: [
-                'Promotes root development and nutrient uptake',
-                'Enhances flowering and fruit setting',
-                'Improves stress tolerance',
-                'Increases yield by 15-25%'
-            ]
-        },
-        {
-            id: 2,
-            name: 'FungiShield Pro',
-            category: 'Fungicides',
-            price: '₹1,200/L',
-            image: 'https://www.brewers.co.uk/uploads/1200/147610321966161670299685_1200.jpg?v=1476099619',
-            description: 'Systemic fungicide for broad-spectrum disease control in vegetables and field crops.',
-            features: ['Systemic Action', 'Broad Spectrum', 'Preventive & Curative', 'Long Duration'],
-            crops: 'Rice, Wheat, Maize, Sugarcane',
-            dosage: '2-3 gm per liter of water',
-            benefits: [
-                'Controls fungal diseases effectively',
-                'Systemic and contact action',
-                'Rainfast after 2 hours',
-                'Safe for beneficial insects'
-            ]
-        },
-        {
-            id: 3,
-            name: 'InsectGuard Max',
-            category: 'Insecticides',
-            price: '₹950/L',
-            image: 'https://www.insectshield.com/cdn/shop/products/Insect-Shield-Permethrin-Spray-Infographics2_aff30e71-93b5-4493-b00a-77c6cb457b13_720x.jpg?v=1745462585',
-            description: 'Effective insecticide for control of sucking and chewing pests in various crops.',
-            features: ['Dual Action', 'Quick Knockdown', 'Residual Control', 'IPM Compatible'],
-            crops: 'Cotton, Vegetables, Fruits',
-            dosage: '1-2 ml per liter of water',
-            benefits: [
-                'Controls sucking and chewing pests',
-                'Quick knockdown effect',
-                'Residual activity up to 15 days',
-                'Compatible with other pesticides'
-            ]
-        },
-        {
-            id: 4,
-            name: 'WeedClear Elite',
-            category: 'Herbicides',
-            price: '₹750/L',
-            image: 'https://cdn.shopify.com/s/files/1/0722/2059/files/elite-herbicide-file-3776.webp?v=1737468403',
-            description: 'Selective herbicide for effective weed control in cereal crops without crop damage.',
-            features: ['Selective Action', 'Post-Emergence', 'Crop Safe', 'Broad Leaf Weeds'],
-            crops: 'Rice, Wheat, Maize',
-            dosage: '500-750 ml per acre',
-            benefits: [
-                'Controls broadleaf and grassy weeds',
-                'Pre and post emergence activity',
-                'Safe for crops',
-                'Long lasting control'
-            ]
-        },
-        {
-            id: 5,
-            name: 'GrowthMax PGR',
-            category: 'Plant Growth Regulators',
-            price: '₹1,500/L',
-            image: 'https://farmmate.in/cdn/shop/collections/0281464401258e1c3a73e2705970e2e3.png?v=1704362254',
-            description: 'Plant growth regulator for improved fruit setting and uniform crop maturity.',
-            features: ['Fruit Setting', 'Uniform Growth', 'Quality Enhancement', 'Yield Booster'],
-            crops: 'Cotton, Sugarcane, Vegetables',
-            dosage: '1-2 ml per liter of water',
-            benefits: [
-                'Promotes vegetative growth',
-                'Increases fruit size',
-                'Improves quality parameters',
-                'Stress management'
-            ]
-        },
-        {
-            id: 6,
-            name: 'NutriBoost Complete',
-            category: 'Crop Nutrition',
-            price: '₹650/kg',
-            image: 'https://m.media-amazon.com/images/I/51YWrJ4IvTL._UF1000,1000_QL80_.jpg',
-            description: 'Complete micronutrient mixture for addressing nutrient deficiencies in all crops.',
-            features: ['Complete Nutrition', 'Chelated Form', 'Water Soluble', 'All Crops'],
-            crops: 'All crops',
-            dosage: '50-100 kg per acre',
-            benefits: [
-                'Complete nutrition package',
-                'Slow release formulation',
-                'Improves soil health',
-                'Increases crop yield'
-            ]
-        },
-        {
-            id: 7,
-            name: 'RootBoost Organic',
-            category: 'Bio-Stimulants',
-            price: '₹920/L',
-            image: 'https://m.media-amazon.com/images/I/51GuoxRpmxL._UF1000,1000_QL80_.jpg',
-            description: 'Organic bio-stimulant derived from seaweed extracts for enhanced root growth.',
-            features: ['Seaweed Extract', 'Organic Certified', 'Root Enhancement', 'Stress Recovery'],
-            crops: 'Tomato, Chilli, Brinjal, Okra',
-            dosage: '1.5-2 ml per liter of water',
-            benefits: [
-                'Natural growth hormones',
-                'Better fruit quality and size',
-                'Disease resistance',
-                'Early maturity'
-            ]
-        },
-        {
-            id: 8,
-            name: 'CropShield Copper',
-            category: 'Fungicides',
-            price: '₹680/kg',
-            image: 'https://5.imimg.com/data5/ANDROID/Default/2022/8/UP/HM/JR/69876506/product-jpeg-250x250.jpg',
-            description: 'Copper-based fungicide for bacterial and fungal disease control in fruits and vegetables.',
-            features: ['Copper Based', 'Bacterial Control', 'Preventive Action', 'Organic Compatible'],
-            crops: 'Fruits, Vegetables, Plantation crops',
-            dosage: '2-3 gm per liter of water',
-            benefits: [
-                'Broad spectrum disease control',
-                'Controls bacterial infections',
-                'Organic farming compatible',
-                'Long-lasting protection'
-            ]
-        },
-        {
-            id: 9,
-            name: 'BugStop Neem',
-            category: 'Insecticides',
-            price: '₹540/L',
-            image: 'https://5.imimg.com/data5/LB/MF/WZ/SELLER-24482169/bugstop-ultima-bed-bug-control-spray-500x500.jpg',
-            description: 'Neem-based organic insecticide for sustainable pest management in all crops.',
-            features: ['Neem Based', 'Organic Solution', 'Systemic Action', 'Safe for Beneficials'],
-            crops: 'All crops - vegetables, fruits, field crops',
-            dosage: '3-5 ml per liter of water',
-            benefits: [
-                '100% organic and safe',
-                'Controls wide range of pests',
-                'Systemic and contact action',
-                'Safe for beneficial insects'
-            ]
-        },
-        {
-            id: 10,
-            name: 'GrassOut Selective',
-            category: 'Herbicides',
-            price: '₹890/L',
-            image: 'https://tiimg.tistatic.com/fp/2/009/686/propaquizafop-10-ec-998.jpg',
-            description: 'Selective post-emergence herbicide for grass weed control in broadleaf crops.',
-            features: ['Grass Selective', 'Post Emergence', 'Crop Safe', 'Systemic Action'],
-            crops: 'Soybean, Cotton, Groundnut',
-            dosage: '400-600 ml per acre',
-            benefits: [
-                'Selective grass weed control',
-                'Safe on broadleaf crops',
-                'Systemic translocation',
-                'Long-lasting effect'
-            ]
-        },
-        {
-            id: 11,
-            name: 'FlowerSet Pro',
-            category: 'Plant Growth Regulators',
-            price: '₹1,800/L',
-            image: 'https://www.foodicine.co.in/images/products/amino-acid-fertilizer-bottle-front-250ml.jpg',
-            description: 'Specialized PGR for improved flower initiation and fruit set in horticultural crops.',
-            features: ['Flower Initiation', 'Fruit Set', 'Hormone Balance', 'Quality Improvement'],
-            crops: 'Tomato, Chilli, Mango, Citrus',
-            dosage: '0.5-1 ml per liter of water',
-            benefits: [
-                'Promotes flower initiation',
-                'Improves fruit setting',
-                'Reduces flower drop',
-                'Better fruit quality'
-            ]
-        },
-        {
-            id: 12,
-            name: 'MicroMax Chelated',
-            category: 'Crop Nutrition',
-            price: '₹780/kg',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrKGYzETm9HDdHll7sZF4QPlKMqJItZBjHzw&s',
-            description: 'Chelated micronutrient complex for correction of multiple nutrient deficiencies.',
-            features: ['Chelated Form', 'Multiple Nutrients', 'High Absorption', 'Foliar Application'],
-            crops: 'All crops',
-            dosage: '2-3 gm per liter of water',
-            benefits: [
-                'Complete micronutrient package',
-                'Chelated for better absorption',
-                'Corrects multiple deficiencies',
-                'Improves crop health'
-            ]
+
+    const fetchProducts = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get(`${API_URL}/product/getall`);
+            if (response.data?.success) {
+                const { data } = response.data;
+                setProducts(data || []);
+                // Extract categories dynamically
+                const uniqueCategories = ['All', ...new Set(data.map(p => p.categoryDetails.name))];
+                setCategories(uniqueCategories);
+            }
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to fetch products',
+                confirmButtonColor: '#dc2626'
+            });
+        } finally {
+            setLoading(false);
         }
-    ];
+    };
+    
+
+    useEffect(()=>{
+        fetchProducts();
+    }, [])
+
+
+
+
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: 'Bio-Growth Plus',
+    //         category: 'Bio-Stimulants',
+    //         price: '₹850/L',
+    //         image: 'https://5.imimg.com/data5/ANDROID/Default/2024/2/389669779/JY/BE/MY/125960068/product-jpeg-500x500.jpg',
+    //         description: 'Advanced bio-stimulant for enhanced root development and stress tolerance in all crops.',
+    //         features: ['Root Enhancement', 'Stress Tolerance', 'Organic Input', 'All Crops'],
+    //         crops: 'Rice, Wheat, Cotton, Vegetables',
+    //         dosage: '2-3 ml per liter of water',
+    //         benefits: [
+    //             'Promotes root development and nutrient uptake',
+    //             'Enhances flowering and fruit setting',
+    //             'Improves stress tolerance',
+    //             'Increases yield by 15-25%'
+    //         ]
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'FungiShield Pro',
+    //         category: 'Fungicides',
+    //         price: '₹1,200/L',
+    //         image: 'https://www.brewers.co.uk/uploads/1200/147610321966161670299685_1200.jpg?v=1476099619',
+    //         description: 'Systemic fungicide for broad-spectrum disease control in vegetables and field crops.',
+    //         features: ['Systemic Action', 'Broad Spectrum', 'Preventive & Curative', 'Long Duration'],
+    //         crops: 'Rice, Wheat, Maize, Sugarcane',
+    //         dosage: '2-3 gm per liter of water',
+    //         benefits: [
+    //             'Controls fungal diseases effectively',
+    //             'Systemic and contact action',
+    //             'Rainfast after 2 hours',
+    //             'Safe for beneficial insects'
+    //         ]
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'InsectGuard Max',
+    //         category: 'Insecticides',
+    //         price: '₹950/L',
+    //         image: 'https://www.insectshield.com/cdn/shop/products/Insect-Shield-Permethrin-Spray-Infographics2_aff30e71-93b5-4493-b00a-77c6cb457b13_720x.jpg?v=1745462585',
+    //         description: 'Effective insecticide for control of sucking and chewing pests in various crops.',
+    //         features: ['Dual Action', 'Quick Knockdown', 'Residual Control', 'IPM Compatible'],
+    //         crops: 'Cotton, Vegetables, Fruits',
+    //         dosage: '1-2 ml per liter of water',
+    //         benefits: [
+    //             'Controls sucking and chewing pests',
+    //             'Quick knockdown effect',
+    //             'Residual activity up to 15 days',
+    //             'Compatible with other pesticides'
+    //         ]
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'WeedClear Elite',
+    //         category: 'Herbicides',
+    //         price: '₹750/L',
+    //         image: 'https://cdn.shopify.com/s/files/1/0722/2059/files/elite-herbicide-file-3776.webp?v=1737468403',
+    //         description: 'Selective herbicide for effective weed control in cereal crops without crop damage.',
+    //         features: ['Selective Action', 'Post-Emergence', 'Crop Safe', 'Broad Leaf Weeds'],
+    //         crops: 'Rice, Wheat, Maize',
+    //         dosage: '500-750 ml per acre',
+    //         benefits: [
+    //             'Controls broadleaf and grassy weeds',
+    //             'Pre and post emergence activity',
+    //             'Safe for crops',
+    //             'Long lasting control'
+    //         ]
+    //     },
+    //     {
+    //         id: 5,
+    //         name: 'GrowthMax PGR',
+    //         category: 'Plant Growth Regulators',
+    //         price: '₹1,500/L',
+    //         image: 'https://farmmate.in/cdn/shop/collections/0281464401258e1c3a73e2705970e2e3.png?v=1704362254',
+    //         description: 'Plant growth regulator for improved fruit setting and uniform crop maturity.',
+    //         features: ['Fruit Setting', 'Uniform Growth', 'Quality Enhancement', 'Yield Booster'],
+    //         crops: 'Cotton, Sugarcane, Vegetables',
+    //         dosage: '1-2 ml per liter of water',
+    //         benefits: [
+    //             'Promotes vegetative growth',
+    //             'Increases fruit size',
+    //             'Improves quality parameters',
+    //             'Stress management'
+    //         ]
+    //     },
+    //     {
+    //         id: 6,
+    //         name: 'NutriBoost Complete',
+    //         category: 'Crop Nutrition',
+    //         price: '₹650/kg',
+    //         image: 'https://m.media-amazon.com/images/I/51YWrJ4IvTL._UF1000,1000_QL80_.jpg',
+    //         description: 'Complete micronutrient mixture for addressing nutrient deficiencies in all crops.',
+    //         features: ['Complete Nutrition', 'Chelated Form', 'Water Soluble', 'All Crops'],
+    //         crops: 'All crops',
+    //         dosage: '50-100 kg per acre',
+    //         benefits: [
+    //             'Complete nutrition package',
+    //             'Slow release formulation',
+    //             'Improves soil health',
+    //             'Increases crop yield'
+    //         ]
+    //     },
+    //     {
+    //         id: 7,
+    //         name: 'RootBoost Organic',
+    //         category: 'Bio-Stimulants',
+    //         price: '₹920/L',
+    //         image: 'https://m.media-amazon.com/images/I/51GuoxRpmxL._UF1000,1000_QL80_.jpg',
+    //         description: 'Organic bio-stimulant derived from seaweed extracts for enhanced root growth.',
+    //         features: ['Seaweed Extract', 'Organic Certified', 'Root Enhancement', 'Stress Recovery'],
+    //         crops: 'Tomato, Chilli, Brinjal, Okra',
+    //         dosage: '1.5-2 ml per liter of water',
+    //         benefits: [
+    //             'Natural growth hormones',
+    //             'Better fruit quality and size',
+    //             'Disease resistance',
+    //             'Early maturity'
+    //         ]
+    //     },
+    //     {
+    //         id: 8,
+    //         name: 'CropShield Copper',
+    //         category: 'Fungicides',
+    //         price: '₹680/kg',
+    //         image: 'https://5.imimg.com/data5/ANDROID/Default/2022/8/UP/HM/JR/69876506/product-jpeg-250x250.jpg',
+    //         description: 'Copper-based fungicide for bacterial and fungal disease control in fruits and vegetables.',
+    //         features: ['Copper Based', 'Bacterial Control', 'Preventive Action', 'Organic Compatible'],
+    //         crops: 'Fruits, Vegetables, Plantation crops',
+    //         dosage: '2-3 gm per liter of water',
+    //         benefits: [
+    //             'Broad spectrum disease control',
+    //             'Controls bacterial infections',
+    //             'Organic farming compatible',
+    //             'Long-lasting protection'
+    //         ]
+    //     },
+    //     {
+    //         id: 9,
+    //         name: 'BugStop Neem',
+    //         category: 'Insecticides',
+    //         price: '₹540/L',
+    //         image: 'https://5.imimg.com/data5/LB/MF/WZ/SELLER-24482169/bugstop-ultima-bed-bug-control-spray-500x500.jpg',
+    //         description: 'Neem-based organic insecticide for sustainable pest management in all crops.',
+    //         features: ['Neem Based', 'Organic Solution', 'Systemic Action', 'Safe for Beneficials'],
+    //         crops: 'All crops - vegetables, fruits, field crops',
+    //         dosage: '3-5 ml per liter of water',
+    //         benefits: [
+    //             '100% organic and safe',
+    //             'Controls wide range of pests',
+    //             'Systemic and contact action',
+    //             'Safe for beneficial insects'
+    //         ]
+    //     },
+    //     {
+    //         id: 10,
+    //         name: 'GrassOut Selective',
+    //         category: 'Herbicides',
+    //         price: '₹890/L',
+    //         image: 'https://tiimg.tistatic.com/fp/2/009/686/propaquizafop-10-ec-998.jpg',
+    //         description: 'Selective post-emergence herbicide for grass weed control in broadleaf crops.',
+    //         features: ['Grass Selective', 'Post Emergence', 'Crop Safe', 'Systemic Action'],
+    //         crops: 'Soybean, Cotton, Groundnut',
+    //         dosage: '400-600 ml per acre',
+    //         benefits: [
+    //             'Selective grass weed control',
+    //             'Safe on broadleaf crops',
+    //             'Systemic translocation',
+    //             'Long-lasting effect'
+    //         ]
+    //     },
+    //     {
+    //         id: 11,
+    //         name: 'FlowerSet Pro',
+    //         category: 'Plant Growth Regulators',
+    //         price: '₹1,800/L',
+    //         image: 'https://www.foodicine.co.in/images/products/amino-acid-fertilizer-bottle-front-250ml.jpg',
+    //         description: 'Specialized PGR for improved flower initiation and fruit set in horticultural crops.',
+    //         features: ['Flower Initiation', 'Fruit Set', 'Hormone Balance', 'Quality Improvement'],
+    //         crops: 'Tomato, Chilli, Mango, Citrus',
+    //         dosage: '0.5-1 ml per liter of water',
+    //         benefits: [
+    //             'Promotes flower initiation',
+    //             'Improves fruit setting',
+    //             'Reduces flower drop',
+    //             'Better fruit quality'
+    //         ]
+    //     },
+    //     {
+    //         id: 12,
+    //         name: 'MicroMax Chelated',
+    //         category: 'Crop Nutrition',
+    //         price: '₹780/kg',
+    //         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrKGYzETm9HDdHll7sZF4QPlKMqJItZBjHzw&s',
+    //         description: 'Chelated micronutrient complex for correction of multiple nutrient deficiencies.',
+    //         features: ['Chelated Form', 'Multiple Nutrients', 'High Absorption', 'Foliar Application'],
+    //         crops: 'All crops',
+    //         dosage: '2-3 gm per liter of water',
+    //         benefits: [
+    //             'Complete micronutrient package',
+    //             'Chelated for better absorption',
+    //             'Corrects multiple deficiencies',
+    //             'Improves crop health'
+    //         ]
+    //     }
+    // ];
+
+    console.log("products---",products)
 
     const filteredProducts = activeCategory === 'All'
-        ? products
-        : products.filter(product => product.category === activeCategory);
+    ? products
+    : products.filter(product => product.categoryDetails?.name === activeCategory);
+
 
     const openModal = (product) => {
         setSelectedProduct(product);
@@ -484,7 +530,7 @@ const Products = () => {
                                     </div>
                                     <div className="absolute top-4 right-4">
                                         <span className="bg-white text-green-600 px-4 py-2 rounded-full text-lg font-bold shadow-lg">
-                                            {selectedProduct.price}
+                                        ₹{selectedProduct.price}
                                         </span>
                                     </div>
                                 </div>

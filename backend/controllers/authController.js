@@ -1,231 +1,167 @@
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const { User } = require('../models');
-const { Op } = require('sequelize');
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { Op } = require("sequelize");
+const db = require("../models");
+const Admin = db.Admin;
 
-// Generate JWT token
+// ✅ Generate JWT Token
 const generateToken = (id) => {
-  const secret = process.env.JWT_SECRET || 'agrifort_default_secret_key_2024_development';
+  const secret =
+    process.env.JWT_SECRET ||
+    "agrifort_admin_secret_key_2024_development";
   return jwt.sign({ id }, secret, {
-    expiresIn: process.env.JWT_EXPIRES_IN || '7d',
-  });
+    expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+  }); 
 };
 
-// @desc    Register user
-// @route   POST /api/auth/register
-// @access  Public
-const register = async (req, res) => {
+// ✅ Admin Registration
+// @route   POST /api/admin/register
+// @access  Public (you can protect it later)
+const registerAdmin = async (req, res) => {
   try {
-    const data = req.body;
+    const { name, email, role, mobileNo, password } = req.body;
 
-    // Check if user already exists
-    const existingUser = await User.findOne({
-      where: {
-        [Op.or]: [{ email: data.email }, { username: data.username }],
-      },
+    // Check if admin already exists
+    const existingAdmin = await Admin.findOne({
+      where: { [Op.or]: [{ email }, { mobileNo }] },
     });
 
-    if (existingUser) {
+    if (existingAdmin) {
       return res.status(400).json({
         success: false,
-        message: 'User with this email or username already exists',
+        message: "Admin with this email or mobile number already exists",
       });
     }
 
-    // Create user
-    const user = await User.create(data);
+    // Encrypt password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create admin
+    const admin = await Admin.create({
+      name,
+      email,
+      role,
+      mobileNo,
+      password: hashedPassword,
+    });
 
     // Generate token
-    const token = generateToken(user.id);
+    const token = generateToken(admin.id);
 
     res.status(201).json({
       success: true,
-      message: 'User registered successfully',
+      message: "Admin registered successfully",
       data: {
-        user,
+        admin: {
+          id: admin.id,
+          name: admin.name,
+          email: admin.email,
+          role: admin.role,
+          mobileNo: admin.mobileNo,
+        },
         token,
       },
     });
   } catch (error) {
-    console.error('Register error:', error);
+    console.error("Admin Register Error:", error);
     res.status(500).json({
       success: false,
-      message: 'Server error during registration',
+      message: "Server error during admin registration",
     });
   }
 };
 
-// @desc    Login user
-// @route   POST /api/auth/login
+// ✅ Admin Login
+// @route   POST /api/admin/login
 // @access  Public
-const login = async (req, res) => {
+const loginAdmin = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    // Check if user exists and is active
-    const user = await User.findOne({
-      where: {
-        [Op.or]: [{ email: username }, { username }],
-        is_active: true,
-      },
-    });
-
-    if (!user) {
+    // Find admin by email
+    const admin = await Admin.findOne({ where: { email } });
+    if (!admin) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials',
+        message: "Invalid email or password",
       });
     }
 
-    // Check password
-    const isPasswordValid = await user.comparePassword(password);
+    // Compare password (decrypt)
+    const isPasswordValid = await bcrypt.compare(password, admin.password);
     if (!isPasswordValid) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials',
+        message: "Invalid email or password",
       });
     }
 
-    // Update last login
-    await user.update({ last_login: new Date() });
+    // Generate JWT
+    const token = generateToken(admin.id);
 
-    // Generate token
-    const token = generateToken(user.id);
-
-    res.json({
+    res.status(200).json({
       success: true,
-      message: 'Login successful',
+      message: "Admin logged in successfully",
       data: {
-        user,
-        token,
+        user:{
+          id: admin.id,
+          name: admin.name,
+          email: admin.email,
+          role: 'admin',
+          mobileNo: admin.mobileNo,
+        },
+          token,
       },
     });
   } catch (error) {
-    console.error('Login error:', error);
+    console.error("Admin Login Error:", error);
     res.status(500).json({
       success: false,
-      message: 'Server error during login',
+      message: "Server error during admin login",
     });
   }
 };
 
-// @desc    Get current user
-// @route   GET /api/auth/me
+// ✅ Get Current Admin
+// @route   GET /api/admin/me
 // @access  Private
-const getMe = async (req, res) => {
+const getAdminProfile = async (req, res) => {
   try {
-    const user = await User.findByPk(req.user.id);
-    res.json({
-      success: true,
-      data: { user },
+    const admin = await Admin.findByPk(req.admin.id, {
+      attributes: ["id", "name", "email", "role", "mobileNo", "createdAt"],
     });
-  } catch (error) {
-    console.error('Get me error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Server error',
-    });
-  }
-};
 
-// @desc    Update user profile
-// @route   PUT /api/auth/profile
-// @access  Private
-const updateProfile = async (req, res) => {
-  try {
-    const { first_name, last_name, phone, address, city, state, country, postal_code } = req.body;
-
-    const user = await User.findByPk(req.user.id);
-    if (!user) {
+    if (!admin) {
       return res.status(404).json({
         success: false,
-        message: 'User not found',
+        message: "Admin not found",
       });
     }
 
-    // Update user
-    await user.update({
-      first_name: first_name || user.first_name,
-      last_name: last_name || user.last_name,
-      phone: phone || user.phone,
-      address: address || user.address,
-      city: city || user.city,
-      state: state || user.state,
-      country: country || user.country,
-      postal_code: postal_code || user.postal_code,
-    });
-
-    res.json({
+    res.status(200).json({
       success: true,
-      message: 'Profile updated successfully',
-      data: { user },
+      data: admin,
     });
   } catch (error) {
-    console.error('Update profile error:', error);
+    console.error("Get Admin Profile Error:", error);
     res.status(500).json({
       success: false,
-      message: 'Server error during profile update',
+      message: "Server error",
     });
   }
 };
 
-// @desc    Change password
-// @route   PUT /api/auth/change-password
-// @access  Private
-const changePassword = async (req, res) => {
-  try {
-    const { currentPassword, newPassword } = req.body;
-
-    const user = await User.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found',
-      });
-    }
-
-    // Check current password
-    const isCurrentPasswordValid = await user.comparePassword(currentPassword);
-    if (!isCurrentPasswordValid) {
-      return res.status(400).json({
-        success: false,
-        message: 'Current password is incorrect',
-      });
-    }
-
-    // Update password
-    await user.update({ password: newPassword });
-
-    res.json({
-      success: true,
-      message: 'Password changed successfully',
-    });
-  } catch (error) {
-    console.error('Change password error:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Server error during password change',
-    });
-  }
-};
-
-// @desc    Logout user (client-side token removal)
-// @route   POST /api/auth/logout
-// @access  Private
-const logout = async (req, res) => {
-  // Since we're using stateless JWT, logout is handled on the client side
-  // This endpoint is mainly for consistency and potential future blacklisting
+// ✅ Logout Admin (client-side JWT removal)
+const logoutAdmin = async (req, res) => {
   res.json({
     success: true,
-    message: 'Logout successful',
+    message: "Logout successful (client-side token removed)",
   });
 };
 
 module.exports = {
-  register,
-  login,
-  getMe,
-  updateProfile,
-  changePassword,
-  logout,
+  registerAdmin,
+  loginAdmin,
+  getAdminProfile,
+  logoutAdmin,
 };

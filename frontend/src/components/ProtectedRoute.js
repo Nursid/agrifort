@@ -12,6 +12,8 @@ const ProtectedRoute = ({ component: Component, allowedRoles, redirectTo = "/log
         );
     }
 
+    console.log(isAuthenticated, allowedRoles)
+
     return (
         <Route
             {...rest}

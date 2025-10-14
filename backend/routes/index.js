@@ -3,15 +3,11 @@ const router = express.Router();
 
 // Import route modules
 const authRoutes = require('./auth');
-const userRoutes = require('./users');
-const cropRoutes = require('./crops');
-const distributorRoutes = require('./distributor');
-
+const farmerRoutes = require('./farmer');
+const productRoutes = require('./product')
 // API Routes
 router.use('/auth', authRoutes);
-router.use('/users', userRoutes);
-router.use('/distributor', distributorRoutes);
-router.use('/crops', cropRoutes);
-
+router.use('/farmer', farmerRoutes);
+router.use('/product', productRoutes);
 
 module.exports = router;

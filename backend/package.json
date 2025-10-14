@@ -2,37 +2,46 @@
   "name": "agriculture-dashboard-backend",
   "version": "1.0.0",
   "description": "Backend API for Agriculture Dashboard with multi-role authentication",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "dev": "node server.js",
+    "start": "nodemon index.js",
+    "dev": "node index.js",
     "test": "jest",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all",
     "db:reset": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
-  "keywords": ["agriculture", "dashboard", "api", "nodejs", "mysql", "sequelize"],
+  "keywords": [
+    "agriculture",
+    "dashboard",
+    "api",
+    "nodejs",
+    "mysql",
+    "sequelize"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "mysql2": "^3.6.3",
-    "sequelize": "^6.35.1",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
+    "compression": "^1.7.4",
+    "cookie-session": "^2.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "helmet": "^7.1.0",
+    "express": "^4.18.2",
     "express-rate-limit": "^7.1.5",
     "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "compression": "^1.7.4"
+    "mysql2": "^3.6.3",
+    "passport": "^0.7.0",
+    "sequelize": "^6.35.1"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.0.2",
     "sequelize-cli": "^6.6.2",
-    "jest": "^29.7.0",
     "supertest": "^6.3.3"
   },
   "engines": {

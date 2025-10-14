@@ -28,13 +28,15 @@ const ManageUsers = () => {
                 role: roleFilter !== 'all' ? roleFilter : undefined
             };
 
-            const response = await axios.get(`${API_URL}/users`, { params });
-            
-            if (response.data.success) {
-                setUsers(response.data.data.users);
-                setTotalPages(response.data.data.pagination.total_pages);
-                setTotalCount(response.data.data.pagination.total_count);
+            const response = await axios.get(`${API_URL}/farmer/getall`, { params });
+            console.log("response====",response)
+            if (response.data?.success) {
+                const { data, pagination } = response.data;
+                setUsers(data || []);
+                setTotalPages(pagination?.total_pages || 1);
+                setTotalCount(pagination?.total_count || 0);
             }
+            
         } catch (error) {
             console.error('Error fetching users:', error);
             Swal.fire({
@@ -169,6 +171,8 @@ const ManageUsers = () => {
             : 'bg-red-100 text-red-800';
     };
 
+    console.log("---",users)
+
     return (
         <div className="p-6">
             {/* Header */}
@@ -192,40 +196,6 @@ const ManageUsers = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
-            {/* <div className="row mb-6">
-                <div className="col-md-3 col-sm-6 col-12 mb-4">
-                    <div className="bg-white p-4 rounded-lg shadow">
-                        <div className="text-2xl font-bold text-gray-900">{totalCount}</div>
-                        <div className="text-sm text-gray-600">Total Users</div>
-                    </div>
-                </div>
-                <div className="col-md-3 col-sm-6 col-12 mb-4">
-                    <div className="bg-white p-4 rounded-lg shadow">
-                        <div className="text-2xl font-bold text-green-600">
-                            {users.filter(user => user.role === 'farmer').length}
-                        </div>
-                        <div className="text-sm text-gray-600">Farmers</div>
-                    </div>
-                </div>
-                <div className="col-md-3 col-sm-6 col-12 mb-4">
-                    <div className="bg-white p-4 rounded-lg shadow">
-                        <div className="text-2xl font-bold text-blue-600">
-                            {users.filter(user => user.role === 'distributor').length}
-                        </div>
-                        <div className="text-sm text-gray-600">Distributors</div>
-                    </div>
-                </div>
-                <div className="col-md-3 col-sm-6 col-12 mb-4">
-                    <div className="bg-white p-4 rounded-lg shadow">
-                        <div className="text-2xl font-bold text-purple-600">
-                            {users.filter(user => user.role === 'dealer').length}
-                        </div>
-                        <div className="text-sm text-gray-600">Dealers</div>
-                    </div>
-                </div>
-            </div> */}
-
             {/* Users Table */}
             <div className="bg-white rounded-lg shadow overflow-hidden">
                 {loading ? (
@@ -245,9 +215,6 @@ const ManageUsers = () => {
                                             Contact
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Role
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Status
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -260,7 +227,6 @@ const ManageUsers = () => {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {users.map((user) => (
-                                        user.role === 'farmer' && (
                                         <tr key={user.id} className="hover:bg-gray-50">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div>
@@ -275,11 +241,6 @@ const ManageUsers = () => {
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm text-gray-900">{user.email}</div>
                                                 <div className="text-sm text-gray-500">{user.phone}</div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getRoleBadgeColor(user.role)}`}>
-                                                    {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
-                                                </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusBadgeColor(user.is_active)}`}>
@@ -312,7 +273,6 @@ const ManageUsers = () => {
                                                 </div>
                                             </td>
                                         </tr>
-                                        )
                                     ))}
                                 </tbody>
                             </table>
