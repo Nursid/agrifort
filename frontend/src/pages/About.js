@@ -97,7 +97,6 @@ const About = () => {
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             <Navbar />
            <BreadCrumb
-           
            title="About Us"
            bgImage={team}/>
             {/* Hero Banner Section */}
