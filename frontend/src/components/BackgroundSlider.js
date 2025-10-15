@@ -7,14 +7,21 @@ const BackgroundSlider = ({ children }) => {
     const backgroundImages = [
         {
             id: 1,
-            image: '/images/backgrounds/img1.jpg',
+            image: '/images/backgrounds/img1.png',
             fallbackGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #92400e 100%)',
             title: 'Golden Rice Terraces',
             description: 'Traditional farming meets modern innovation'
         },
         {
-            id: 2,
-            image: '/images/backgrounds/img2.jpg',
+            id: 2,  
+            image: '/images/backgrounds/img2.png',
+            fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
+            title: 'Vast Agricultural Fields',
+            description: 'Sustainable farming practices for the future'
+        },
+        {
+            id: 3,  
+            image: '/images/backgrounds/img3.png',
             fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
             title: 'Vast Agricultural Fields',
             description: 'Sustainable farming practices for the future'
@@ -31,7 +38,7 @@ const BackgroundSlider = ({ children }) => {
     }, [backgroundImages.length]);
 
     return (
-        <div className="relative w-full h-full overflow-hidden">
+        <div className="relative w-full overflow-hidden" style={{height: '75vh'}}>
             {/* Background Slides */}
             <div className="absolute inset-0">
                 {backgroundImages.map((slide, index) => (

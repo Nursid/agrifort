@@ -32,30 +32,24 @@ const LandingPage = () => {
 
 
             {/* Hero Section with Animated Background Slider */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative flex items-center justify-center overflow-hidden">
                 <BackgroundSlider>
                     {/* Main Content Container */}
-                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen py-20">
-                        
+                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-20">
                         {/* Content Overlay */}
                         <div className="container mx-auto">
                             <div className="row flex items-center justify-center">
-                                <div className="col-xl-7 lg:w-2/3 w-full">
                                     <div className="content text-center lg:text-left">
-                                        
                                         {/* Subtitle */}
-                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-green-400 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
+                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-white mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
                                             style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
                                         >
                                             Welcome To
                                         </p>
-
                                         {/* Main Title */}
-                                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight opacity-0 animate-zoom-in text-shadow-hero"
-                                            style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}
-                                        >
-                                            <strong className="block gradient-text-animated">AgriFort Technologies</strong>
-                                        </h2>
+                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-red-500 pr-2">
+                                            AgriFort Technologies
+                                            </h1>
 
                                         {/* Description */}
                                         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
@@ -90,8 +84,7 @@ const LandingPage = () => {
                                                 Learn About Us
                                             </a>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> 
                             </div>
                         </div>
                     </div>

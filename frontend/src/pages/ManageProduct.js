@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_URL } from '../config';
+import { API_URL, IMG_URL } from '../config';
 import Swal from 'sweetalert2';
 import CreateProductModal from 'components/Product/CreateProductModal';
 
@@ -155,6 +155,7 @@ const ManageProducts = () => {
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Product</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Image</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                                     </tr>
@@ -163,8 +164,12 @@ const ManageProducts = () => {
                                     {products.map((product) => (
                                         <tr key={product.id} className="hover:bg-gray-50">
                                             <td className="px-6 py-4 text-sm text-gray-900">{product.name}</td>
-                                            <td className="px-6 py-4 text-sm text-gray-500">{product.categoryDetails.name}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-500">{product.categoryDetails?.name}</td>
                                             <td className="px-6 py-4 text-sm text-gray-500">₹{product.price}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-500">
+                                                <img src={IMG_URL+product.image} className='h-20 w-20'/>
+                                            
+                                            </td>
                                             <td className="px-6 py-4 text-sm text-gray-500">
                                                 {formatDate(product.createdAt)}
                                             </td>

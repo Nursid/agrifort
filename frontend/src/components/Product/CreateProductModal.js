@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { API_URL } from "../../config";
+import { API_URL, IMG_URL } from "../../config";
 
 const CreateProductModal = ({ product, onClose, onSuccess }) => {
   const isEditing = !!product;
@@ -88,7 +88,6 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
     try {
 
       const formDataToSend = new FormData();
-
       // append normal fields
       Object.keys(formData).forEach((key) => {
         if (Array.isArray(formData[key])) {
@@ -99,27 +98,29 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
           formDataToSend.append(key, formData[key]);
         }
       });
-
       // append image file if available
       if (imageFile) {
         formDataToSend.append("image", imageFile);
       }
-      for (let [key, value] of formDataToSend.entries()) {
-        console.log(`${key}:`, value);
-      }
-
+      
       let response;
-      if (isEditing) {
-        response = await axios.put(
-          `${API_URL}/product/${product.id}`,
-          formData
-        );
-      } else {
-        response = await axios.post(`${API_URL}/product/add`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      }
-
+        if (isEditing) {
+          response = await axios.put(
+            `${API_URL}/product/${product.id}`,
+            formDataToSend,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        } else {
+          response = await axios.post(
+            `${API_URL}/product/add`,
+            formDataToSend,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        }
       if (response.data.success) {
         Swal.fire({
           icon: "success",
@@ -148,8 +149,6 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
       setIsSubmitting(false);
     }
   };
-
-  console.log("formData----",formData)
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -281,7 +280,7 @@ const CreateProductModal = ({ product, onClose, onSuccess }) => {
               />
               {formData.image && !imageFile && (
                 <img
-                  src={formData.image}
+                  src={IMG_URL+ formData.image}
                   alt="Preview"
                   className="mt-2 h-20 w-20 object-cover rounded-md border"
                 />

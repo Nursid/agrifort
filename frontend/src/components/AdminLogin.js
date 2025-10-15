@@ -7,6 +7,8 @@ import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import H4 from '@material-tailwind/react/Heading4';
+import Navbar from 'pages/Navbar';
+import Footer from './Footer';
 
 const AdminLogin = () => {
     const [username, setUsername] = useState('');
@@ -65,7 +67,11 @@ const AdminLogin = () => {
     const selectedRoleOption = roleOptions.find(option => option.value === selectedRole);
 
     return (
+        <>
+         <Navbar />
+    
         <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+           
             <div className="max-w-md w-full space-y-8">
                 <Card>
                     <CardHeader color="lightBlue" contentPosition="none">
@@ -155,6 +161,8 @@ const AdminLogin = () => {
                 </Card>
             </div>
         </div>
+        <Footer />
+        </>
     );
 };
 

@@ -1,157 +1,251 @@
 import { useState } from 'react';
-import { useAuth } from 'contexts/AuthContext';
-import { Link } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
+import { Search, ShoppingCart, Heart, User, Package, ChevronDown, Menu, X } from 'lucide-react';
+import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
-    const navigationItems = [
+    const [darkMode, setDarkMode] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [language, setLanguage] = useState('English');
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+    const history = useHistory();
+
+    const mainCategories = [
         { name: 'Home', href: '/' },
-        { 
-            name: 'About', href: '/about',
-            submenu:[
-                {name:'Profile',href:'/about/profile'},
-                {name:'History & Values', href:'/about/history'}
-            ]
-        
-        },
-        { name: 'Products', href: '/products' },
-        { name: 'OurTeam', href: '/ourteam' },
-        { name: 'Contact', href: '/contact' },
-        {name:'Life At Agrifort', href :'/lifeAtAgrifort'}
+        { name: 'About Us', href: '/about' },
+        { name: 'Our Team', href: '/ourteam' },
+        { name: 'Our Product', href: '/products' },
+        { name: 'Contact Us', href: '/contact' },
+        { name: 'Life@Agrifort', href: '/lifeAtAgrifort' },
     ];
+
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
         document.documentElement.classList.toggle('dark');
     };
-    const [darkMode, setDarkMode] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    
+
+    const handleSearch = () => {
+        console.log('Searching for:', searchQuery);
+    };
+
+    const handleNavigation = (href) => {
+        console.log('Navigate to:', href);
+        setMobileMenuOpen(false);
+    };
+
     return (
-         <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md border-b-2 border-green-500">
-    <div className="w-full px-4 sm:px-6">
-        <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <div className="flex items-center hover:scale-105 transition-transform duration-200">
-                <img 
-                    src="/images/logo/logo.jpeg" 
-                    alt="AgriFort Technologies" 
-                    className="h-16 w-auto object-contain"
-                />
+        <div className="sticky top-0 z-50">
+            {/* Top Bar */}
+            <div className="bg-green-800 text-white">
+                <div className="w-full flex justify-end items-center gap-6 text-sm bg-green-600">
+                    <button onClick={() => handleNavigation('/sell')} className="hover:text-gray-200 transition-colors">
+                        Sell on AgriFort
+                    </button>
+                    <button onClick={() => handleNavigation('/bulk-orders')} className="hover:text-gray-200 transition-colors">
+                        Bulk Order Inquiries
+                    </button>
+                    <button onClick={() => handleNavigation('/corporate')} className="hover:text-gray-200 transition-colors">
+                        Corporate Site
+                    </button>
+                    <div className="bg-orange-500 hover:bg-orange-600 px-4 py-1 rounded transition-colors cursor-pointer font-semibold">
+                        Missed Call To Order: 1800-3000-2434
+                    </div>
+                </div>
             </div>
 
-            <div className="hidden md:flex space-x-8">
-  {navigationItems.map((item) => (
-    <div key={item.name} className="relative group">
-      <Link
-        to={item.href}
-        className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-all duration-300"
-      >
-        {item.name}
-      </Link>
-
-      {/* Dropdown */}
-      {item.submenu && (
-        <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 
-                        opacity-0 group-hover:opacity-100 invisible group-hover:visible 
-                        transition-all duration-300 z-50">
-          <ul className="py-2">
-            {item.submenu.map((subItem) => (
-              <li key={subItem.name}>
-                <Link
-                  to={subItem.href}
-                  className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-gray-700 hover:text-green-600"
-                >
-                  {subItem.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  ))}
-</div>
-
-
-            {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
-                {/* Dark Mode Toggle */}
-                <button
-                    onClick={toggleDarkMode}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110 active:scale-95"
-                >
-                    {darkMode ? '☀️' : '🌙'}
-                </button>
-
-                {/* Login Button - Desktop */}
-                <div className="hidden md:flex items-center">
-                    <Link to="/admin/login" className="ml-2">
-                        <div className="hover:scale-105 transition-transform duration-200 active:scale-95">
-                            <Button
-                                color="green"
-                                buttonType="outlined"
-                                size="regular"
-                                ripple="light"
-                                className="transition-all duration-200 hover:shadow-lg border-green-500 text-green-600 hover:bg-green-50"
+            {/* Main Navigation Bar */}
+            <nav className="bg-white dark:bg-gray-900 shadow-md">
+                <div className="w-full px-4">
+                    <div className="flex justify-between items-center py-3">
+                        {/* Logo */}
+                        <button onClick={() => handleNavigation('/')} className="flex items-center hover:scale-105 transition-transform duration-200">
+                            <img 
+                                src="/images/logo/logo.jpeg" 
+                                alt="AgriFort Technologies" 
+                                className="h-14 w-auto object-contain"
+                            />
+                        </button>
+                        <div className="hidden lg:flex items-center justify-center border-gray-200 dark:border-gray-700 py-3 overflow-x-auto hover:bg-green-400 gap-4">
+                        {mainCategories.map((category) => (
+                            <button
+                                key={category.name}
+                                onClick={() => history.push(category.href)}
+                                className="text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 font-medium text-sm whitespace-nowrap px-2 transition-colors hover:bg-green-500 p-2 hover:text-white"
                             >
-                                Login
-                            </Button>
+                                {category.name}
+                            </button>
+                        ))}
+                    </div>
+
+                        {/* Search Bar */}
+                        {/* <div className="hidden md:flex flex-1 max-w-2xl mx-8">
+                            <div className="w-full flex">
+                                <input
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                                    placeholder="Search products..."
+                                    className="w-full px-4 py-2 border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-orange-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+                                />
+                                <button
+                                    onClick={handleSearch}
+                                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-r-lg transition-colors flex items-center justify-center"
+                                >
+                                    <Search className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div> */}
+
+                        {/* Right Side Actions */}
+                        <div className="flex items-center gap-4">
+                            {/* Language Selector */}
+                            <div className="relative hidden md:block">
+                                <button
+                                    onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                                    className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-gray-300 hover:border-orange-500 transition-colors dark:border-gray-600 dark:text-white"
+                                >
+                                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                        🌐
+                                    </div>
+                                    <span className="text-sm">{language}</span>
+                                    <ChevronDown className="w-4 h-4" />
+                                </button>
+                                {showLanguageDropdown && (
+                                    <div className="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-32">
+                                        <button
+                                            onClick={() => {
+                                                setLanguage('English');
+                                                setShowLanguageDropdown(false);
+                                            }}
+                                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
+                                        >
+                                            English
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setLanguage('हिंदी');
+                                                setShowLanguageDropdown(false);
+                                            }}
+                                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
+                                        >
+                                            हिंदी
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Track Order */}
+                            <button onClick={() => handleNavigation('/track-order')} className="hidden md:flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors">
+                                <Package className="w-5 h-5" />
+                                <span className="text-sm">Track Order</span>
+                            </button>
+
+                            {/* Wishlist */}
+                            <button onClick={() => handleNavigation('/wishlist')} className="hidden md:flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors">
+                                <Heart className="w-5 h-5" />
+                                <span className="text-sm">Wishlist</span>
+                            </button>
+
+                            {/* Login */}
+                            <button onClick={() => history.push('/admin/login')} className="hidden md:flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors">
+                                <User className="w-5 h-5" />
+                                <span className="text-sm">Login</span>
+                            </button>
+
+                            {/* Cart */}
+                            <button onClick={() => handleNavigation('/cart')} className="hidden md:flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors">
+                                <ShoppingCart className="w-5 h-5" />
+                                <span className="text-sm">Cart</span>
+                            </button>
+
+                            {/* Dark Mode Toggle */}
+                            {/* <button
+                                onClick={toggleDarkMode}
+                                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+                            >
+                                {darkMode ? '☀️' : '🌙'}
+                            </button> */}
+
+                            {/* Mobile Menu Toggle */}
+                            <button
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+                                aria-label="Toggle menu"
+                            >
+                                {mobileMenuOpen ? (
+                                    <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                                ) : (
+                                    <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                                )}
+                            </button>
                         </div>
-                    </Link>
+                    </div>
+
+                    {/* Category Navigation */}
+                    {/* <div className="hidden lg:flex items-center justify-center border-t border-gray-200 dark:border-gray-700 py-3 overflow-x-auto hover:bg-green-400 gap-4">
+                        {mainCategories.map((category) => (
+                            <button
+                                key={category.name}
+                                onClick={() => history.push(category.href)}
+                                className="text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 font-medium text-sm whitespace-nowrap px-2 transition-colors hover:bg-green-500 p-2 hover:text-white"
+                            >
+                                {category.name}
+                            </button>
+                        ))}
+                    </div> */}
                 </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
-                    aria-label="Toggle menu"
-                >
-                    <svg
-                        className="w-6 h-6 text-gray-700 dark:text-gray-300"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        {mobileMenuOpen ? (
-                            <path d="M6 18L18 6M6 6l12 12" />
-                        ) : (
-                            <path d="M4 6h16M4 12h16M4 18h16" />
-                        )}
-                    </svg>
-                </button>
-            </div>
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden border-t border-gray-200 dark:border-gray-700">
+                        <div className="py-4 space-y-2 px-4">
+                            {mainCategories.map((category) => (
+                                <button
+                                    key={category.name}
+                                    onClick={() => handleNavigation(category.href)}
+                                    className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-orange-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-all duration-200"
+                                >
+                                    {category.name}
+                                </button>
+                            ))}
+                            
+                            {/* Mobile Action Items */}
+                            <div className="pt-4 border-t border-gray-200 dark:border-gray-700 space-y-2">
+                                <button
+                                    onClick={() => handleNavigation('/track-order')}
+                                    className="flex items-center gap-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                >
+                                    <Package className="w-5 h-5" />
+                                    <span>Track Order</span>
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation('/wishlist')}
+                                    className="flex items-center gap-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                >
+                                    <Heart className="w-5 h-5" />
+                                    <span>Wishlist</span>
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation('/admin/login')}
+                                    className="flex items-center gap-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                >
+                                    <User className="w-5 h-5" />
+                                    <span>Login</span>
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation('/cart')}
+                                    className="flex items-center gap-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                >
+                                    <ShoppingCart className="w-5 h-5" />
+                                    <span>Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </nav>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-            <div className="md:hidden animate-slideDown">
-                <div className="py-4 space-y-3 border-t border-green-500/20 dark:border-green-400/20">
-                    {navigationItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            to={item.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-gray-800 rounded-lg font-semibold transition-all duration-200"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    {/* Mobile Login Button */}
-                    <Link
-                        to="/admin/login"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block px-4 py-2 mx-4 text-center text-green-600 dark:text-green-400 border-2 border-green-500 rounded-lg font-semibold hover:bg-green-50 dark:hover:bg-gray-800 transition-all duration-200"
-                    >
-                        Login
-                    </Link>
-                </div>
-            </div>
-        )}
-    </div>
-</nav>
     );
 };
 

@@ -9,6 +9,7 @@ import team from '../assets/emp/crop.jpg'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { API_URL } from 'config';
+import { IMG_URL } from 'config';
 
 const Products = () => {
     const [activeCategory, setActiveCategory] = useState('All');
@@ -276,7 +277,6 @@ const Products = () => {
     //     }
     // ];
 
-    console.log("products---",products)
 
     const filteredProducts = activeCategory === 'All'
     ? products
@@ -314,13 +314,6 @@ const Products = () => {
                                     src="https://images.pexels.com/photos/265216/pexels-photo-265216.jpeg?auto=compress&cs=tinysrgb&w=800"
                                     alt="Agricultural Products"
                                     className="w-full h-96 object-cover"
-                                    onError={(e) => {
-                                        e.target.style.display = 'none';
-                                        e.target.parentElement.style.background = 'linear-gradient(135deg, #059669 0%, #047857 100%)';
-                                        e.target.parentElement.style.display = 'flex';
-                                        e.target.parentElement.style.alignItems = 'center';
-                                        e.target.parentElement.style.justifyContent = 'center';
-                                    }}
                                 />
                                 {/* Decorative Icon */}
                                 <div className="absolute -bottom-6 -right-6">
@@ -388,7 +381,7 @@ const Products = () => {
                     {/* Category Filter Buttons */}
                     <div className="flex justify-center mb-12 overflow-x-auto" data-aos="fade-up" data-aos-delay="100">
                         <div className="bg-white rounded-full p-2 shadow-lg inline-flex gap-2 flex-wrap justify-center">
-                            {categories.map((category) => (
+                            {categories?.map((category) => (
                                 <button
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
@@ -417,23 +410,20 @@ const Products = () => {
                                 {/* Product Image */}
                                 <div className="relative overflow-hidden">
                                     <img
-                                        src={product.image}
+                                        src={IMG_URL + product.image}
                                         alt={product.name}
                                         className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                                        onError={(e) => {
-                                            e.target.src = '/images/products/placeholder.jpg';
-                                        }}
                                     />
                                     {/* Category Badge */}
                                     <div className="absolute top-2 left-2">
                                         <span className="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-medium shadow-lg">
-                                            {product.category}
+                                            {product.categoryDetails.name}
                                         </span>
                                     </div>
                                     {/* Price Badge */}
                                     <div className="absolute top-2 right-2">
                                         <span className="bg-white text-green-600 px-2 py-1 rounded-full text-xs font-bold shadow-lg">
-                                            {product.price}
+                                        ₹{product.price}/L
                                         </span>
                                     </div>
                                 </div>
@@ -516,18 +506,18 @@ const Products = () => {
                             <div className="lg:w-1/2 p-8 bg-gradient-to-br from-green-50 to-white">
                                 <div className="relative">
                                     <img
-                                        src={selectedProduct.image}
+                                        src={IMG_URL + selectedProduct.image}
                                         alt={selectedProduct.name}
                                         className="w-full h-80 object-cover rounded-lg shadow-lg"
                                     />
                                     <div className="absolute top-4 left-4">
                                         <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-                                            {selectedProduct.category}
+                                            {selectedProduct.categoryDetails?.name}
                                         </span>
                                     </div>
                                     <div className="absolute top-4 right-4">
                                         <span className="bg-white text-green-600 px-4 py-2 rounded-full text-lg font-bold shadow-lg">
-                                        ₹{selectedProduct.price}
+                                        ₹{selectedProduct.price}/L
                                         </span>
                                     </div>
                                 </div>
