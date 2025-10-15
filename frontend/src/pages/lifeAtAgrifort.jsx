@@ -6,7 +6,7 @@ import EmployeeEngagement from './employeeEngagement';
 import Footer from '../components/Footer';
 import agriculture from '../assets/images/hero/agriculture-hero.jpg';
 import BreadCrumb from './components/breadcrumb';
-import team from '../assets/images/crops/vegetables.jpg'
+import team from '../assets/emp/field.jpg'
 
 const LifeAtAgriFort = () => {
   // 1. Initialize AOS on component mount

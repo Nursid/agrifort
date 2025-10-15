@@ -5,10 +5,12 @@ const BreadCrumb = ({ title, bgImage }) => {
     <section className="w-full relative overflow-hidden" style={{ height: "75vh" }}>
       {/* Background Image - Right Side */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute   inset-0 bg-cover bg-center"
         style={{ 
+          marginLeft:'9rem',
+          
           backgroundImage: `url(${bgImage})`,
-          clipPath: "polygon(35% 0, 100% 0, 100% 100%, 25% 100%)"
+          clipPath: "polygon(35% 0, 100% 0, 100% 100%, 5% 100%)"
         }}
       ></div>
 
@@ -18,6 +20,7 @@ const BreadCrumb = ({ title, bgImage }) => {
         <div
           className="absolute inset-0"
           style={{
+           
             background: "#10B981",
             clipPath: "polygon(0 0, 25% 0, 40% 100%, 0 100%)"
           }}

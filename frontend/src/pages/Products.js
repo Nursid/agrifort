@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
 import BreadCrumb from './components/breadcrumb';
-import team from '../assets/images/crops/vegetables.jpg'
+import team from '../assets/emp/crop.jpg'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { API_URL } from 'config';

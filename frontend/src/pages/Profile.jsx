@@ -7,6 +7,8 @@ import LeadershipImage from '../assets/emp/team-ceo.jpg'; // Placeholder for a t
 import FarmerImage from '../assets/emp/farmer-field.jpg'; // Placeholder for farmer engagement
 import Navbar from './Navbar';
 import Footer from 'components/Footer';
+import BreadCrumb from './components/breadcrumb';
+import team from '../assets/emp/plant2.jpg'
 
 // Key Stats Data
 const keyStats = [
@@ -19,7 +21,10 @@ const Profile = () => {
     return (
         <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900">
             <Navbar />
-
+             <BreadCrumb
+           
+           title="Profile"
+           bgImage={team}/>
             {/* --- Section 1: Hero Section (Full Width Visual) --- */}
             <section className="relative h-[60vh] overflow-hidden">
                 <img 
@@ -32,13 +37,13 @@ const Profile = () => {
                 {/* Hero Content Overlay */}
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-4">
                     <div className="text-center text-white" data-aos="fade-up" data-aos-delay="200">
-                        <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-4">
-                            AGRIFORT TECHNOLOGIES
+                        <h1 className="text-5xl bg-blue-100 text-red-500 md:text-7xl font-extrabold rounded-md uppercase tracking-tight mb-4">
+                            AGRIFORT <span className='text-blue-800'>TECHNOLOGIES </span>
                         </h1>
-                        <p className="text-xl md:text-2xl font-light italic mb-8 border-b border-white/50 pb-4">
-                            The Global Catalyst for Sustainable Agricultural Solutions.
+                        <p className="text-xl  text-green-700 md:text-2xl font-light italic mb-8 border-b border-gray/100 pb-4">
+                           <span className='bg-yellow-200 rounded-lg'> The Global Catalyst for Sustainable Agricultural Solutions.</span>
                         </p>
-                        <a href="/about/history" className="inline-block px-8 py-3 bg-red-600 text-white text-lg font-semibold rounded-full hover:bg-red-700 transition-all duration-300 shadow-xl">
+                        <a href="/about/history" className="inline-block px-8 py-3 bg-gray-500 text-white text-lg font-semibold rounded-full hover:bg-red-700 transition-all duration-300 shadow-xl">
                             See Our History
                         </a>
                     </div>

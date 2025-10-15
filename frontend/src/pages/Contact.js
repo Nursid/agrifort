@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
 import BreadCrumb from './components/breadcrumb';
-import team from '../assets/images/hero/agriculture-hero.jpg'
+import team from '../assets/emp/cont2.jpg'
 
 const Contact = () => {
     const [darkMode] = useState(false);
