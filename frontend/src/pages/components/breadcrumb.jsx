@@ -1,6 +1,6 @@
 import React from "react";
 
-const BreadCrumb = ({ title, bgImage }) => {
+const BreadCrumb = ({ title,clipImage, bgImage }) => {
   return (
     <section className="w-full relative overflow-hidden" style={{ height: "75vh" }}>
       {/* Background Image - Right Side */}
@@ -39,6 +39,7 @@ const BreadCrumb = ({ title, bgImage }) => {
         <div
           className="absolute inset-0 bg-white"
           style={{
+            
             clipPath: "polygon(0 0, 35% 0, 25% 100%, 0 100%)"
           }}
         >
@@ -54,7 +55,7 @@ const BreadCrumb = ({ title, bgImage }) => {
       <div 
         className="absolute top-0 right-0 w-12 h-full"
         style={{ 
-          background: "#10B981",
+          
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"
         }}
       ></div>

@@ -9,10 +9,12 @@ const Navbar = () => {
     const [language, setLanguage] = useState('English');
     const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
     const history = useHistory();
-
+   const [activeDropdown, setActiveDropdown] = useState(null);
     const mainCategories = [
         { name: 'Home', href: '/' },
-        { name: 'About Us', href: '/about' },
+        { name: 'About Us', href: '/about',
+            submenu:[ {name:'Profile',href:'/about/profile'}, {name:'History & Values', href:'/about/history'} ]
+         },
         { name: 'Our Team', href: '/ourteam' },
         { name: 'Our Product', href: '/products' },
         { name: 'Contact Us', href: '/contact' },
@@ -65,16 +67,41 @@ const Navbar = () => {
                                 className="h-14 w-auto object-contain"
                             />
                         </button>
-                        <div className="hidden lg:flex items-center justify-center border-gray-200 dark:border-gray-700 py-3 overflow-x-auto hover:bg-green-400 gap-4">
-                        {mainCategories.map((category) => (
-                            <button
-                                key={category.name}
-                                onClick={() => history.push(category.href)}
-                                className="text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 font-medium text-sm whitespace-nowrap px-2 transition-colors hover:bg-green-500 p-2 hover:text-white"
-                            >
-                                {category.name}
-                            </button>
-                        ))}
+<div className="hidden lg:flex items-center justify-center border-gray-200 dark:border-gray-700 py-3 gap-4 hover:bg-green-400  relative z-40">       
+
+{/* // Replace the category button mapping with this: */}
+{mainCategories.map((category) => (
+    <div
+        key={category.name}
+        className="relative"
+        onMouseEnter={() => category.submenu && setActiveDropdown(category.name)}
+        onMouseLeave={() => setActiveDropdown(null)}
+    >
+        <button
+            onClick={() => history.push(category.href)}
+            className="text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 font-medium text-sm whitespace-nowrap px-2 transition-colors hover:bg-green-500 p-2 hover:text-white"
+        >
+            {category.name}
+        </button>
+        
+        {category.submenu && activeDropdown === category.name && (
+            <div className="absolute  top-full rounded-md left-0 mt-0 w-56 bg-white dark:bg-gray-800 rounded-b-lg shadow-lg border border-green-600 dark:border-gray-600 border-b-4 py-2 z-50">
+                {category.submenu.map((item) => (
+                    <button
+                        key={item.name}
+                        onClick={() => {
+                            history.push(item.href);
+                            setActiveDropdown(null);
+                        }}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-orange-500 hover:text-white transition-colors"
+                    >
+                        {item.name}
+                    </button>
+                ))}
+            </div>
+        )}
+    </div>
+))}
                     </div>
 
                         {/* Search Bar */}

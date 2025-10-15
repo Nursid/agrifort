@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import agriculture from '../assets/images/hero/agriculture-hero.jpg';
 import BreadCrumb from './components/breadcrumb';
 import team from '../assets/emp/field.jpg'
+import t from '../assets/emp/crop.jpg'
 
 const LifeAtAgriFort = () => {
   // 1. Initialize AOS on component mount
@@ -25,7 +26,7 @@ const LifeAtAgriFort = () => {
       
       <Navbar/>
       <BreadCrumb
-           
+           clipImage={t}
            title="Life At Agrifort"
            bgImage={team}/>
       {/* 2. Main Content Section: Life at AgriFort */}
