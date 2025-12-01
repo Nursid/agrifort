@@ -8,8 +8,7 @@ import BreadCrumb from './components/breadcrumb';
 import team from '../assets/emp/crop.jpg'
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { API_URL } from 'config';
-import { IMG_URL } from 'config';
+import { API_URL, IMG_URL } from 'config';
 
 const Products = () => {
     const [activeCategory, setActiveCategory] = useState('All');
