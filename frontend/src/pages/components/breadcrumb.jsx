@@ -2,64 +2,49 @@ import React from "react";
 
 const BreadCrumb = ({ title, bgImage }) => {
   return (
-    <section className="w-full relative overflow-hidden" style={{ height: "75vh" }}>
-      {/* Background Image - Right Side */}
+    <section 
+      className="w-full relative overflow-hidden" 
+      style={{ height: "75vh" }}
+    >
+      {/* Background Image */}
       <div
-        className="absolute   inset-0 bg-cover bg-center"
-        style={{ 
-          marginLeft:'9rem',
-          
+        className="absolute inset-0 bg-cover bg-center md:left-1/4 md:right-0 md:w-3/4"
+        style={{
           backgroundImage: `url(${bgImage})`,
-          clipPath: "polygon(35% 0, 100% 0, 100% 100%, 5% 100%)"
+          backgroundPosition: "center center",
+          filter: "blur(4px) brightness(0.75)"  // <--- BLUR + DARKEN FOR VISIBILITY
         }}
       ></div>
 
-      {/* Diagonal Overlay Sections */}
-      <div className="absolute inset-0">
-        {/* Green Section */}
-        <div
-          className="absolute inset-0"
-          style={{
-           
-            background: "#10B981",
-            clipPath: "polygon(0 0, 25% 0, 40% 100%, 0 100%)"
-          }}
-        ></div>
-        
-        {/* Red Section */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "#DC2626",
-            clipPath: "polygon(25% 0, 40% 0, 50% 100%, 40% 100%)"
-          }}
-        ></div>
+      {/* Dark overlay to stabilize text visibility */}
+      <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
 
-        {/* White/Light Section with Content */}
-        <div
-          className="absolute inset-0 bg-white"
-          style={{
-            clipPath: "polygon(0 0, 35% 0, 25% 100%, 0 100%)"
-          }}
-        >
-          <div className="flex items-center h-full pl-8 md:pl-20">
-            <h1 className="text-5xl md:text-7xl font-bold" style={{ lineHeight: "1.1", letterSpacing: "-0.02em" }}>
-              <span style={{ color: "#10B981" }}>{title}</span>
-            </h1>
-          </div>
+      {/* Title Section */}
+      <div 
+        className="absolute inset-0 md:w-1/4 md:left-0 flex items-center justify-center z-10"
+      >
+        <div className="px-6 md:px-8 text-left w-full">
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white"
+            style={{
+              lineHeight: "1.1",
+              letterSpacing: "-0.02em",
+              textShadow: "0 4px 14px rgba(0,0,0,0.6)"  // Stronger shadow = readable
+            }}
+          >
+            {title}
+          </h1>
         </div>
       </div>
 
-      {/* Decorative Accent Bar - Right */}
-      <div 
-        className="absolute top-0 right-0 w-12 h-full"
-        style={{ 
-          background: "#10B981",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"
+      {/* Decorative Line */}
+      <div
+        className="hidden md:block absolute top-0 left-1/4 w-1 h-full bg-white/20"
+        style={{
+          transform: "skewX(-5deg)",
+          transformOrigin: "top"
         }}
       ></div>
-
-      {/* Decorative Pattern - Left Top */}
     </section>
   );
 };
