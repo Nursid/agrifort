@@ -5,6 +5,7 @@ import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
+import { ChevronRight, Leaf, Users, BookOpen, Briefcase, Phone, Mail, Award } from 'lucide-react';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -25,6 +26,14 @@ const LandingPage = () => {
     };
 
 
+    const advantages = [
+        { icon: Award, title: 'Manufacturing', description: 'State-of-the-art production facilities' },
+        { icon: Leaf, title: 'R&D', description: 'Cutting-edge research and development' },
+        { icon: Users, title: 'People at AgriFort', description: 'Experienced team of professionals' },
+        { icon: BookOpen, title: 'Tech-based Products', description: 'Innovation-driven solutions' },
+        { icon: Briefcase, title: 'Trusted Partnerships', description: 'Building lasting relationships' },
+      ];
+
     return (
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             {/* Sticky Navbar with Backdrop Blur */}
@@ -44,44 +53,43 @@ const LandingPage = () => {
                                         <p className="py-4 text-2xl md:text-3xl font-semibold text-white mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
                                             style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
                                         >
-                                            Welcome To
+                                             Innovative Tech
                                         </p>
                                         {/* Main Title */}
                                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-red-500 pr-2">
-                                            AgriFort Technologies
+                                        Transform Agriculture
                                             </h1>
 
                                         {/* Description */}
                                         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
                                            style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}
                                         >
-                                            Bridging biotech innovation with sustainable farming solutions for a prosperous agricultural future. 
-                                            Empowering farmers with cutting-edge technology and premium quality products.
+                                            Empowering farmers with cutting-edge solutions. Farmer wins, we win.
                                         </p>
 
                                         {/* Action Buttons */}
                                         <div className="button flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-zoom-in"
                                              style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
                                         >
-                                            <a href="#products" 
+                                            <a href="#" 
                                                className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg"
                                                data-discover="true"
-                                               onClick={(e) => {
-                                                   e.preventDefault();
-                                                   scrollToSection('products');
-                                               }}
+                                            //    onClick={(e) => {
+                                            //        e.preventDefault();
+                                            //        scrollToSection('products');
+                                            //    }}
                                             >
-                                                Discover More
+                                               Explore Our Journey
                                             </a>
                                             
-                                            <a href="#about" 
+                                            <a href="#" 
                                                className="btn btn-outline btn-md radius animation border-2 border-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-red-500/20 hover:bg-red-500/40 shadow-lg"
-                                               onClick={(e) => {
-                                                   e.preventDefault();
-                                                   scrollToSection('about');
-                                               }}
+                                            //    onClick={(e) => {
+                                            //        e.preventDefault();
+                                            //        scrollToSection('about');
+                                            //    }}
                                             >
-                                                Learn About Us
+                                               View Portfolio
                                             </a>
                                         </div>
                                     </div> 
@@ -102,7 +110,7 @@ const LandingPage = () => {
             </section>
 
             {/* Features Section */}
-            <AgriFortProducts />    
+            {/* <AgriFortProducts />     */}
 
             {/* About Section */}
             <section id="about" className="py-16 bg-white dark:bg-gray-900">
@@ -145,14 +153,11 @@ const LandingPage = () => {
                             data-aos="fade-left"
                         >
                             <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm mb-6">
-                                About AgriFort
+                             AgriFort Journey
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-                                Science-Driven Agricultural Excellence
-                            </h2>
                             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                                For over two decades, AgriFort has been at the forefront of agricultural innovation, developing cutting-edge
-                                biotech solutions that enhance crop productivity while promoting sustainable farming practices.
+                            From humble beginnings to agricultural innovation leaders, AgriFort has been at the
+                            forefront of transforming farming practices through technology and dedication.
                             </p>
                             
                             <div className="space-y-4 mb-8">
@@ -196,35 +201,30 @@ const LandingPage = () => {
                         data-aos="fade-up"
                     >
                         <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm mb-6">
-                            Testimonials
+                           Our Company Commitment
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-                            What Farmers Say
+                        Mission
                         </h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Hear from farmers who have transformed their yields with AgriFort solutions
+                        To revolutionize agriculture through sustainable innovation and empower farmers
+                        with technology-driven solutions.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
-                                name: 'Rajesh Kumar',
-                                role: 'Wheat Farmer, Punjab',
-                                image: '/images/hero/testimonial-1.jpg',
-                                quote: 'AgriFort\'s bio-stimulants have increased my wheat yield by 35%. The quality is outstanding and the support team is always helpful.'
+                                name: 'Vision',
+                                quote: 'Creating a future where every farmer has access to sustainable, cutting-edge agricultural technology.'
                             },
                             {
-                                name: 'Priya Sharma',
-                                role: 'Rice Farmer, Andhra Pradesh',
-                                image: '/images/hero/testimonial-2.jpg',
-                                quote: 'Their fungicide range has saved my crops multiple times. Reliable products with consistent results year after year.'
+                                name: 'Environmental Policy',
+                                quote: 'Committed to protecting our planet through sustainable agricultural practices for future generations.'
                             },
                             {
-                                name: 'Amit Patel',
-                                role: 'Cotton Farmer, Gujarat',
-                                image: '/images/hero/testimonial-3.jpg',
-                                quote: 'The technical support and guidance from AgriFort has been invaluable. They truly understand farmers\' needs.'
+                                name: 'Mission',
+                                quote: ' To revolutionize agriculture through sustainable innovation and empower farmers with technology-driven solutions.'
                             }
                         ].map((testimonial, index) => (
                             <div
@@ -233,30 +233,60 @@ const LandingPage = () => {
                                 data-aos="zoom-in"
                                 data-aos-delay={index * 200}
                             >
-                                <div className="flex items-center mb-6">
-                                    <img 
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                        className="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-green-200"
-                                    />
+                                <div className="flex items-center">
                                     <div>
-                                        <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                                        <p className="text-sm text-red-600 dark:text-red-400 font-medium">{testimonial.role}</p>
+                                        <h4 className="font-bold text-gray-900 dark:text-white text-2xl">{testimonial.name}</h4>
                                     </div>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-300 italic leading-relaxed">
                                     "{testimonial.quote}"
                                 </p>
-                                <div className="flex mt-4">
-                                    {[...Array(5)].map((_, i) => (
-                                        <span key={i} className="text-green-500 text-lg">★</span>
-                                    ))}
-                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+
+            {/* <CommitmentShowcase /> */}
+
+            <section id="highlights" className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">The AgriFort Advantage</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto"></div>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {advantages.map((advantage, index) => {
+              const Icon = advantage.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+                >
+                  <div className="bg-gradient-to-br from-green-600 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{advantage.title}</h3>
+                  <p className="text-sm text-gray-600">{advantage.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Standards We Live By</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Quality, integrity, and innovation guide every decision we make. Our commitment to excellence ensures the best outcomes for our partners and the communities we serve.
+            </p>
+          </div>
+        </div>
+      </section>
+
             {/* Footer */}
              <Footer />
 
