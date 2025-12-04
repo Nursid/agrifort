@@ -100,15 +100,15 @@ const Footer = () => {
                                     onClick={() => scrollToSection('about')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    About Us
+                                   Home
                                 </button>
                             </li>
                             <li>
                                 <button 
-                                    onClick={() => scrollToSection('products')}
+                                    onClick={() => scrollToSection('about')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Reach Us
+                                     About Us
                                 </button>
                             </li>
                             <li>
@@ -116,7 +116,7 @@ const Footer = () => {
                                     onClick={() => console.log('Navigate to media')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Media Links
+                                    Leadership People
                                 </button>
                             </li>
                             <li>
@@ -124,7 +124,7 @@ const Footer = () => {
                                     onClick={() => console.log('Navigate to privacy')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Privacy Policy
+                                    Our Portfolio
                                 </button>
                             </li>
                             <li>
@@ -132,7 +132,7 @@ const Footer = () => {
                                     onClick={() => console.log('Navigate to refund')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Return & Refund Policy
+                                    Farmer Wins
                                 </button>
                             </li>
                             <li>
@@ -140,41 +140,10 @@ const Footer = () => {
                                     onClick={() => console.log('Navigate to terms')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Terms of Service
+                                    Highlights
                                 </button>
                             </li>
-                            <li>
-                                <button 
-                                    onClick={() => console.log('Navigate to careers')}
-                                    className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
-                                >
-                                    Careers
-                                </button>
-                            </li>
-                            <li>
-                                <button 
-                                    onClick={() => console.log('Navigate to shipping')}
-                                    className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
-                                >
-                                    Shipping/Delivery Policy
-                                </button>
-                            </li>
-                            <li>
-                                <button 
-                                    onClick={() => console.log('Navigate to faq')}
-                                    className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
-                                >
-                                    FAQ
-                                </button>
-                            </li>
-                            <li>
-                                <button 
-                                    onClick={() => console.log('Navigate to sitemap')}
-                                    className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
-                                >
-                                    Sitemap
-                                </button>
-                            </li>
+                            
                         </ul>
                     </div>
 

@@ -22,9 +22,9 @@ const Navbar = () => {
             //     { name: 'History & Values', href: '/about/history' }
             // ]
         },
-        { name: 'Leadership People', href: '#' },
+        { name: 'Leaders of People', href: '#' },
         { name: 'Our Portfolio', href: '#' },
-        { name: 'Family Vibes', href: '#' },
+        { name: 'Farmer Wins', href: '#' },
         { name: 'AgriFort Highlights', href: '#' },
     ];
 
@@ -226,25 +226,25 @@ const Navbar = () => {
                             ))}
 
                             <div className="pt-4 border-t space-y-2">
-                                <button onClick={() => handleNavigation('/track-order')} className="flex items-center gap-2 px-4 py-2">
+                                {/* <button onClick={() => handleNavigation('/track-order')} className="flex items-center gap-2 px-4 py-2">
                                     <Package className="w-5 h-5" />
                                     <span>Track Order</span>
-                                </button>
+                                </button> */}
 
-                                <button onClick={() => handleNavigation('/wishlist')} className="flex items-center gap-2 px-4 py-2">
+                                {/* <button onClick={() => handleNavigation('/wishlist')} className="flex items-center gap-2 px-4 py-2">
                                     <Heart className="w-5 h-5" />
                                     <span>Wishlist</span>
-                                </button>
+                                </button> */}
 
                                 <button onClick={() => handleNavigation('/admin/login')} className="flex items-center gap-2 px-4 py-2">
                                     <User className="w-5 h-5" />
                                     <span>Login</span>
                                 </button>
 
-                                <button onClick={() => handleNavigation('/cart')} className="flex items-center gap-2 px-4 py-2">
+                                {/* <button onClick={() => handleNavigation('/cart')} className="flex items-center gap-2 px-4 py-2">
                                     <ShoppingCart className="w-5 h-5" />
                                     <span>Cart</span>
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>
