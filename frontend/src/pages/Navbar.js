@@ -45,7 +45,7 @@ const Navbar = () => {
     return (
         <div className="sticky top-0 z-50">
             {/* Top Bar */}
-            <div className="bg-green-800 text-white">
+            {/* <div className="bg-green-800 text-white">
                 <div className="w-full flex flex-wrap justify-between items-center text-sm bg-green-600 px-4 py-2">
                     
                     <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-white">
@@ -73,10 +73,10 @@ const Navbar = () => {
                         Missed Call To Order: 1800-3000-2434
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Main Navigation */}
-            <nav className="bg-white dark:bg-gray-900 shadow-md">
+            <nav className=" bg-white bg-opacity-100 dark:bg-gray-900 border-1 shadow-lg">
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center py-3">
 

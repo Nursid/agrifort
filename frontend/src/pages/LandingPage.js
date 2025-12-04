@@ -84,7 +84,7 @@ const leadershipInsights = [
                                              Innovative Tech
                                         </p>
                                         {/* Main Title */}
-                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-red-500 pr-2">
+                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap  border-red-500 pr-2">
                                         Transform Agriculture
                                             </h1>
 
