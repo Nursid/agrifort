@@ -7,6 +7,9 @@ import Navbar from './Navbar';
 import Footer from '../components/Footer';
 import { ChevronRight,User, Leaf, Users, BookOpen, Briefcase, Phone, Mail, Award } from 'lucide-react';
 import { Target,  TrendingUp } from 'lucide-react';
+import ceo from '../assets/emp/chairm.jpg';
+import em from '../assets/emp/empl.jpg';
+import FarmerWins from './components/FarmerWins';
 const LandingPage = () => {
     const [darkMode] = useState(false);
 
@@ -29,25 +32,25 @@ const LandingPage = () => {
 
 const leadershipInsights = [
  {
-    icon: Award,
+    img:ceo,
     name: "Message from Chairman",
     role: "Chairman",
     message: "Our commitment to excellence and sustainable growth has been the cornerstone of our success. We believe in empowering our team and stakeholders to achieve remarkable milestones together."
   },
   {
-    icon: Briefcase,
+    img: em,
     name: "Message from CEO",
     role: "Chief Executive Officer",
     message: "Innovation and integrity drive everything we do. Our vision is to create lasting value while maintaining the highest standards of corporate governance and social responsibility."
   },
   {
-    icon: Users,
+    img: em,
     name: "Message from Managing Director",
     role: "Managing Director",
     message: "Through strategic planning and operational excellence, we continue to strengthen our market position. Our focus remains on delivering exceptional results while fostering a culture of collaboration."
   },
   {
-    icon: User,
+    img: ceo,
     name: "Message from Board",
     role: "Board of Directors",
     message: "We are dedicated to transparent leadership and creating sustainable value for all stakeholders. Our governance framework ensures accountability and ethical business practices at every level."
@@ -304,7 +307,7 @@ const leadershipInsights = [
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className=" py-20 bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Standards We Live By</h2>
@@ -316,43 +319,74 @@ const leadershipInsights = [
           </div>
         </div>
       </section>
-    {/* Leadership Insights*/}
-<section id="leadership" className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+   {/* Leadership Insights & Farmer Wins Section */}
+<div className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16" data-aos="fade-up">
-      <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Insights</h2>
-<div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
+    
+    {/* Headings Row */}
+    <div className="flex justify-center w-full gap-8 mb-12">
+      {/* Left Heading */}
+      <div className="w-1/2" data-aos="zoom-in">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Insights</h2>
+        <div className="w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600"></div>
+      </div>
+
+      {/* Divider Space */}
+      <div className="w-1"></div>
+
+      {/* Right Heading */}
+      <div className=" w-1/2" data-aos="zoom-in">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">Farmer Wins</h2>
+        <div className="w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600"></div>
+      </div>
     </div>
-    <div className="grid md:grid-cols-2 gap-8">
-      {leadershipInsights.map((insight, index) => {
-        const Icon = insight.icon;
-        return (
-          <div
-            key={index}
-            className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-          >
-            <div className="flex items-start mb-4">
-              <div className="bg-gradient-to-br from-green-600 to-emerald-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <Icon className="h-7 w-7 text-white" />
+
+    {/* Content Row */}
+    <div className="flex w-full gap-8">
+      
+      {/* Leadership Section */}
+      <div className="w-1/2">
+        <div className="grid md:grid-cols-2 gap-8">
+          {leadershipInsights.map((insight, index) => {
+            return (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="flex items-start mb-4">
+                  <div className="bg-gradient-to-br from-green-600 to-emerald-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <img
+                      src={insight.img}
+                      alt="Feature Icon"
+                      className="w-20 h-20"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">{insight.name}</h3>
+                    <p className="text-sm text-blue-600 font-medium">{insight.role}</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed italic">"{insight.message}"</p>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">{insight.name}</h3>
-                <p className="text-sm text-blue-600 font-medium">{insight.role}</p>
-              </div>
-            </div>
-            <p className="text-gray-600 leading-relaxed italic">"{insight.message}"</p>
-          </div>
-        );
-      })}
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="w-1 bg-gradient-to-b from-green-600 to-emerald-600 rounded-full"></div>
+
+      {/* Farmer Wins Section */}
+      <div className="w-1/2"      data-aos="fade-up"
+                data-aos-delay='200'>
+        <FarmerWins />
+      </div>
+
     </div>
   </div>
-</section>
-
-
-     
-
+</div>
 
 
       {/* <AgriFortProducts />     */}
