@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, ChevronRight } from 'lucide-react';
+import { Search, ChevronRight } from 'lucide-react';
 
 const Portfolio = () => {
     const [activeCategory, setActiveCategory] = useState('All');
@@ -92,51 +92,116 @@ const Portfolio = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="py-16 bg-gradient-to-r from-green-600 to-emerald-600">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                            Our Portfolio
-                        </h1>
-                        <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                            Explore our comprehensive range of innovative agricultural solutions designed to transform farming practices and maximize productivity.
-                        </p>
+            <section 
+                className="relative py-32 bg-cover bg-center overflow-hidden"
+                style={{
+                    backgroundImage: 'linear-gradient(135deg, rgba(22, 163, 74, 0.85) 0%, rgba(5, 150, 105, 0.85) 100%), url(https://images.pexels.com/photos/4507991/pexels-photo-4507991.jpeg?auto=compress&cs=tinysrgb&w=1200)',
+                    backgroundAttachment: 'fixed'
+                }}
+            >
+                {/* Animated Background Elements */}
+                <div className="absolute top-10 right-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Left Content */}
+                        <div className="text-white">
+                            <div className="inline-block bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-white/30">
+                                ✨ Comprehensive Agricultural Solutions
+                            </div>
+                            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                                Our Portfolio
+                            </h1>
+                            <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-xl">
+                                Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button className="bg-white text-green-600 px-8 py-3.5 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg">
+                                    Explore Products
+                                </button>
+                                <button className="border-2 border-white text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                                    Watch Demo
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Right - Image with Stats Cards */}
+                        <div className="hidden lg:block relative">
+                            <div className="relative">
+                                <img
+                                    src="https://images.pexels.com/photos/4507987/pexels-photo-4507987.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="Agriculture"
+                                    className="rounded-3xl shadow-2xl w-full h-96 object-cover"
+                                />
+                                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-green-600/40 to-transparent"></div>
+                            </div>
+
+                            {/* Floating Stats Cards */}
+                            <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-6 shadow-2xl backdrop-blur-md max-w-xs">
+                                <div className="flex items-center gap-4">
+                                    <div className="text-4xl">🌾</div>
+                                    <div>
+                                        <h4 className="text-2xl font-bold text-green-600">500+</h4>
+                                        <p className="text-gray-600 text-sm font-semibold">Products</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="absolute -top-8 -right-8 bg-white rounded-2xl p-6 shadow-2xl backdrop-blur-md">
+                                <div className="flex items-center gap-4">
+                                    <div className="text-4xl">🌍</div>
+                                    <div>
+                                        <h4 className="text-2xl font-bold text-green-600">50+</h4>
+                                        <p className="text-gray-600 text-sm font-semibold">Countries</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Search and Filter Section */}
-            <section className="py-12 bg-gray-50 sticky top-24 z-40">
+            <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="mb-10">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Find Your Solution</h2>
+                        <p className="text-gray-600">Search and filter through our comprehensive product range</p>
+                    </div>
+
                     {/* Search Bar */}
-                    <div className="mb-8">
-                        <div className="relative">
-                            <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+                    <div className="mb-10">
+                        <div className="relative max-w-2xl">
+                            <Search className="absolute left-5 top-4 h-5 w-5 text-gray-400" />
                             <input
                                 type="text"
-                                placeholder="Search products..."
+                                placeholder="Search products by name or description..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-300 focus:border-green-600 focus:outline-none"
+                                className="w-full pl-14 pr-4 py-4 rounded-xl border-2 border-gray-300 focus:border-green-600 focus:outline-none text-base shadow-sm hover:border-gray-400 transition-colors"
                             />
                         </div>
                     </div>
 
                     {/* Category Filter */}
-                    <div className="flex flex-wrap gap-3">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
-                                    activeCategory === category
-                                        ? 'bg-green-600 text-white shadow-lg'
-                                        : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600'
-                                }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
+                    <div>
+                        <h3 className="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Filter by Category</h3>
+                        <div className="flex flex-wrap gap-3">
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`px-6 py-2.5 rounded-full font-semibold transition-all duration-300 text-sm ${
+                                        activeCategory === category
+                                            ? 'bg-green-600 text-white shadow-lg scale-105'
+                                            : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
+                                    }`}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -145,49 +210,49 @@ const Portfolio = () => {
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {filteredProducts.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {filteredProducts.map((product, index) => (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {filteredProducts.map((product) => (
                                 <div
                                     key={product.id}
-                                    className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group"
+                                    className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200"
                                 >
                                     {/* Image Container */}
-                                    <div className="relative h-48 overflow-hidden bg-gray-200">
+                                    <div className="relative h-56 overflow-hidden bg-gray-200">
                                         <img
                                             src={product.image}
                                             alt={product.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                                        <div className="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                                        <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                             {product.category}
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6">
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                    <div className="p-5">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-2">
                                             {product.name}
                                         </h3>
-                                        <p className="text-sm text-gray-600 mb-4">
+                                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                                             {product.description}
                                         </p>
 
                                         {/* Impact Badge */}
                                         <div className="bg-blue-50 border-l-4 border-blue-600 px-3 py-2 mb-4 rounded">
-                                            <p className="text-sm font-semibold text-blue-900">
+                                            <p className="text-xs font-bold text-blue-900">
                                                 📈 {product.impact}
                                             </p>
                                         </div>
 
                                         {/* Features */}
                                         <div className="mb-4">
-                                            <p className="text-xs font-semibold text-gray-700 mb-2">KEY FEATURES:</p>
-                                            <div className="flex flex-wrap gap-2">
+                                            <p className="text-xs font-bold text-gray-700 mb-2">KEY FEATURES:</p>
+                                            <div className="flex flex-wrap gap-1.5">
                                                 {product.features.map((feature, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full"
+                                                        className="text-xs bg-green-100 text-green-800 px-2.5 py-1 rounded-full font-medium"
                                                     >
                                                         {feature}
                                                     </span>
@@ -196,7 +261,7 @@ const Portfolio = () => {
                                         </div>
 
                                         {/* Button */}
-                                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
+                                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 text-sm">
                                             Learn More
                                             <ChevronRight className="w-4 h-4" />
                                         </button>
@@ -212,7 +277,7 @@ const Portfolio = () => {
                                     setSearchQuery('');
                                     setActiveCategory('All');
                                 }}
-                                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+                                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 font-semibold transition-colors"
                             >
                                 Clear Filters
                             </button>
@@ -228,17 +293,17 @@ const Portfolio = () => {
                         Portfolio Highlights
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-                            <div className="text-4xl font-bold text-green-600 mb-2">500+</div>
-                            <p className="text-gray-600">Products Developed</p>
+                        <div className="bg-white rounded-2xl p-8 shadow-md text-center">
+                            <div className="text-5xl font-bold text-green-600 mb-3">500+</div>
+                            <p className="text-gray-600 font-semibold">Products Developed</p>
                         </div>
-                        <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-                            <div className="text-4xl font-bold text-green-600 mb-2">50+</div>
-                            <p className="text-gray-600">Countries Served</p>
+                        <div className="bg-white rounded-2xl p-8 shadow-md text-center">
+                            <div className="text-5xl font-bold text-green-600 mb-3">50+</div>
+                            <p className="text-gray-600 font-semibold">Countries Served</p>
                         </div>
-                        <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-                            <div className="text-4xl font-bold text-green-600 mb-2">10K+</div>
-                            <p className="text-gray-600">Satisfied Farmers</p>
+                        <div className="bg-white rounded-2xl p-8 shadow-md text-center">
+                            <div className="text-5xl font-bold text-green-600 mb-3">10K+</div>
+                            <p className="text-gray-600 font-semibold">Satisfied Farmers</p>
                         </div>
                     </div>
                 </div>
@@ -247,22 +312,22 @@ const Portfolio = () => {
             {/* CTA Section */}
             <section className="py-20 bg-green-600">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-4xl font-bold text-white mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         Ready to Transform Your Farming?
                     </h2>
-                    <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                    <p className="text-lg text-white/90 mb-10 max-w-3xl mx-auto">
                         Choose the right AgriFort solution for your agricultural needs and experience the difference in productivity and sustainability.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
                             href="#"
-                            className="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg inline-block text-center"
+                            className="bg-white text-green-600 px-8 py-3.5 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-200 inline-block text-center shadow-lg"
                         >
                             Contact Sales
                         </a>
                         <a
                             href="#"
-                            className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-200 hover:scale-105 active:scale-95 inline-block text-center"
+                            className="border-2 border-white text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white hover:text-green-600 transition-colors duration-200 inline-block text-center"
                         >
                             Download Catalog
                         </a>

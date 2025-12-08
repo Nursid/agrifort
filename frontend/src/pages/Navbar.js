@@ -23,7 +23,7 @@ const Navbar = () => {
             // ]
         },
         { name: 'Leaders of People', href: '#' },
-        { name: 'Our Portfolio', href: '#' },
+        { name: 'Our Portfolio', href: 'Portfolio' },
         { name: 'Farmer Wins', href: '#' },
         { name: 'AgriFort Highlights', href: '#' },
     ];

@@ -15,6 +15,7 @@ import ManageDistributors from '../pages/ManageDistributors';
 import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
 import ManageProducts from 'pages/ManageProduct';
+import Portfolio from 'pages/Portfolio';
 
 // Route definitions
 export const ROUTES = {
@@ -30,7 +31,7 @@ export const ROUTES = {
     ADMIN_LOGIN: '/admin/login',
     REGISTER: '/register',
     ADMIN_REGISTER: '/admin/register',
-    HISTORY:'/about/history',
+    PORTFOLIO:'/portfolio',
     PROFILE:'/about/profile'
   },
   
@@ -101,10 +102,10 @@ export const ROUTE_CONFIG = {
       title: 'Life_At_Agrifort'
     },
     {
-      path: ROUTES.PUBLIC.HISTORY,
+      path: ROUTES.PUBLIC.PORTFOLIO,
       exact: true,
-      component: HistoryAndValues,
-      title: 'History'
+      component: Portfolio,
+      title: 'Portfolio'
     },
     {
       path: ROUTES.PUBLIC.LOGIN,
