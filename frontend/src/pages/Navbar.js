@@ -16,7 +16,7 @@ const Navbar = () => {
         { name: 'Home', href: '/' },
         {
             name: 'About Us',
-            href: '#',
+            href: '/about',
             // submenu: [
             //     { name: 'Profile', href: '/about/profile' },
             //     { name: 'History & Values', href: '/about/history' }
