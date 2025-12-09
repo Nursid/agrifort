@@ -16,6 +16,8 @@ import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
 import ManageProducts from 'pages/ManageProduct';
 import Portfolio from 'pages/Portfolio';
+import FarmerWins from 'pages/components/FarmerWins';
+import LeadersOfPeople from 'pages/LeadersOfPeople';
 
 // Route definitions
 export const ROUTES = {
@@ -32,7 +34,9 @@ export const ROUTES = {
     REGISTER: '/register',
     ADMIN_REGISTER: '/admin/register',
     PORTFOLIO:'/portfolio',
-    PROFILE:'/about/profile'
+    PROFILE:'/about/profile',
+    FARMER_WINS:'/farmer-wins',
+    LEADERS_OF_PEOPLE:'/leaders-of-people'
   },
   
   // Admin routes
@@ -137,6 +141,18 @@ export const ROUTE_CONFIG = {
       component: Registration,
       title: 'Admin Register'
     },
+    {
+      path:ROUTES.PUBLIC.FARMER_WINS,
+      exact:true,
+      component:FarmerWins,
+      title:'Farmer Wins'
+    },
+    {
+      path:ROUTES.PUBLIC.LEADERS_OF_PEOPLE,
+      exact:true,
+      component:LeadersOfPeople,
+      title:'Leaders Of People'
+    }
   ],
 
   // Admin protected routes

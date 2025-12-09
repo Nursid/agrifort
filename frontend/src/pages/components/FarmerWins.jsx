@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Navbar from "pages/Navbar";
 
 const videos = [
   "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -20,6 +21,7 @@ export default function FarmerWins() {
 
   return (
     <div className="flex  flex-col h-full">
+      <Navbar/>
         
       {/* Heading */}
       {/* <div className="text-center mb-8">

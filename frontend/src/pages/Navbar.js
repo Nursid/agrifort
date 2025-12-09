@@ -22,10 +22,11 @@ const Navbar = () => {
             //     { name: 'History & Values', href: '/about/history' }
             // ]
         },
-        { name: 'Leaders of People', href: '#' },
+        { name: 'Leaders of People', href: '/leaders-of-people' },
         { name: 'Our Portfolio', href: 'Portfolio' },
-        { name: 'Farmer Wins', href: '#' },
-        { name: 'AgriFort Highlights', href: '#' },
+        { name: 'Farmer Wins', href: '/farmer-wins' },
+        { name: 'AgriFort Highlights', href: '/lifeAtAgrifort' },
+        
     ];
 
     const toggleDarkMode = () => {
@@ -105,6 +106,7 @@ const Navbar = () => {
                                         className="  text-gray-700
                                         dark:text-gray-300
                                         hover:text-green-500
+                                      
                                         hover:bg-transparent
                                         font-medium
                                         text-sm
