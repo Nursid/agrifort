@@ -878,25 +878,52 @@ export default function Portfolio() {
   <div className="absolute inset-0 bg-black/40"></div>
 
   {/* Hero Content */}
-  <div className="relative z-10 text-center text-white max-w-5xl px-8 animate-fade-in">
-    <h1 className="text-7xl font-bold mb-6 text-red-500 tracking-tight drop-shadow-lg">
-      Our Portfolio
-    </h1>
+ <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-20">
+  {/* Content Overlay */}
+  <div className="container mx-auto">
+    <div className="row flex items-center justify-center">
+      <div className="content text-center lg:text-left">
+        
+        {/* Subtitle */}
+        <p className="py-4 text-2xl md:text-3xl font-semibold text-purple-500 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
+          style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
+        >
+          Comprehensive Agricultural Solutions
+        </p>
 
-    <p className="text-xl mb-10 leading-relaxed max-w-3xl mx-auto font-light drop-shadow-md">
-      Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
-    </p>
+        {/* Main Title */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap border-red-500 pr-2">
+          Our Portfolio
+        </h1>
 
-    <div className="flex gap-4 mb-4 justify-center flex-wrap">
-      <button className="bg-green-500 hover:bg-green-700 text-gray-800 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300">
-        Explore Products
-      </button>
+        {/* Description */}
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
+          style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}
+        >
+          Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
+        </p>
 
-      <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-800 transition-all duration-300">
-        Watch Demo
-      </button>
+        {/* Action Buttons */}
+        <div className="button flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-zoom-in"
+          style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
+        >
+          <a href="#products" 
+            className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg transition-all duration-300"
+            data-discover="true"
+          >
+            Explore Products
+          </a>
+          
+          <a href="#" 
+            className="btn btn-outline btn-md radius animation border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-white/10 hover:bg-white/20 shadow-lg transition-all duration-300"
+          >
+            Watch Demo
+          </a>
+        </div>
+      </div> 
     </div>
   </div>
+</div>
 
 </div>
 
@@ -910,17 +937,30 @@ export default function Portfolio() {
           <p className="text-gray-600 mb-6">
             Search and filter through our comprehensive product range
           </p>
-
-          <div className="relative mb-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2  w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search products by name, composition, or description..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full text-center pl-20 pr-4 py-4 border-2 border-gray-200 rounded-xl hover:border-green-500 focus:outline-none transition"
-            />
-          </div>
+<div className="relative mb-6">
+  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-700 pointer-events-none" />
+  <input
+    type="text"
+    placeholder="Search products by name, composition, or description..."
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    className="w-full pl-12 pr-4 py-3.5 border-2 border-gray-400 rounded-xl hover:border-green-500 focus:border-green-600 focus:outline-none transition-colors text-base text-gray-900 bg-white"
+    style={{
+      paddingLeft: '44px',
+      color: '#111827',
+      backgroundColor: '#ffffff',
+      fontSize: '16px',
+      fontWeight: '500'
+    }}
+  />
+  <style>{`
+    input::placeholder {
+      color: #4b5563 !important;
+      opacity: 1 !important;
+      font-weight: 600;
+    }
+  `}</style>
+</div>
 
           <div className="flex items-center gap-3 mb-4">
             <Filter className="w-5 h-5   text-red-500" />
@@ -933,7 +973,7 @@ export default function Portfolio() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
+                className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
                   activeFilter === filter
                     ? "bg-green-600 text-white shadow-lg scale-105"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -959,7 +999,7 @@ export default function Portfolio() {
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute top-4 right-4 bg-green-700 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-purple-200 text-white px-3 py-1 rounded-full text-xs font-bold">
                   {product.category}
                 </div>
               </div>
