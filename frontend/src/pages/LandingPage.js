@@ -113,7 +113,7 @@ const leadershipInsights = [
                                                Explore Our Journey
                                             </a>
                                             
-                                            <a href="#" 
+                                            <a href="/Portfolio" 
                                                className="btn btn-outline btn-md radius animation border-2 border-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-red-500/20 hover:bg-red-500/40 shadow-lg"
                                             //    onClick={(e) => {
                                             //        e.preventDefault();
@@ -212,10 +212,10 @@ const leadershipInsights = [
                             </div>
 
                             <div className="flex gap-4">
-                                <button className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
+                                <button className="px-8 py-4 text-sm bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
                                     Learn More About Us
                                 </button>
-                                <button className="px-8 py-4 bg-red-700 hover:bg-red-800 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
+                                <button className="px-8 py-4 text-sm bg-red-700 hover:bg-red-800 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
                                     Contact Us
                                 </button>
                             </div>
