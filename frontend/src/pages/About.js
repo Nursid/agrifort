@@ -4,6 +4,43 @@ import Footer from "components/Footer";
 import Navbar from "./Navbar";
 
 const About = () => {
+  const paragraph=`AgriFort Technologies was born from a vision at Blue Quadrant,
+                Dubai—to build a strong, future-ready agriculture company, and
+                what better place to begin this journey than in the heart of
+                Indian farming. As the world shifts towards environmentally
+                responsible, low-chemical and nutrition-focused farming,
+                AgriFort stands at the forefront with advanced,
+                technology-backed solutions designed to increase yields and
+                enhance farm income. Over the years, our journey has expanded
+                beyond agriculture into a robust ecosystem of companies:
+                BlueFort Healthcare in the pharmaceutical sector, Sutantra in
+                information technology, health and technology—strengthening the
+                lives of people we serve. With a wide range of eco-friendly and
+                cost-effective products, a distribution network that reaches the
+                deepest pockets of India, and global collaborations supporting
+                our growth, we have earned the trust of millions of farmers who
+                consistently share exceptional results on the field. Their
+                success stories inspire us daily and validate the science and
+                passion behind everything we create. As an organisation, we
+                remain committed to society and every stakeholder—working
+                responsibly, innovating relentlessly and striving to bring more
+                smiles to the farmer’s face. For us, the philosophy is simple
+                and eternal: when farmers win – we win.`
+
+const [Para,setPara]=useState(paragraph.slice(0,200));
+const [isReadMore,setisReadMore]=useState(true)
+function toggleDesc(isRead){
+  console.log(isRead)
+  if(!isRead){
+    setPara(paragraph)
+  }else{
+    setPara(paragraph.slice(0,200))
+  }
+  setisReadMore(isRead)
+  
+}
+
+  
   const achievements = [
     {
       number: "20+",
@@ -150,28 +187,9 @@ const About = () => {
                 ABOUT US.
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
-                AgriFort Technologies was born from a vision at Blue Quadrant,
-                Dubai—to build a strong, future-ready agriculture company, and
-                what better place to begin this journey than in the heart of
-                Indian farming. As the world shifts towards environmentally
-                responsible, low-chemical and nutrition-focused farming,
-                AgriFort stands at the forefront with advanced,
-                technology-backed solutions designed to increase yields and
-                enhance farm income. Over the years, our journey has expanded
-                beyond agriculture into a robust ecosystem of companies:
-                BlueFort Healthcare in the pharmaceutical sector, Sutantra in
-                information technology, health and technology—strengthening the
-                lives of people we serve. With a wide range of eco-friendly and
-                cost-effective products, a distribution network that reaches the
-                deepest pockets of India, and global collaborations supporting
-                our growth, we have earned the trust of millions of farmers who
-                consistently share exceptional results on the field. Their
-                success stories inspire us daily and validate the science and
-                passion behind everything we create. As an organisation, we
-                remain committed to society and every stakeholder—working
-                responsibly, innovating relentlessly and striving to bring more
-                smiles to the farmer’s face. For us, the philosophy is simple
-                and eternal: when farmers win – we win.
+                {Para}
+                <button onClick={()=>  toggleDesc(!isReadMore)
+                  } >{isReadMore ? 'Read More':"Read Less"}</button>
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
