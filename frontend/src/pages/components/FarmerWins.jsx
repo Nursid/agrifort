@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "pages/Navbar";
+import Footer from "components/Footer";
 
 const videos = [
   "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -75,6 +76,7 @@ export default function FarmerWins() {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
