@@ -140,7 +140,7 @@ const Footer = () => {
                                     onClick={() => console.log('Navigate to terms')}
                                     className="text-gray-300 text-sm hover:text-green-400 transition-colors duration-200 text-left w-full"
                                 >
-                                    Highlights
+                                   Agrifort Highlights
                                 </button>
                             </li>
                             

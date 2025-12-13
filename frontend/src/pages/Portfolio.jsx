@@ -697,20 +697,7 @@ export default function Portfolio() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navbar/>
-        {/* Header
-        <div className="bg-white shadow-md sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <button
-              onClick={closeProductDetail}
-              className="flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold transition"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Back to Products
-            </button>
-          </div>
-        </div> */}
 
-        {/* Product Detail Content */}
         <div className="max-w-7xl mx-auto ">
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
             {/* Product Header */}
@@ -864,69 +851,58 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gray-50">
         <Navbar/>
     
-{/* Hero Section */}
-<div className="relative w-full h-[75vh] flex items-center justify-center">
+  {/* Hero Section */}
+  <div className="relative w-full h-[75vh] flex items-center justify-center">
 
-  {/* Background Image */}
-  <img
-    src={field}
-    alt="Background"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+    {/* Background Image */}
+    <img
+      src={field}
+      alt="Background"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
 
-  {/* Dark Overlay (optional) */}
-  <div className="absolute inset-0 bg-black/40"></div>
+    {/* Dark Overlay (optional) */}
+    <div className="absolute inset-0 bg-black/40"></div>
 
-  {/* Hero Content */}
- <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-20">
-  {/* Content Overlay */}
-  <div className="container mx-auto">
-    <div className="row flex items-center justify-center">
-      <div className="content text-center lg:text-left">
-        
-        {/* Subtitle */}
-        <p className="py-4 text-2xl md:text-3xl font-semibold text-purple-500 mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
-          style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
-        >
-          Comprehensive Agricultural Solutions
-        </p>
-
-        {/* Main Title */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap border-red-500 pr-2">
-          Our Portfolio
-        </h1>
-
-        {/* Description */}
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
-          style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}
-        >
-          Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
-        </p>
-
-        {/* Action Buttons */}
-        <div className="button flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-zoom-in"
-          style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
-        >
-          <a href="#products" 
-            className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg transition-all duration-300"
-            data-discover="true"
-          >
-            Explore Products
-          </a>
-          
-          <a href="#" 
-            className="btn btn-outline btn-md radius animation border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-white/10 hover:bg-white/20 shadow-lg transition-all duration-300"
-          >
-            Watch Demo
-          </a>
-        </div>
-      </div> 
-    </div>
   </div>
-</div>
 
-</div>
+  <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/backgrounds/portfolio.jpg"
+                  alt="About AgriFort"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute -bottom-6 -right-6">
+                  <div className="bg-white p-4 rounded-full shadow-xl">
+                    <svg className="w-12 h-12" viewBox="0 0 100 100">
+                      <circle cx="25" cy="25" r="20" fill="#22c55e" />
+                      <circle cx="75" cy="25" r="20" fill="#059669" />
+                      <circle cx="25" cy="75" r="20" fill="#dc2626" />
+                      <circle cx="75" cy="75" r="20" fill="#991b1b" />
+                      <circle cx="50" cy="50" r="15" fill="#1f2937" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            {/* Right Side - Content */}
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
+              Our Portfolio
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+              Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Search and Filter */}
       <div className="max-w-7xl mx-auto ">

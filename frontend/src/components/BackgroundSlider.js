@@ -7,24 +7,38 @@ const BackgroundSlider = ({ children }) => {
     const backgroundImages = [
         {
             id: 1,
-            image: '/images/backgrounds/img1.png',
+            image: '/images/backgrounds/banner1.jpg',
             fallbackGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #92400e 100%)',
-            title: 'Golden Rice Terraces',
-            description: 'Traditional farming meets modern innovation'
+            title: 'Innovative Technology',
+            description: 'Innovative technology to transform agriculture'
         },
         {
             id: 2,  
-            image: '/images/backgrounds/img2.png',
+            image: '/images/backgrounds/banner6.jpg',
             fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
-            title: 'Vast Agricultural Fields',
-            description: 'Sustainable farming practices for the future'
+            title: 'Farmer Wins, We Win',
+            description: 'Empowering farmers with cutting-edge solutions. Farmer wins, we win.'
         },
         {
             id: 3,  
-            image: '/images/backgrounds/img3.png',
+            image: '/images/backgrounds/banner3.jpg',
             fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
-            title: 'Vast Agricultural Fields',
-            description: 'Sustainable farming practices for the future'
+            title: 'Trusted Products',
+            description: 'Trusted products by farmers nationwide'
+        },
+        {
+            id: 4,  
+            image: '/images/backgrounds/banner4.jpg',
+            fallbackGradient: 'linear-gradient(135deg, #16a34a 0%, #15803d 50%, #166534 100%)',
+            title: 'Jai Jawan Jai Kisan',
+            description: 'Jai jawan jai kisan'
+        },
+        {
+            id: 5,  
+            image: '/images/backgrounds/banner5.jpg',
+            fallbackGradient: 'linear-gradient(135deg, #0891b2 0%, #0e7490 50%, #155e75 100%)',
+            title: 'Trust & Yields',
+            description: 'Where trust grows and yields follow'
         }
     ];
 
@@ -65,6 +79,35 @@ const BackgroundSlider = ({ children }) => {
                         
                         {/* Subtle animation overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/10 animate-pulse opacity-30"></div>
+                        
+                        {/* Slide Title - Display on each slide */}
+                        <div
+  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+  text-center z-30 transition-all duration-1000 ${
+    index === currentSlide
+      ? 'opacity-100'
+      : 'opacity-0 translate-y-6'
+  }`}
+>
+  {/* <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-2xl">
+    {slide.title}
+  </h1> */}
+
+            <div className="text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-2xl mb-6 
+                            animate-typing overflow-hidden whitespace-nowrap text-white pr-2">
+                {slide.title}
+            </h1>
+
+            <p className="text-lg md:text-2xl text-white/90 drop-shadow-lg mx-auto max-w-2xl">
+                {slide.description}
+            </p>
+            </div>
+
+</div>
+
+
+
                     </div>
                 ))}
             </div>

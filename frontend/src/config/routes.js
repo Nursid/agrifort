@@ -16,8 +16,8 @@ import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
 import ManageProducts from 'pages/ManageProduct';
 import Portfolio from 'pages/Portfolio';
-import FarmerWins from 'pages/components/FarmerWins';
-import LeadersOfPeople from 'pages/LeadersOfPeople';
+import FarmerWins from '../pages/components/FarmerWins';
+import LeadersOfPeople from '../pages/LeadersOfPeople';
 
 // Route definitions
 export const ROUTES = {

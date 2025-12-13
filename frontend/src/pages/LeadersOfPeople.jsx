@@ -74,25 +74,46 @@ const LeadersOfPeople = () => {
     <div className="min-h-screen bg-white">
       <Navbar/>
 
-      {/* Hero Section */}
-      <section 
-        className="relative h-30 py-32 bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: ' url(https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200)',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="absolute top-10 right-10 w-72 h-72 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-red-500 mb-6">
-            Leaders of People
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Meet the visionary leaders driving AgriFort Technologies forward with expertise, passion, and unwavering commitment to transforming agriculture globally.
-          </p>
+
+      <section className="py-6 pb-12 bg-gradient-to-b from-white to-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/backgrounds/leadersofpeople.jpg"
+                  alt="About AgriFort"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute -bottom-6 -right-6">
+                  <div className="bg-white p-4 rounded-full shadow-xl">
+                    <svg className="w-12 h-12" viewBox="0 0 100 100">
+                      <circle cx="25" cy="25" r="20" fill="#22c55e" />
+                      <circle cx="75" cy="25" r="20" fill="#059669" />
+                      <circle cx="25" cy="75" r="20" fill="#dc2626" />
+                      <circle cx="75" cy="75" r="20" fill="#991b1b" />
+                      <circle cx="50" cy="50" r="15" fill="#1f2937" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
+              Leaders of People.
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+              Meet the visionary leaders driving AgriFort Technologies forward with expertise, passion, and unwavering commitment to transforming agriculture globally.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
+
 
       {/* Leadership Team Section */}
       <section className="py-20 bg-white">
