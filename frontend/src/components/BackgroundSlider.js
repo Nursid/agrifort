@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const BackgroundSlider = ({ children }) => {
@@ -46,13 +47,13 @@ const BackgroundSlider = ({ children }) => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
-        }, 6000); // Change every 6 seconds
+        }, 6000);
 
         return () => clearInterval(timer);
     }, [backgroundImages.length]);
 
     return (
-        <div className="relative w-full overflow-hidden" style={{height: '75vh'}}>
+        <div className="relative w-full overflow-hidden" style={{height: '75vh', minHeight: '500px'}}>
             {/* Background Slides */}
             <div className="absolute inset-0">
                 {backgroundImages.map((slide, index) => (
@@ -82,32 +83,24 @@ const BackgroundSlider = ({ children }) => {
                         
                         {/* Slide Title - Display on each slide */}
                         <div
-  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-  text-center z-30 transition-all duration-1000 ${
-    index === currentSlide
-      ? 'opacity-100'
-      : 'opacity-0 translate-y-6'
-  }`}
->
-  {/* <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-2xl">
-    {slide.title}
-  </h1> */}
+                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                            text-center z-30 transition-all duration-1000 w-full px-4 sm:px-6 md:px-8 ${
+                                index === currentSlide
+                                    ? 'opacity-100'
+                                    : 'opacity-0 translate-y-6'
+                            }`}
+                        >
+                            <div className="text-center">
+                                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-2xl mb-3 sm:mb-4 md:mb-6 
+                                                overflow-hidden text-white leading-tight">
+                                    {slide.title}
+                                </h1>
 
-            <div className="text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold drop-shadow-2xl mb-6 
-                            animate-typing overflow-hidden whitespace-nowrap text-white pr-2">
-                {slide.title}
-            </h1>
-
-            <p className="text-lg md:text-2xl text-white/90 drop-shadow-lg mx-auto max-w-2xl">
-                {slide.description}
-            </p>
-            </div>
-
-</div>
-
-
-
+                                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 drop-shadow-lg mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl px-2 leading-relaxed">
+                                    {slide.description}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -118,12 +111,12 @@ const BackgroundSlider = ({ children }) => {
             </div>
 
             {/* Slide Indicators */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+            <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 sm:space-x-3">
                 {backgroundImages.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                             index === currentSlide
                                 ? 'bg-white scale-125 shadow-lg'
                                 : 'bg-white/50 hover:bg-white/75'
@@ -154,4 +147,4 @@ const BackgroundSlider = ({ children }) => {
     );
 };
 
-export default BackgroundSlider;
+export default BackgroundSlider

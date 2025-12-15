@@ -31,15 +31,8 @@ const leadershipInsights = [
 
 export default function LeadershipAndFarmersSection() {
   return (
-    <div className="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Heading
-        <div className="w-full mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Leadership Insights</h2>
-          <div className="w-48 md:w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
-          <p className="text-sm md:text-base text-gray-600 mt-2 md:mt-3">Hear from the team driving agricultural innovation</p>
-        </div> */}
+    <div className="bg-gradient-to-br from-gray-50 to-green-50">
+      <div className="max-w-7xl mx-auto ">
 
         {/* Leadership Section */}
         <div className="w-full">
@@ -52,8 +45,8 @@ export default function LeadershipAndFarmersSection() {
                 >
                   <div className="flex items-start mb-4">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full blur-md opacity-50"></div>
-                      <div className="relative bg-gradient-to-br from-green-600 to-emerald-600 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 shadow-lg">
+                      {/* <div className="absolute inset-0 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full blur-md opacity-50"></div> */}
+                      <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mr-3 md:mr-4">
                         <img
                           src={insight.img}
                           alt={insight.name}

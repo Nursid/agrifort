@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Award, Leaf, Users, BookOpen, Briefcase } from "lucide-react";
 import Footer from "components/Footer";
 import Navbar from "./Navbar";
+import { Button } from "@material-tailwind/react";
+import AgriFortAdvantages from "./components/AgriFortAdvantages";
 
 const About = () => {
   const paragraph=`AgriFort Technologies was born from a vision at Blue Quadrant,
@@ -40,118 +42,6 @@ function toggleDesc(isRead){
   
 }
 
-  
-  const achievements = [
-    {
-      number: "20+",
-      title: "Years of Excellence",
-      description: "Pioneering agro-biotech solutions",
-    },
-    {
-      number: "500+",
-      title: "Products Developed",
-      description: "Innovative agricultural solutions",
-    },
-    {
-      number: "10K+",
-      title: "Happy Farmers",
-      description: "Trusted by farming communities",
-    },
-    {
-      number: "50+",
-      title: "Countries Served",
-      description: "Global agricultural impact",
-    },
-  ];
-
-  const values = [
-    {
-      icon: "🌱",
-      title: "Sustainability",
-      description:
-        "Committed to environmentally responsible farming practices that preserve soil health and biodiversity.",
-    },
-    {
-      icon: "🔬",
-      title: "Innovation",
-      description:
-        "Continuous research and development to bring cutting-edge biotech solutions to agriculture.",
-    },
-    {
-      icon: "🤝",
-      title: "Partnership",
-      description:
-        "Building strong relationships with farmers, dealers, and stakeholders across the value chain.",
-    },
-    {
-      icon: "🎯",
-      title: "Quality",
-      description:
-        "Maintaining the highest standards in product development, manufacturing, and customer service.",
-    },
-  ];
-
-  const advantages = [
-    {
-      icon: Award,
-      title: "Manufacturing",
-      description: "State-of-the-art production facilities",
-    },
-    {
-      icon: Leaf,
-      title: "R&D",
-      description: "Cutting-edge research and development",
-    },
-    {
-      icon: Users,
-      title: "People at AgriFort",
-      description: "Experienced team of professionals",
-    },
-    {
-      icon: BookOpen,
-      title: "Tech-based Products",
-      description: "Innovation-driven solutions",
-    },
-    {
-      icon: Briefcase,
-      title: "Trusted Partnerships",
-      description: "Building lasting relationships",
-    },
-  ];
-
-  const timeline = [
-    {
-      year: "2003",
-      title: "Company Founded",
-      description:
-        "AgriFort Technologies established with a vision to revolutionize agriculture through biotechnology.",
-    },
-    {
-      year: "2008",
-      title: "First Breakthrough",
-      description:
-        "Launched our flagship bio-stimulant product, Hortis-SP, achieving remarkable success.",
-    },
-    {
-      year: "2015",
-      title: "Global Expansion",
-      description:
-        "Expanded operations to 25 countries, establishing our presence in international markets.",
-    },
-    {
-      year: "2020",
-      title: "Digital Transformation",
-      description:
-        "Launched digital platforms for farmer education and product support services.",
-    },
-    {
-      year: "2024",
-      title: "Innovation Hub",
-      description:
-        "Opened state-of-the-art R&D facility focusing on sustainable agriculture solutions.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -188,8 +78,8 @@ function toggleDesc(isRead){
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
                 {Para}
-                <button onClick={()=>  toggleDesc(!isReadMore)
-                  } >{isReadMore ? 'Read More':"Read Less"}</button>
+                <Button onClick={()=>  toggleDesc(!isReadMore)  
+                  } >{isReadMore ? 'Read More':"Read Less"}</Button>
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
@@ -314,122 +204,11 @@ function toggleDesc(isRead){
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               The AgriFort Advantage
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto"></div>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {advantages.map((advantage, index) => {
-              const Icon = advantage.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
-                >
-                  <div className="bg-gradient-to-br from-green-600 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
-                    {advantage.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {advantage.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+            <AgriFortAdvantages />
+            </div>
         </div>
       </section>
 
-      {/* Core Values Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Core Values
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="text-4xl mb-6">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Key milestones in our two-decade journey of agricultural
-              innovation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {timeline.map((event, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="text-2xl font-bold text-green-600 mb-2">
-                  {event.year}
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">
-                  {event.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {event.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-green-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Join Our Mission
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Be part of the agricultural revolution. Whether you're a farmer,
-            dealer, or partner, together we can build a sustainable future for
-            agriculture.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              className="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg inline-block text-center"
-            >
-              Get In Touch
-            </a>
-            <a
-              href="#"
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-200 hover:scale-105 active:scale-95 inline-block text-center"
-            >
-              View Products
-            </a>
-          </div>
-        </div>
-      </section>
       <Footer />
     </div>
   );

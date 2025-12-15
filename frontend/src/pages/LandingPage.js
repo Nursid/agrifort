@@ -51,64 +51,7 @@ const LandingPage = () => {
             {/* Hero Section with Animated Background Slider */}
             <section className="relative flex items-center justify-center overflow-hidden">
             <BackgroundSlider />
-                {/* <BackgroundSlider>
-                 
-                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center py-20">
-                     
-                        <div className="container mx-auto">
-                            <div className="row flex items-center justify-center">
-                                    <div className="content text-center lg:text-left">
-                                      
-                                        <p className="py-4 text-2xl md:text-3xl font-semibold text-white mb-4 opacity-0 animate-slide-in-left text-shadow-glow ml-4"
-                                            style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}
-                                        >
-                                             Innovative Tech
-                                        </p>
-                                       
-                                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-red-500 mb-6 animate-typing overflow-hidden whitespace-nowrap  border-red-500 pr-2">
-                                        Transform Agriculture
-                                            </h1>
-
-                                   
-                                        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 animate-slide-in-right text-shadow-hero"
-                                           style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}
-                                        >
-                                            Empowering farmers with cutting-edge solutions. Farmer wins, we win.
-                                        </p>
-
-                                
-                                        <div className="button flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-zoom-in"
-                                             style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}
-                                        >
-                                            <a href="#" 
-                                               className="btn btn-theme secondary btn-md radius animation bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift shadow-lg"
-                                               data-discover="true"
-                                        
-                                            >
-                                               Explore Our Journey
-                                            </a>
-                                            
-                                            <a href="/Portfolio" 
-                                               className="btn btn-outline btn-md radius animation border-2 border-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover-lift backdrop-blur-sm bg-red-500/20 hover:bg-red-500/40 shadow-lg"
-                                            >
-                                               View Portfolio
-                                            </a>
-                                        </div>
-                                    </div> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div 
-                        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30"
-                        style={{animationDuration: '2s', animationIterationCount: 'infinite'}}
-                    >
-                        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-                            <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
-                        </div>
-                    </div>
-                </BackgroundSlider> */}
-            </section>
+        </section>
 
             
 
@@ -276,7 +219,7 @@ const LandingPage = () => {
         </div>
             </section>
 
-            <section className=" py-20 bg-gradient-to-br from-gray-50 to-green-50">
+            <section className="py-6 bg-gradient-to-br from-gray-50 to-green-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Standards We Live By</h2>
@@ -291,42 +234,68 @@ const LandingPage = () => {
             </section>
                 {/* Leadership Insights & Farmer Wins Section */}
                 <div className="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
-                    {/* Headers Row */}
-                    <div className="flex flex-col md:flex-row w-full gap-6 md:gap-8 mb-8 md:mb-12">
-                    {/* Leadership Header */}
-                    <div className="w-full md:w-1/2">
-                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Leadership Insights</h2>
-                        <div className="w-48 md:w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
-                        <p className="text-sm md:text-base text-gray-600 mt-2 md:mt-3">Hear from the team driving agricultural innovation</p>
-                    </div>
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        
+                        {/* Mobile Layout - Stack header + content together */}
+                        <div className="flex flex-col md:hidden gap-8">
+                            {/* Leadership Section - Mobile */}
+                            <div className="w-full">
+                                <div className="mb-6">
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-3">Leadership Insights</h2>
+                                    <div className="w-48 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
+                                    <p className="text-sm text-gray-600 mt-2">Hear from the team driving agricultural innovation</p>
+                                </div>
+                                <LeadershipAndFarmersSection/>
+                            </div>
 
-                    {/* Divider - Hidden on mobile */}
-                    <div className="hidden md:block w-1"></div>
+                            {/* Farmer Wins Section - Mobile */}
+                            <div className="w-full">
+                                <div className="mb-6">
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-3">Farmer Wins</h2>
+                                    <div className="w-48 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
+                                    <p className="text-sm text-gray-600 mt-2">Real stories of transformation and success</p>
+                                </div>
+                                <FarmerWins />
+                            </div>
+                        </div>
 
-                    {/* Farmer Wins Header */}
-                    <div className="w-full md:w-1/2">
-                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Farmer Wins</h2>
-                        <div className="w-48 md:w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
-                        <p className="text-sm md:text-base text-gray-600 mt-2 md:mt-3">Real stories of transformation and success</p>
-                    </div>
-                    </div>
+                        {/* Desktop Layout - Headers on top, content below */}
+                        <div className="hidden md:block">
+                            {/* Headers Row */}
+                            <div className="flex w-full gap-8 mb-12">
+                                {/* Leadership Header */}
+                                <div className="w-1/2" style={{width: '50%'}}>
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Insights</h2>
+                                    <div className="w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
+                                    <p className="text-base text-gray-600 mt-3">Hear from the team driving agricultural innovation</p>
+                                </div>
 
-                    {/* Content Row */}
-                    <div className="flex flex-col md:flex-row w-full gap-6 md:gap-8">
-                    <div className="w-full md:w-1/2">
-                        <LeadershipAndFarmersSection/>
-                    </div>
-                    
-                    {/* Divider */}
-                    <div className="hidden md:block w-1 bg-gradient-to-b from-green-600 via-emerald-600 to-green-600 rounded-full shadow-lg"></div>
+                                {/* Divider */}
+                                <div className="w-1"></div>
 
-                    <div className="w-full md:w-1/2">
-                        <FarmerWins />
+                                {/* Farmer Wins Header */}
+                                <div className="w-1/2" style={{width: '50%'}}>
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Farmer Wins</h2>
+                                    <div className="w-72 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
+                                    <p className="text-base text-gray-600 mt-3">Real stories of transformation and success</p>
+                                </div>
+                            </div>
+
+                            {/* Content Row */}
+                            <div className="flex w-full gap-8">
+                                <div className="w-1/2" style={{width: '50%'}}>
+                                    <LeadershipAndFarmersSection/>
+                                </div>
+                                
+                                {/* Divider */}
+                                <div className="w-1 bg-gradient-to-b from-green-600 via-emerald-600 to-green-600 rounded-full shadow-lg"></div>
+
+                                <div className="w-1/2" style={{width: '50%'}}>
+                                    <FarmerWins />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
 
 
