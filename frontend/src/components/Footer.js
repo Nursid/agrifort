@@ -174,7 +174,7 @@ const Footer = () => {
                     style={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}
                 >
                     <p className="text-gray-400 text-sm">
-                        Copyright © 2025 AgriFort Agro Private Limited
+                        Copyright © 2025 AgriFort Technology 
                     </p>
                 </div>
             </div>
