@@ -22,57 +22,44 @@ const LifeAtAgriFort = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
-      
       <Navbar/>
-      <BreadCrumb
-           clipImage={t}
-           title="Life At Agrifort"
-           bgImage={team}/>
-      {/* 2. Main Content Section: Life at AgriFort */}
-      <section className="pt-24 pb-12 bg-gradient-to-b from-white to-green-50"> 
+
+      <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-          {/* Left Side: Image with fade-right animation */}
-          <div 
-            className="relative"
-            data-aos="fade-right" // AOS Animation applied here
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={agriculture}
-                alt="AgriFort Technologies Office Building" 
-                className="w-full h-full object-cover"
-              />
-               <p className="absolute text-gray-400 text-lg">AgriFort Technologies Office Building</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Image */}
+            <div className="relative">
+              <div className="relative rounded-md overflow-hidden shadow-2xl">
+                <img
+                  src={agriculture}
+                  alt="About AgriFort"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute -bottom-6 -right-6">
+                  <div className="bg-white p-4 rounded-full shadow-xl">
+                    <svg className="w-12 h-12" viewBox="0 0 100 100">
+                      <circle cx="25" cy="25" r="20" fill="#22c55e" />
+                      <circle cx="75" cy="25" r="20" fill="#059669" />
+                      <circle cx="25" cy="75" r="20" fill="#dc2626" />
+                      <circle cx="75" cy="75" r="20" fill="#991b1b" />
+                      <circle cx="50" cy="50" r="15" fill="#1f2937" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-4xl font-bold text-red-600 uppercase tracking-tight"  style={{ fontFamily: "cursive" }}>
+              Life At Agrifort
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+              At **AgriFort Technologies**, we are dedicated to maintaining the highest ethical standards in every aspect of our operations. We believe that our values are the compass that guides our journey in both personal and professional realms.
+              We are uncompromising in our pursuit of excellence, consistently delivering high-quality products and services. This unwavering dedication to integrity & quality transcends into the careers we nurture, ensuring that you have the resources and support to excel in your chosen path. We are committed to creating an environment where integrity, quality and our core values of aspiration, nurturing, progressive, and empowerment shape the essence of life at AgriFort.
+              </p>
             </div>
           </div>
-
-          {/* Right Side: Text Content with fade-left animation */}
-          <div 
-            className="space-y-6"
-            data-aos="fade-left" // AOS Animation applied here (fade-up is a nice contrast to fade-right)
-            data-aos-delay="200" // Delay the text animation slightly
-          >
-            <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
-              LIFE AT <span className="text-red-600">AGRIFORT</span>
-            </h1>
-            <h2 className="text-xl font-semibold text-gray-700 mb-6 border-b-2 border-red-600 inline-block pb-1">
-              Cultivating a Positive Work Environment
-            </h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              <span className="block">
-                At **AgriFort Technologies**, we are dedicated to maintaining the highest ethical standards in every aspect of our operations. We believe that our values are the compass that guides our journey in both personal and professional realms. 
-              </span>
-              {/* <span className="block">
-                Our commitment to **transparency, honesty, and accountability** ensures that you can trust us, not just as an organization but as a community where your personal and professional integrity is respected and valued. Quality is not merely a buzzword at AgriFort; it is the cornerstone of our existence. 
-              </span> */}
-              <span className="block">
-                We are uncompromising in our pursuit of excellence, consistently delivering high-quality products and services. This unwavering dedication to integrity & quality transcends into the careers we nurture, ensuring that you have the resources and support to excel in your chosen path. We are committed to creating an environment where integrity, quality and our core values of aspiration, nurturing, progressive, and empowerment shape the essence of life at AgriFort.
-              </span>
-            </p>
-          </div>
-        </div>
         </div>
       </section>
       

@@ -7,6 +7,8 @@ import AgriFortAdvantages from "./components/AgriFortAdvantages";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import LeadershipSection from "./components/LeadershipSection";
+import LeadershipTeam from "./components/LeadershipTeam";
+import LeadershipMessages from "./components/LeadershipSection";
 
 const About = () => {
   const paragraph=`AgriFort Technologies was born from a vision at Blue Quadrant,
@@ -85,16 +87,15 @@ useEffect(() => {
 
             {/* Right Side - Content */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
-                ABOUT US.
+              <h1 className="text-4xl md:text-4xl font-bold text-red-600 uppercase tracking-tight" style={{ fontFamily: "cursive" }}>
+              The AgriFort Journey
               </h1>
-              <h5 style={{margin: 0}} className="text-gray-900">The AgriFort Journey</h5>
               <p className="text-xl text-gray-700 leading-relaxed">
                 {Para}
                 <Button onClick={()=>  toggleDesc(!isReadMore)  
                   } >{isReadMore ? 'Read More':"Read Less"}</Button>
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              {/* <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
                   <span className="text-green-600 text-2xl">✓</span>
                   <span className="text-green-800 font-medium">
@@ -113,7 +114,7 @@ useEffect(() => {
                     Innovation Driven
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -259,18 +260,14 @@ useEffect(() => {
     
 
       {/* AgriFort Advantage Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+      <section className="bg-gradient-to-br from-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              The AgriFort Advantage
-            </h2>
-            <AgriFortAdvantages />
-            </div>
+            {/* <LeadershipTeam /> */}
+            <LeadershipMessages />
         </div>
       </section>
 
-      <LeadershipSection /> 
+      {/* <LeadershipSection />  */}
 
       <Footer />
 

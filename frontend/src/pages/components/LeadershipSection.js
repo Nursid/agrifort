@@ -3,7 +3,7 @@ import { Quote, User, Briefcase, ChevronRight } from 'lucide-react';
 
 const LeadershipMessages = () => {
   return (
-    <div className="bg-slate-50 py-16 md:py-24">
+    <div className="bg-slate-50 py-6 md:py-6">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

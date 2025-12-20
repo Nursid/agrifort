@@ -53,7 +53,7 @@ const BackgroundSlider = ({ children }) => {
     }, [backgroundImages.length]);
 
     return (
-        <div className="relative w-full overflow-hidden" style={{height: '75vh', minHeight: '500px'}}>
+        <div className="relative w-full overflow-hidden" style={{height: '400px'}}>
             {/* Background Slides */}
             <div className="absolute inset-0">
                 {backgroundImages.map((slide, index) => (
@@ -90,7 +90,7 @@ const BackgroundSlider = ({ children }) => {
                                     : 'opacity-0 translate-y-6'
                             }`}
                         >
-                            <div className="text-center">
+                            {/* <div className="text-center">
                                 <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-2xl mb-3 sm:mb-4 md:mb-6 
                                                 overflow-hidden text-white leading-tight">
                                     {slide.title}
@@ -99,7 +99,7 @@ const BackgroundSlider = ({ children }) => {
                                 <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 drop-shadow-lg mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl px-2 leading-relaxed">
                                     {slide.description}
                                 </p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))}
@@ -136,6 +136,8 @@ const BackgroundSlider = ({ children }) => {
                     }}
                 />
             </div>
+
+            
 
             <style jsx>{`
                 @keyframes progressBar {

@@ -10,7 +10,7 @@ import Products from '../pages/Products';
 import About from '../pages/About';
 import OurTeam from '../pages/OurTeam';
 import Contact from '../pages/Contact';
-import LifeAtAgriFort from 'pages/lifeAtAgrifort';
+import LifeAtAgriFort from '../pages/lifeAtAgrifort';
 import ManageDistributors from '../pages/ManageDistributors';
 import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
@@ -25,7 +25,7 @@ export const ROUTES = {
   PUBLIC: {
     HOME: '/',
     PRODUCTS: '/products',
-    ABOUT: '/about',
+    AGRIFORT_JOURNEY: '/agrifort-journey',
     OUR_TEAM: '/ourteam',
     CONTACT: '/contact',
     LIFE_AT_AGRIFORT:'/lifeAtAgrifort',
@@ -82,10 +82,10 @@ export const ROUTE_CONFIG = {
       title: 'Products'
     },
     {
-      path: ROUTES.PUBLIC.ABOUT,
+      path: ROUTES.PUBLIC.AGRIFORT_JOURNEY,
       exact: true,
       component: About,
-      title: 'About Us'
+      title: 'The Agrifort Journey'
     },
     {
       path: ROUTES.PUBLIC.OUR_TEAM,

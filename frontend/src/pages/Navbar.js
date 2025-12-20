@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, ShoppingCart, Heart, User, Package, ChevronDown, Menu, X } from 'lucide-react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -11,22 +11,18 @@ const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
 
     const history = useHistory();
+    const location = useLocation();
 
     const mainCategories = [
         { name: 'Home', href: '/' },
         {
-            name: 'About Us',
-            href: '/about',
-            // submenu: [
-            //     { name: 'Profile', href: '/about/profile' },
-            //     { name: 'History & Values', href: '/about/history' }
-            // ]
+            name: 'The AgriFort Journey',
+            href: '/agrifort-journey',
         },
         { name: 'Leaders of People', href: '/leaders-of-people' },
-        { name: 'Our Portfolio', href: 'Portfolio' },
+        { name: 'Our Portfolio', href: '/Portfolio' },
         { name: 'Farmer Wins', href: '/farmer-wins' },
         { name: 'AgriFort Highlights', href: '/lifeAtAgrifort' },
-        
     ];
 
     const toggleDarkMode = () => {
@@ -43,41 +39,15 @@ const Navbar = () => {
         setMobileMenuOpen(false);
     };
 
+    // Check if current route matches the category href
+    const isActive = (href) => {
+        return location.pathname === href;
+    };
+
     return (
         <div className="sticky top-0 z-50">
-            {/* Top Bar */}
-            {/* <div className="bg-green-800 text-white">
-                <div className="w-full flex flex-wrap justify-between items-center text-sm bg-green-600 px-4 py-2">
-                    
-                    <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-white">
-                        <button
-                            onClick={() => handleNavigation('/sell')}
-                            className="hover:text-gray-200 transition-colors"
-                        >
-                            Sell on AgriFort
-                        </button>
-                        <button
-                            onClick={() => handleNavigation('/bulk-orders')}
-                            className="hover:text-gray-200 transition-colors"
-                        >
-                            Bulk Order Inquiries
-                        </button>
-                        <button
-                            onClick={() => handleNavigation('/corporate')}
-                            className="hover:text-gray-200 transition-colors"
-                        >
-                            Corporate Site
-                        </button>
-                    </div>
-
-                    <div className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 mt-2 md:mt-0 rounded transition-colors cursor-pointer font-semibold text-center w-full md:w-auto">
-                        Missed Call To Order: 1800-3000-2434
-                    </div>
-                </div>
-            </div> */}
-
             {/* Main Navigation */}
-            <nav className=" bg-white bg-opacity-100 dark:bg-gray-900 border-1 shadow-lg">
+            <nav className="bg-white bg-opacity-100 dark:bg-gray-900 border-b shadow-lg">
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center py-3">
 
@@ -103,15 +73,18 @@ const Navbar = () => {
                                 >
                                     <button
                                         onClick={() => history.push(category.href)}
-                                        className="  text-gray-700
-                                        dark:text-gray-300
-                                        hover:text-green-500
-                                      
-                                        hover:bg-transparent
-                                        font-medium
-                                        text-sm
-                                        px-2 py-2
-                                        transition-colors"
+                                        className={`
+                                            ${isActive(category.href)
+                                                ? 'text-green-600 border-b-2 border-green-600'
+                                                : 'text-gray-700 dark:text-gray-300 hover:text-green-500'
+                                            }
+                                            font-medium
+                                            text-sm
+                                            px-4 py-2
+                                            rounded-t-lg
+                                            transition-all
+                                            duration-200
+                                        `}
                                     >
                                         {category.name}
                                     </button>
@@ -126,7 +99,13 @@ const Navbar = () => {
                                                             history.push(item.href)
                                                             setActiveDropdown(null);
                                                         }}
-                                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-orange-500 hover:text-green-500"
+                                                        className={`
+                                                            block w-full text-left px-4 py-2 text-sm
+                                                            ${isActive(item.href)
+                                                                ? ' text-green-600 font-medium'
+                                                                : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
+                                                            }
+                                                        `}
                                                     >
                                                         {item.name}
                                                     </button>
@@ -140,67 +119,37 @@ const Navbar = () => {
                         {/* Right Actions */}
                         <div className="flex items-center gap-4">
 
-                            <div className="relative hidden md:block">
-                                {/* <button
-                                    onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-                                    className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-gray-300 hover:border-orange-500 dark:border-gray-600 dark:text-white"
-                                >
-                                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">🌐</div>
-                                    <span className="text-sm">{language}</span>
-                                    <ChevronDown className="w-4 h-4" />
-                                </button> */}
-{/* 
-                                {showLanguageDropdown && (
-                                    <div className="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-lg border">
-                                        <button
-                                            onClick={() => {
-                                                setLanguage('English');
-                                                setShowLanguageDropdown(false);
-                                            }}
-                                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                                        >
-                                            English
-                                        </button>
-
-                                        <button
-                                            onClick={() => {
-                                                setLanguage('हिंदी');
-                                                setShowLanguageDropdown(false);
-                                            }}
-                                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                                        >
-                                            हिंदी
-                                        </button>
-                                    </div>
-                                )} */}
-                            </div>
-
-                            {/* <button onClick={() => history.push('/track-order')
-                                
-                            } className="hidden md:flex items-center gap-2 hover:text-orange-500">
-                                <Package className="w-5 h-5" />
-                                <span className="text-sm">Track Order</span>
-                            </button>
-
-                            <button onClick={() => history.push('/wishlist')} className="hidden md:flex items-center gap-2 hover:text-orange-500">
-                                <Heart className="w-5 h-5" />
-                                <span className="text-sm">Wishlist</span>
-                            </button> */}
-
-                            <button onClick={() => history.push('/admin/login')} className="hidden md:flex items-center gap-2 hover:text-orange-500">
+                            <button 
+                                onClick={() => history.push('/admin/login')} 
+                                className={`
+                                    hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
+                                    ${isActive('/admin/login')
+                                        ? 'text-white shadow-md'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
+                                    }
+                                `}
+                            >
                                 <User className="w-5 h-5" />
-                                <span className="text-sm">Login</span>
+                                <span className="text-sm font-medium">Registration Center</span>
                             </button>
-
-                            {/* <button onClick={() => history.push('/cart')} className="hidden md:flex items-center gap-2 hover:text-orange-500">
-                                <ShoppingCart className="w-5 h-5" />
-                                <span className="text-sm">Cart</span>
-                            </button> */}
+                            <button 
+                                onClick={() => history.push('/admin/login')} 
+                                className={`
+                                    hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
+                                    ${isActive('/admin/login')
+                                        ? 'text-white shadow-md'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
+                                    }
+                                `}
+                            >
+                                <User className="w-5 h-5" />
+                                <span className="text-sm font-medium">Workspace Login</span>
+                            </button>
 
                             {/* Mobile Toggle */}
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
+                                className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                             >
                                 {mobileMenuOpen ? (
                                     <X className="w-6 h-6" />
@@ -214,39 +163,55 @@ const Navbar = () => {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden border-t">
-                        <div className="py-4 space-y-2 px-4">
+                    <div className="lg:hidden border-t bg-white dark:bg-gray-900">
+                        <div className="py-4 space-y-1 px-4">
 
                             {mainCategories.map((category) => (
                                 <button
                                     key={category.name}
                                     onClick={() => handleNavigation(category.href)}
-                                    className="block w-full text-left px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                    className={`
+                                        block w-full text-left px-4 py-3 rounded-lg transition-all duration-200
+                                        ${isActive(category.href)
+                                            ? 'bg-green-600 text-white font-semibold shadow-md'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
+                                        }
+                                    `}
                                 >
                                     {category.name}
                                 </button>
                             ))}
 
-                            <div className="pt-4 border-t space-y-2">
-                                {/* <button onClick={() => handleNavigation('/track-order')} className="flex items-center gap-2 px-4 py-2">
-                                    <Package className="w-5 h-5" />
-                                    <span>Track Order</span>
-                                </button> */}
-
-                                {/* <button onClick={() => handleNavigation('/wishlist')} className="flex items-center gap-2 px-4 py-2">
-                                    <Heart className="w-5 h-5" />
-                                    <span>Wishlist</span>
-                                </button> */}
-
-                                <button onClick={() => handleNavigation('/admin/login')} className="flex items-center gap-2 px-4 py-2">
+                            <div className="pt-4 border-t space-y-1">
+                                <button 
+                                    onClick={() => handleNavigation('/admin/login')} 
+                                    className={`
+                                        flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200
+                                        ${isActive('/admin/login')
+                                            ? 'bg-green-600 text-white font-semibold shadow-md'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
+                                        }
+                                    `}
+                                >
                                     <User className="w-5 h-5" />
-                                    <span>Login</span>
+                                    <span>Registration Center</span>
                                 </button>
+                            </div>
 
-                                {/* <button onClick={() => handleNavigation('/cart')} className="flex items-center gap-2 px-4 py-2">
-                                    <ShoppingCart className="w-5 h-5" />
-                                    <span>Cart</span>
-                                </button> */}
+                            <div className="pt-4 border-t space-y-1">
+                                <button 
+                                    onClick={() => handleNavigation('/admin/login')} 
+                                    className={`
+                                        flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200
+                                        ${isActive('/admin/login')
+                                            ? 'bg-green-600 text-white font-semibold shadow-md'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
+                                        }
+                                    `}
+                                >
+                                    <User className="w-5 h-5" />
+                                    <span>Workspace Login</span>
+                                </button>
                             </div>
                         </div>
                     </div>
