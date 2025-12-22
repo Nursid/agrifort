@@ -18,7 +18,7 @@ const AgriFortAdvantages = () => {
         
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">The AgriFort Journey</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">AgriFort Journey</h1>
           <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
         </div>
 

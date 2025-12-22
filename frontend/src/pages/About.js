@@ -133,23 +133,7 @@ useEffect(() => {
         </div>
 
         {/* Environmental Policy Section */}
-        <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-12 mb-8 md:mb-12 border-t-4 border-green-600"  data-aos="fade-up">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-green-100 p-4 rounded-full">
-              <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-          </div>
-          
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
-            Environmental Policy
-          </h2>
-          
-          <p className="text-base sm:text-lg text-gray-800 leading-relaxed text-center max-w-5xl mx-auto">
-            Our company's foundation rests on strong value systems that guide every action we take. We are committed to conducting our business in a socially responsible, ethical, and transparent manner. We respect the law, uphold universal human rights, safeguard the environment, and contribute positively to the communities we serve. At AgriFort, our commitment is simple yet powerful—<span className="font-bold text-green-700">to operate in ways that are good for people and for the planet.</span>
-          </p>
-        </div>
+     
 
         {/* Vision and Mission Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
@@ -252,6 +236,25 @@ useEffect(() => {
               </div>
             </div>
           </div>
+        </div>
+
+
+           <div className="bg-white rounded-2xl mt-2 shadow-2xl p-6 sm:p-8 md:p-12 mb-8 md:mb-12 border-t-4 border-green-600"  data-aos="fade-up">
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-green-100 p-4 rounded-full">
+              <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
+            Environmental Policy
+          </h2>
+          
+          <p className="text-base sm:text-lg text-gray-800 leading-relaxed text-center max-w-5xl mx-auto">
+            Our company's foundation rests on strong value systems that guide every action we take. We are committed to conducting our business in a socially responsible, ethical, and transparent manner. We respect the law, uphold universal human rights, safeguard the environment, and contribute positively to the communities we serve. At AgriFort, our commitment is simple yet powerful—<span className="font-bold text-green-700">to operate in ways that are good for people and for the planet.</span>
+          </p>
         </div>
 
       </div>

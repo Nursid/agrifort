@@ -893,7 +893,7 @@ export default function Portfolio() {
 
             {/* Right Side - Content */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight"  style={{ fontFamily: "cursive" }}>
               Our Portfolio
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">

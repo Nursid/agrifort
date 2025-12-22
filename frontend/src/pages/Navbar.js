@@ -14,10 +14,9 @@ const Navbar = () => {
     const location = useLocation();
 
     const mainCategories = [
-        { name: 'Home', href: '/' },
         {
-            name: 'The AgriFort Journey',
-            href: '/agrifort-journey',
+            name: 'About Us',
+            href: '/about-us',
         },
         { name: 'Leaders of People', href: '/leaders-of-people' },
         { name: 'Our Portfolio', href: '/Portfolio' },
@@ -135,16 +134,19 @@ const Navbar = () => {
                             <button 
                                 onClick={() => history.push('/admin/login')} 
                                 className={`
-                                    hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
-                                    ${isActive('/admin/login')
-                                        ? 'text-white shadow-md'
-                                        : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
-                                    }
+                                    hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 rounded-full bg-green-600 hover:bg-green-700 text-white
+                                    hover:text-white
                                 `}
                             >
                                 <User className="w-5 h-5" />
-                                <span className="text-sm font-medium">Workspace Login</span>
+                                <span className="text-sm font-medium">Workplace Login</span>
                             </button>
+                            {/* <button 
+                                onClick={() => history.push('/admin/login')} 
+                                className="hidden md:block hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full bg-green-600"
+                            >
+                                <span className="text-sm font-medium">Workplace Login</span>
+                            </button> */}
 
                             {/* Mobile Toggle */}
                             <button
@@ -202,15 +204,13 @@ const Navbar = () => {
                                 <button 
                                     onClick={() => handleNavigation('/admin/login')} 
                                     className={`
-                                        flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200
-                                        ${isActive('/admin/login')
-                                            ? 'bg-green-600 text-white font-semibold shadow-md'
-                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
-                                        }
+                                        
+                                        flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200 bg-green-600 hover:bg-green-700 text-white
+                                    hover:text-white
                                     `}
                                 >
                                     <User className="w-5 h-5" />
-                                    <span>Workspace Login</span>
+                                    <span>Workplace Login</span>
                                 </button>
                             </div>
                         </div>

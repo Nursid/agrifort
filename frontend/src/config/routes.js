@@ -15,7 +15,7 @@ import ManageDistributors from '../pages/ManageDistributors';
 import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
 import ManageProducts from 'pages/ManageProduct';
-import Portfolio from 'pages/Portfolio';
+import Portfolio from '../pages/Portfolio';
 import FarmerWins from '../pages/components/FarmerWins';
 import LeadersOfPeople from '../pages/LeadersOfPeople';
 
@@ -25,7 +25,7 @@ export const ROUTES = {
   PUBLIC: {
     HOME: '/',
     PRODUCTS: '/products',
-    AGRIFORT_JOURNEY: '/agrifort-journey',
+    ABOUT_US: '/about-us',
     OUR_TEAM: '/ourteam',
     CONTACT: '/contact',
     LIFE_AT_AGRIFORT:'/lifeAtAgrifort',
@@ -69,12 +69,12 @@ export const ROUTES = {
 export const ROUTE_CONFIG = {
   // Public routes (no authentication required)
   public: [
-    {
-      path: ROUTES.PUBLIC.HOME,
-      exact: true,
-      component: LandingPage,
-      title: 'Home'
-    },
+    // {
+    //   path: ROUTES.PUBLIC.HOME,
+    //   exact: true,
+    //   component: LandingPage,
+    //   title: 'Home'
+    // },
     {
       path: ROUTES.PUBLIC.PRODUCTS,
       exact: true,
@@ -82,10 +82,10 @@ export const ROUTE_CONFIG = {
       title: 'Products'
     },
     {
-      path: ROUTES.PUBLIC.AGRIFORT_JOURNEY,
+      path: ROUTES.PUBLIC.ABOUT_US,
       exact: true,
       component: About,
-      title: 'The Agrifort Journey'
+      title: 'About Us'
     },
     {
       path: ROUTES.PUBLIC.OUR_TEAM,

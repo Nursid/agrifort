@@ -317,7 +317,7 @@ html {
 }
 
 .animate-scroll-seamless {
-  animation: scroll-seamless 20s linear infinite;
+  animation: scroll-seamless 60s linear infinite;
 }
 
 @keyframes scroll {

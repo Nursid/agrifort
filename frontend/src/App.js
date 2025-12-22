@@ -8,11 +8,20 @@ import {
     DealerProtectedRoute 
 } from './components/routes';
 import 'assets/styles/tailwind.css';
+import LandingPage from './pages/LandingPage';
 
 function App() {
     return (
         <AuthProvider>
             <Switch>
+
+            <Route
+                        key='/'
+                        exact={true}
+                        path={'/'}
+                        component={LandingPage}
+                    />
+            
                 {/* Public Routes */}
                 {ROUTE_CONFIG.public.map((route) => (
                     <Route

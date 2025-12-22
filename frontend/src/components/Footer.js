@@ -11,7 +11,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="pt-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white" style={{backgroundColor: '#1B4D3E'}}>
+        <footer className="pt-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white" style={{backgroundColor: '#02290c'}}>
             {/* Decorative top border */}
             {/* <div className="h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-green-600"></div> */}
             
