@@ -38,8 +38,8 @@ export default function FarmerWins() {
 
             {/* Right Side - Content */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight">
-              Farmer Wins
+              <h1 className="text-4xl md:text-4xl font-bold text-red-600 uppercase tracking-tight"  style={{ fontFamily: "cursive" }}>
+              Farmer Wins, We Wins
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
               Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
