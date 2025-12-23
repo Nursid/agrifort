@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
+import { Button } from '@material-tailwind/react';
 import 'aos/dist/aos.css';
 import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
@@ -12,9 +13,11 @@ import LeadershipAndFarmersSection from './components/LeadershipAndFarmersSectio
 import FarmerWins from './components/LandingFarmerWin';
 import LogoSlider from '../components/LogoSliding';
 import AgriFortAdvantages from './components/AgriFortAdvantages';
+import { useHistory } from 'react-router-dom';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
+    const history = useHistory()
 
     useEffect(() => {
         AOS.init({
@@ -76,70 +79,44 @@ const LandingPage = () => {
 
 
             {/* Hero Section with Animated Background Slider */}
-            <section className="relative flex items-center justify-center overflow-hidden" >
+            <section className="" >
             <BackgroundSlider />
-            
+            </section>
+          
+            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                        <h2 className="text-5xl md:text-5xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                        The AgriFort Journey
+                        </h2>
+                        <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
+                        <p
+                          className="text-xl text-gray-600 max-w-3xl mx-auto inline"
+                          data-aos="zoom-in"
+                          data-aos-delay="200"
+                        >
+                          AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers...
+                          
+                          <button
+                            onClick={() => history.push('/about-us')}
+                            className="ml-2 text-green-600 font-semibold hover:underline inline"
+                            style={{outline: 'none'}}
+                          >
+                            Read More
+                          </button>
+                        </p>
 
+                    </div>
+                </div>
             </section>
 
-            <section className="relative flex items-center justify-center overflow-hidden" >
-              <div className="w-full h-[100px] overflow-hidden flex items-center relative border" style={{backgroundColor: '#550000', padding: '100px'}}>
-                <div className="absolute whitespace-nowrap text-9xl font-bold animate-scroll-seamless flex gap-8" style={{ fontFamily: " 'Lobster', 'Pacifico', cursive"}}>
-                    <span className="text-green-500">"Innovative technology to transform agriculture"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-blue-500">"Farmer wins - we win"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-white">"Trusted products by farmers nationwide"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-green-500">"Jai jawan - jai kisan"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-blue-500">"Where trust grows and yields follow"</span>
-                    <span/>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span/>
-                    <span className="text-green-500">"Innovative technology to transform agriculture"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-blue-500">"Farmer wins - we win"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-red-900">"Trusted products by farmers nationwide"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-green-500">"Jai jawan - jai kisan"</span>
-                    <span/>
-                    <span className="text-white mx-8">•</span>
-                    <span/>
-                    <span className="text-blue-500">"Where trust grows and yields follow"</span>
-                </div>
-            </div>
-             </section>
-            
 
-            {/* About Section */}
               <section className="">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="text-center">
                       <AgriFortAdvantages />
-                      </div>
-                  </div>
               </section>
 
             {/* Testimonials Section */}
-            <section className="py-16 bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
+            <section className="bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
              
       <div className="bg-gradient-to-br from-gray-50 via-white to-green-50 py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

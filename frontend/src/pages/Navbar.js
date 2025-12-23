@@ -141,14 +141,6 @@ const Navbar = () => {
                                 <User className="w-5 h-5" />
                                 <span className="text-sm font-medium">Workplace Login</span>
                             </button>
-                            {/* <button 
-                                onClick={() => history.push('/admin/login')} 
-                                className="hidden md:block hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full bg-green-600"
-                            >
-                                <span className="text-sm font-medium">Workplace Login</span>
-                            </button> */}
-
-                            {/* Mobile Toggle */}
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"

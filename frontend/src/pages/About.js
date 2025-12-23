@@ -91,9 +91,7 @@ useEffect(() => {
               The AgriFort Journey
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
-                {Para}
-                <Button onClick={()=>  toggleDesc(!isReadMore)  
-                  } >{isReadMore ? 'Read More':"Read Less"}</Button>
+                {paragraph}
               </p>
               {/* <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">

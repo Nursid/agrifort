@@ -1,152 +1,181 @@
-
 import React, { useState, useEffect } from 'react';
 
 const BackgroundSlider = ({ children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    // Agricultural landscape images
     const backgroundImages = [
-        {
-            id: 1,
-            image: '/images/backgrounds/banner1.jpg',
-            fallbackGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #92400e 100%)',
-            title: 'Innovative Technology',
-            description: 'Innovative technology to transform agriculture'
-        },
-        {
-            id: 2,  
-            image: '/images/backgrounds/banner6.jpg',
-            fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
-            title: 'Farmer Wins, We Win',
-            description: 'Empowering farmers with cutting-edge solutions. Farmer wins, we win.'
-        },
-        {
-            id: 3,  
-            image: '/images/backgrounds/banner3.jpg',
-            fallbackGradient: 'linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%)',
-            title: 'Trusted Products',
-            description: 'Trusted products by farmers nationwide'
-        },
-        {
-            id: 4,  
-            image: '/images/backgrounds/banner4.jpg',
-            fallbackGradient: 'linear-gradient(135deg, #16a34a 0%, #15803d 50%, #166534 100%)',
-            title: 'Jai Jawan Jai Kisan',
-            description: 'Jai jawan jai kisan'
-        },
-        {
-            id: 5,  
-            image: '/images/backgrounds/banner5.jpg',
-            fallbackGradient: 'linear-gradient(135deg, #0891b2 0%, #0e7490 50%, #155e75 100%)',
-            title: 'Trust & Yields',
-            description: 'Where trust grows and yields follow'
-        }
+        { id: 1, image: '/images/backgrounds/banner1.jpg', fallbackGradient: 'linear-gradient(135deg, #f59e0b, #92400e)' },
+        { id: 2, image: '/images/backgrounds/banner6.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
+        { id: 3, image: '/images/backgrounds/banner3.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
+        { id: 4, image: '/images/backgrounds/banner4.jpg', fallbackGradient: 'linear-gradient(135deg, #16a34a, #166534)' },
+        { id: 5, image: '/images/backgrounds/banner5.jpg', fallbackGradient: 'linear-gradient(135deg, #0891b2, #155e75)' }
     ];
 
-    // Auto-advance slides
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
         }, 6000);
-
         return () => clearInterval(timer);
     }, [backgroundImages.length]);
 
     return (
-        <div className="relative w-full overflow-hidden" style={{height: '400px'}}>
+        <>
+      
+        {/* 1. Main Container with improved gradient depth */}
+        <div className="relative w-full overflow-hidden" style={{ height: '65vh', minHeight: '500px' }}>
+            
             {/* Background Slides */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 z-0">
                 {backgroundImages.map((slide, index) => (
                     <div
                         key={slide.id}
-                        className={`absolute inset-0 transition-all duration-2000 ease-in-out ${
-                            index === currentSlide
-                                ? 'opacity-100 scale-100'
-                                : 'opacity-0 scale-105'
-                        }`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                         style={{
                             backgroundImage: `url('${slide.image}'), ${slide.fallbackGradient}`,
                             backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundAttachment: 'fixed'
+                            backgroundPosition: 'center'
                         }}
                     >
-                        {/* Dark overlay for better text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
-                        
-                        {/* Additional overlay for depth */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/10 to-black/20"></div>
-                        
-                        {/* Subtle animation overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/10 animate-pulse opacity-30"></div>
-                        
-                        {/* Slide Title - Display on each slide */}
-                        <div
-                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                            text-center z-30 transition-all duration-1000 w-full px-4 sm:px-6 md:px-8 ${
-                                index === currentSlide
-                                    ? 'opacity-100'
-                                    : 'opacity-0 translate-y-6'
-                            }`}
-                        >
-                            {/* <div className="text-center">
-                                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-2xl mb-3 sm:mb-4 md:mb-6 
-                                                overflow-hidden text-white leading-tight">
-                                    {slide.title}
-                                </h1>
-
-                                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 drop-shadow-lg mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl px-2 leading-relaxed">
-                                    {slide.description}
-                                </p>
-                            </div> */}
-                        </div>
+                        {/* Darker top overlay to make the logo/nav pop */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
                     </div>
                 ))}
             </div>
 
-            {/* Content Overlay */}
-            <div className="relative z-10 w-full h-full">
-                {children}
+            {/* THE GREEN GLOW (The Bottom Shadow) */}
+            <div className="absolute inset-0 z-10 pointer-events-none" 
+                style={{
+                    background: 'linear-gradient(to top, rgba(34, 197, 94, 0.45) 0%, rgba(20, 83, 45, 0.2) 20%, transparent 60%)'
+                }}>
             </div>
 
-            {/* Slide Indicators */}
-            <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 sm:space-x-3">
+            {/* Scrolling Text Section */}
+            <div className="absolute inset-0 z-20 flex items-end justify-center pb-12">
+                <div className="absolute whitespace-nowrap text-7xl md:text-8xl font-bold animate-scroll-seamless flex gap-12 items-center" 
+                    style={{ 
+                        fontFamily: "'Lobster', 'Pacifico', cursive",
+                        textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Added shadow to make text pop against glow
+                    }}>
+                    <span className="text-white">Innovative technology to transform agriculture</span>
+                    <span className="text-green-400 mx-4">•</span>
+                    <span className="text-white">Farmer wins - we win</span>
+                    <span className="text-green-400 mx-4">•</span>
+                    <span className="text-white">Trusted products by farmers nationwide</span>
+                    <span className="text-green-400 mx-4">•</span>
+                    <span className="text-white">Jai jawan - jai kisan</span>
+                    
+                    {/* Duplicate for seamless loop */}
+                    <span className="text-green-400 mx-4">•</span>
+                    <span className="text-white">Innovative technology to transform agriculture</span>
+                    <span className="text-green-400 mx-4">•</span>
+                    <span className="text-white">Farmer wins - we win</span>
+                </div>
+            </div>
+
+            {/* Indicators - Styled to match the new glow */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
                 {backgroundImages.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setCurrentSlide(index)}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                            index === currentSlide
-                                ? 'bg-white scale-125 shadow-lg'
-                                : 'bg-white/50 hover:bg-white/75'
-                        }`}
-                        aria-label={`Go to slide ${index + 1}`}
+                    <div 
+                        key={index} 
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                            index === currentSlide ? 'w-8 bg-white' : 'w-2 bg-white/40'
+                        }`} 
                     />
                 ))}
             </div>
-
-            {/* Progress Bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-20">
-                <div 
-                    className="h-full bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-6000 ease-linear"
-                    style={{
-                        width: '100%',
-                        animation: `progressBar 6s linear infinite`
-                    }}
-                />
-            </div>
-
-            
-
-            <style jsx>{`
-                @keyframes progressBar {
-                    from { width: 0%; }
-                    to { width: 100%; }
-                }
-            `}</style>
         </div>
+        </>
     );
 };
 
-export default BackgroundSlider
+export default BackgroundSlider;
+
+
+  /* 1. Added min-height and border to see the container boundaries */
+        // <div className="relative w-full overflow-hidden border-4 border-yellow-500  bg-gradient-to-t 
+        //         from-green-900/80 
+        //         via-green-700/40 
+        //         to-transparent" style={{ height: '65vh', minHeight: '500px' }}>
+            
+        
+        //     <div className="absolute inset-0 z-0">
+        //         {backgroundImages.map((slide, index) => (
+        //             <div
+        //                 key={slide.id}
+        //                 className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+        //                 style={{
+        //                     backgroundImage: `url('${slide.image}'), ${slide.fallbackGradient}`,
+        //                     backgroundSize: 'cover',
+        //                     backgroundPosition: 'center'
+        //                 }}
+        //             >
+        //                 <div className="absolute inset-0 bg-black/40"></div>
+        //             </div>
+        //         ))}
+        //     </div>
+
+        //     <div className="absolute inset-0 z-20 flex items-end justify-center pb-8 ">
+        //     <div className="absolute whitespace-nowrap text-9xl font-bold animate-scroll-seamless flex gap-8" style={{ fontFamily: " 'Lobster', 'Pacifico', cursive"}}>
+        //             <span className="text-green-500">"Innovative technology to transform agriculture"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-blue-500">"Farmer wins - we win"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-white">"Trusted products by farmers nationwide"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-green-500">"Jai jawan - jai kisan"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-blue-500">"Where trust grows and yields follow"</span>
+        //             <span/>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span/>
+        //             <span className="text-green-500">"Innovative technology to transform agriculture"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-blue-500">"Farmer wins - we win"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-red-900">"Trusted products by farmers nationwide"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-green-500">"Jai jawan - jai kisan"</span>
+        //             <span/>
+        //             <span className="text-white mx-8">•</span>
+        //             <span/>
+        //             <span className="text-blue-500">"Where trust grows and yields follow"</span>
+        //         </div>
+        //     </div>
+
+
+
+
+        //   <div className="relative z-10 w-full h-full pointer-events-none">
+        //         <div className="pointer-events-auto">
+        //             {children}
+        //         </div>
+        //     </div>
+        //    <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+        //         {backgroundImages.map((_, index) => (
+        //             <div key={index} className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-white/30'}`} />
+        //         ))}
+        //     </div>
+
+        //     <style jsx>{`
+        //         @keyframes progressBar {
+        //             from { width: 0%; }
+        //             to { width: 100%; }
+        //         }
+        //     `}</style>
+        // </div>
