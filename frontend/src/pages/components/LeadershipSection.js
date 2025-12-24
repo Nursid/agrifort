@@ -4,11 +4,11 @@ import { Quote, User, Briefcase, ChevronRight } from 'lucide-react';
 const LeadershipMessages = () => {
   return (
     <div className="bg-slate-50 py-6 md:py-6">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900">Leadership Insights </h3>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Leadership Insights </h3>
           <div className="w-20 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -16,12 +16,17 @@ const LeadershipMessages = () => {
           
           {/* Chairman Section */}
           <div className="relative group" data-aos="fade-right">
-            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl border border border-gray-100">
               <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
                 <div className="absolute inset-0 bg-green-100 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
                 <div className="relative w-full h-full bg-gray-200 rounded-2xl overflow-hidden shadow-md flex items-center justify-center">
-                  <User size={80} className="text-gray-400" />
-                  {/* <img src="/chairman-photo.jpg" alt="DK Chopra" className="w-full h-full object-cover" /> */}
+                  {/* <User size={80} className="text-gray-400" /> */}
+                  <img src="/Team/DK Chopra.jpg" alt="DK Chopra" className="w-full h-full object-cover" />
+                </div>
+                <div className="text-center mt-6">
+                  <h4 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">DK Chopra</h4>
+                  <p className="text-green-600 font-medium">Honorary Chairman</p>
+                  <p className="text-green-600 font-medium"> AgriFort Technologies</p>
                 </div>
               </div>
               
@@ -50,23 +55,23 @@ const LeadershipMessages = () => {
                     I will encourage you to explore our website to learn more about the company, its products, services and the new initiatives. We shall certainly welcome and value any feedback or suggestions that you may have.
                   </p>
                 </div>
-                
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h4 className="text-xl font-bold text-gray-900 uppercase tracking-tight">DK Chopra</h4>
-                  <p className="text-green-600 font-medium">Honorary Chairman - AgriFort Technologies</p>
-                </div>
               </div>
             </div>
           </div>
 
           {/* CEO Section */}
           <div className="relative group" data-aos="fade-left">
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl border border-gray-100">
               <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
                 <div className="absolute inset-0 bg-blue-100 rounded-2xl -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
                 <div className="relative w-full h-full bg-gray-200 rounded-2xl overflow-hidden shadow-md flex items-center justify-center text-gray-500">
                    <Briefcase size={80} className="text-gray-400" />
                    {/* <img src="/ceo-photo.jpg" alt="Sharad Awasthi" className="w-full h-full object-cover" /> */}
+                </div>
+                <div className="text-center mt-6">
+                  <h4 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">Sharad Awasthi</h4>
+                  <p className="text-green-600 font-medium">Group CEO</p>
+                  <p className="text-green-600 font-medium">AgriFort Group of companies</p>
                 </div>
               </div>
               
@@ -90,11 +95,6 @@ const LeadershipMessages = () => {
                   <p className="text-lg font-bold text-green-700">
                     Together—with our farmers, customers, partners, and team—we move forward with confidence toward shared growth and prosperity.
                   </p>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <h4 className="text-xl font-bold text-gray-900 uppercase tracking-tight">Sharad Awasthi</h4>
-                  <p className="text-blue-600 font-medium">Group CEO - AgriFort Group of companies</p>
                 </div>
               </div>
             </div>

@@ -48,7 +48,7 @@ const Navbar = () => {
             {/* Main Navigation */}
             <nav className="bg-white bg-opacity-100 dark:bg-gray-900 border-b shadow-lg">
                 <div className="w-full px-4">
-                    <div className="flex justify-between items-center py-3">
+                    <div className="flex justify-between items-center">
 
                         <button
                             onClick={() => handleNavigation('/')}
@@ -78,7 +78,7 @@ const Navbar = () => {
                                                 : 'text-gray-700 dark:text-gray-300 hover:text-green-500'
                                             }
                                             font-medium
-                                            text-xl
+                                            text-md
                                             px-4 py-2
                                             rounded-t-lg
                                             transition-all
@@ -100,7 +100,7 @@ const Navbar = () => {
                                                             setActiveDropdown(null);
                                                         }}
                                                         className={`
-                                                            block w-full text-left px-4 py-2 text-sm
+                                                            block w-full text-left px-4 py-2  text-md
                                                             ${isActive(item.href)
                                                                 ? ' text-green-600 font-medium'
                                                                 : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
@@ -132,7 +132,7 @@ const Navbar = () => {
                                 style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                             >
                                 <User className="w-5 h-5" />
-                                <span className="text-sm font-medium">Registration Center</span>
+                                <span className=" text-md font-medium">Registration Center</span>
                             </button>
                             <button 
                                 onClick={() => history.push('/admin/login')} 
@@ -143,7 +143,7 @@ const Navbar = () => {
                                 style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                             >
                                 <User className="w-5 h-5" />
-                                <span className="text-sm font-medium">Workplace Login</span>
+                                <span className=" text-md font-medium">Workplace Login</span>
                             </button>
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

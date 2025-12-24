@@ -13,11 +13,11 @@ const AgriFortAdvantages = () => {
   ];
 
   return (
-    <div className="bg-white py-6">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white pt-6">
+      <div className="w-full mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">The AgriFort Advantages</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>The AgriFort Advantages</h1>
           <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
         </div>
 
@@ -32,6 +32,7 @@ const AgriFortAdvantages = () => {
                 ? 'bg-green-600 text-white shadow-lg scale-105' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
+              style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
             >
               <tab.icon size={18} />
               {tab.label}
@@ -40,7 +41,7 @@ const AgriFortAdvantages = () => {
         </div>
 
         {/* Content Area */}
-        <div className="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 min-h-[500px]">
+        <div className="p-8 md:p-12 shadow-sm border border-gray-100 min-h-[500px]">
           
           {/* 1. Manufacturing */}
           {activeTab === 'manufacturing' && (
@@ -59,7 +60,7 @@ const AgriFortAdvantages = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6">Manufacturing</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Manufacturing</h3>
                   <p
                    className="text-gray-700 leading-relaxed mb-6 text-lg"
                    style={{
@@ -101,7 +102,7 @@ const AgriFortAdvantages = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6"> R&D</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}> R&D</h3>
                   <p 
                    className="text-gray-700 leading-relaxed mb-6 text-lg"
                    style={{
@@ -172,7 +173,7 @@ const AgriFortAdvantages = () => {
 
               </div>  
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Trusted partnerships </h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Trusted partnerships </h3>
                 <p className="text-gray-700 leading-relaxed mb-6">
                 AgriFort is built on the vision and guidance of Blue Quadrant Limited, a global name in the civil aviation domain, under which they deliver advanced Communication, Navigation and Surveillance solutions. Their expertise spans Emergency Response and Search & Rescue Management, Airside Vehicle Surveillance, Simulators, Mobile Air Traffic Control Towers, Flight Calibration and complete NAVAIDS system integration. In 2015, during strategic meetings in Dubai, Blue Quadrant’s leadership envisioned bringing their technology-first, precision-driven approach into Indian agriculture. Their interest in introducing cutting-edge probiotic and metabolite-based advancements to farming laid the foundation for AgriFort. Since then, their global experience, innovation mindset and strong support have guided our evolution at every step. With their backing, AgriFort continues to adopt scientific breakthroughs and deliver meaningful, future-ready solutions for the agricultural community.
                 </p>

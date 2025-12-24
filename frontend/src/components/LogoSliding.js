@@ -6,7 +6,7 @@ const LogoSlider = ({logos}) => {
 
   return (
     <div className="w-full bg-gradient-to-br from-gray-50 to-green-50 py-6">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="px-4">
         {/* Logo Slider */}
         <div className="overflow-hidden py-8 relative">
           <style>{`
@@ -24,33 +24,37 @@ const LogoSlider = ({logos}) => {
           `}</style>
           
           <div className="flex gap-10 animate-scroll-rtl">
-            {/* First set */}
-            {logos.map((logo, index) => (
-              <div
-                key={`first-${index}`}
-                className="h-40 w-40 flex-shrink-0 rounded-lg  p-4 flex items-center justify-center"
-              >
-                <img 
-                  src={logo} 
-                  alt={`Logo ${index + 1}`}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {logos.map((logo, index) => (
-              <div
-                key={`second-${index}`}
-                className="h-40 w-40 flex-shrink-0  rounded-lg p-4 flex items-center justify-center"
-              >
-                <img 
-                  src={logo} 
-                  alt={`Logo ${index + 1}`}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
+  {/* First set */}
+  {logos.map((logo, index) => (
+    <div
+      key={`first-${index}`}
+      style={{height: '200px', width: '200px'}}
+      className="w-60 h-60 flex-shrink-0 rounded-full p-4 flex items-center justify-center"
+    >
+      <img
+        src={logo}
+        alt={`Logo ${index + 1}`}
+        className="w-full h-full object-contain rounded-full"
+      />
+    </div>
+  ))}
+
+  {/* Duplicate set for seamless loop */}
+  {logos.map((logo, index) => (
+    <div
+      key={`second-${index}`}
+      style={{height: '200px', width: '200px'}}
+      className="w-60 h-60 flex-shrink-0 rounded-full p-4 flex items-center justify-center"
+    >
+      <img
+        src={logo}
+        alt={`Logo ${index + 1}`}
+        className="w-full h-full object-contain rounded-full"
+      />
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </div>

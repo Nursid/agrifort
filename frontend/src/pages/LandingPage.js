@@ -84,25 +84,25 @@ const LandingPage = () => {
             </section>
           
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-full  px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-5xl md:text-5xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                        <h2 className="text-5xl md:text-5xl font-bold text-gray-900 mb-4" data-aos="fade-up"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
                         The AgriFort Journey
                         </h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
                         <p
-                          className="text-xl text-gray-600 max-w-3xl mx-auto inline"
+                          className="text-xl text-gray-600 w-full inline"
                           data-aos="zoom-in"
                           data-aos-delay="200"
                         >
-                          AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers...
+                          AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
                           
                           <button
                             onClick={() => history.push('/about-us')}
                             className="ml-2 text-green-600 font-semibold hover:underline inline"
                             style={{outline: 'none'}}
                           >
-                            Read More
+                            Read More...
                           </button>
                         </p>
 
@@ -118,12 +118,12 @@ const LandingPage = () => {
             {/* Testimonials Section */}
             <section className="bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
              
-      <div className="bg-gradient-to-br from-gray-50 via-white to-green-50 py-12 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-gray-50 via-white to-green-50">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         
         {/* Main Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
             Our Compass and Commitment
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-green-600 to-blue-600 mx-auto rounded-full"></div>
@@ -134,9 +134,8 @@ const LandingPage = () => {
 
         {/* Vision and Mission Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          
           {/* Vision Card */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-l-4 border-blue-600 hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn"  data-aos="zoom-in">
+          <div className="bg-white rounded-2xl  p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn"  data-aos="zoom-in">
             <div className="flex items-center justify-center mb-6">
               <div className="bg-blue-100 p-4 rounded-full">
                 <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +145,7 @@ const LandingPage = () => {
               </div>
             </div>
             
-            <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
               Vision
             </h3>
             
@@ -186,7 +185,7 @@ const LandingPage = () => {
           </div>
 
           {/* Mission Card */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 border-l-4 border-red-800 hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn "  data-aos="zoom-in">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn "  data-aos="zoom-in">
             <div className="flex items-center justify-center mb-6">
               <div className="bg-red-100 p-4 rounded-full">
                 <svg className="w-10 h-10 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,7 +194,7 @@ const LandingPage = () => {
               </div>
             </div>
             
-            <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
               Mission
             </h3>
             
@@ -236,7 +235,7 @@ const LandingPage = () => {
         </div>
 
 
-           <div className="bg-white rounded-2xl mt-2 shadow-2xl p-6 sm:p-8 md:p-12 mb-8 md:mb-12 border-t-4 border-green-600"  data-aos="fade-up">
+           <div className="bg-white rounded-2xl mt-2  p-6 sm:p-8 md:p-12 mb-8 md:mb-12 border"  data-aos="fade-up">
           <div className="flex items-center justify-center mb-6">
             <div className="bg-green-100 p-4 rounded-full">
               <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,11 +244,11 @@ const LandingPage = () => {
             </div>
           </div>
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
             Environmental Policy
           </h2>
           
-          <p className="text-base sm:text-lg text-gray-800 leading-relaxed text-center max-w-5xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-800 leading-relaxed text-center w-full">
             Our company's foundation rests on strong value systems that guide every action we take. We are committed to conducting our business in a socially responsible, ethical, and transparent manner. We respect the law, uphold universal human rights, safeguard the environment, and contribute positively to the communities we serve. At AgriFort, our commitment is simple yet powerful—<span className="font-bold text-green-700">to operate in ways that are good for people and for the planet.</span>
           </p>
         </div>
@@ -265,9 +264,9 @@ const LandingPage = () => {
             </section>
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
                             Standards We Live By
                         </h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
@@ -280,13 +279,13 @@ const LandingPage = () => {
             </section>
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
                        AgriFort Group of Companies
                         </h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div>
-                     
+                      
                     </div>
                     <LogoSlider  logos={logos2}/>
                 </div>
