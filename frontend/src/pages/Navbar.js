@@ -78,12 +78,13 @@ const Navbar = () => {
                                                 : 'text-gray-700 dark:text-gray-300 hover:text-green-500'
                                             }
                                             font-medium
-                                            text-sm
+                                            text-xl
                                             px-4 py-2
                                             rounded-t-lg
                                             transition-all
                                             duration-200
                                         `}
+                                        style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                                     >
                                         {category.name}
                                     </button>
@@ -105,6 +106,7 @@ const Navbar = () => {
                                                                 : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
                                                             }
                                                         `}
+                                                        style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                                                     >
                                                         {item.name}
                                                     </button>
@@ -127,6 +129,7 @@ const Navbar = () => {
                                         : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
                                     }
                                 `}
+                                style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                             >
                                 <User className="w-5 h-5" />
                                 <span className="text-sm font-medium">Registration Center</span>
@@ -137,6 +140,7 @@ const Navbar = () => {
                                     hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 rounded-full bg-green-600 hover:bg-green-700 text-white
                                     hover:text-white
                                 `}
+                                style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                             >
                                 <User className="w-5 h-5" />
                                 <span className="text-sm font-medium">Workplace Login</span>
@@ -144,6 +148,7 @@ const Navbar = () => {
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                             >
                                 {mobileMenuOpen ? (
                                     <X className="w-6 h-6" />
@@ -171,6 +176,7 @@ const Navbar = () => {
                                             : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
                                         }
                                     `}
+                                    style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                                 >
                                     {category.name}
                                 </button>
@@ -186,6 +192,7 @@ const Navbar = () => {
                                             : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
                                         }
                                     `}
+                                    style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                                 >
                                     <User className="w-5 h-5" />
                                     <span>Registration Center</span>
@@ -196,10 +203,10 @@ const Navbar = () => {
                                 <button 
                                     onClick={() => handleNavigation('/admin/login')} 
                                     className={`
-                                        
                                         flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200 bg-green-600 hover:bg-green-700 text-white
                                     hover:text-white
                                     `}
+                                    style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
                                 >
                                     <User className="w-5 h-5" />
                                     <span>Workplace Login</span>
