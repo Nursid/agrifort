@@ -17,12 +17,48 @@ const AgriFortAdvantages = () => {
       <div className="w-full mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>The AgriFort Advantages</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>The AgriFort Advantages</h1>
           <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+
+        {/* Navigation Tabs - Visual Icons */}
+        <div className="flex flex-wrap justify-center gap-8 mb-12 px-4" data-aos="fade-up">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex flex-col items-center gap-3 p-6 rounded-2xl transition-all duration-300 min-w-[140px] ${
+                activeTab === tab.id 
+                ? 'bg-green-50 border-2 border-green-600 shadow-xl scale-105' 
+                : 'bg-white border-2 border-gray-200 hover:border-green-300 hover:shadow-lg'
+              }`}
+              style={{outline: 'none'}}
+            >
+              <div className={`p-4 rounded-full transition-colors duration-300 ${
+                activeTab === tab.id 
+                ? 'bg-green-600' 
+                : 'bg-gray-100 group-hover:bg-green-100'
+              }`}>
+                <tab.icon 
+                  size={32} 
+                  className={activeTab === tab.id ? 'text-white' : 'text-gray-600'}
+                  strokeWidth={2}
+                />
+              </div>
+              <span 
+                className={`text-sm font-semibold text-center leading-tight ${
+                  activeTab === tab.id ? 'text-green-700' : 'text-gray-700'
+                }`}
+                style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
+              >
+                {tab.label}
+              </span>
+            </button>
+          ))}
+        </div>
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -32,13 +68,13 @@ const AgriFortAdvantages = () => {
                 ? 'bg-green-600 text-white shadow-lg scale-105' 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
-              style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}
+              style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
             >
               <tab.icon size={18} />
               {tab.label}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Content Area */}
         <div className="p-8 md:p-12 shadow-sm border border-gray-100 min-h-[500px]">
@@ -60,7 +96,7 @@ const AgriFortAdvantages = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Manufacturing</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Manufacturing</h3>
                   <p
                    className="text-gray-700 leading-relaxed mb-6 text-lg"
                    style={{
@@ -102,7 +138,7 @@ const AgriFortAdvantages = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}> R&D</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}> R&D</h3>
                   <p 
                    className="text-gray-700 leading-relaxed mb-6 text-lg"
                    style={{
@@ -173,7 +209,7 @@ const AgriFortAdvantages = () => {
 
               </div>  
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Trusted partnerships </h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Trusted partnerships </h3>
                 <p className="text-gray-700 leading-relaxed mb-6">
                 AgriFort is built on the vision and guidance of Blue Quadrant Limited, a global name in the civil aviation domain, under which they deliver advanced Communication, Navigation and Surveillance solutions. Their expertise spans Emergency Response and Search & Rescue Management, Airside Vehicle Surveillance, Simulators, Mobile Air Traffic Control Towers, Flight Calibration and complete NAVAIDS system integration. In 2015, during strategic meetings in Dubai, Blue Quadrant’s leadership envisioned bringing their technology-first, precision-driven approach into Indian agriculture. Their interest in introducing cutting-edge probiotic and metabolite-based advancements to farming laid the foundation for AgriFort. Since then, their global experience, innovation mindset and strong support have guided our evolution at every step. With their backing, AgriFort continues to adopt scientific breakthroughs and deliver meaningful, future-ready solutions for the agricultural community.
                 </p>

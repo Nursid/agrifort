@@ -25,7 +25,7 @@ const Footer = () => {
                             {/* Changed text-green-400 to text-white for maximum opacity/visibility */}
                             <h5
                             className="flex items-center gap-2 text-white font-bold text-lg uppercase tracking-wider mb-4"
-                            style={{ fontFamily: "'Lobster', 'Pacifico', cursive" }}
+                            style={{  fontFamily: "'Times', 'Times New Roman', 'Georgia', serif", }}
                             >
                             <MapPinIcon className="w-4 h-4 text-red-200" />
                             Our Presence
@@ -57,7 +57,7 @@ const Footer = () => {
                     {/* Column 3: Contact/Careers */}      
                     <div className="space-y-6">
                         <div>
-                            <h5 className="text-white font-bold text-lg mb-4"  style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Get in Touch</h5>
+                            <h5 className="text-white font-bold text-lg mb-4"  style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Get in Touch</h5>
                             <a 
                                 href="mailto:contact@agrifort.com"
                                 className="group flex items-start space-x-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/30"
@@ -76,7 +76,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                            <h5 className="text-white font-bold text-lg mb-4"  style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Grow Your Career</h5>
+                            <h5 className="text-white font-bold text-lg mb-4"  style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Grow Your Career</h5>
                             <a 
                                 href="mailto:careers@agrifort.com"
                                 className="group flex items-start space-x-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/30"
@@ -94,7 +94,7 @@ const Footer = () => {
                             <div className="flex flex-col items-start">
 
                             
-                            <h6 className="text-white font-bold text-sm mb-3 uppercase tracking-wider"  style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>
+                            <h6 className="text-white font-bold text-sm mb-3 uppercase tracking-wider"  style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
                                 Social Media
                             </h6>
                             <div className="flex gap-3">

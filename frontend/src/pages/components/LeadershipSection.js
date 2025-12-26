@@ -8,7 +8,7 @@ const LeadershipMessages = () => {
         
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900"   style={{fontFamily: "'Lobster', 'Pacifico', cursive"}}>Leadership Insights </h3>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Leadership Insights </h3>
           <div className="w-20 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
         </div>
 

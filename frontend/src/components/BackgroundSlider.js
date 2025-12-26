@@ -51,10 +51,10 @@ const BackgroundSlider = ({ children }) => {
 
             {/* Scrolling Text Section */}
             <div className="absolute inset-0 z-20 flex items-end justify-center pb-12">
-                <div className="absolute whitespace-nowrap text-7xl md:text-8xl font-bold animate-scroll-seamless flex gap-12 items-center" 
+                <div className="absolute whitespace-nowrap text-6xl md:text-6xl font-bold animate-scroll-seamless flex gap-6 items-center" 
                     style={{ 
-                        fontFamily: "'Lobster', 'Pacifico', cursive",
-                        textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Added shadow to make text pop against glow
+                        fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
+                        textShadow: '0px 4px 15px rgba(0,0,0,0.5)'
                     }}>
                     <span className="text-white">Innovative technology to transform agriculture</span>
                     <span className="text-green-400 mx-4">•</span>
