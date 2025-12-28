@@ -50,27 +50,7 @@ const BackgroundSlider = ({ children }) => {
             </div>
 
             {/* Scrolling Text Section */}
-            <div className="absolute inset-0 z-20 flex items-end justify-center pb-12">
-                <div className="absolute whitespace-nowrap text-6xl md:text-6xl font-bold animate-scroll-seamless flex gap-6 items-center" 
-                    style={{ 
-                        fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
-                        textShadow: '0px 4px 15px rgba(0,0,0,0.5)'
-                    }}>
-                    <span className="text-white">Innovative technology to transform agriculture</span>
-                    <span className="text-green-400 mx-4">•</span>
-                    <span className="text-white">Farmer wins - we win</span>
-                    <span className="text-green-400 mx-4">•</span>
-                    <span className="text-white">Trusted products by farmers nationwide</span>
-                    <span className="text-green-400 mx-4">•</span>
-                    <span className="text-white">Jai jawan - jai kisan</span>
-                    
-                    {/* Duplicate for seamless loop */}
-                    <span className="text-green-400 mx-4">•</span>
-                    <span className="text-white">Innovative technology to transform agriculture</span>
-                    <span className="text-green-400 mx-4">•</span>
-                    <span className="text-white">Farmer wins - we win</span>
-                </div>
-            </div>
+          
 
             {/* Indicators - Styled to match the new glow */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-3">

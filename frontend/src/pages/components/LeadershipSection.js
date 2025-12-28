@@ -8,8 +8,9 @@ const LeadershipMessages = () => {
         
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>Leadership Insights </h3>
-          <div className="w-20 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>  Leadership Insights</h1>
+          
+          {/* <div className="w-20 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div> */}
         </div>
 
         <div className="space-y-20">
@@ -18,7 +19,7 @@ const LeadershipMessages = () => {
           <div className="relative group" data-aos="fade-right">
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl border border border-gray-100">
               <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-green-100 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+                {/* <div className="absolute inset-0 bg-green-100 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div> */}
                 <div className="relative w-full h-full bg-gray-200 rounded-2xl overflow-hidden shadow-md flex items-center justify-center">
                   {/* <User size={80} className="text-gray-400" /> */}
                   <img src="/Team/DK Chopra.jpg" alt="DK Chopra" className="w-full h-full object-cover" />
@@ -63,7 +64,7 @@ const LeadershipMessages = () => {
           <div className="relative group" data-aos="fade-left">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16 bg-white p-8 md:p-12 rounded-3xl border border-gray-100">
               <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-blue-100 rounded-2xl -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
+                {/* <div className="absolute inset-0 bg-blue-100 rounded-2xl -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div> */}
                 <div className="relative w-full h-full bg-gray-200 rounded-2xl overflow-hidden shadow-md flex items-center justify-center text-gray-500">
                    <Briefcase size={80} className="text-gray-400" />
                    {/* <img src="/ceo-photo.jpg" alt="Sharad Awasthi" className="w-full h-full object-cover" /> */}

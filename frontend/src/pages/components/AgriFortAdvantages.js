@@ -17,8 +17,7 @@ const AgriFortAdvantages = () => {
       <div className="w-full mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>The AgriFort Advantages</h1>
-          <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>  The AgriFort Advantages</h1>
         </div>
 
         {/* Navigation Tabs */}
