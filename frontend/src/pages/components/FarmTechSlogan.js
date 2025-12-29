@@ -9,13 +9,12 @@ const slogans = [
 
 export default function FarmTechSlogan() {
   return (
-    <div className="w-full overflow-hidden py-40 bg-transparent">
-      
+    <div className="w-full overflow-hidden bg-transparent">
       <div className="relative w-full overflow-hidden">
         <div className="flex w-max animate-marquee group items-center">
 
           {[...Array(2)].map((_, loopIndex) => (
-            <div key={loopIndex} className="flex items-center gap-12">
+            <div key={loopIndex} className="flex items-center gap-2">
               {slogans.map((text, index) => (
                 <div
                   key={index}
@@ -72,7 +71,7 @@ export default function FarmTechSlogan() {
         }
 
         .animate-marquee {
-          animation: marquee 18s linear infinite;
+          animation: marquee 50s linear infinite;
         }
 
         .slogan-text {

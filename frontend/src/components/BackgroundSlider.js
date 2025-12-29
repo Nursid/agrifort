@@ -4,11 +4,12 @@ const BackgroundSlider = ({ children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const backgroundImages = [
-        { id: 1, image: '/images/backgrounds/banner1.jpg', fallbackGradient: 'linear-gradient(135deg, #f59e0b, #92400e)' },
-        { id: 2, image: '/images/backgrounds/banner6.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
-        { id: 3, image: '/images/backgrounds/banner3.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
-        { id: 4, image: '/images/backgrounds/banner4.jpg', fallbackGradient: 'linear-gradient(135deg, #16a34a, #166534)' },
-        { id: 5, image: '/images/backgrounds/banner5.jpg', fallbackGradient: 'linear-gradient(135deg, #0891b2, #155e75)' }
+        { id: 1, image: '/images/backgrounds/Banner11.jpg', fallbackGradient: 'linear-gradient(135deg, #16a34a, #166534)' },
+        { id: 2, image: '/images/backgrounds/Banner12.jpg', fallbackGradient: 'linear-gradient(135deg, #0891b2, #155e75)' },
+        // { id: 3, image: '/images/backgrounds/Banner1.jpg', fallbackGradient: 'linear-gradient(135deg, #f59e0b, #92400e)' },
+        // { id: 4, image: '/images/backgrounds/banner6.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
+        // { id: 5, image: '/images/backgrounds/banner3.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
+     
     ];
 
     useEffect(() => {
@@ -37,17 +38,17 @@ const BackgroundSlider = ({ children }) => {
                         }}
                     >
                         {/* Darker top overlay to make the logo/nav pop */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
+                        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div> */}
                     </div>
                 ))}
             </div>
 
             {/* THE GREEN GLOW (The Bottom Shadow) */}
-            <div className="absolute inset-0 z-10 pointer-events-none" 
+            {/* <div className="absolute inset-0 z-10 pointer-events-none" 
                 style={{
                     background: 'linear-gradient(to top, rgba(34, 197, 94, 0.45) 0%, rgba(20, 83, 45, 0.2) 20%, transparent 60%)'
                 }}>
-            </div>
+            </div> */}
 
             {/* Scrolling Text Section */}
           

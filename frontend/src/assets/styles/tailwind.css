@@ -776,6 +776,9 @@ video {
 .mt-16{
 	margin-top: 4rem;
 }
+.ml-1{
+	margin-left: 0.25rem;
+}
 .block{
 	display: block;
 }
@@ -962,6 +965,9 @@ video {
 .w-20{
 	width: 5rem;
 }
+.w-max{
+	width: max-content;
+}
 .min-w-full{
 	min-width: 100%;
 }
@@ -1021,6 +1027,10 @@ video {
 }
 .-translate-x-1\/2{
 	--tw-translate-x: -50%;
+	transform: var(--tw-transform);
+}
+.translate-y-1{
+	--tw-translate-y: 0.25rem;
 	transform: var(--tw-transform);
 }
 .rotate-6{
@@ -1603,9 +1613,6 @@ video {
 .to-gray-100{
 	--tw-gradient-to: #f3f4f6;
 }
-.to-green-500{
-	--tw-gradient-to: #10b981;
-}
 .bg-cover{
 	background-size: cover;
 }
@@ -1830,6 +1837,9 @@ video {
 .leading-tight{
 	line-height: 1.25;
 }
+.leading-none{
+	line-height: 1;
+}
 .tracking-wider{
 	letter-spacing: 0.05em;
 }
@@ -1986,9 +1996,6 @@ video {
 .opacity-75{
 	opacity: 0.75;
 }
-.opacity-20{
-	opacity: 0.2;
-}
 .shadow-lg{
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2017,10 +2024,6 @@ video {
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.blur-2xl{
-	--tw-blur: blur(40px);
-	filter: var(--tw-filter);
-}
 .filter{
 	filter: var(--tw-filter);
 }
@@ -2045,6 +2048,11 @@ video {
 }
 .transition-opacity{
 	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition{
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
@@ -4219,9 +4227,6 @@ html {
 	.sm\:flex-1{
 		flex: 1 1 0%;
 	}
-	.sm\:grid-cols-2{
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
 	.sm\:flex-row{
 		flex-direction: row;
 	}
@@ -4274,8 +4279,14 @@ html {
 	.md\:hidden{
 		display: none;
 	}
+	.md\:h-12{
+		height: 3rem;
+	}
 	.md\:h-64{
 		height: 16rem;
+	}
+	.md\:w-12{
+		width: 3rem;
 	}
 	.md\:w-64{
 		width: 16rem;
@@ -4389,9 +4400,6 @@ html {
 	}
 	.lg\:flex-row-reverse{
 		flex-direction: row-reverse;
-	}
-	.lg\:gap-12{
-		gap: 3rem;
 	}
 	.lg\:gap-16{
 		gap: 4rem;

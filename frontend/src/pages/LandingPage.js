@@ -85,11 +85,11 @@ const LandingPage = () => {
             <BackgroundSlider />
             </section>
 
-            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
+            <section className="bg-gradient-to-br from-gray-50 to-green-50">
               <FarmTechSlogan />
             </section>
           
-            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
+            <section className="py-6 bg-gradient-to-br from-gray-50 to-green-50">
                 <div className="w-full  px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>   The AgriFort Journey </h1>
