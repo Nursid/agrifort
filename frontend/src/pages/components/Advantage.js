@@ -105,14 +105,17 @@ export default function Advantage() {
 
           {/* Right Content */}
           <div className="space-y-8">
-            <h1
+            {/* <h1
               className="text-4xl md:text-5xl font-bold text-gray-900"
               style={{
                 fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
               }}
             >
               The AgriFort Advantages
-            </h1>
+            </h1> */}
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>The AgriFort Advantages </h1>
+            
 
             {/* Tabs */}
             <div className="flex flex-wrap gap-3">

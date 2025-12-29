@@ -23,17 +23,16 @@ export default function FarmTechSlogan() {
                   {/* TEXT */}
                   <span
                     className="
-                      text-3xl 
-                      md:text-5xl 
-                      lg:text-7xl 
+                      text-2xl 
+                      md:text-2xl 
+                      lg:text-2xl
                       font-bold 
                       slogan-text 
                       whitespace-nowrap
                       leading-none
                     "
                     style={{
-                      fontFamily: "'Bricolage Grotesque', sans-serif",
-                      textShadow: "2px 2px 4px rgba(0,0,0,0.08)",
+                      fontFamily: "'Bricolage Grotesque', sans-serif", 
                     }}
                   >
                     {text}
@@ -44,12 +43,13 @@ export default function FarmTechSlogan() {
                     src="/images/logo/icon.png"
                     alt="logo"
                     className="
-                      w-10 
-                      h-10 
-                      md:w-12 
-                      md:h-12
+                      w-7
+                      h-7 
+                      md:w-7 
+                      md:h-7
                       flex-shrink-0
                       translate-y-1
+                      mb-2
                     "
                   />
                 </div>
@@ -75,12 +75,8 @@ export default function FarmTechSlogan() {
         }
 
         .slogan-text {
-          color: #d1d5db;
-          transition: color 0.4s ease;
-        }
-
-        .group:hover .slogan-text {
           color: #800000;
+          transition: color 0.4s ease;
         }
       `}</style>
     </div>

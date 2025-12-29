@@ -49,7 +49,7 @@ const Navbar = () => {
             <nav className="bg-white bg-opacity-100 dark:bg-gray-900 border-b shadow-lg">
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center">
-
+                        <div className="flex items-center">
                         <button
                             onClick={() => handleNavigation('/')}
                             style={{outline: 'none'}}
@@ -63,7 +63,7 @@ const Navbar = () => {
                         </button>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center justify-center py-3 gap-4 relative z-40">
+                        <div className="hidden lg:flex items-center justify-center py-3 gap-1 relative z-40" style={{marginLeft: 50}}>
                             {mainCategories.map((category) => (
                                 <div
                                     key={category.name}
@@ -117,7 +117,7 @@ const Navbar = () => {
                                 </div>
                             ))}
                         </div>
-
+                        </div>
                         {/* Right Actions */}
                         <div className="flex items-center gap-4">
 
@@ -132,7 +132,7 @@ const Navbar = () => {
                                 `}
                                 style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif", outline: 'none'}}
                             >
-                                <User className="w-5 h-5" />
+                                {/* <User className="w-5 h-5" /> */}
                                 <span className=" text-md font-medium">Registration Center</span>
                             </button>
                             <button 
@@ -195,7 +195,7 @@ const Navbar = () => {
                                     `}
                                     style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
                                 >
-                                    <User className="w-5 h-5" />
+                                    {/* <User className="w-5 h-5" /> */}
                                     <span>Registration Center</span>
                                 </button>
                             </div>

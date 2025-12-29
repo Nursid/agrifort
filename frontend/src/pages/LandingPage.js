@@ -16,6 +16,7 @@ import AgriFortAdvantages from './components/AgriFortAdvantages';
 import { useHistory } from 'react-router-dom';
 import Advantage from './components/Advantage';
 import FarmTechSlogan from './components/FarmTechSlogan';
+import VisionMissionSection from './components/VisionMissionSection';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -53,13 +54,34 @@ const LandingPage = () => {
       ];
 
     const logos2 = [
-        '/images/company/logo1.png', 
-        '/images/company/logo2.png', 
-        '/images/company/logo3.png', 
-        '/images/company/logo4.png', 
-        '/images/company/logo5.png', 
-        '/images/company/logo6.png', 
-        '/images/company/logo7.jpg', 
+      {
+      
+        logo:  '/images/company/logo1.png', link: 'http://www.agrifort.com/'
+      },
+      {
+      
+        logo: '/images/company/logo2.png', link: '#'
+      },
+      {
+      
+        logo: '/images/company/logo3.png', link: 'https://sutantrasystems.com/'
+      },
+      {
+      
+        logo: '/images/company/logo4.png', link: '#'
+      },
+      {
+      
+        logo: '/images/company/logo5.png', link: '#'
+      },
+      {
+      
+        logo: '/images/company/logo6.png', link: 'https://bluefort.biz/'
+      },
+      {
+      
+        logo: '/images/company/logo7.png', link: '#'
+      },
       ];
 
 
@@ -84,15 +106,16 @@ const LandingPage = () => {
             <section className="overflow-hidden" >
             <BackgroundSlider />
             </section>
+            
 
             <section className="bg-gradient-to-br from-gray-50 to-green-50">
               <FarmTechSlogan />
             </section>
           
-            <section className="py-6 bg-gradient-to-br from-gray-50 to-green-50">
+            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
                 <div className="w-full  px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>   The AgriFort Journey </h1>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>AgriFort Journey </h1>
                         {/* <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div> */}
                         <p
                           className="text-xl text-gray-600 w-full inline"
@@ -119,32 +142,25 @@ const LandingPage = () => {
                 <Advantage />
               </section>
 
-            
+            <VisionMissionSection />
 
 
-
+            {/* 
               <section className="bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
              
              <div className="bg-gradient-to-br from-gray-50 via-white to-green-50">
              <div className="w-full px-4 sm:px-6 lg:px-8">
-               
-               {/* Main Header */}
+            
                <div className="text-center mb-12 md:mb-16 py-6">
                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
                    Our Compass and Commitment
                  </h1>
                </div>
-       
-               {/* Environmental Policy Section */}
-            
-       
-               {/* Vision and Mission Cards */}
-               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-                 {/* Vision Card */}
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8"> 
                  <div className="bg-white rounded-2xl  p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn"  data-aos="zoom-in">
                    <div className="flex items-center justify-center mb-6">
-                     <div className="bg-blue-100 p-4 rounded-full">
-                       <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <div className="bg-green-100 p-4 rounded-full">
+                       <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                        </svg>
@@ -155,42 +171,13 @@ const LandingPage = () => {
                      Vision
                    </h3>
                    
-                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-l-4 border-blue-600">
+                   <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-l-4 border-green-600">
                      <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
                        To become one of the most trusted and impactful Agri-Input organisations, serving farming communities in India and beyond through scientific, sustainable, and future-ready agriculture.
                      </p>
                    </div>
-       
-                   {/* Vision Highlights */}
-                   <div className="mt-6 space-y-3">
-                     <div className="flex items-start gap-3">
-                       <div className="bg-blue-600 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Trusted & Impactful Organization</p>
-                     </div>
-                     <div className="flex items-start gap-3">
-                       <div className="bg-blue-600 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Scientific & Sustainable Approach</p>
-                     </div>
-                     <div className="flex items-start gap-3">
-                       <div className="bg-blue-600 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Future-Ready Agriculture</p>
-                     </div>
-                   </div>
                  </div>
-       
-                 {/* Mission Card */}
+      
                  <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn "  data-aos="zoom-in">
                    <div className="flex items-center justify-center mb-6">
                      <div className="bg-red-100 p-4 rounded-full">
@@ -208,34 +195,6 @@ const LandingPage = () => {
                      <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
                        To develop, collaborate, and deliver value-added technologies, products, and services that empower farmers and enable optimum agricultural output.
                      </p>
-                   </div>
-       
-                   {/* Mission Highlights */}
-                   <div className="mt-6 space-y-3">
-                     <div className="flex items-start gap-3">
-                       <div className="bg-red-800 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Develop Innovative Technologies</p>
-                     </div>
-                     <div className="flex items-start gap-3">
-                       <div className="bg-red-800 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Empower Farming Communities</p>
-                     </div>
-                     <div className="flex items-start gap-3">
-                       <div className="bg-red-800 text-white rounded-full p-1 mt-1 flex-shrink-0">
-                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                         </svg>
-                       </div>
-                       <p className="text-sm sm:text-base text-gray-700 font-medium">Optimize Agricultural Output</p>
-                     </div>
                    </div>
                  </div>
                </div>
@@ -259,17 +218,19 @@ const LandingPage = () => {
                  </p>
                </div>
        
-             </div>
-           </div>
+                  </div>
+                </div>
        
-                   </section>
+                   </section> */}
 
-          
-            <section id="highlights" className="bg-gradient-to-br from-gray-50 to-green-50">
-              <LeadershipSection /> 
-            </section>
+                   <section
+                      id="highlights"
+                    >
+                    <LeadershipSection /> 
+                  </section>
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
+           
                 <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
 
@@ -284,38 +245,82 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="w-full px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>AgriFort Group of Companies</h1>
-                    </div>
 
-                    <div className="w-full bg-gradient-to-br from-gray-50 to-green-50 py-6">
-                <div className="px-4">
-                
-                  <div className="py-8 relative">
-                    
-                    <div className="flex gap-4">
-                        {logos2.map((logo, index) => (
-                          <div
-                            key={`first-${index}`}
-                            style={{height: '200px', width: '200px'}}
-                            className="w-60 h-60 flex-shrink-0 rounded-full p-4 flex items-center justify-center"
-                          >
-                            <img
-                              src={logo}
-                              alt={`Logo ${index + 1}`}
-                              className="w-full h-full object-contain rounded-full"
-                            />
-                          </div>
-                        ))}
-                      </div>
+            <section
+  className="relative min-h-[800px] bg-cover bg-center bg-no-repeat p-6"
+  style={{
+    backgroundImage: "url('/images/backgrounds/companies.jpg')",
+  }}
+>
+<div
+    className="absolute inset-0"
+    style={{
+      background:
+        "linear-gradient(to bottom, rgba(6,78,59,0.65), rgba(6,78,59,0.35), rgba(6,78,59,0.65))",
+    }}
+  ></div>
+  {/* Content */}
+  <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+    
+    {/* Divider */}
+    <div className="w-20 h-1 bg-green-300 mx-auto mt-4 rounded-full"></div>
 
-                  </div>
-                </div>
-              </div>
-                </div>
-            </section>
+    {/* Heading */}
+    <div className="text-center mt-6">
+      <h1
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+        style={{
+          fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
+        }}
+      >
+        AgriFort Group of Companies
+      </h1>
+    </div>
+
+    {/* Logos */}
+    <div className="w-full py-6">
+  <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+    {logos2.map((item, index) => (
+      <a
+        key={index}
+        href={item.link}
+        // target="_blank"
+        rel="noopener noreferrer"
+        className="flex-shrink-0"
+      >
+        <div
+          className="
+            flex items-center justify-center
+            bg-white/90
+            rounded-full
+            shadow-lg
+            transition-transform duration-300 hover:scale-105
+            w-40 h-40
+            sm:w-36 sm:h-36
+            md:w-44 md:h-44
+            lg:w-52 lg:h-52
+          "
+        >
+          <img
+            src={item.logo}
+            alt={`Logo ${index + 1}`}
+            className="
+              w-full h-full
+              object-contain
+              p-4
+              rounded-full
+            "
+          />
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+  </div>
+</section>
+
+
                
              <Footer />
 
