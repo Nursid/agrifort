@@ -17,6 +17,7 @@ import { useHistory } from 'react-router-dom';
 import Advantage from './components/Advantage';
 import FarmTechSlogan from './components/FarmTechSlogan';
 import VisionMissionSection from './components/VisionMissionSection';
+import TeamSection from './components/TeanSection';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -84,18 +85,6 @@ const LandingPage = () => {
       },
       ];
 
-
-
-
-
-    const advantages = [
-        { icon: Award, title: 'Manufacturing', description: 'State-of-the-art production facilities' },
-        { icon: Leaf, title: 'R&D', description: 'Cutting-edge research and development' },
-        { icon: Users, title: 'People at AgriFort', description: 'Experienced team of professionals' },
-        { icon: BookOpen, title: 'Tech-based Products', description: 'Innovation-driven solutions' },
-        { icon: Briefcase, title: 'Trusted Partnerships', description: 'Building lasting relationships' },
-      ];
-
     return (
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             {/* Sticky Navbar with Backdrop Blur */}
@@ -144,89 +133,11 @@ const LandingPage = () => {
 
             <VisionMissionSection />
 
-
-            {/* 
-              <section className="bg-gradient-to-b from-white to-green-50 dark:bg-gray-800">
-             
-             <div className="bg-gradient-to-br from-gray-50 via-white to-green-50">
-             <div className="w-full px-4 sm:px-6 lg:px-8">
-            
-               <div className="text-center mb-12 md:mb-16 py-6">
-                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-                   Our Compass and Commitment
-                 </h1>
-               </div>
-               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8"> 
-                 <div className="bg-white rounded-2xl  p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn"  data-aos="zoom-in">
-                   <div className="flex items-center justify-center mb-6">
-                     <div className="bg-green-100 p-4 rounded-full">
-                       <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                       </svg>
-                     </div>
-                   </div>
-                   
-                   <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-                     Vision
-                   </h3>
-                   
-                   <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-l-4 border-green-600">
-                     <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
-                       To become one of the most trusted and impactful Agri-Input organisations, serving farming communities in India and beyond through scientific, sustainable, and future-ready agriculture.
-                     </p>
-                   </div>
-                 </div>
-      
-                 <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border hover:shadow-3xl transition-all hover:-translate-y-1 animate-fadeIn "  data-aos="zoom-in">
-                   <div className="flex items-center justify-center mb-6">
-                     <div className="bg-red-100 p-4 rounded-full">
-                       <svg className="w-10 h-10 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                       </svg>
-                     </div>
-                   </div>
-                   
-                   <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-                     Mission
-                   </h3>
-                   
-                   <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border-l-4 border-red-800">
-                     <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
-                       To develop, collaborate, and deliver value-added technologies, products, and services that empower farmers and enable optimum agricultural output.
-                     </p>
-                   </div>
-                 </div>
-               </div>
-       
-       
-                  <div className="bg-white rounded-2xl mt-2  p-6 sm:p-8 md:p-12 mb-8 md:mb-12 border"  data-aos="fade-up">
-                 <div className="flex items-center justify-center mb-6">
-                   <div className="bg-green-100 p-4 rounded-full">
-                     <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                     </svg>
-                   </div>
-                 </div>
-                 
-                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-                   Environmental Policy
-                 </h2>
-                 
-                 <p className="text-base sm:text-lg text-gray-800 leading-relaxed text-center w-full">
-                   Our company's foundation rests on strong value systems that guide every action we take. We are committed to conducting our business in a socially responsible, ethical, and transparent manner. We respect the law, uphold universal human rights, safeguard the environment, and contribute positively to the communities we serve. At AgriFort, our commitment is simple yet powerful—<span className="font-bold text-green-700">to operate in ways that are good for people and for the planet.</span>
-                 </p>
-               </div>
-       
-                  </div>
-                </div>
-       
-                   </section> */}
-
                    <section
                       id="highlights"
                     >
-                    <LeadershipSection /> 
+                    {/* <LeadershipSection />  */}
+                    <TeamSection/>
                   </section>
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
@@ -235,7 +146,6 @@ const LandingPage = () => {
                     <div className="text-center">
 
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>   Standards We Live By</h1>
-          
                       
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
                             Quality, integrity, and innovation guide every decision we make. Our commitment to excellence ensures the best outcomes for our partners and the communities we serve.

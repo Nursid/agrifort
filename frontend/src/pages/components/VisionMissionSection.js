@@ -19,7 +19,6 @@ const VisionMissionSection = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900"
             style={{
               fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
-              color:'#550000'
             }}
           >
             Our Compass and Commitment
