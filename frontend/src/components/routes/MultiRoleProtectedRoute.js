@@ -1,14 +1,14 @@
-import ProtectedRoute from 'components/ProtectedRoute';
-import { USER_ROLES } from 'contexts/AuthContext';
+import ProtectedRoute from "components/ProtectedRoute";
 
-const MultiRoleProtectedRoute = ({ allowedRoles, ...props }) => {
-    return (
-        <ProtectedRoute
-            {...props}
-            allowedRoles={allowedRoles}
-            redirectTo="/login"
-        />
-    );
+const MultiRoleProtectedRoute = ({ allowedRoles, children }) => {
+  return (
+    <ProtectedRoute
+      allowedRoles={allowedRoles}
+      redirectTo="/login"
+    >
+      {children}
+    </ProtectedRoute>
+  );
 };
 
 export default MultiRoleProtectedRoute;

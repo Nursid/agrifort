@@ -1,14 +1,15 @@
-import ProtectedRoute from 'components/ProtectedRoute';
-import { USER_ROLES } from 'contexts/AuthContext';
+import ProtectedRoute from "../../components/ProtectedRoute";
+import { USER_ROLES } from "contexts/AuthContext";
 
-const DistributorProtectedRoute = (props) => {
-    return (
-        <ProtectedRoute
-            {...props}
-            allowedRoles={[USER_ROLES.DISTRIBUTOR]}
-            redirectTo="/login"
-        />
-    );
+const DistributorProtectedRoute = ({ children }) => {
+  return (
+    <ProtectedRoute
+      allowedRoles={[USER_ROLES.DISTRIBUTOR]}
+      redirectTo="/login"
+    >
+      {children}
+    </ProtectedRoute>
+  );
 };
 
 export default DistributorProtectedRoute;

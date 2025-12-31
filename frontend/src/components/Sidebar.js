@@ -2,7 +2,31 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth, USER_ROLES } from 'contexts/AuthContext';
 import AdminNavbar from './AdminNavbar';
-import Icon from '@material-tailwind/react/Icon';
+// import Icon from '@material-tailwind/react/Icon';
+// import { IconButton } from "@material-tailwind/react";
+// import { Bars3Icon } from "@heroicons/react/24/outline";
+
+
+import {
+    HomeIcon,
+    UsersIcon,
+    ShoppingCartIcon,
+    TruckIcon,
+    Squares2X2Icon,
+  } from "@heroicons/react/24/outline";
+  
+  const ICON_MAP = {
+    dashboard: Squares2X2Icon,
+    people: UsersIcon,
+    inventory: Squares2X2Icon,
+    nature: Squares2X2Icon,
+    shopping_cart: ShoppingCartIcon,
+    local_shipping: TruckIcon,
+    point_of_sale: ShoppingCartIcon,
+  };
+  
+
+
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
     const { userRole, userInfo } = useAuth();
@@ -142,19 +166,29 @@ export default function Sidebar() {
                     <div className="flex flex-col">
                         <hr className="my-4 min-w-full" />
                         <ul className="flex-col min-w-full flex list-none">
-                            {navigationItems.map((item, index) => (
-                                <li key={index} className="rounded-lg mb-2">
-                                    <NavLink
-                                        to={item.path}
-                                        className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                        activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-                                    >
-                                        <Icon name={item.icon} size="2xl" />
-                                        {item.label}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </ul>
+  {navigationItems.map((item, index) => {
+    const IconComponent = ICON_MAP[item.icon];
+
+    return (
+      <li key={index} className="rounded-lg mb-2">
+        <NavLink
+          to={item.path}
+          className={({ isActive }) =>
+            `flex items-center gap-4 text-sm font-light px-4 py-3 rounded-lg ${
+              isActive
+                ? "bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                : "text-gray-700"
+            }`
+          }
+        >
+          {IconComponent && <IconComponent className="h-5 w-5" />}
+          {item.label}
+        </NavLink>
+      </li>
+    );
+  })}
+</ul>
+
                     </div>
                 </div>
             </div>

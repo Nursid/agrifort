@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
-import { Button } from '@material-tailwind/react';
 import 'aos/dist/aos.css';
-import AgriFortProducts from '../components/AgriFortProducts';
 import BackgroundSlider from '../components/BackgroundSlider';
 import Navbar from './Navbar';
 import Footer from '../components/Footer';
 import { ChevronRight,User, Leaf, Users, BookOpen, Briefcase, Phone, Mail, Award } from 'lucide-react';
-import { Target,  TrendingUp } from 'lucide-react';
-import LeadershipSection from "./components/LeadershipSection";
-import LeadershipAndFarmersSection from './components/LeadershipAndFarmersSection';
-import FarmerWins from './components/LandingFarmerWin';
 import LogoSlider from '../components/LogoSliding';
-import AgriFortAdvantages from './components/AgriFortAdvantages';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Advantage from './components/Advantage';
 import FarmTechSlogan from './components/FarmTechSlogan';
 import VisionMissionSection from './components/VisionMissionSection';
@@ -21,7 +14,7 @@ import TeamSection from './components/TeanSection';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
-    const history = useHistory()
+    const navigate = useNavigate()
 
     useEffect(() => {
         AOS.init({
@@ -105,7 +98,6 @@ const LandingPage = () => {
                 <div className="w-full  px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>AgriFort Journey </h1>
-                        {/* <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-8"></div> */}
                         <p
                           className="text-xl text-gray-600 w-full inline"
                           data-aos="zoom-in"
@@ -114,7 +106,7 @@ const LandingPage = () => {
                           AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
                           
                           <button
-                            onClick={() => history.push('/about-us')}
+                            onClick={() => navigate('/about-us')}
                             className="ml-2 text-green-600 font-semibold hover:underline inline"
                             style={{outline: 'none'}}
                           >
@@ -127,7 +119,6 @@ const LandingPage = () => {
             </section>
 
               <section className="">
-                {/* <AgriFortAdvantages /> */}
                 <Advantage />
               </section>
 
@@ -136,7 +127,6 @@ const LandingPage = () => {
                    <section
                       id="highlights"
                     >
-                    {/* <LeadershipSection />  */}
                     <TeamSection/>
                   </section>
 
@@ -169,13 +159,11 @@ const LandingPage = () => {
         "linear-gradient(to bottom, rgba(6,78,59,0.65), rgba(6,78,59,0.35), rgba(6,78,59,0.65))",
     }}
   ></div>
-  {/* Content */}
+
   <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
     
-    {/* Divider */}
     <div className="w-20 h-1 bg-green-300 mx-auto mt-4 rounded-full"></div>
 
-    {/* Heading */}
     <div className="text-center mt-6">
       <h1
         className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
@@ -187,7 +175,7 @@ const LandingPage = () => {
       </h1>
     </div>
 
-    {/* Logos */}
+ 
     <div className="w-full py-6">
   <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
     {logos2.map((item, index) => (

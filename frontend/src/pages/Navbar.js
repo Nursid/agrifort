@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Search, ShoppingCart, Heart, User, Package, ChevronDown, Menu, X } from 'lucide-react';
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const [language, setLanguage] = useState('English');
-    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
 
     const mainCategories = [
@@ -24,17 +22,12 @@ const Navbar = () => {
         { name: 'AgriFort Highlights', href: '/lifeAtAgrifort' },
     ];
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        document.documentElement.classList.toggle('dark');
-    };
-
     const handleSearch = () => {
         console.log('Searching for:', searchQuery);
     };
 
     const handleNavigation = (href) => {
-        history.push(href);
+        navigate(href);
         setMobileMenuOpen(false);
     };
 
@@ -44,9 +37,9 @@ const Navbar = () => {
     };
 
     return (
-        <div className="sticky top-0 z-50">
+        <div className="sticky top-0 z-50 bg-white">
             {/* Main Navigation */}
-            <nav className="bg-white bg-opacity-100 dark:bg-gray-900 border-b shadow-lg">
+            <nav className="bg-white bg-opacity-100 border-b shadow-lg">
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
@@ -72,11 +65,11 @@ const Navbar = () => {
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
                                     <button
-                                        onClick={() => history.push(category.href)}
+                                        onClick={() => navigate(category.href)}
                                         className={`
                                             ${isActive(category.href)
                                                 ? 'text-green-600 border-b-2 border-green-600'
-                                                : 'text-gray-700 dark:text-gray-300 hover:text-green-500'
+                                                : 'hover:text-green-500'
                                             }
                                             font-medium
                                             text-md
@@ -97,7 +90,7 @@ const Navbar = () => {
                                                     <button
                                                         key={item.name}
                                                         onClick={() => {
-                                                            history.push(item.href)
+                                                            navigate(item.href)
                                                             setActiveDropdown(null);
                                                         }}
                                                         className={`
@@ -122,12 +115,12 @@ const Navbar = () => {
                         <div className="flex items-center gap-4">
 
                             <button 
-                                onClick={() => history.push('/admin/login')} 
+                                onClick={() => navigate('/admin/login')} 
                                 className={`
                                     hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
                                     ${isActive('/admin/login')
                                         ? 'text-white shadow-md'
-                                        : 'text-gray-700 dark:text-gray-300 hover:text-green-600'
+                                        : 'hover:text-green-600'
                                     }
                                 `}
                                 style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif", outline: 'none'}}
@@ -136,7 +129,7 @@ const Navbar = () => {
                                 <span className=" text-md font-medium">Registration Center</span>
                             </button>
                             <button 
-                                onClick={() => history.push('/admin/login')} 
+                                onClick={() => navigate('/admin/login')} 
                                 className={`
                                     hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 rounded-full bg-green-600 hover:bg-green-700 text-white
                                     hover:text-white

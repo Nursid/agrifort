@@ -850,21 +850,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gray-50">
         <Navbar/>
-    
-  {/* Hero Section */}
-  <div className="relative w-full h-[75vh] flex items-center justify-center">
-
-    {/* Background Image */}
-    <img
-      src={field}
-      alt="Background"
-      className="absolute inset-0 w-full h-full object-cover"
-    />
-
-    {/* Dark Overlay (optional) */}
-    <div className="absolute inset-0 bg-black/40"></div>
-
-  </div>
+  
 
   <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -893,7 +879,7 @@ export default function Portfolio() {
 
             {/* Right Side - Content */}
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-red-600 uppercase tracking-tight"  style={{ fontFamily: "cursive" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
               Our Portfolio
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
@@ -907,7 +893,7 @@ export default function Portfolio() {
       {/* Search and Filter */}
       <div className="max-w-7xl mx-auto ">
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-          <h2 className="text-3xl border-1 bg-yellow-100  rounded-md font-bold text-gray-800 mb-3">
+          <h2 className="text-3xl border-1  rounded-md font-bold text-gray-800 mb-3" style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
             Find Your Solution
           </h2>
           <p className="text-gray-600 mb-6">
@@ -937,13 +923,6 @@ export default function Portfolio() {
     }
   `}</style>
 </div>
-
-          <div className="flex items-center gap-3 mb-4">
-            <Filter className="w-5 h-5   text-red-500" />
-            <span className="text-sm font-semibold text-purple-500 uppercase">
-              Filter by Category
-            </span>
-          </div>
           <div className="flex flex-wrap gap-3">
             {filters.map((filter) => (
               <button

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../pages/Navbar';
 import axios from 'axios';
 import { API_URL } from '../config';
@@ -24,7 +24,7 @@ const Registration = () => {
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const history = useHistory();
+    const navigate = useNavigate();
     
     // Check if this is accessed by an admin for user management
     const isAdminCreatingUser = isAuthenticated && userRole === 'admin';
@@ -104,9 +104,9 @@ const Registration = () => {
                 }).then((result) => {
                     if (result.isConfirmed || result.isDismissed) {
                         if (isAdminCreatingUser) {
-                            history.push('/admin/manage-users');
+                            navigate('/admin/manage-users');
                         } else {
-                            history.push('/admin/login');
+                            navigate('/admin/login');
                         }
                     }
                 });

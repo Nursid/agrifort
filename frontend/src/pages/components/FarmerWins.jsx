@@ -38,7 +38,7 @@ export default function FarmerWins() {
 
             {/* Right Side - Content */}
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-4xl font-bold text-red-600 uppercase tracking-tight"  style={{ fontFamily: "cursive" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
               Farmer Wins, We Wins
               </h1>
               <p className="text-xl text-gray-700 leading-relaxed">
