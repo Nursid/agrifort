@@ -4,10 +4,11 @@ const BackgroundSlider = ({ children }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const backgroundImages = [
-        { id: 1, image: '/images/backgrounds/Banner12.jpg',},
-        { id: 2, image: '/images/backgrounds/Banner11.jpg', },
-        { id: 3, image: '/images/backgrounds/banner 02.jpg',},
-        { id: 4, image: '/images/backgrounds/Banner14.jpg' },
+        { id: 1, image: '/images/backgrounds/Banner21.jpg' },
+        { id: 2, image: '/images/backgrounds/Banner12.jpg',},
+        { id: 3, image: '/images/backgrounds/Banner11.jpg', },
+        { id: 4, image: '/images/backgrounds/banner 02.jpg',},
+        { id: 5, image: '/images/backgrounds/Banner14.jpg' },
         // { id: 5, image: '/images/backgrounds/banner6.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
         // { id: 6, image: '/images/backgrounds/banner3.jpg', fallbackGradient: 'linear-gradient(135deg, #059669, #064e3b)' },
     ];

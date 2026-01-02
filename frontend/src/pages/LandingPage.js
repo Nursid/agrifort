@@ -11,6 +11,7 @@ import Advantage from './components/Advantage';
 import FarmTechSlogan from './components/FarmTechSlogan';
 import VisionMissionSection from './components/VisionMissionSection';
 import TeamSection from './components/TeanSection';
+import AgriFortAdvantages from './components/AgriFortAdvantages';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -119,7 +120,7 @@ const LandingPage = () => {
             </section>
 
               <section className="">
-                <Advantage />
+                <AgriFortAdvantages />
               </section>
 
             <VisionMissionSection />

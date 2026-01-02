@@ -12,7 +12,7 @@ export default function TeamSection() {
     {
       name: "Sharad Awasthi",
       position: "Group of CEO",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
+      image: "/Team/sharad.jpeg"
     }
   ];
 
@@ -77,7 +77,7 @@ export  function TeamCard() {
     <div className="group relative">
       <div className="relative" style={{ height: '500px' }}>
         <img
-          src="https://api.dhanuka.com/images/2025/8/1754571621429-harshdhanuka.jpg"
+          src="/Team/sharad.jpeg"
           alt="Sharad Awasthi"
           className="h-full w-full object-cover rounded-lg overflow-hidden transition-transform duration-500 group-hover:scale-105 cursor-pointer"
         />
