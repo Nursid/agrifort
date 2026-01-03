@@ -88,7 +88,7 @@ const Footer = () => {
             </h6>
             <ul className="list-none space-y-1">
               <FooterLink href="/contact-us" text="Contact Us" />
-              <FooterLink href="/career" text="Join Our Team" />
+              <FooterLink href="/career" text="Grow Career" />
             </ul>
             <div className="flex flex-wrap gap-3 mt-4">
   {links.map(({ name, link }) => (

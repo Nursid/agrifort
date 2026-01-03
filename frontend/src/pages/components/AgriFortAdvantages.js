@@ -91,44 +91,6 @@ const AgriFortAdvantages = () => {
         </div>
       </div>
       </div>
-        {/* <div className="flex flex-wrap justify-center gap-6 mb-12 px-4" data-aos="fade-up">
-  {tabs.map((tab) => (
-      <div
-      className={`w-16 h-16 flex items-center justify-center rounded-full overflow-hidden transition-all duration-300 ${
-        activeTab === tab.id
-          ? 'bg-green-600 cursor-pointer'
-          : 'bg-gray-50 group-hover:bg-green-100 cursor-pointer'
-      }`}
-      onClick={() => setActiveTab(tab.id)}
-    >
-      <img
-        src={tab.image}
-        alt={tab.label}
-        className={`w-10 h-10 object-contain ${
-          activeTab === tab.id ? 'brightness-0 invert' : ''
-        }`}
-      />
-    </div>
-    
-  ))}
-</div> */}
-        {/* <div className="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeTab === tab.id 
-                ? 'bg-green-600 text-white shadow-lg scale-105' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-              style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
-            >
-              <tab.icon size={18} />
-              {tab.label}
-            </button>
-          ))}
-        </div> */}
 
         {/* Content Area */}
         <div className="p-8 md:p-12 shadow-sm min-h-[500px]">

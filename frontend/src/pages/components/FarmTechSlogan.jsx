@@ -17,42 +17,40 @@ export default function FarmTechSlogan() {
             <div key={loopIndex} className="flex items-center gap-2">
               {slogans.map((text, index) => (
                 <div
-                  key={index}
-                  className="flex items-center gap-6"
+                key={index}
+                className="flex items-center"
+              >
+                {/* TEXT */}
+                <span
+                  className="
+                    ml-3
+                    mr-3
+                    text-2xl 
+                    md:text-2xl 
+                    lg:text-2xl
+                    font-bold 
+                    slogan-text 
+                    whitespace-nowrap
+                    leading-none
+                  "
+                  style={{
+                    fontFamily: "'Bricolage Grotesque', sans-serif",
+                  }}
                 >
-                  {/* TEXT */}
-                  <span
-                    className="
-                      text-2xl 
-                      md:text-2xl 
-                      lg:text-2xl
-                      font-bold 
-                      slogan-text 
-                      whitespace-nowrap
-                      leading-none
-                    "
-                    style={{
-                      fontFamily: "'Bricolage Grotesque', sans-serif", 
-                    }}
-                  >
-                    {text}
-                  </span>
-
-                  {/* LOGO */}
-                  <img
-                    src="/images/logo/icon.png"
-                    alt="logo"
-                    className="
-                      w-7
-                      h-7 
-                      md:w-7 
-                      md:h-7
-                      flex-shrink-0
-                      translate-y-1
-                      mb-2
-                    "
-                  />
-                </div>
+                  {text}
+                </span>
+              
+                {/* LOGO */}
+                <img
+                  src="/images/logo/icon.png"
+                  alt="logo"
+                  className="
+                    w-7 h-7
+                    flex-shrink-0
+                  "
+                />
+              </div>
+              
               ))}
             </div>
           ))}

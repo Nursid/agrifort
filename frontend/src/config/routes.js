@@ -36,7 +36,7 @@ export const ROUTES = {
     PORTFOLIO:'/portfolio',
     PROFILE:'/about/profile',
     FARMER_WINS:'/farmer-wins',
-    LEADERS_OF_PEOPLE:'/leaders-of-people'
+    LEADERS_OF_PEOPLE:'/leaders-&-people'
   },
   
   // Admin routes

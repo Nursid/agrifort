@@ -95,41 +95,133 @@ const LandingPage = () => {
               <FarmTechSlogan />
             </section>
           
-            <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
-                <div className="w-full  px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>AgriFort Journey </h1>
-                        <p
-                          className="text-xl text-gray-600 w-full inline"
-                          data-aos="zoom-in"
-                          data-aos-delay="200"
-                        >
-                          AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
-                          
-                          <button
-                            onClick={() => navigate('/about-us')}
-                            className="ml-2 text-green-600 font-semibold hover:underline inline"
-                            style={{outline: 'none'}}
-                          >
-                            Read More...
-                          </button>
-                        </p>
+            <section className="relative min-h-screen w-full overflow-hidden flex items-center ">
+      {/* 1. Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/images/journey/02.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
+      </div>
 
-                    </div>
-                </div>
+      <div className="relative z-10 max-w-7xl h-full mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
+        
+        {/* 2. Left Side: Tilted Film Strip with Automatic Scroll */}
+        <div className="relative flex justify-center lg:justify-start order-2 lg:order-1">
+          {/* Container with fixed height and hidden overflow */}
+          <div className="relative rotate-[-4deg] h-[100vh] w-64 sm:w-80 md:w-96 bg-zinc-900 p-2 border-x-[12px] border-zinc-800 shadow-2xl">
+            
+            {/* Film Strip Holes (Left) - Background White for Visibility */}
+            <div className="absolute left-[-10px] top-0 bottom-0 z-20 flex flex-col justify-around py-2">
+                {[...Array(20)].map((_, i) => <div key={i} className="w-4 h-6 bg-white/30 rounded-sm"></div>)}
+            </div>
+            
+            {/* Scrolling Image Gallery Wrapper */}
+            <div className="animate-film-scroll space-y-4">
+              {[
+                "/images/award/01.jpeg", "/images/award/02.jpg", "/images/award/03.jpg", 
+                "/images/award/08.jpeg", "/images/award/09.jpeg", "/images/award/05.jpeg", 
+                "/images/award/06.jpeg", "/images/award/07.jpeg"
+              ].map((src, index) => (
+                <img 
+                  key={index}
+                  src={src} 
+                  alt={`History ${index}`} 
+                  className="w-full h-52 object-cover hover:grayscale-0 transition duration-500 border-y-4 border-zinc-900" 
+                />
+              ))}
+              {/* Duplicate images for seamless loop */}
+              {[
+                "/images/award/01.jpeg", "/images/award/02.jpg"
+              ].map((src, index) => (
+                <img 
+                  key={`loop-${index}`}
+                  src={src} 
+                  alt={`History Loop ${index}`} 
+                  className="w-full h-52 object-cover transition duration-500 border-y-4 border-zinc-900" 
+                />
+              ))}
+            </div>
+
+            {/* Film Strip Holes (Right) */}
+            <div className="absolute right-[-10px] top-0 bottom-0 z-20 flex flex-col justify-around py-2">
+                {[...Array(20)].map((_, i) => <div key={i} className="w-4 h-6 bg-white/30 rounded-sm"></div>)}
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Right Side: Text Content Box */}
+        <div className="relative order-1 lg:order-2">
+          <div className="bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-white/50">
+            <div className="flex justify-end mb-6">
+              <div className="relative inline-block">
+                <h2 className="text-4xl font-bold text-green-900 italic px-4" style={{ fontFamily: 'serif' }}>
+                  Agrifort Journey
+                </h2>
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-green-800/10 rounded-full -z-10"></div>
+              </div>
+            </div>
+
+            <div className="space-y-6 text-gray-800 leading-relaxed text-base md:text-sm">
+              <p>
+                AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, 
+                future-ready agriculture company, and what better place to begin this journey than 
+                in the heart of Indian farming. As the world shifts towards environmentally responsible, 
+                low-chemical and nutrition-focused farming, AgriFort stands at the forefront with 
+                advanced, technology-backed solutions designed to increase yields and enhance farm income.
+              </p>
+
+              <p>
+                Over the years, our journey has expanded beyond agriculture into a robust ecosystem 
+                of companies: <strong>BlueFort Healthcare</strong> in the pharmaceutical sector, 
+                <strong> Sutantra</strong> in information technology, health and technology—strengthening 
+                the lives of people we serve.
+              </p>
+
+              <p>
+                With a wide range of eco-friendly and cost-effective products, a distribution network 
+                that reaches the deepest pockets of India, and global collaborations supporting our growth, 
+                we have earned the trust of millions of farmers. Their success stories inspire us daily 
+                and validate the science and passion behind everything we create.
+              </p>
+              
+              <div className="pt-6 border-t border-green-900/10">
+                <p className="italic font-medium text-green-700 text-center">
+                  Farmers Win – We Win.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+
+  {/* CSS for the Scroll Animation */}
+  <style jsx>{`
+    @keyframes film-scroll {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    .animate-film-scroll {
+      animation: film-scroll 20s linear infinite;
+    }
+    .animate-film-scroll:hover {
+      animation-play-state: paused;
+    }
+  `}</style>
             </section>
+
+            <VisionMissionSection />
 
               <section className="">
                 <AgriFortAdvantages />
               </section>
 
-            <VisionMissionSection />
+           
 
-                   <section
-                      id="highlights"
-                    >
-                    <TeamSection/>
-                  </section>
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
            
@@ -148,22 +240,19 @@ const LandingPage = () => {
 
 
             <section
-  className="relative min-h-[800px] bg-cover bg-center bg-no-repeat p-6"
-  style={{
-    backgroundImage: "url('/images/backgrounds/companies.jpg')",
-  }}
->
-<div
-    className="absolute inset-0"
-    style={{
-      background:
-        "linear-gradient(to bottom, rgba(6,78,59,0.65), rgba(6,78,59,0.35), rgba(6,78,59,0.65))",
-    }}
-  ></div>
+          className="relative bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/video/01.gif')",
+          }}
+        >
+
+          
+        <div
+            className="relative bg-black/80 backdrop-blur-xs p-6"
+          >
 
   <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
     
-    <div className="w-20 h-1 bg-green-300 mx-auto mt-4 rounded-full"></div>
 
     <div className="text-center mt-6">
       <h1
@@ -178,7 +267,7 @@ const LandingPage = () => {
 
  
     <div className="w-full py-6">
-  <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+    <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12">
     {logos2.map((item, index) => (
       <a
         key={index}
@@ -215,7 +304,7 @@ const LandingPage = () => {
     ))}
   </div>
 </div>
-
+</div>
   </div>
 </section>
 

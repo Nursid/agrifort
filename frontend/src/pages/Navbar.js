@@ -16,7 +16,7 @@ const Navbar = () => {
             name: 'About Us',
             href: '/about-us',
         },
-        { name: 'Leaders of People', href: '/leaders-of-people' },
+        { name: 'Leaders & People', href: '/leaders-&-people' },
         { name: 'Our Portfolio', href: '/Portfolio' },
         { name: 'Farmer Wins', href: '/farmer-wins' },
         { name: 'AgriFort Highlights', href: '/lifeAtAgrifort' },
@@ -43,6 +43,8 @@ const Navbar = () => {
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
+                        {/* Desktop Navigation */}
+                        <div className="hidden lg:flex items-center justify-center gap-1 relative z-40">
                         <button
                             onClick={() => handleNavigation('/')}
                             style={{outline: 'none'}}
@@ -54,9 +56,6 @@ const Navbar = () => {
                                 className="h-14 w-auto object-contain"
                             />
                         </button>
-
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center justify-center py-3 gap-1 relative z-40" style={{marginLeft: 50}}>
                             {mainCategories.map((category) => (
                                 <div
                                     key={category.name}
@@ -115,7 +114,7 @@ const Navbar = () => {
                         <div className="flex items-center gap-4">
 
                             <button 
-                                onClick={() => navigate('/admin/login')} 
+                                onClick={() => navigate('/register')} 
                                 className={`
                                     hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
                                     ${isActive('/admin/login')

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.film-strip {
+    position: absolute;
+    rotate: -4deg;
+    top: -18px;
+    left: -48px;
+    width: 37%;
+    height: 108%;
+    /* Vertical repeat for the film strip effect */
+    background-size: 100%;
+    /* Ensures the background stretches to cover */
+    animation: reel-animation 10s infinite linear;
+    /* Optional: Animation to simulate reel movement */
+  }
