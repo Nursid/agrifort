@@ -1,75 +1,96 @@
-import React, { useEffect } from 'react'; // Import useEffect
-import AOS from 'aos'; // Import AOS library
-import 'aos/dist/aos.css'; // Import AOS styles
-import Navbar from './Navbar';
-import EmployeeEngagement from './employeeEngagement';
-import Footer from '../components/Footer';
-import agriculture from '../assets/images/hero/agriculture-hero.jpg';
-import BreadCrumb from './components/breadcrumb';
-import team from '../assets/emp/field.jpg'
-import t from '../assets/emp/crop.jpg'
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Navbar from "./Navbar";
+import Footer from "../components/Footer";
+
+const highlightsData = [
+  {
+    title: "Events & Trips",
+    images: ['/images/award/01.jpeg', '/images/award/02.jpg', '/images/award/03.jpg','/images/award/04.jpeg'],
+  },
+  {
+    title: "Conferences",
+    images: ['/images/award/05.jpeg','/images/award/06.jpeg','/images/award/07.jpeg','/images/award/08.jpeg',],
+  },
+  {
+    title: "Newsroom",
+    images: ['/images/award/08.jpeg','/images/award/09.jpeg','/images/award/10.jpeg'],
+  },
+  {
+    title: "Awards",
+    images: ['/images/award/05.jpeg','/images/award/06.jpeg','/images/award/07.jpeg','/images/award/08.jpeg','/images/award/09.jpeg','/images/award/10.jpeg'],
+  },
+];
 
 const LifeAtAgriFort = () => {
-  // 1. Initialize AOS on component mount
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Duration of animation (ms)
-      once: true, // Whether animation should only happen once
-      offset: 100, // Offset (in px) from the original trigger point
-      easing: 'ease-in-out', // Easing type
+      duration: 900,
+      once: true,
+      easing: "ease-in-out",
     });
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar/>
+      <Navbar />
 
-      <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
+      {/* HIGHLIGHTS SECTION */}
+      <section className="py-20 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Image */}
-            <div className="relative">
-              <div className="relative rounded-md overflow-hidden shadow-2xl">
-                <img
-                  src={agriculture}
-                  alt="About AgriFort"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute -bottom-6 -right-6">
-                  <div className="bg-white p-4 rounded-full shadow-xl">
-                    <svg className="w-12 h-12" viewBox="0 0 100 100">
-                      <circle cx="25" cy="25" r="20" fill="#22c55e" />
-                      <circle cx="75" cy="25" r="20" fill="#059669" />
-                      <circle cx="25" cy="75" r="20" fill="#dc2626" />
-                      <circle cx="75" cy="75" r="20" fill="#991b1b" />
-                      <circle cx="50" cy="50" r="15" fill="#1f2937" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
+          {/* Heading */}
+          <div className="text-center">
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900"
+              style={{
+                fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
+              }}
+            >
+              Agrifort Highlights
+            </h1>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover key moments, achievements, and milestones that define
+              Agrifort’s journey in innovation, research, and agricultural excellence.
+            </p>
+          </div>
 
-            {/* Right Side - Content */}
-            <div className="space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-              Life At Agrifort
-              </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
-              At **AgriFort Technologies**, we are dedicated to maintaining the highest ethical standards in every aspect of our operations. We believe that our values are the compass that guides our journey in both personal and professional realms.
-              We are uncompromising in our pursuit of excellence, consistently delivering high-quality products and services. This unwavering dedication to integrity & quality transcends into the careers we nurture, ensuring that you have the resources and support to excel in your chosen path. We are committed to creating an environment where integrity, quality and our core values of aspiration, nurturing, progressive, and empowerment shape the essence of life at AgriFort.
-              </p>
+          {/* Cards */}
+          <div className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        {highlightsData.map((section, idx) => (
+          <div key={idx}>
+            {/* Section Title */}
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              {section.title}
+            </h2>
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {section.images.map((img, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-lg group"
+                >
+                  <img
+                    src={img}
+                    alt={`${section.title} ${i + 1}`}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ))}
             </div>
           </div>
+        ))}
+
+      </div>
+    </div>
         </div>
       </section>
-      
-      {/* 3. Employee Engagement Section with fade-up animation */}
-      {/* <div data-aos="fade-up" data-aos-offset="50"> 
-        <EmployeeEngagement/> 
-      </div> */}
-      
-      <Footer/>
-    
+
+      <Footer />
     </div>
   );
 };

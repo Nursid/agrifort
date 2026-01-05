@@ -119,7 +119,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="space-y-6 text-gray-800 leading-relaxed text-base md:text-lg">
+            <div className="space-y-6 text-gray-800 px-6 leading-relaxed text-base md:text-lg">
               <p>
                 AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, 
                 future-ready agriculture company, and what better place to begin this journey than 
@@ -214,7 +214,14 @@ const LandingPage = () => {
                 </div>
 
                 <div className="w-full py-6">
-  <div className="flex flex-nowrap justify-center items-center gap-4 sm:gap-6">
+  <div
+    className="
+      flex flex-wrap
+      lg:flex-nowrap
+      justify-center items-center
+      gap-4 sm:gap-6
+    "
+  >
     {logos2.map((item, index) => (
       <a
         key={index}
@@ -229,10 +236,10 @@ const LandingPage = () => {
             rounded-full
             shadow-md
             transition-transform duration-300 hover:scale-105
-            w-24 h-24
-            sm:w-28 sm:h-28
-            md:w-32 md:h-32
-            lg:w-36 lg:h-36
+            w-20 h-20
+            sm:w-24 sm:h-24
+            md:w-28 md:h-28
+            lg:w-32 lg:h-32
           "
         >
           <img
@@ -245,6 +252,7 @@ const LandingPage = () => {
     ))}
   </div>
 </div>
+
 
 
             </div>

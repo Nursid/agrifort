@@ -1,3 +1,4 @@
+import { themecolor } from "components/CommanStyle";
 import React, { useState } from "react";
 import {
   Search,
@@ -49,22 +50,7 @@ import Seedfort from "../assets/products/seedfort.jpg";
 import Footer from "components/Footer";
 
 
-export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showDetailPage, setShowDetailPage] = useState(false);
-
-  const filters = [
-    "All",
-    "Biostimulant",
-    "Fungicide",
-    "Herbicide",
-    "PGR",
-    "Insecticide",
-  ];
-
-    const products = [
+const products = [
     {
       id: 1,
       name: "Orifort 2x",
@@ -666,355 +652,285 @@ export default function Portfolio() {
   targetCrops: [
     { crop: "Okra, Cereals, Vegetables, Field crops, Horticultural crops", dosage: "250 g/ha × 2 soil applications" }
   ]
-}
+},
 
+{
+    id: 29,
+    name: "APLG CaMB",
+    brandName: "APLG CaMB",
+    composition: "Organically chelated Calcium, Magnesium & Boron (APLG Technology)",
+    role: "Biostimulant",
+    category: "APLG",
+    image: '/images/products/aplg/APLG_CaMB.png', // replace with actual image import
+    description:
+      "APLG CaMB is an APLG technology-based formulation where nutrients are chelated with naturally derived organic compounds for superior bio-availability. It is fully organic, non-toxic, and designed to prevent calcium, magnesium, and boron deficiencies while enhancing overall crop metabolism.",
+    packAvailable: "100 ml, 250 ml, 500 ml, 1 litre",
+    targetCrops: [
+      {
+        crop:
+          "Green Gram, Cotton, Sugarcane, Paddy, Tea, Field crops, Spices, Pulses, Oil seeds, Fruits & Vegetables",
+        dosage: "Two foliar applications at 1.25 L/ha",
+      },
+    ],
+  },
+  {
+    id: 30,
+    name: "APLG Multi-Micro",
+    brandName: "APLG Multi-Micro",
+    composition: "Organically chelated micronutrients (APLG Technology)",
+    role: "Biostimulant",
+    category: "APLG",
+    image: '/images/products/aplg/APLG_MultiMicro.png', // replace with actual image import
+    description:
+      "APLG Multi-Micro uses APLG technology to deliver organically chelated micronutrients with high bio-availability. It efficiently addresses multi-micronutrient deficiencies while improving crop metabolism and overall plant performance.",
+    packAvailable: "100 ml, 250 ml, 500 ml, 1 litre",
+    targetCrops: [
+      {
+        crop:
+          "Tomato, Cotton, Sugarcane, Paddy, Tea, Field crops, Spices, Pulses, Oil seeds, Fruits & Vegetables",
+        dosage: "Three foliar applications at 1.25 L/ha",
+      },
+    ],
+  },
+  {
+    id: 31,
+    name: "APLG Potash",
+    brandName: "APLG Potash",
+    composition: "Organically chelated Potash with trace minerals (APLG Technology)",
+    role: "Biostimulant",
+    category: "APLG",
+    image:  '/images/products/aplg/APLG_Potash.png', // replace with actual image import
+    description:
+      "APLG Potash is an APLG technology-driven formulation where potash and trace minerals are organically chelated for high bio-availability and plant safety. It effectively corrects potash deficiencies and supports improved crop metabolism.",
+    packAvailable: "100 ml, 250 ml, 500 ml, 1 litre",
+    targetCrops: [
+      {
+        crop:
+          "Green Gram, Cotton, Sugarcane, Paddy, Tea, Field crops, Spices, Pulses, Oil seeds, Fruits & Vegetables",
+        dosage: "Two foliar applications at 1.5 L/ha",
+      },
+    ],
+  },
+  {
+    id: 32,
+    name: "APLG NPK",
+    brandName: "APLG NPK",
+    composition:
+      "Organically chelated Nitrogen, Phosphorus & Potassium (APLG Technology)",
+    role: "Biostimulant",
+    category: "APLG",
+    image:  '/images/products/aplg/APLG_NPK.png', // replace with actual image import
+    description:
+      "APLG NPK is an APLG technology-based formulation where N, P, and K are organically chelated for high bio-availability and plant safety. It effectively prevents and corrects NPK deficiencies while strengthening overall crop metabolism.",
+    packAvailable: "100 ml, 250 ml, 500 ml, 1 litre",
+    targetCrops: [
+      {
+        crop:
+          "Green Gram, Cotton, Sugarcane, Paddy, Tea, Field crops, Spices, Pulses, Oil seeds, Fruits & Vegetables",
+        dosage: "Two foliar applications at 1.25 L/ha",
+      },
+    ],
+  },
+    
+  {
+    id: 33,
+    name: "Herbo 7X",
+    brandName: "Herbo 7X",
+    composition: "Multi-functional agrochemical Adjuvants",
+    role: "Sticker, Spreader, Rain-fastener & Activator",
+    category: "Adjuvants",
+    image:  '/images/products/adjuvents/Herbo7X.png', // replace with actual image import
+    description:
+      "Herbo 7X is a multi-functional agrochemical adjuvants that acts as a sticker, spreader, rain-fastener, and activator. It enhances the effectiveness of pesticides and foliar fertilizers by ensuring better adhesion, spreading, and absorption on plant surfaces.",
+    packAvailable: "100 ml, 250 ml, 500 ml & 1 litre",
+    targetCrops: [
+      {
+        crop: "All crops",
+        dosage:
+          "Foliar application/drenching: 50 ml in 200 litres of water. Seed priming/treatment: 0.5 ml per kg seed with required quantity of water.",
+      },
+    ],
+  },
+
+  {
+    id: 34,
+    name: "Silfort 100",
+    brandName: "Silfort 100",
+    composition: "Silicone-based super Adjuvants",
+    role: "Silicone Super Spreader & Penetrant",
+    category: "Adjuvants",
+    image:  '/images/products/adjuvents/Silfort100.png', // replace with actual image import
+    description:
+      "Silfort 100 is a new-generation silicone super Adjuvants that boosts agrochemical performance through superior spreading and uniform leaf coverage. It promotes quick penetration and minimizes losses from run-off and spray drift.",
+    packAvailable: "100 ml, 250 ml, 500 ml & 1 litre",
+    targetCrops: [
+      {
+        crop: "All crops",
+        dosage: "50 ml per 150–200 litres of water",
+      },
+    ],
+  },
+  
+    
 
 
   ];
 
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.composition.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter =
-      activeFilter === "All" || product.category === activeFilter;
-    return matchesSearch && matchesFilter;
-  });
+export default function ProductsPage() {
+    const CATEGORY_MAP = {
+        Biostimulants: ["Biostimulant"],
+        CPC: ["Insecticide", "Herbicide", "Fungicide", "PGR"],
+        APLG: ["APLG"],        // future products
+        Adjuvants: ['Adjuvants']    // future products
+      };
+  const [activeCategory, setActiveCategory] = useState("Biostimulants");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const openProductDetail = (product) => {
-    setSelectedProduct(product);
-    setShowDetailPage(true);
-  };
+  const filteredProducts = products.filter((p) =>
+    CATEGORY_MAP[activeCategory]?.includes(p.category)
+  );
 
-  const closeProductDetail = () => {
-    setShowDetailPage(false);
-    setTimeout(() => setSelectedProduct(null), 300);
-  };
+  console.log(activeCategory)
+  console.log(filteredProducts)
 
-  // Product Detail Page Component
-  if (showDetailPage && selectedProduct) {
+  return (
+    <>
+    <Navbar />
+    <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+      <CategoryTabs
+        active={activeCategory}
+        setActive={setActiveCategory}
+        themecolor={themecolor}
+      />
+
+      {activeCategory === "CPC" && (
+        <p className="text-center mb-6 text-gray-600 font-medium">
+          Pesticides, Fungicides & PGR
+        </p>
+      )}
+
+      <ProductGrid
+        products={filteredProducts}
+        onSelect={setSelectedProduct}
+      />
+
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        themecolor={themecolor}
+      />
+      </section>
+      <Footer />
+    </>
+  );
+}
+
+
+
+function CategoryTabs({ active, setActive, themecolor }) {
+    const tabs = ["Biostimulants", "CPC", "APLG", "Adjuvants"];
+  
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Navbar/>
+      <div className="flex flex-wrap gap-4 justify-center mb-8">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActive(tab)}
+            className={`px-6 py-2 rounded-full font-semibold transition ${
+              active === tab
+                ? "text-white"
+                : "bg-gray-100 text-gray-700"
+            }`}
+            style={{
+              backgroundColor: active === tab ? themecolor : undefined,
+            }}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+    );
+  }
 
-        <div className="max-w-7xl mx-auto ">
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-            {/* Product Header */}
-            <div className="bg-gradient-to-r from-green-700 to-green-600  p-8">
-              <div className="flex  flex-col md:flex-row gap-8 items-start ">
-                <div className="flex-1">
-                  <div className="inline-block bg-green-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                    {selectedProduct.category}
-                  </div>
-                  <h1 className="text-5xl font-extrabold mb-4">
-                    {selectedProduct.brandName}
-                  </h1>
-                  <div className="flex  items-center gap-3 mb-4">
-                    <Beaker className="w-6 h-6" />
-                    <p className="text-xl text-green-100">
-                      {selectedProduct.composition}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Shield className="w-6 h-6" />
-                    <p className="text-lg text-green-50 italic">
-                      {selectedProduct.role}
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[200px]">
-                  <h3 className="border-1 text-center rounded-md bg-purple-500 text-lg font-semibold mb-3">Pack Available</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProduct.packAvailable.split(",").map((pack, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-white  text-green-700 px-4 py-2 rounded-lg font-bold text-sm"
-                      >
-                        {pack.trim()}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+  
+  function ProductGrid({ products, onSelect }) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((p) => (
+          <div
+            key={p.id}
+            onClick={() => onSelect(p)}
+            className="bg-[#eafff4] rounded-xl shadow hover:shadow-lg cursor-pointer p-4 text-center transition"
+          >
+            <img
+              src={p.image}
+              alt={p.name}
+              className="h-48 mx-auto object-contain mb-4"
+            />
+            <h4 className="font-bold text-green-900">{p.name}</h4>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  
+  function ProductModal({ product, onClose, themecolor }) {
+    if (!product) return null;
+  
+    return (
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4">
+        <div className="bg-[#eafff4] rounded-xl max-w-4xl w-full relative overflow-hidden">
+  
+          {/* CLOSE */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full text-white text-xl"
+            style={{ backgroundColor: themecolor }}
+          >
+            ✕
+          </button>
+  
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+            {/* IMAGE */}
+            <div className="flex items-center justify-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="max-h-[350px] object-contain"
+              />
             </div>
-
-            {/* Product Image */}
-            <div className="p-8 bg-gradient-to-br from-green-50 to-white">
-              <div className="max-w-2xl mx-auto">
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  className="w-full h-96 object-contain rounded-2xl"
+  
+            {/* DETAILS */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-green-900">
+                {product.name}
+              </h2>
+  
+              <Detail label="Technical Name" value={product.composition} />
+              <Detail label="Role" value={product.role} />
+              <Detail label="Category" value={product.category} />
+              <Detail label="Packing Size" value={product.packAvailable} />
+  
+              {product.targetCrops?.[0] && (
+                <Detail
+                  label="Recommended Crop"
+                  value={product.targetCrops[0].crop}
                 />
-              </div>
-            </div>
-
-            {/* Description */}
-            <div className="p-8">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-                  <Package className="w-8 h-8 text-green-600" />
-                  Product Description
-                </h2>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  {selectedProduct.description}
-                </p>
-
-                {/* Key Benefits */}
-                {selectedProduct.keyBenefits && (
-                  <div className="mb-8 bg-green-50 rounded-2xl p-6 border-l-4 border-green-600">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" />
-                      Key Benefits
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {selectedProduct.keyBenefits.map((benefit, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-3 bg-white p-4 rounded-xl"
-                        >
-                          <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-                            <span className="text-green-700 text-sm font-bold">✓</span>
-                          </div>
-                          <span className="text-gray-700 font-medium">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Target Crops Table */}
-                <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                    <Target className="w-8 h-8 text-green-600" />
-                    Target Crops, Pests/Diseases & Dosage
-                  </h2>
-                  <div className="overflow-hidden rounded-2xl border-2 border-gray-200 shadow-lg">
-                    <table className="w-full">
-                      <thead className="bg-gradient-to-r from-green-700 to-green-600 text-white">
-                        <tr>
-                          <th className="px-6 py-4 text-left font-bold text-lg">Crop</th>
-                          <th className="px-6 py-4 text-left font-bold text-lg">
-                            Pest/Disease
-                          </th>
-                          <th className="px-6 py-4 text-left font-bold text-lg">Dosage</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {selectedProduct.targetCrops.map((item, idx) => (
-                          <tr
-                            key={idx}
-                            className={`border-b border-gray-200 ${
-                              idx % 2 === 0 ? "bg-gray-50" : "bg-white"
-                            } hover:bg-green-50 transition-colors`}
-                          >
-                            <td className="px-6 py-4 font-bold text-gray-800">
-                              {item.crop}
-                            </td>
-                            <td className="px-6 py-4 text-gray-700">
-                              {item.disease}
-                            </td>
-                            <td className="px-6 py-4 text-green-700 font-bold">
-                              {item.dosage}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-4 flex-wrap">
-                  <button
-                    onClick={closeProductDetail}
-                    className="flex-1 min-w-[200px] bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                  >
-                    Back to Products
-                  </button>
-                  <button className="flex-1 min-w-[200px] bg-white border-2 border-green-600 text-green-700 py-4 px-8 rounded-xl font-bold text-lg hover:bg-green-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                    <ShoppingBag className="w-5 h-5" />
-                    Request Quote
-                  </button>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
     );
   }
-
-  // Main Portfolio Page
-  return (
-    <div className="min-h-screen bg-gray-50">
-        <Navbar/>
   
-
-  <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/images/backgrounds/portfolio.jpg"
-                  alt="About AgriFort"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute -bottom-6 -right-6">
-                  <div className="bg-white p-4 rounded-full shadow-xl">
-                    <svg className="w-12 h-12" viewBox="0 0 100 100">
-                      <circle cx="25" cy="25" r="20" fill="#22c55e" />
-                      <circle cx="75" cy="25" r="20" fill="#059669" />
-                      <circle cx="25" cy="75" r="20" fill="#dc2626" />
-                      <circle cx="75" cy="75" r="20" fill="#991b1b" />
-                      <circle cx="50" cy="50" r="15" fill="#1f2937" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Content */}
-            <div className="space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-              Our Portfolio
-              </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
-              Discover our innovative range of bio-stimulants, crop protection solutions, and nutrient formulations designed to revolutionize farming practices and maximize your yields.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Search and Filter */}
-      <div className="max-w-7xl mx-auto ">
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-          <h2 className="text-3xl border-1  rounded-md font-bold text-gray-800 mb-3" style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>
-            Find Your Solution
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Search and filter through our comprehensive product range
-          </p>
-<div className="relative mb-6">
-  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-700 pointer-events-none" />
-  <input
-    type="text"
-    placeholder="Search products by name, composition, or description..."
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-    className="w-full pl-12 pr-4 py-3.5 border-2 border-gray-400 rounded-xl hover:border-green-500 focus:border-green-600 focus:outline-none transition-colors text-base text-gray-900 bg-white"
-    style={{
-      paddingLeft: '44px',
-      color: '#111827',
-      backgroundColor: '#ffffff',
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  />
-  <style>{`
-    input::placeholder {
-      color: #4b5563 !important;
-      opacity: 1 !important;
-      font-weight: 600;
-    }
-  `}</style>
-</div>
-          <div className="flex flex-wrap gap-3">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
-                  activeFilter === filter
-                    ? "bg-green-600 text-white shadow-lg scale-105"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
-            >
-              {/* Image Container */}
-              <div className="relative h-64 bg-gradient-to-br from-green-50 to-green-100 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4 bg-purple-200 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  {product.category}
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                  {product.name}
-                </h3>
-                <div className="flex items-center gap-2 mb-3">
-                  <Beaker className="w-4 h-4 text-green-700 flex-shrink-0" />
-                  <p className="text-sm text-gray-600 line-clamp-1">
-                    {product.composition}
-                  </p>
-                </div>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
-                  {product.description}
-                </p>
-
-                {/* Pack Info */}
-                <div className="bg-green-50 rounded-lg p-3 mb-4">
-                  <p className="text-xs font-semibold text-green-700 mb-2">
-                    AVAILABLE PACKS
-                  </p>
-                  <p className="text-sm text-gray-700 font-medium">
-                    {product.packAvailable}
-                  </p>
-                </div>
-
-                {/* Learn More Button */}
-                <button
-                  onClick={() => openProductDetail(product)}
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-xl font-bold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  Learn More
-                  <ArrowLeft className="w-4 h-4 rotate-180" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* No Results */}
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-16">
-            <div className="text-gray-400 mb-4">
-              <Search className="w-16 h-16 mx-auto" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-700 mb-2">
-              No products found
-            </h3>
-            <p className="text-gray-600">
-              Try adjusting your search or filter criteria
-            </p>
-          </div>
-        )}
-      </div>
-      <Footer/>
+  const Detail = ({ label, value }) => (
+    <div className="flex border-b py-2 text-sm">
+      <div className="w-40 font-semibold">{label}</div>
+      <div className="flex-1">: {value}</div>
     </div>
-    
   );
   
-}

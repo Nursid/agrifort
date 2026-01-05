@@ -12,13 +12,12 @@ import OurTeam from '../pages/OurTeam';
 import Contact from '../pages/Contact';
 import LifeAtAgriFort from '../pages/lifeAtAgrifort';
 import ManageDistributors from '../pages/ManageDistributors';
-import HistoryAndValues from 'pages/HistoryAndValues';
 import Profile from 'pages/Profile';
 import ManageProducts from 'pages/ManageProduct';
-import Portfolio from '../pages/Portfolio';
 import FarmerWins from '../pages/components/FarmerWins';
 import LeadersOfPeople from '../pages/LeadersOfPeople';
-import RegistrationPage from '../pages/RegistrationPage'
+import RegistrationPage from '../pages/RegistrationPage'    
+import ProductsPage from '../pages/OurPortfolio';
 
 // Route definitions
 export const ROUTES = {
@@ -109,7 +108,7 @@ export const ROUTE_CONFIG = {
     {
       path: ROUTES.PUBLIC.PORTFOLIO,
       exact: true,
-      component: Portfolio,
+      component: ProductsPage,
       title: 'Portfolio'
     },
     {
