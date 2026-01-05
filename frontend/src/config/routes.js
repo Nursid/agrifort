@@ -18,6 +18,7 @@ import ManageProducts from 'pages/ManageProduct';
 import Portfolio from '../pages/Portfolio';
 import FarmerWins from '../pages/components/FarmerWins';
 import LeadersOfPeople from '../pages/LeadersOfPeople';
+import RegistrationPage from '../pages/RegistrationPage'
 
 // Route definitions
 export const ROUTES = {
@@ -132,7 +133,7 @@ export const ROUTE_CONFIG = {
     {
       path: ROUTES.PUBLIC.REGISTER,
       exact: true,
-      component: Registration,
+      component: RegistrationPage,
       title: 'Register'
     },
     {

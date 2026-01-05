@@ -111,7 +111,8 @@ const LandingPage = () => {
       <div className="relative z-10 max-w-7xl h-full mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
         
         {/* 2. Left Side: Tilted Film Strip with Automatic Scroll */}
-        <div className="relative flex justify-center lg:justify-start order-2 lg:order-1">
+        <div className="relative hidden lg:flex justify-center lg:justify-start order-2 lg:order-1">
+
           {/* Container with fixed height and hidden overflow */}
           <div className="relative rotate-[-4deg] h-[100vh] w-64 sm:w-80 md:w-96 bg-zinc-900 p-2 border-x-[12px] border-zinc-800 shadow-2xl">
             
@@ -156,7 +157,7 @@ const LandingPage = () => {
 
         {/* 3. Right Side: Text Content Box */}
         <div className="relative order-1 lg:order-2">
-          <div className="bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-white/50">
+          <div className="bg-white/80 backdrop-blur-md p-8 md:p-12 lg:rounded-[2.5rem] shadow-xl border border-white/50">
             <div className="flex justify-end mb-6">
               <div className="relative inline-block">
                 <h2 className="text-4xl font-bold text-green-900 italic px-4" style={{ fontFamily: 'serif' }}>
