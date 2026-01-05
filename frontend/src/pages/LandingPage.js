@@ -49,18 +49,7 @@ const LandingPage = () => {
       ];
 
     const logos2 = [
-      {
-      
-        logo:  '/images/company/logo1.png', link: 'http://www.agrifort.com/'
-      },
-      {
-      
-        logo: '/images/company/logo2.png', link: '#'
-      },
-      {
-      
-        logo: '/images/company/logo3.png', link: 'https://sutantrasystems.com/'
-      },
+
       {
       
         logo: '/images/company/logo4.png', link: '#'
@@ -71,12 +60,31 @@ const LandingPage = () => {
       },
       {
       
+        logo: '/images/company/logo7.png', link: '#'
+      },
+
+      {
+      
+        logo:  '/images/company/logo1.png', link: 'http://www.agrifort.com/'
+      },
+
+      {
+      
         logo: '/images/company/logo6.png', link: 'https://bluefort.biz/'
+      },
+
+      {
+      
+        logo: '/images/company/logo2.png', link: '#'
       },
       {
       
-        logo: '/images/company/logo7.png', link: '#'
+        logo: '/images/company/logo3.png', link: 'https://sutantrasystems.com/'
       },
+     
+      
+    
+    
       ];
 
     return (
@@ -94,6 +102,7 @@ const LandingPage = () => {
             <section className="bg-gradient-to-br from-gray-50 to-green-50">
               <FarmTechSlogan />
             </section>
+
           
             <section className="relative min-h-screen w-full overflow-hidden">
       {/* 1. Background Image with Overlay */}
