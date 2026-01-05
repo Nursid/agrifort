@@ -152,7 +152,7 @@ export const ROUTE_CONFIG = {
       path:ROUTES.PUBLIC.LEADERS_OF_PEOPLE,
       exact:true,
       component:LeadersOfPeople,
-      title:'Leaders Of People'
+      title:'Leaders & People'
     }
   ],
 

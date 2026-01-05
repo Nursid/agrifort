@@ -48,7 +48,7 @@ const Navbar = () => {
                         <button
                             onClick={() => handleNavigation('/')}
                             style={{outline: 'none'}}
-                            className="flex items-center hover:scale-105 transition-transform duration-200"
+                            className="flex items-center hover:scale-105 transition-transform duration-200 mr-2"
                         >
                             <img
                                 src="/images/logo/logo.jpeg"

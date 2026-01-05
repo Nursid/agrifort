@@ -11,20 +11,18 @@ export default function FarmTechSlogan() {
   return (
     <div className="w-full overflow-hidden bg-transparent">
       <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee group items-center">
+        <div className="flex w-max animate-marquee group items-center gap-2">
 
           {[...Array(2)].map((_, loopIndex) => (
             <div key={loopIndex} className="flex items-center gap-2">
               {slogans.map((text, index) => (
                 <div
                 key={index}
-                className="flex items-center"
+                className="flex items-center gap-4"
               >
                 {/* TEXT */}
                 <span
                   className="
-                    ml-3
-                    mr-3
                     text-2xl 
                     md:text-2xl 
                     lg:text-2xl
