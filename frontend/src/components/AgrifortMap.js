@@ -1,6 +1,7 @@
 // import IndiaMap from "../assets/maps/india.svg";
 // import flag from "/images/logo/logo.jpeg";
 
+
 const statesWithPins = [
   { name: "Uttar Pradesh", top: "38%", left: "48%" },
   { name: "Maharashtra", top: "55%", left: "40%" },
@@ -28,7 +29,7 @@ export default function AgrifortMap() {
           {statesWithPins.map((s, i) => (
             <img
               key={i}
-              src={"/images/logo/logo.jpeg"}
+              src={'/assets/maps/flag.png'}
               alt="Agrifort Flag"
               className="
                 absolute w-6 h-6

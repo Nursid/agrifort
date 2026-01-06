@@ -44,11 +44,10 @@ const Navbar = () => {
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center justify-center gap-1 relative z-40">
                         <button
                             onClick={() => handleNavigation('/')}
                             style={{outline: 'none'}}
-                            className="flex items-center hover:scale-105 transition-transform duration-200 mr-2"
+                            className="flex items-center hover:scale-105 transition-transform duration-200 mr-3"
                         >
                             <img
                                 src="/images/logo/logo.jpeg"
@@ -56,6 +55,8 @@ const Navbar = () => {
                                 className="h-14 w-auto object-contain"
                             />
                         </button>
+                        <div className="hidden lg:flex items-center justify-center gap-1 relative z-40">
+                       
                             {mainCategories.map((category) => (
                                 <div
                                     key={category.name}
@@ -84,7 +85,7 @@ const Navbar = () => {
 
                                     {category.submenu &&
                                         activeDropdown === category.name && (
-                                            <div className="absolute top-full left-0 w-56 bg-white dark:bg-gray-800 border border-green-600 rounded-lg shadow-lg py-2 z-50">
+                                            <div className="absolute top-full left-0 w-56 bg-white border border-green-600 rounded-lg shadow-lg py-2 z-50">
                                                 {category.submenu.map((item) => (
                                                     <button
                                                         key={item.name}
@@ -117,7 +118,7 @@ const Navbar = () => {
                                 onClick={() => navigate('/register')} 
                                 className={`
                                     hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
-                                    ${isActive('/admin/login')
+                                    ${isActive('/register')
                                         ? 'text-white shadow-md'
                                         : 'hover:text-green-600'
                                     }
@@ -140,7 +141,7 @@ const Navbar = () => {
                             </button>
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                className="lg:hidden p-2 rounded-lg bg-gray-100  hover:bg-gray-200 transition-colors"
                                 style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
                             >
                                 {mobileMenuOpen ? (
@@ -155,7 +156,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="lg:hidden border-t bg-white dark:bg-gray-900">
+                    <div className="lg:hidden border-t bg-white">
                         <div className="py-4 space-y-1 px-4">
 
                             {mainCategories.map((category) => (
@@ -166,7 +167,7 @@ const Navbar = () => {
                                         block w-full text-left px-4 py-3 rounded-lg transition-all duration-200
                                         ${isActive(category.href)
                                             ? 'bg-green-600 text-white font-semibold shadow-md'
-                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
+                                            : 'hover:bg-green-50 hover:text-green-600'
                                         }
                                     `}
                                     style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
@@ -177,12 +178,12 @@ const Navbar = () => {
 
                             <div className="pt-4 border-t space-y-1">
                                 <button 
-                                    onClick={() => handleNavigation('/admin/login')} 
+                                    onClick={() => navigate('/register')} 
                                     className={`
                                         flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200
-                                        ${isActive('/admin/login')
+                                        ${isActive('/register')
                                             ? 'bg-green-600 text-white font-semibold shadow-md'
-                                            : 'text-gray-700 dark:text-gray-300 hover:bg-green-50 hover:text-green-600'
+                                            : 'hover:bg-green-50 hover:text-green-600'
                                         }
                                     `}
                                     style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}

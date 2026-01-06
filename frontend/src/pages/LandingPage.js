@@ -12,6 +12,7 @@ import FarmTechSlogan from './components/FarmTechSlogan';
 import VisionMissionSection from './components/VisionMissionSection';
 import TeamSection from './components/TeanSection';
 import AgriFortAdvantages from './components/AgriFortAdvantages';
+import AgrifortMap from 'components/AgrifortMap';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -103,6 +104,8 @@ const LandingPage = () => {
               <FarmTechSlogan />
             </section>
 
+            {/* <AgrifortMap /> */}
+
           
             <section className="relative min-h-screen w-full overflow-hidden">
       {/* 1. Background Image with Overlay */}
@@ -120,9 +123,6 @@ const LandingPage = () => {
       <div className="relative z-10 max-w-7xl h-full mx-auto py-16">
             <div className="flex justify-center">
               <div className="relative">
-                {/* <h2 className="text-7xl font-bold text-green-900 italic px-4" style={{ fontFamily: 'serif' }}>
-                  Agrifort Journey
-                </h2> */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}> Agrifort Journey</h1>
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-green-800/10 rounded-full -z-10"></div>
               </div>
@@ -130,25 +130,16 @@ const LandingPage = () => {
 
             <div className="space-y-6 text-gray-800 px-6 leading-relaxed text-base md:text-lg">
               <p>
-                AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, 
-                future-ready agriculture company, and what better place to begin this journey than 
-                in the heart of Indian farming. As the world shifts towards environmentally responsible, 
-                low-chemical and nutrition-focused farming, AgriFort stands at the forefront with 
-                advanced, technology-backed solutions designed to increase yields and enhance farm income.
+              AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
               </p>
-
               <p>
-                Over the years, our journey has expanded beyond agriculture into a robust ecosystem 
-                of companies: <strong>BlueFort Healthcare</strong> in the pharmaceutical sector, 
-                <strong> Sutantra</strong> in information technology, health and technology—strengthening 
-                the lives of people we serve.
+              As the world shifts towards environmentally responsible, low-chemical and nutrition-focused farming, AgriFort stands at the forefront with advanced, technology-backed solutions designed to increase yields and enhance farm income. Over the years, our journey has expanded beyond agriculture into a robust ecosystem of companies: BlueFort Healthcare in the pharmaceutical sector, Vetsburg in veterinary sector, Sutantra in information technology, AgriFort Sciences as our dedicated research and development arm, Geekay as our manufacturing unit and AgriFort Seedex, registered for our future seed innovation endeavours. Together, they represent our belief in building a group that solves real problems across agriculture, health and technology—strengthening the lives of people we serve.
               </p>
-
               <p>
-                With a wide range of eco-friendly and cost-effective products, a distribution network 
-                that reaches the deepest pockets of India, and global collaborations supporting our growth, 
-                we have earned the trust of millions of farmers. Their success stories inspire us daily 
-                and validate the science and passion behind everything we create.
+              With a wide range of eco-friendly and cost-effective products, a distribution network that reaches the deepest pockets of India, and global collaborations supporting our growth, we have earned the trust of millions of farmers who consistently share exceptional results on the field. Their success stories inspire us daily and validate the science and passion behind everything we create.
+              </p>
+              <p>
+              As an organisation, we remain committed to society and every stakeholder—working responsibly, innovating relentlessly and striving to bring more smiles to the farmer’s face. For us, the philosophy is simple and eternal: when farmers win – we win.
               </p>
               
               <div className="pt-6 border-t border-green-900/10">

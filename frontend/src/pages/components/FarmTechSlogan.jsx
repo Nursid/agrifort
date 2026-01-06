@@ -1,10 +1,10 @@
 import React from "react";
 
 const slogans = [
-  "Innovative technology to transform agriculture",
-  "Farmer wins - we win",
-  "Trusted products by farmers nationwide",
-  "Jai jawan - jai kisan",
+  "Innovative Technology To Transform Agriculture",
+  "Farmer Wins - We Win",
+  "Trusted Products By Farmers Nationwide",
+  "Jai Jawan - Jai Kisan",
 ];
 
 export default function FarmTechSlogan() {

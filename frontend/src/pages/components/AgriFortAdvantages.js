@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Factory, Microscope, Users, Cpu, Handshake, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 
 const AgriFortAdvantages = () => {
   const [activeTab, setActiveTab] = useState('manufacturing');
+  const navigate = useNavigate();
 
   const tabs = [
     { id: 'manufacturing', label: 'Manufacturing', icon: Factory, image: '/images/advantage/manufecturing.png' },
@@ -62,7 +65,16 @@ const AgriFortAdvantages = () => {
             return (
               <div
                 key={value.id}
-                onClick={() => setActiveTab(value.id)}
+               onClick={() => {
+                  if (value.id === 'people') {
+                    navigate('/leaders-&-people');
+                  } else if (value.id === 'tech') {
+                    navigate('/Portfolio');
+                  } else {
+                    setActiveTab(value.id);
+                  }
+                }}
+
                 className={`relative group cursor-pointer transition-all duration-300 transform hover:scale-105 ${
                   activeTab === value.id ? 'scale-105' : ''
                 }`}

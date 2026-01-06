@@ -179,51 +179,61 @@ const Footer = () => {
 
   return (
     <footer className="w-full text-white pt-16 font-sans" style={footerBg}>
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-6 w-full">
         
         {/* ===== TOP GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
-
-          {/* 1️⃣ Address */}
-          <div>
-            <h6 className="font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/20 pb-2">
+        <div className="flex flex-col lg:flex-row gap-10 pb-12">
+      <div className="lg:w-[50%]">
+      <div>
+            <h6 className="font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/20 pb-2 text-center">
               Address
             </h6>
+            <div className="flex flex-col lg:flex-row gap-8">
 
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <MapPinIcon className="h-6 w-6 text-red-300 shrink-0" />
-                <p className="text-xs leading-relaxed text-white/90">
-                  <strong className="block text-sm text-white">
-                    Reg. Office (Lucknow)
-                  </strong>
-                  911, Sector-M Ashiyana Colony, Kanpur Road, UP – 226012
-                </p>
-              </div>
+{/* Address 1 */}
+<div className="flex items-start gap-3 lg:w-1/3">
+  <MapPinIcon className="h-5 w-5 text-red-300 shrink-0 mt-1" />
+  <div className="text-xs leading-relaxed text-white/90">
+    <div className="text-sm font-semibold text-white mb-1">
+      Reg. Office (Lucknow)
+    </div>
+    911, Sector-M Ashiyana Colony, Kanpur Road, UP – 226012
+  </div>
+</div>
 
-              <div className="flex gap-4">
-                <MapPinIcon className="h-6 w-6 text-red-300 shrink-0" />
-                <p className="text-xs leading-relaxed text-white/90">
-                  <strong className="block text-sm text-white">
-                    Corporate (Mumbai)
-                  </strong>
-                  302, Wing-A, Cello Triumph, I.B Patel Road, Goregaon East – 400063
-                </p>
-              </div>
+{/* Address 2 */}
+<div className="flex items-start gap-3 lg:w-1/3">
+  <MapPinIcon className="h-5 w-5 text-red-300 shrink-0 mt-1" />
+  <div className="text-xs leading-relaxed text-white/90">
+    <div className="text-sm font-semibold text-white mb-1">
+      Corporate (Mumbai)
+    </div>
+    302, Wing-A, Cello Triumph, I.B Patel Road, Goregaon East – 400063
+  </div>
+</div>
 
-              <div className="flex gap-4">
-                <MapPinIcon className="h-6 w-6 text-red-300 shrink-0" />
-                <p className="text-xs leading-relaxed text-white/90">
-                  <strong className="block text-sm text-white">
-                    Dubai Presence
-                  </strong>
-                  Blue Quadrant DSO-IFZA-6910, Dubai Digital Park, UAE
-                </p>
-              </div>
-            </div>
+{/* Address 3 */}
+<div className="flex items-start gap-3 lg:w-1/3">
+  <MapPinIcon className="h-5 w-5 text-red-300 shrink-0 mt-1" />
+  <div className="text-xs leading-relaxed text-white/90">
+    <div className="text-sm font-semibold text-white mb-1">
+      Dubai Presence
+    </div>
+    Blue Quadrant DSO-IFZA-6910, Dubai Digital Park, UAE
+  </div>
+</div>
+
+</div>
+
+
           </div>
 
+      </div>
+
+      <div className="lg:w-[70%]">
           {/* 3️⃣ Get in Touch */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
           <div>
             <h6 className="font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/20 pb-2">
               Get in Touch
@@ -282,14 +292,16 @@ const Footer = () => {
             </h6>
             <ul className="space-y-1">
               <FooterLink href="/newsroom" text="Newsroom" />
-              <FooterLink href="/electronic" text="Electronic" />
-              <FooterLink href="/online" text="Online" />
+              {/* <FooterLink href="/electronic" text="Electronic" />
+              <FooterLink href="/online" text="Online" /> */}
               <FooterLink href="/event" text="Events" />
               <FooterLink href="/farmerreach" text="Farmer’s Reach" />
             </ul>
           </div>
-        </div>
+          </div>
       </div>
+    </div>
+        </div>
 
       {/* ===== BOTTOM BAR ===== */}
       <div className="border-t border-white/10">

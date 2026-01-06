@@ -16,7 +16,7 @@ export default function RegistrationCenter() {
   ];
 
   const cropsOptions = ['Cereals', 'Pulses', 'Vegetables', 'Fruits', 'Others'];
-  const productRangeOptions = ['Biostimulants', 'CPC', 'Fertilizers', 'Pesticides', 'Seeds', 'Others'];
+  const productRangeOptions = ['CPC', 'Pesticides'];
 
   const handleInputChange = (tab, field, value) => {
     setFormData(prev => ({
@@ -52,25 +52,30 @@ export default function RegistrationCenter() {
           </div>
 
           {/* Tabs */}
-          <div className="flex border-b bg-gray-50">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex-1 flex items-center justify-center gap-2 px-6 py-4 font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-white text-green-600 border-b-4 border-green-600'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                >
-                  <Icon size={20} />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
+          <div className="flex flex-nowrap border-b bg-gray-50 overflow-x-auto lg:overflow-visible">
+  {tabs.map(tab => {
+    const Icon = tab.icon;
+    return (
+      <button
+        key={tab.id}
+        onClick={() => setActiveTab(tab.id)}
+        className={`flex-shrink-0 lg:flex-1
+          flex items-center justify-center gap-2
+          px-4 py-3 lg:px-6 lg:py-4
+          font-semibold transition-all
+          ${
+            activeTab === tab.id
+              ? 'bg-white text-green-600 border-b-4 border-green-600'
+              : 'text-gray-600 hover:bg-gray-100'
+          }`}
+      >
+        <Icon size={20} />
+        {tab.label}
+      </button>
+    );
+  })}
+</div>
+
 
           {/* Form Content */}
           <div className="p-6 md:p-8">
@@ -114,8 +119,20 @@ export default function RegistrationCenter() {
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
+                <div className="grid gap-4">
+
+                  
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Address
+                  </label>
+                  <textarea
+                    rows="4"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    onChange={(e) => handleInputChange('farmer', 'address', e.target.value)}
+                  ></textarea>
+                </div>
+                  {/* <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Street</label>
                     <input
                       type="text"
@@ -146,7 +163,7 @@ export default function RegistrationCenter() {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       onChange={(e) => handleInputChange('farmer', 'pin', e.target.value)}
                     />
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -225,7 +242,7 @@ export default function RegistrationCenter() {
                     {productRangeOptions.map(product => (
                       <label key={product} className="flex items-center space-x-2 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
                           className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
                           checked={formData.farmer.preferredProducts?.includes(product) || false}
                           onChange={() => handleMultiSelectChange('farmer', 'preferredProducts', product)}
@@ -369,7 +386,7 @@ export default function RegistrationCenter() {
                     {productRangeOptions.map(product => (
                       <label key={product} className="flex items-center space-x-2 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
                           className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                           checked={formData.retailer.productRange?.includes(product) || false}
                           onChange={() => handleMultiSelectChange('retailer', 'productRange', product)}
@@ -527,7 +544,7 @@ export default function RegistrationCenter() {
                     {productRangeOptions.map(product => (
                       <label key={product} className="flex items-center space-x-2 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
                           className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                           checked={formData.distributor.productRange?.includes(product) || false}
                           onChange={() => handleMultiSelectChange('distributor', 'productRange', product)}
