@@ -114,20 +114,19 @@ const Navbar = () => {
                         {/* Right Actions */}
                         <div className="flex items-center gap-4">
 
-                            <button 
-                                onClick={() => navigate('/register')} 
-                                className={`
-                                    hidden md:flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
-                                    ${isActive('/register')
-                                        ? 'text-white shadow-md'
-                                        : 'hover:text-green-600'
-                                    }
-                                `}
-                                style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif", outline: 'none'}}
-                            >
-                                {/* <User className="w-5 h-5" /> */}
-                                <span className=" text-md font-medium">Registration Center</span>
-                            </button>
+                        <button 
+                        onClick={() => navigate('/register')} 
+                        className="
+                            hidden md:flex items-center gap-2 px-4 py-2 rounded-lg
+                            text-black font-medium
+                            transition-all duration-200
+                            hover:opacity-80
+                        "
+                        style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif", outline: 'none' }}
+                        >
+                        <span className="text-md font-medium">Registration Center</span>
+                        </button>
+
                             <button 
                                 onClick={() => navigate('/admin/login')} 
                                 className={`
@@ -183,7 +182,7 @@ const Navbar = () => {
                                         flex items-center gap-2 w-full px-4 py-3 rounded-lg transition-all duration-200
                                         ${isActive('/register')
                                             ? 'bg-green-600 text-white font-semibold shadow-md'
-                                            : 'hover:bg-green-50 hover:text-green-600'
+                                            : 'text-black hover:bg-green-50 hover:text-green-600'
                                         }
                                     `}
                                     style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}
