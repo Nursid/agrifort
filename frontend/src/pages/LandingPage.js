@@ -13,6 +13,8 @@ import VisionMissionSection from './components/VisionMissionSection';
 import TeamSection from './components/TeanSection';
 import AgriFortAdvantages from './components/AgriFortAdvantages';
 import AgrifortMap from 'components/AgrifortMap';
+import AgriFortJourney from './components/AgriFortJourney';
+import EnvironmentalPolicy from './components/EnvironmentalPolicy';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -88,7 +90,8 @@ const LandingPage = () => {
     
       ];
 
-    return (
+  
+      return (
         <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
             {/* Sticky Navbar with Backdrop Blur */}
             <Navbar />
@@ -105,10 +108,10 @@ const LandingPage = () => {
             </section>
 
             {/* <AgrifortMap /> */}
+            <AgriFortJourney />
 
           
-            <section className="relative min-h-screen w-full overflow-hidden">
-      {/* 1. Background Image with Overlay */}
+            {/* <section className="relative min-h-screen w-full overflow-hidden">
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -117,7 +120,7 @@ const LandingPage = () => {
           backgroundPosition: 'center'
         }}
       >
-        {/* <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div> */}
+      
       </div>
 
       <div className="relative z-10 max-w-7xl h-full mx-auto py-16">
@@ -149,22 +152,22 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
-  {/* CSS for the Scroll Animation */}
-  <style jsx>{`
-    @keyframes film-scroll {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-    .animate-film-scroll {
-      animation: film-scroll 20s linear infinite;
-    }
-    .animate-film-scroll:hover {
-      animation-play-state: paused;
-    }
-  `}</style>
-            </section>
+          <style jsx>{`
+            @keyframes film-scroll {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(-50%); }
+            }
+            .animate-film-scroll {
+              animation: film-scroll 20s linear infinite;
+            }
+            .animate-film-scroll:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+            </section> */}
 
             <VisionMissionSection />
+            <EnvironmentalPolicy />
 
               <section className="">
                 <AgriFortAdvantages />

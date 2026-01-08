@@ -1,148 +1,132 @@
-import React from 'react';
-import { Sprout, Users, Globe, TrendingUp } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Leaf, Sprout, ShieldCheck } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-export default function AgriFortJourney() {
+const AgriFortJourney = () => {
+  // Initialize AOS for scroll animations
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+  const primaryDark = "#0f3d2e";
+  const accentGreen = "#1c5517";
+
   return (
-    <section className="py-16 bg-gradient-to-b from-emerald-50 via-white to-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left Side - Enhanced Image */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-              <img
-                src="https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="AgriFort Agriculture"
-                className="w-full h-[500px] object-cover"
-              />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent"></div>
-              
-              {/* Floating badge */}
-              <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl">
-                <div className="flex items-center gap-3">
-                  <div className="bg-green-600 p-3 rounded-xl">
-                    <Sprout className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-green-600">10M+</p>
-                    <p className="text-sm text-gray-600">Farmers Trust Us</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section className="relative min-h-screen w-full bg-white flex flex-col md:flex-row overflow-hidden">
+      
+      {/* LEFT COLUMN: VISUALS */}
+      <div className="relative w-full md:w-6/12 h-[50vh] md:h-screen p-6 md:8 lg:12">
+      <motion.div
+        // initial={{ opacity: 0, x: -120, scale: 0.98 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        // transition={{
+        //   duration: 1,
+        //   ease: [0.22, 1, 0.36, 1], // cinematic ease
+        //   delay: 0.2
+        // }}
 
-            {/* Decorative leaf icon */}
-            <div className="absolute -top-6 -right-6 bg-gradient-to-br from-green-500 to-emerald-600 p-6 rounded-full shadow-2xl hidden lg:block">
-              <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.66-1.89C6 20 7 19 8 18c0-1.5 1.34-2 2-2 1 0 3 1 3 1s1.5-.5 2-2c1 0 3 1 3 1s1-1 1-2c.5 0 1-.5 1.5-1.5 1-.5 2.5-1.5 3.5-2.5l-1-1-1-1s-2 1-3.5 1.5C18 9.5 17.5 9 17 8z"/>
-              </svg>
-            </div>
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="h-[50vh] md:h-screen p-6 md:8 lg:12"
+      >
+        <img
+          src="/images/journey/first.jpg"
+          alt="Sustainable Farming"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+        {/* Modern decorative overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
+        
+        {/* Floating Badge (Extra Polish) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="absolute bottom-10 left-10 bg-white p-4 shadow-xl hidden lg:flex items-center gap-3 border-l-4 border-[#1c5517]"
+        >
+          <Sprout className="text-[#1c5517]" size={32} />
+          <div>
+            <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">AgriFort technology</p>
+            <p className="text-sm font-serif italic text-[#0f3d2e]">Future-Ready Farming</p>
           </div>
+        </motion.div>
+      </div>
 
-          {/* Right Side - Content */}
-          <div className="space-y-6">
-            {/* Small badge */}
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
-              Our Story
-            </div>
+      {/* RIGHT COLUMN: CONTENT */}
+      <div className="w-full md:w-6/12 flex items-center justify-center p-4 md:p-8 lg:p-12 bg-white relative">
+        
+        {/* Decorative Leaf Background Icon */}
+        <div className="absolute top-10 right-10 pointer-events-none 
+                opacity-5 rotate-12
+                group-hover:opacity-100
+                transition-all duration-500">
+  <Leaf
+    size={200}
+    className="text-[#1c5517]"
+  />
+</div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              The AgriFort{' '}
-              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Journey
-              </span>
-            </h1>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, 
-              future-ready agriculture company, and what better place to begin this journey than in the 
-              heart of Indian farming.
+        <div className="max-w-2xl relative z-10">
+          <header className="mb-8" data-aos="fade-up">
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6" style={{ color: primaryDark, fontFamily: 'serif' }}>
+              AgriFort <span className="text-[#1c5517] italic text-5xl md:text-6xl">Journey</span>
+            </h2>
+          </header>
+
+          <div className="space-y-6 text-gray-700 text-sm leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="100">
+              <strong className="text-[#0f3d2e]">AgriFort Technologies</strong> was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
             </p>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              As the world shifts towards environmentally responsible, low-chemical and nutrition-focused 
-              farming, AgriFort stands at the forefront with advanced, technology-backed solutions designed 
-              to increase yields and enhance farm income.
+            <p data-aos="fade-up" data-aos-delay="200">
+            As the world shifts towards environmentally responsible, low-chemical and nutrition-focused farming, AgriFort stands at the forefront with advanced, technology-backed solutions designed to increase yields and enhance farm income. Over the years, our journey has expanded beyond agriculture into a robust ecosystem of companies: BlueFort Healthcare in the pharmaceutical sector, Vetsburg in veterinary sector, Sutantra in information technology, AgriFort Sciences as our dedicated research and development arm, Geekay as our manufacturing unit and AgriFort Seedex, registered for our future seed innovation endeavours. Together, they represent our belief in building a group that solves real problems across agriculture, health and technology—strengthening the lives of people we serve.
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">2x</p>
-                <p className="text-xs text-gray-600">Yield Increase</p>
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6" data-aos="fade-up" data-aos-delay="300">
+              <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg border border-green-100">
+                 <ShieldCheck className="text-[#1c5517] shrink-0" />
+                 <span className="text-sm font-medium text-[#0f3d2e]">Research Driven (AgriFort Sciences)</span>
               </div>
-              <div className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">1000+</p>
-                <p className="text-xs text-gray-600">Villages Covered</p>
+              <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg border border-green-100">
+                 <Sprout className="text-[#1c5517] shrink-0" />
+                 <span className="text-sm font-medium text-[#0f3d2e]">Future Seed Innovation</span>
               </div>
-              <div className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <Globe className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">Global</p>
-                <p className="text-xs text-gray-600">Collaborations</p>
-              </div>
-            </div>
-          </div>
-        </div>
+            </div> */}
 
-        {/* Full Width Content Card */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-green-100">
-          <div className="max-w-5xl mx-auto">
-            {/* Ecosystem Section */}
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <div className="w-1 h-8 bg-gradient-to-b from-green-600 to-emerald-600 rounded-full"></div>
-                Our Growing Ecosystem
-              </h2>
-              
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Over the years, our journey has expanded beyond agriculture into a robust ecosystem of 
-                companies: <span className="font-semibold text-green-700">BlueFort Healthcare</span> in the 
-                pharmaceutical sector, <span className="font-semibold text-green-700">Sutantra</span> in 
-                information technology, health and technology—strengthening the lives of people we serve.
-              </p>
+            <p data-aos="fade-up" data-aos-delay="400">
+            With a wide range of eco-friendly and cost-effective products, a distribution network that reaches the deepest pockets of India, and global collaborations supporting our growth, we have earned the trust of millions of farmers who consistently share exceptional results on the field. Their success stories inspire us daily and validate the science and passion behind everything we create.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="400">
+            As an organisation, we remain committed to society and every stakeholder—working responsibly, innovating relentlessly and striving to bring more smiles to the farmer’s face. For us, the philosophy is simple and eternal: when farmers win – we win.
+            </p>
 
-              {/* Company Pills */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium border border-green-200">
-                  🌾 AgriFort Technologies
-                </span>
-                <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200">
-                  💊 BlueFort Healthcare
-                </span>
-                <span className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-200">
-                  💻 Sutantra IT & Health Tech
-                </span>
-              </div>
-            </div>
-
-            {/* Mission Section */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 md:p-8 border border-green-100">
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                With a wide range of eco-friendly and cost-effective products, a distribution network that 
-                reaches the deepest pockets of India, and global collaborations supporting our growth, we have 
-                earned the trust of millions of farmers who consistently share exceptional results on the field.
+            {/* Signature Block */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-6"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div className="h-px w-12 bg-[#1c5517] hidden sm:block"></div>
+              <p className="text-xl font-serif italic text-[#1c5517] font-semibold text-center sm:text-left">
+                "When farmers win – we win."
               </p>
-              
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Their success stories inspire us daily and validate the science and passion behind everything 
-                we create. As an organisation, we remain committed to society and every stakeholder—working 
-                responsibly, innovating relentlessly and striving to bring more smiles to the farmer's face.
-              </p>
-              
-              <div className="bg-white rounded-xl p-6 mt-6 border-l-4 border-green-600 shadow-md">
-                <p className="text-xl font-semibold text-gray-900 italic">
-                  "When farmers win – we win."
-                </p>
-                <p className="text-sm text-gray-600 mt-2">Our Eternal Philosophy</p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
+      
+      {/* Mobile-only background element */}
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#1c5517] opacity-10 rounded-tl-full md:hidden"></div>
     </section>
   );
-}
+};
+
+export default AgriFortJourney;
