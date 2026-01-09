@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "pages/Navbar";
 import Footer from "components/Footer";
+import BreadCrumb from "./breadcrumb";
 
 
 export default function FarmerWins() {
@@ -9,8 +10,7 @@ export default function FarmerWins() {
   return (
     <div className="flex  flex-col h-full">
       <Navbar/>
-
-
+      <BreadCrumb title={'Farmer Win - We Win'} bgImage={'/images/breadcrum/Farmer.jpg'}/>
       <section className="pt-6 pb-12 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

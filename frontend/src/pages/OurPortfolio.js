@@ -1,5 +1,4 @@
 import { themecolor } from "components/CommanStyle";
-import React, { useState } from "react";
 import {
   Search,
   Filter,
@@ -48,7 +47,11 @@ import VIKELP3 from "../assets/products/vikelp3.jpg";
 import VikelpDrip from "../assets/products/VikelpDrip.jpg";
 import Seedfort from "../assets/products/seedfort.jpg";
 import Footer from "components/Footer";
+import BreadCrumb from "./components/breadcrumb";
 
+import React, { useEffect, useRef, useState } from "react";
+import NET from "vanta/dist/vanta.net.min";
+import * as THREE from "three";
 
 const products = [
     {
@@ -769,20 +772,43 @@ const products = [
         dosage: "50 ml per 150–200 litres of water",
       },
     ],
-  },
-  
-    
-
-
+  }
   ];
 
 export default function ProductsPage() {
-    const CATEGORY_MAP = {
-        Biostimulants: ["Biostimulant"],
-        CPC: ["Insecticide", "Herbicide", "Fungicide", "PGR"],
-        APLG: ["APLG"],        // future products
-        Adjuvants: ['Adjuvants']    // future products
-      };
+
+
+  const vantaRef = useRef(null);
+  const [vantaEffect, setVantaEffect] = useState(null);
+
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        NET({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          backgroundColor: 0x1c5517, // 🌿 DARK GREEN
+          color: 0x4caf50,
+          points: 12,
+          spacing: 18,
+        })
+      );
+    }
+
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+
+  const CATEGORY_MAP = {
+      Biostimulants: ["Biostimulant"],
+      CPC: ["Insecticide", "Herbicide", "Fungicide", "PGR"],
+      APLG: ["APLG"],       
+      Adjuvants: ['Adjuvants'] 
+  };
   const [activeCategory, setActiveCategory] = useState("Biostimulants");
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -790,32 +816,26 @@ export default function ProductsPage() {
     CATEGORY_MAP[activeCategory]?.includes(p.category)
   );
 
-  console.log(activeCategory)
-  console.log(filteredProducts)
-
   return (
     <>
     <Navbar />
-    <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-
+    <BreadCrumb title={'Our Portfolio'} bgImage={'/images/breadcrum/product.jpeg'}/>
+    <section className="py-16 relative w-full px-4 sm:px-6 lg:px-8" ref={vantaRef}>
       <CategoryTabs
         active={activeCategory}
         setActive={setActiveCategory}
         themecolor={themecolor}
       />
-
       {activeCategory === "CPC" && (
         <p className="text-center mb-6 text-gray-600 font-medium">
           Pesticides, Fungicides & PGR
         </p>
       )}
-
       <ProductGrid
         products={filteredProducts}
         onSelect={setSelectedProduct}
       />
-
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
@@ -838,7 +858,7 @@ function CategoryTabs({ active, setActive, themecolor }) {
           <button
             key={tab}
             onClick={() => setActive(tab)}
-            className={`px-6 py-2 rounded-full font-semibold transition ${
+            className={`px-6 py-2 rounded-full uppercase font-semibold transition ${
               active === tab
                 ? "text-white"
                 : "bg-gray-100 text-gray-700"

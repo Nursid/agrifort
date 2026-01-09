@@ -15,6 +15,7 @@ import AgriFortAdvantages from './components/AgriFortAdvantages';
 import AgrifortMap from 'components/AgrifortMap';
 import AgriFortJourney from './components/AgriFortJourney';
 import EnvironmentalPolicy from './components/EnvironmentalPolicy';
+import VisionMission from './components/VisionMision';
 
 const LandingPage = () => {
     const [darkMode] = useState(false);
@@ -166,6 +167,7 @@ const LandingPage = () => {
           `}</style>
             </section> */}
 
+              {/* <VisionMission /> */}
             <VisionMissionSection />
             <EnvironmentalPolicy />
 

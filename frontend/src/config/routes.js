@@ -69,12 +69,6 @@ export const ROUTES = {
 export const ROUTE_CONFIG = {
   // Public routes (no authentication required)
   public: [
-    // {
-    //   path: ROUTES.PUBLIC.HOME,
-    //   exact: true,
-    //   component: LandingPage,
-    //   title: 'Home'
-    // },
     {
       path: ROUTES.PUBLIC.PRODUCTS,
       exact: true,
