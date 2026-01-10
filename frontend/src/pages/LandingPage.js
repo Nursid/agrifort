@@ -109,6 +109,7 @@ const LandingPage = () => {
             </section>
 
             {/* <AgrifortMap /> */}
+
             <AgriFortJourney />
 
           
@@ -169,7 +170,7 @@ const LandingPage = () => {
 
               {/* <VisionMission /> */}
             <VisionMissionSection />
-            <EnvironmentalPolicy />
+            {/* <EnvironmentalPolicy /> */}
 
               <section className="">
                 <AgriFortAdvantages />

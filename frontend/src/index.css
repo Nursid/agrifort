@@ -16,3 +16,34 @@
     animation: reel-animation 10s infinite linear;
     /* Optional: Animation to simulate reel movement */
   }
+
+
+  /* Body text */
+p {
+  font-family: 'Merriweather', serif;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Main headings */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  
+}
+
+/* Sub headings / navbar / buttons */
+.font-heading-alt {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Emphasis utilities */
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: 700;
+}

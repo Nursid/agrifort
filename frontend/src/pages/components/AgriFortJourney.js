@@ -52,9 +52,15 @@ const AgriFortJourney = () => {
         >
           <Sprout className="text-[#1c5517]" size={32} />
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-500 font-bold">AgriFort technology</p>
-            <p className="text-sm font-serif italic text-[#0f3d2e]">Future-Ready Farming</p>
-          </div>
+          <p className="font-heading-alt text-xs uppercase tracking-widest text-gray-500 font-bold">
+            AgriFort Technology
+          </p>
+
+          <p className="font-heading text-sm text-[#0f3d2e] italic">
+            Future-Ready Farming
+          </p>
+        </div>
+
         </motion.div>
       </div>
 
@@ -75,8 +81,8 @@ const AgriFortJourney = () => {
 
         <div className="max-w-2xl relative z-10">
           <header className="mb-8" data-aos="fade-up">
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-6" style={{ color: primaryDark, fontFamily: 'serif' }}>
-              AgriFort <span className="text-[#1c5517] italic text-5xl md:text-6xl">Journey</span>
+            <h2 className="text-5xl md:text-6xl font-heading leading-tight mb-6" style={{ color: primaryDark }}>
+              AgriFort <span className="text-[#1c5517] font-heading text-5xl md:text-6xl">Journey</span>
             </h2>
           </header>
 

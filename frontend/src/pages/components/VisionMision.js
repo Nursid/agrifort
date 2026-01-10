@@ -23,7 +23,8 @@ const VisionMissionSymmetry = () => {
           {/* --- VISION SIDE (Top Left) --- */}
           <div className="relative z-20">
             {/* The Vision Bar */}
-            <div className="flex items-center bg-[#3d2a70] text-white py-4 px-8 rounded-l-full md:w-[110%] shadow-lg">
+            <CurvedLine />
+            {/* <div className="flex items-center bg-[#3d2a70] text-white py-4 px-8 rounded-l-full md:w-[110%] shadow-lg">
               <span className="mr-4">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -31,7 +32,7 @@ const VisionMissionSymmetry = () => {
                 </svg>
               </span>
               <h3 className="text-3xl font-bold">Vision</h3>
-            </div>
+            </div> */}
             
             {/* Vision Description Text */}
             <div className="mt-8 md:pr-12 md:max-w-md">
@@ -93,3 +94,32 @@ const VisionMissionSymmetry = () => {
 };
 
 export default VisionMissionSymmetry;
+
+export function CurvedLine() {
+  return (
+    <div style={{ overflow: "visible" }}>
+      <svg
+        width="600"
+        height="240"
+        viewBox="0 0 600 240"
+        fill="none"
+      >
+        <path
+          d="
+            M 0 60
+            H 420
+            C 560 60,
+              560 180,
+              420 180
+          "
+          stroke="#3d2a70"
+          strokeWidth="40"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </svg>
+    </div>
+  );
+}
+
+
