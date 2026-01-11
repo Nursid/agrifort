@@ -111,63 +111,6 @@ const LandingPage = () => {
             {/* <AgrifortMap /> */}
 
             <AgriFortJourney />
-
-          
-            {/* <section className="relative min-h-screen w-full overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/images/journey/02.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-      
-      </div>
-
-      <div className="relative z-10 max-w-7xl h-full mx-auto py-16">
-            <div className="flex justify-center">
-              <div className="relative">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}> Agrifort Journey</h1>
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-green-800/10 rounded-full -z-10"></div>
-              </div>
-            </div>
-
-            <div className="space-y-6 text-gray-800 px-6 leading-relaxed text-base md:text-lg">
-              <p>
-              AgriFort Technologies was born from a vision at Blue Quadrant, Dubai—to build a strong, future-ready agriculture company, and what better place to begin this journey than in the heart of Indian farming. What started as a single idea has today grown into one of the fastest-rising groups in the sustainable agriculture space, driven by innovation, science and a deep commitment to farmers.
-              </p>
-              <p>
-              As the world shifts towards environmentally responsible, low-chemical and nutrition-focused farming, AgriFort stands at the forefront with advanced, technology-backed solutions designed to increase yields and enhance farm income. Over the years, our journey has expanded beyond agriculture into a robust ecosystem of companies: BlueFort Healthcare in the pharmaceutical sector, Vetsburg in veterinary sector, Sutantra in information technology, AgriFort Sciences as our dedicated research and development arm, Geekay as our manufacturing unit and AgriFort Seedex, registered for our future seed innovation endeavours. Together, they represent our belief in building a group that solves real problems across agriculture, health and technology—strengthening the lives of people we serve.
-              </p>
-              <p>
-              With a wide range of eco-friendly and cost-effective products, a distribution network that reaches the deepest pockets of India, and global collaborations supporting our growth, we have earned the trust of millions of farmers who consistently share exceptional results on the field. Their success stories inspire us daily and validate the science and passion behind everything we create.
-              </p>
-              <p>
-              As an organisation, we remain committed to society and every stakeholder—working responsibly, innovating relentlessly and striving to bring more smiles to the farmer’s face. For us, the philosophy is simple and eternal: when farmers win – we win.
-              </p>
-              
-              <div className="pt-6 border-t border-green-900/10">
-                <p className="italic font-medium text-green-700 text-center">
-                  Farmers Win – We Win.
-                </p>
-              </div>
-            </div>
-          </div>
-          <style jsx>{`
-            @keyframes film-scroll {
-              0% { transform: translateY(0); }
-              100% { transform: translateY(-50%); }
-            }
-            .animate-film-scroll {
-              animation: film-scroll 20s linear infinite;
-            }
-            .animate-film-scroll:hover {
-              animation-play-state: paused;
-            }
-          `}</style>
-            </section> */}
-
               {/* <VisionMission /> */}
             <VisionMissionSection />
             {/* <EnvironmentalPolicy /> */}
@@ -175,9 +118,6 @@ const LandingPage = () => {
               <section className="">
                 <AgriFortAdvantages />
               </section>
-
-           
-
 
             <section className="py-12 bg-gradient-to-br from-gray-50 to-green-50">
            

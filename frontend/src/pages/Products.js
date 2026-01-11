@@ -18,13 +18,13 @@ const Products = () => {
     const [categories, setCategories] = useState(['All']);
 
 
-    useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-    }, []);
+    // useEffect(() => {
+    //     AOS.init({
+    //         duration: 800,
+    //         once: true,
+    //         offset: 100
+    //     });
+    // }, []);
 
     // const categories = [
     //     'All',

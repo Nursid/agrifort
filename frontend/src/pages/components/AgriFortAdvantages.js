@@ -89,7 +89,7 @@ const AgrifortPage = () => {
         </div>
 
         {/* </div> */}
-        <h1 className="font-heading text-5xl md:text-6xl">Environmental Policy</h1>
+        <h1 className="font-heading text-3xl md:text-4xl">Environmental Policy</h1>
       </div>
 
       {/* 2. Policy Content Section */}
@@ -102,7 +102,7 @@ const AgrifortPage = () => {
         }}
       >
         <div className="max-w-4xl mx-auto space-y-4">
-          <p className="text-gray-800 text-lg leading-relaxed font-medium">
+          <p className="text-gray-800 text-lg leading-relaxed">
             Our company's foundation rests on strong value systems that guide every action we take. 
             We are committed to conducting our business in a socially responsible, ethical, and transparent manner. 
             We respect the law, uphold universal human rights, safeguard the environment, and contribute positively to the communities we serve.
@@ -115,7 +115,7 @@ const AgrifortPage = () => {
 
       {/* 3. Advantages Section (Green Footer) */}
       <div className="bg-[#5F8D5F] py-12 px-4 text-white">
-        <h2 className="text-center font-heading text-5xl md:text-6xl mb-12">The Agrifort Advantages</h2>
+        <h2 className="text-center font-heading text-3xl md:text-4xl mb-12">The Agrifort Advantages</h2>
         
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
         {tabs.map((item) => {
@@ -200,7 +200,7 @@ const AgrifortPage = () => {
             </div>
 
             {/* RIGHT COLUMN: CONTENT */}
-            <div className="w-full md:w-6/12 flex items-center justify-center p-4 md:p-8 lg:p-12 bg-white relative group">
+            <div className="w-full md:w-6/12 flex items-center justify-center p-2 md:py-4 lg:py-6 bg-white relative group">
 
               
               {/* Decorative Leaf Background Icon */}
@@ -220,18 +220,18 @@ const AgrifortPage = () => {
 
 
               <div className="max-w-2xl relative z-10">
-                <header className="mb-8" data-aos="fade-up">
-                  <h2 className="text-5xl md:text-6xl font-heading-alt mb-6" style={{ color: "#1c5517"}}>
+                <header data-aos="fade-up">
+                  <h2 className="text-3xl md:text-4xl font-heading-alt mb-6" style={{ color: "#1c5517"}}>
                     Manufacturing
                   </h2>
                 </header>
 
                 <div className="space-y-6 text-gray-700 text-sm md:text-md lg:text-lg leading-relaxed">
-                <p data-aos="fade-up" data-aos-delay="100">                
+                <p data-aos="fade-up" data-aos-delay="100"  className="text-justify hyphens-auto">                
                 At AgriFort, manufacturing stands as one of our core strengths, driven by a relentless focus on precision, consistency and uncompromised quality. Our production ecosystem spans across Sonipat (Delhi NCR), Bhavnagar, Vidisha, Hyderabad and Unnao (UP SCR), strategically chosen for their advanced infrastructure and strong technical expertise. Every product is crafted through a meticulously controlled process supported by modern technology, advanced equipment and standardized processes that ensure consistent product quality. A rigorous multi-stage quality assurance system checks every stage from raw material selection to final packaging. 
                     Our manufacturing capabilities have been further strengthened through the integration of Geekay, a dedicated manufacturing entity within the AgriFort Group, enhancing capacity, operational control and production efficiency across our facilities.
                 </p>
-                <p data-aos="fade-up" data-aos-delay="200">       
+                <p data-aos="fade-up" data-aos-delay="200"  className="text-justify hyphens-auto">       
                 Our approach is reinforced by continuous improvement driven by science-based formulation and field-tested results, ensuring each product performs reliably under real farming conditions. We strictly adhere to all government regulations, legal guidelines and mandated safety protocols throughout the production cycle. This disciplined system enables us to deliver dependable, high-performance agri-inputs that farmers can trust season after season.
                 </p>
                 </div>
@@ -269,7 +269,7 @@ const AgrifortPage = () => {
       </div>
 
       {/* RIGHT COLUMN: CONTENT */}
-      <div className="w-full md:w-6/12 flex items-center justify-center p-4 md:p-8 lg:p-12 bg-white relative group">
+      <div className="w-full md:w-6/12 flex items-center justify-center p-2 md:p-4 lg:p-6 bg-white relative group">
 
         
         {/* Decorative Leaf Background Icon */}
@@ -289,18 +289,18 @@ const AgrifortPage = () => {
 
 
         <div className="max-w-2xl relative z-10">
-          <header className="mb-8" data-aos="fade-up">
-            <h2 className="text-5xl md:text-6xl font-heading-alt mb-6" style={{ color: "#1c5517" }}>
-              R&D
+          <header data-aos="fade-up">
+            <h2 className="text-3xl md:text-4xl font-heading-alt mb-6" style={{ color: "#1c5517" }}>
+              Research & Development
             </h2>
           </header>
 
           <div className="space-y-6 text-gray-700 text-sm leading-relaxed">
 
-          <p data-aos="fade-up" data-aos-delay="100">                
+          <p data-aos="fade-up" data-aos-delay="100"  className="text-justify hyphens-auto">                
           We have established our own in-house Research & Development Centre—Agrifort Sciences Private Limited—which serves as the innovation engine behind every solution we bring to farmers. Our state-of-the-art facility is equipped with advanced analytical instruments such as HPLC, GC, AAS, Spectrophotometer, along with a fully equipped Pilot Plant for controlled formulation development and scale-up.
           </p>
-          <p data-aos="fade-up" data-aos-delay="200">       
+          <p data-aos="fade-up" data-aos-delay="200"  className="text-justify hyphens-auto">       
                 At our R&D Centre, innovation begins with science. Our multidisciplinary team blends biotechnology, fermentation science, plant metabolism, and agronomy to build next-generation biostimulants, advanced nutrient formulations, and precision adjuvants such as super spreaders and stickers. Every formulation we develop goes through a rigorous scientific pathway—from laboratory research to controlled-environment evaluations, followed by extensive multi-location field trials—ensuring consistency, reliability, and real-world performance. Our research programs revolve around pioneering agricultural technologies, including:
                <strong> Probiotics Technology – Nutriflex
                 Kelp Technology – Vikelp 
@@ -314,7 +314,7 @@ const AgrifortPage = () => {
               We continue to strengthen our scientific base through collaborations with leading national and international institutions such as ICAR-IIPR, CSIR-NBRI, U.P. Council of Sugarcane Research, Asian PGPR Society (USA), and multiple Krishi Vigyan Kendras (KVKs). 
               </p>
 
-              <p data-aos="fade-up" data-aos-delay="100">       
+              <p data-aos="fade-up" data-aos-delay="100"  className="text-justify hyphens-auto">       
                    Driven by scientific excellence and a commitment to sustainable, farmer-centric innovation, we are constantly developing technologies that enhance nutrient efficiency, boost crop resilience, improve soil health, and help farmers achieve higher productivity and profitability.
                  </p>  
           </div>
@@ -352,7 +352,8 @@ const AgrifortPage = () => {
       </div>
 
       {/* RIGHT COLUMN: CONTENT */}
-      <div className="w-full md:w-6/12 flex items-center justify-center p-4 md:p-8 lg:p-12 bg-white relative group">
+      <div className="w-full md:w-6/12 flex items-start justify-start p-2 md:p-4 lg:p-6 bg-white relative group">
+
 
         
         {/* Decorative Leaf Background Icon */}
@@ -371,16 +372,16 @@ const AgrifortPage = () => {
 </div>
 
 
-        <div className="max-w-2xl relative z-10">
-          <header className="mb-8" data-aos="fade-up">
-            <h2 className="text-5xl md:text-6xl mb-6 font-heading-alt" style={{ color: "#1c5517" }}>
+      <div className="max-w-2xl relative z-10">
+          <header data-aos="fade-up">
+            <h2 className="text-3xl md:text-4xl mb-6 font-heading-alt" style={{ color: "#1c5517" }}>
             Trusted Partnerships
             </h2>
           </header>
 
-          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+          <div className="space-y-6 text-gray-700 text-lg leading-relaxed text-justify">
 
-          <p data-aos="fade-up" data-aos-delay="100">                
+          <p data-aos="fade-up" data-aos-delay="100" className="text-justify hyphens-auto">                
           AgriFort is built on the vision and guidance of Blue Quadrant Limited, a global name in the civil aviation domain, under which they deliver advanced Communication, Navigation and Surveillance solutions. Their expertise spans Emergency Response and Search & Rescue Management, Airside Vehicle Surveillance, Simulators, Mobile Air Traffic Control Towers, Flight Calibration and complete NAVAIDS system integration. In 2015, during strategic meetings in Dubai, Blue Quadrant’s leadership envisioned bringing their technology-first, precision-driven approach into Indian agriculture. Their interest in introducing cutting-edge probiotic and metabolite-based advancements to farming laid the foundation for AgriFort. Since then, their global experience, innovation mindset and strong support have guided our evolution at every step. With their backing, AgriFort continues to adopt scientific breakthroughs and deliver meaningful, future-ready solutions for the agricultural community.
              <a 
                   href="https://www.blue-quadrant.com/" 

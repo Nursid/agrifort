@@ -185,7 +185,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row gap-10 pb-12">
       <div className="lg:w-[50%]">
       <div>
-            <h6 className="font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/20 pb-2 text-center">
+            <h6 className="font-bold uppercase tracking-widest text-xs mb-6 border-b border-white/20 pb-2">
               Address
             </h6>
             <div className="flex flex-col lg:flex-row gap-8">

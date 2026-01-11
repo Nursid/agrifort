@@ -200,8 +200,7 @@ const VisionMissionSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
-            style={{ fontFamily: "'Times', 'Times New Roman', serif" }}
+            className="text-3xl md:text-4xl font-heading" 
           >
             Our Compass and Commitment
           </h1>
@@ -238,16 +237,13 @@ const VisionMissionSection = () => {
             </div>
 
             <h3
-              className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"
-              style={{
-                fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
-              }}
+              className="text-2xl sm:text-3xl font-heading-alt text-center text-gray-900 mb-4"
             >
               Vision
             </h3>
 
             <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-600">
-              <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-gray-900 leading-relaxed">
                 To become one of the most trusted and impactful Agri-Input
                 organisations, serving farming communities in India and beyond
                 through scientific, sustainable, and future-ready agriculture.
@@ -280,16 +276,13 @@ const VisionMissionSection = () => {
             </div>
 
             <h3
-              className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-4"
-              style={{
-                fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
-              }}
+              className="text-2xl sm:text-3xl font-heading-alt text-center text-gray-900 mb-4"
             >
               Mission
             </h3>
 
             <div className="bg-red-50 rounded-xl p-6 border-l-4 border-red-700">
-              <p className="text-base sm:text-lg text-gray-900 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-gray-900 leading-relaxed">
                 To develop, collaborate, and deliver value-added technologies,
                 products, and services that empower farmers and enable optimum
                 agricultural output.

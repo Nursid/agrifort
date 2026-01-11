@@ -778,30 +778,30 @@ const products = [
 export default function ProductsPage() {
 
 
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
+  // const vantaRef = useRef(null);
+  // const [vantaEffect, setVantaEffect] = useState(null);
 
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        NET({
-          el: vantaRef.current,
-          THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          backgroundColor: 0x1c5517, // 🌿 DARK GREEN
-          color: 0x4caf50,
-          points: 12,
-          spacing: 18,
-        })
-      );
-    }
+  // useEffect(() => {
+  //   if (!vantaEffect) {
+  //     setVantaEffect(
+  //       NET({
+  //         el: vantaRef.current,
+  //         THREE,
+  //         mouseControls: true,
+  //         touchControls: true,
+  //         gyroControls: false,
+  //         backgroundColor: 0x1c5517, // 🌿 DARK GREEN
+  //         color: 0x4caf50,
+  //         points: 12,
+  //         spacing: 18,
+  //       })
+  //     );
+  //   }
 
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
+  //   return () => {
+  //     if (vantaEffect) vantaEffect.destroy();
+  //   };
+  // }, [vantaEffect]);
 
   const CATEGORY_MAP = {
       Biostimulants: ["Biostimulant"],
@@ -821,7 +821,7 @@ export default function ProductsPage() {
     <Navbar />
 
     <BreadCrumb title={'Our Portfolio'} bgImage={'/images/breadcrum/product.jpeg'}/>
-    <section className="py-16 relative w-full px-4 sm:px-6 lg:px-8" ref={vantaRef}>
+    <section className="py-16 relative w-full px-4 sm:px-6 lg:px-8">
       <CategoryTabs
         active={activeCategory}
         setActive={setActiveCategory}
