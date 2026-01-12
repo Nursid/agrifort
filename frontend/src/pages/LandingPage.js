@@ -123,10 +123,9 @@ const LandingPage = () => {
            
                 <div className="w-full px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"   style={{ fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",}}>   Standards We Live By</h1>
+                        <h1 className="font-heading text-3xl md:text-4xl mb-6">Standards We Live By</h1>
                       
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
                             Quality, integrity, and innovation guide every decision we make. Our commitment to excellence ensures the best outcomes for our partners and the communities we serve.
                         </p>
                     </div>
@@ -149,14 +148,7 @@ const LandingPage = () => {
                 
 
                 <div className="text-center mt-6">
-                  <h1
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
-                    style={{
-                      fontFamily: "'Times', 'Times New Roman', 'Georgia', serif",
-                    }}
-                  >
-                    AgriFort Group of Companies
-                  </h1>
+                  <h1 className="font-heading text-3xl md:text-4xl text-white">AgriFort Group of Companies</h1>
                 </div>
 
                 <div className="w-full py-6">

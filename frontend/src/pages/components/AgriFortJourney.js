@@ -149,7 +149,7 @@ const AgriFortJourney = () => {
     <div className="min-h-screen font-sans text-white">
       {/* Top Header Section */}
       <div className="bg-[#57488E] py-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-serif tracking-wide">
+        <h1 className="text-3xl md:text-4xl font-heading">
           AgriFort Journey
         </h1>
       </div>

@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./Navbar";
 import Footer from "../components/Footer";
+import BreadCrumb from "./components/breadcrumb";
 
 const highlightsData = [
   {
@@ -35,6 +36,7 @@ const LifeAtAgriFort = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <BreadCrumb title={'Agrifort Highlights'} bgImage={'/images/breadcrum/highlight.jpeg'}/>
 
       {/* HIGHLIGHTS SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-green-50">
