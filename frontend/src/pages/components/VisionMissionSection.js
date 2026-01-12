@@ -198,16 +198,44 @@ export default VisionMissionSection;
 //         style={{
 //           width: '718.21px',
 //           height: '282.89px',
-//           top: '89.22px',
+//           top: '18%',
 //           right: '15%',
 //         }}
-//         className="absolute"
+//         className="absolute overflow-hidden"
 //       >
-//         {/* The horizontal bar and the bottom-left curve */}
-//         <div className="w-full h-full border-[#E3360F] border-b-[50px] border-l-[50px] rounded-bl-[140px] rounded-br-[25px]">
-        
+//         <div className="w-full h-full ml-auto border-[#E3360F] border-b-[50px] rounded-bl-[55px]" style={{marginLeft: '100px'}}>
+
+
+//         <div className="
+//         relative
+//         w-[300px] h-[300px]
+//         sm:w-[360px] sm:h-[360px]
+//         md:w-[420px] md:h-[420px]
+//       ">
+//         <div
+//           className="
+//             absolute inset-0
+//             rounded-full
+//             border-[40px]
+//             sm:border-[45px]
+//             md:border-[50px]
+//             border-[#E3360F]
+//             border-l-transparent
+//             border-b-transparent
+//             rotate-[-161deg]
+//           "
+//           style={{
+//             top: "-9%",
+//             right: "-53px",
+//             left: "-90px",
+//             bottom: "74px"
+//           }}
+//         />
+//       </div>
+
 //         </div>
 //       </div>
+
 
 //       {/* Optional: Central Logo placeholder to show the intersection */}
 //       <div className="absolute top-[130px] left-[665px] w-32 h-32 bg-white rounded-full shadow-lg flex items-center justify-center z-10 border-4 border-gray-50"
@@ -215,8 +243,8 @@ export default VisionMissionSection;
 //       style={{    width: "204px",
 //         position: "absolute",
 //         height: "200px",
-//         left: "45%",
-//         top: "20%"
+//         left: "44%",
+//         top: "21%"
 //       }}
 //       >
 //         <span className="text-[10px] font-bold text-gray-400">LOGO</span>
